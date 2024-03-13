@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Sidebar } from "./components/Sidebar";
-import { Header } from "./components/Header";
+import { Sidebar } from "./components/sideBar";
+import { Header } from "./components/header";
 import { ThemeProvider } from "./providers/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,7 +22,7 @@ export default function Layout({
       <html lang="en">
         <body className={`${inter.className} flex flex-row`}>
           <Sidebar />
-          <div className="bg-red-500 w-11/12">
+          <div className="w-11/12">
             <Header />
             {children}
           </div>

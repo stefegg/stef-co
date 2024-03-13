@@ -8,7 +8,7 @@ interface ThemeContextType {
 }
 
 export const ThemeContext = createContext<ThemeContextType>({
-  appTheme: "light",
+  appTheme: "Light",
   setAppTheme: () => null,
 });
 
@@ -17,7 +17,7 @@ interface Props {
 }
 
 export const ThemeProvider: React.FC<Props> = ({ children }) => {
-  const [appTheme, setAppTheme] = useState("light");
+  const [appTheme, setAppTheme] = useState("Light");
   const value = {
     appTheme,
     setAppTheme,

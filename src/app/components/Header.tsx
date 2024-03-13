@@ -1,8 +1,22 @@
 "use client";
 import { ThemeContext } from "../providers/theme-provider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { HeaderMenu } from "./headerMenu";
+
 export function Header() {
   const { appTheme, setAppTheme } = useContext(ThemeContext);
-  console.log(appTheme, "--------test");
-  return <div className="h-12 bg-green-500">Header</div>;
+  const [showDrop, setShowDrop] = useState(false);
+  return (
+    <span className="h-12 bg-green-500 flex items-center px-4">
+      <div
+        className="ml-auto cursor-pointer"
+        onClick={() => setShowDrop(!showDrop)}
+      >
+        Header
+      </div>
+      <div className={`fixed top-14 right-4 ${showDrop ? "flex" : "hidden"}`}>
+        <HeaderMenu />
+      </div>
+    </span>
+  );
 }
