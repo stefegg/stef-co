@@ -1,8 +1,14 @@
 "use client";
 import { ThemeContext } from "../providers/theme-provider";
 import { useContext } from "react";
+import { Dispatch, SetStateAction } from "react";
 
-export function HeaderMenu() {
+type HeaderMenuProps = {
+  setShowDrop: Dispatch<SetStateAction<boolean>>;
+};
+
+export function HeaderMenu(props: HeaderMenuProps) {
+  const { setShowDrop } = props;
   const { appTheme, setAppTheme } = useContext(ThemeContext);
 
   return (
@@ -10,6 +16,7 @@ export function HeaderMenu() {
       className={`border-2 rounded-md py-4 ${
         appTheme === "Light" ? "border-red-500" : "border-blue-500"
       }`}
+      onMouseLeave={() => setShowDrop(false)}
     >
       <div>
         {appTheme} Theme

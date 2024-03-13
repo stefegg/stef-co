@@ -15,7 +15,7 @@ export function Header() {
         Header
       </div>
       <div className={`fixed top-14 right-4 ${showDrop ? "flex" : "hidden"}`}>
-        <HeaderMenu />
+        <HeaderMenu setShowDrop={setShowDrop} />
       </div>
     </span>
   );
