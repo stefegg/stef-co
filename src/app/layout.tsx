@@ -4,6 +4,7 @@ import { Sidebar } from "./components/sideBar";
 import { Header } from "./components/header";
 import { ThemeProvider } from "./providers/theme-provider";
 import { interFont } from "./fonts";
+import { HeaderLogo } from "./components/headerLogo";
 
 export const metadata: Metadata = {
   title: "Stef Co.",
@@ -19,9 +20,14 @@ export default function Layout({
     <ThemeProvider>
       <html lang="en">
         <body className={`${interFont.className} flex flex-row`}>
-          <Sidebar />
+          <div className="w-[13%] h-screen flex flex-col">
+            <HeaderLogo />
+            <Sidebar />
+          </div>
           <div className="w-[87%]">
-            <Header />
+            <div className="-ml-[2px]">
+              <Header />
+            </div>
             {children}
           </div>
         </body>

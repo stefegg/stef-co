@@ -2,18 +2,16 @@
 import { ThemeContext } from "../providers/theme-provider";
 import { useContext, useState } from "react";
 import { HeaderMenu } from "./headerMenu";
+import { themeGen } from "../utils";
 
 export function Header() {
   const { appTheme } = useContext(ThemeContext);
   const [showDrop, setShowDrop] = useState(false);
+
   return (
     <span
       className={`h-16 flex items-center px-4 border-b-2 
-    ${
-      appTheme === "Classic"
-        ? "bg-eggWhite text-nightSky border-newNavy"
-        : "bg-nightSky text-eggWhite border-eggWhite"
-    }
+    ${themeGen(appTheme)}
     `}
     >
       <div
