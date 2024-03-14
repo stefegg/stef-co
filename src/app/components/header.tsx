@@ -8,11 +8,11 @@ export function Header() {
   const [showDrop, setShowDrop] = useState(false);
   return (
     <span
-      className={`h-16 flex items-center px-4 border-b-2 -ml-[10%]
+      className={`h-16 flex items-center px-4 border-b-2 
     ${
-      appTheme === "Light"
-        ? "bg-white text-black border-black"
-        : "bg-black text-white border-white"
+      appTheme === "Classic"
+        ? "bg-eggWhite text-nightSky border-newNavy"
+        : "bg-nightSky text-eggWhite border-eggWhite"
     }
     `}
     >

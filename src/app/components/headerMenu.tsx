@@ -14,7 +14,7 @@ export function HeaderMenu(props: HeaderMenuProps) {
   return (
     <div
       className={`flex flex-row  w-[185px] border-2 rounded-md py-4 ${
-        appTheme === "Light"
+        appTheme === "Classic"
           ? "border-black bg-white"
           : "border-white bg-black text-white"
       }`}
@@ -27,13 +27,13 @@ export function HeaderMenu(props: HeaderMenuProps) {
             className="h-0 w-0 opacity-0 transform peer"
             type="checkbox"
             onChange={() =>
-              setAppTheme(appTheme === "Light" ? "Dark" : "Light")
+              setAppTheme(appTheme === "Classic" ? "Dark" : "Classic")
             }
           />
           <span
-            className="block h-[26px] bg-slate-700 absolute cursor-pointer top-0 left-0 right-0 bottom-0 transition duration-500 rounded-xl
-          before:block before:rounded-xl before:absolute before:h-[26px] before:w-[26px] before:left-[4px] before:duration-500 before:bg-white 
-          peer-checked:bg-slate-500 before:peer-checked:translate-x-[26px]"
+            className="block h-[26px] bg-slate-700 absolute cursor-pointer top-0 left-0 right-0 bottom-0 transition duration-500 rounded-xl bg-eggWhite
+          before:block before:rounded-xl before:absolute before:h-[26px] before:w-[26px] before:left-[4px] before:duration-500 before:bg-yellow 
+          peer-checked:bg-eggWhite before:peer-checked:translate-x-[26px] before:peer-checked:bg-newNavy"
           />
         </label>
       </div>
