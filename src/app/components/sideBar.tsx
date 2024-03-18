@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { ThemeContext } from "../providers/theme-provider";
 import { useContext } from "react";
 import Link from "next/link";
@@ -22,7 +23,19 @@ export function Sidebar() {
           All Products
         </div>
       </Link>
-      <div className="cursor-pointer">Categories</div>
+      <Link href="/categories">
+        <div className={`${hoverGen(appTheme)} rounded-md p-2 px-4`}>
+          Categories
+        </div>
+      </Link>
+      <Link href="/adminPanel">
+        <div className={`${hoverGen(appTheme)} rounded-md p-2 px-4`}>
+          Admin Panel
+        </div>
+      </Link>
+      <Link href="/about">
+        <div className={`${hoverGen(appTheme)} rounded-md p-2 px-4`}>About</div>
+      </Link>
     </div>
   );
 }
