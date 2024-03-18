@@ -4,13 +4,16 @@ import { ThemeContext } from "../providers/theme-provider";
 import { useContext } from "react";
 import Link from "next/link";
 import { themeGen, hoverGen } from "../utils";
+import { lobsterFont } from "../fonts";
 
 export function Sidebar() {
   const { appTheme } = useContext(ThemeContext);
 
   return (
     <div
-      className={`flex flex-col gap-6 h-full pt-10 items-center border-r-2
+      className={`${
+        lobsterFont.className
+      } flex flex-col gap-6 h-full pt-10 items-center border-r-2 text-xl
       ${themeGen(appTheme)}`}
     >
       <Link href="/featured">
