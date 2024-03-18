@@ -1,3 +1,4 @@
+import React from "react";
 import { lobsterFont } from "./fonts";
 import { Logo } from "./components/logo";
 

@@ -10,20 +10,26 @@ datasource db {
 
 model Product {
   id String @default(cuid()) @id
-  sku String @unique
   name String
   price Int
+  currency String
   stock Int
   description String
+  specs String[]
+  imageUrl String?
   createdAt DateTime @default(now())
   active Boolean @default(false)
   onSale Boolean @default(false)
-  category Category[]
+  category Category @relation(fields:[categoryId], references: [id]) 
+  categoryId String
+  @@unique([name])
 }
 
 model Category {
   id String @default(cuid()) @id
   name String
+  imageUrl String?
   products Product[]
+  @@unique([name])
 }
 
