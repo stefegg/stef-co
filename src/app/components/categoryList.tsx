@@ -2,7 +2,7 @@
 import { Prisma, Category } from "@prisma/client";
 import { ThemeContext } from "../providers/theme-provider";
 import { useContext } from "react";
-import { themeGen } from "../utils";
+import { themeGen, pagePadding } from "../utils";
 import { lobsterFont } from "../fonts";
 import CategoryCard from "./categoryCard";
 
@@ -17,16 +17,18 @@ export default function CategoryList(props: CategoryListProps) {
   const { categories } = props;
   const { appTheme } = useContext(ThemeContext);
   return (
-    <div className={`flex flex-col text-4xl px-8 pt-10  ${themeGen(appTheme)}`}>
+    <div
+      className={`flex flex-col text-4xl ${themeGen(
+        appTheme
+      )} ${pagePadding()}`}
+    >
       <header className={`${lobsterFont.className} mb-6`}>
         Product Categories
       </header>
-      <div
-        className={`grid grid-cols-3 text-xl gap-6 gap-y-8 pb-4 grid-auto-rows`}
-      >
+      <div className={`grid grid-cols-3 text-xl gap-6 gap-y-8 grid-auto-rows`}>
         {categories
           .sort((a, b) => {
-            const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+            const nameA = a.name.toUpperCase();
             const nameB = b.name.toUpperCase();
             if (nameA < nameB) {
               return -1;
