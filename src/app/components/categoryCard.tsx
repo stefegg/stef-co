@@ -14,5 +14,15 @@ type CategoryProducts = Category &
 export default function CategoryCard(props: CategoryCardProps) {
   const { name, products } = props.category;
   const { appTheme } = useContext(ThemeContext);
-  return <div className={`${themeGen(appTheme)}`}>{name}</div>;
+  return (
+    <div
+      className={`${themeGen(
+        appTheme
+      )} border-2 cursor-pointer flex flex-col items-center rounded-lg p-4 h-72 gap-2`}
+    >
+      <div className="bg-yellow h-3/4 w-3/4 rounded-lg">hi</div>
+      <div className="text-base">{name}</div>
+      <div className="text-sm">Products: {products?.length}</div>
+    </div>
+  );
 }

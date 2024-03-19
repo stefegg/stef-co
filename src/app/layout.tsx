@@ -25,11 +25,11 @@ export default function Layout({
             <SidebarCap />
             <Sidebar />
           </div>
-          <div className="w-[87%]">
+          <div className="w-[87%] max-h-screen overflow-hidden">
             <div className="-ml-[2px]">
               <Header />
             </div>
-            {children}
+            <div className="max-h-screen overflow-scroll">{children}</div>
           </div>
         </body>
       </html>
