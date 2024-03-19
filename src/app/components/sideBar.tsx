@@ -3,7 +3,7 @@ import React from "react";
 import { ThemeContext } from "../providers/theme-provider";
 import { useContext } from "react";
 import Link from "next/link";
-import { themeGen, hoverGen } from "../utils";
+import { themeGen, hoverGen } from "../_utils";
 import { lobsterFont } from "../fonts";
 
 export function Sidebar() {

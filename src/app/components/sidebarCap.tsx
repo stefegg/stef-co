@@ -2,7 +2,7 @@
 import React from "react";
 import { ThemeContext } from "../providers/theme-provider";
 import { useContext } from "react";
-import { themeGen } from "../utils";
+import { themeGen } from "../_utils";
 import Link from "next/link";
 import { lobsterFont } from "../fonts";
 import { Logo } from "./logo";
