@@ -4,13 +4,11 @@ import { ThemeContext } from "../providers/theme-provider";
 import { useContext } from "react";
 import { themeGen } from "../utils";
 import Link from "next/link";
+import { FullCategory } from "../_types";
 
 type CategoryCardProps = {
-  category: CategoryProducts;
+  category: FullCategory;
 };
-
-type CategoryProducts = Category &
-  Partial<Prisma.CategoryGetPayload<{ include: { products: true } }>>;
 
 export default function CategoryCard(props: CategoryCardProps) {
   const { id, name, products } = props.category;

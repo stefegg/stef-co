@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import ProductList from "@/app/components/productList";
 
 async function getCatProducts(id: string) {
   "use server";
@@ -7,6 +8,9 @@ async function getCatProducts(id: string) {
     where: {
       categoryId: id,
     },
+    include: {
+      category: true,
+    },
   });
   return res;
 }
@@ -14,6 +18,9 @@ async function getCatProducts(id: string) {
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params;
   const products = await getCatProducts(id);
-  console.log(products, "----catprods");
-  return <div>{id}</div>;
+  return (
+    <>
+      <ProductList catId={id} products={products} />
+    </>
+  );
 }
