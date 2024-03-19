@@ -13,7 +13,7 @@ export function Sidebar() {
     <div
       className={`${
         lobsterFont.className
-      } flex flex-col gap-6 h-full pt-10 items-center border-r-2 text-xl
+      } flex flex-col gap-6 -mt-[2px] h-full pt-10 items-center border-r-2 text-xl
       ${themeGen(appTheme)}`}
     >
       <Link href="/featured">

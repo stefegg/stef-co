@@ -47,3 +47,7 @@ export const logoLineGen = (appTheme: string, size: string) => {
     return `bg-black border-green ${small}`;
   }
 };
+
+export const pagePadding = () => {
+  return `px-8 pt-10 pb-4 h-[calc(100vh-4rem)]`;
+};
