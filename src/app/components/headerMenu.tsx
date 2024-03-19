@@ -3,7 +3,7 @@ import React from "react";
 import { ThemeContext } from "../providers/theme-provider";
 import { useContext } from "react";
 import { Dispatch, SetStateAction } from "react";
-import { themeGen } from "../utils";
+import { themeGen } from "../_utils";
 import { ToggleSwitch } from "./toggleSwitch";
 type HeaderMenuProps = {
   setShowDrop: Dispatch<SetStateAction<boolean>>;

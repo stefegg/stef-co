@@ -1,5 +1,5 @@
 "use client";
-import { themeGen, pagePadding } from "../utils";
+import { themeGen, pagePadding } from "../_utils";
 import { ThemeContext } from "../providers/theme-provider";
 import { useContext } from "react";
 import { ListHeader } from "./listHeader";
@@ -17,9 +17,13 @@ export default function ProductList(props: ProdcutListProps) {
 
   return (
     <div className={`${themeGen(appTheme)} ${pagePadding()}`}>
-      <ListHeader
-        title={allProducts ? "All Products" : `${products[0].category?.name}`}
-      />
+      {products.length ? (
+        <ListHeader
+          title={allProducts ? "All Products" : `${products[0].category?.name}`}
+        />
+      ) : (
+        <ListHeader title={"No Products"} />
+      )}
       <div className={`grid grid-cols-3 text-xl gap-6 gap-y-8 grid-auto-rows`}>
         {products.map((product, idx) => (
           <div key={idx}>

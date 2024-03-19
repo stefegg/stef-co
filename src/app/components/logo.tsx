@@ -2,7 +2,7 @@
 import React from "react";
 import { useContext } from "react";
 import { ThemeContext } from "../providers/theme-provider";
-import { logoTextGen, logoLineGen } from "../utils";
+import { logoTextGen, logoLineGen } from "../_utils";
 
 type LogoProps = {
   size: string;

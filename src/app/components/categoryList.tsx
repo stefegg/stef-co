@@ -1,8 +1,7 @@
 "use client";
-import { Prisma, Category } from "@prisma/client";
 import { ThemeContext } from "../providers/theme-provider";
 import { useContext } from "react";
-import { themeGen, pagePadding } from "../utils";
+import { themeGen, pagePadding } from "../_utils";
 import CategoryCard from "./categoryCard";
 import { ListHeader } from "./listHeader";
 import { FullCategory } from "../_types";
