@@ -2,7 +2,7 @@
 import prisma from "../../../lib/prisma";
 
 export async function getProductById(prodId: string) {
-  return await prisma.product.findUnique({
+  return await prisma.product.findUniqueOrThrow({
     where: {
       id: prodId,
     },
@@ -10,7 +10,7 @@ export async function getProductById(prodId: string) {
 }
 
 export async function getCategoryProducts(id: string) {
-  const res = await prisma.product.findMany({
+  return await prisma.product.findMany({
     where: {
       categoryId: id,
     },
@@ -18,24 +18,20 @@ export async function getCategoryProducts(id: string) {
       category: true,
     },
   });
-  return res;
 }
 
 export async function getCategories() {
-  const res = await prisma.category.findMany({
+  return await prisma.category.findMany({
     include: {
       products: true,
     },
   });
-  return res;
 }
 
 export async function getProducts() {
-  "use server";
-  const res = await prisma.product.findMany({
+  return await prisma.product.findMany({
     include: {
       category: true,
     },
   });
-  return res;
 }
