@@ -5,6 +5,8 @@ import { useContext } from "react";
 import { ListHeader } from "./listHeader";
 import { FullProduct } from "../_types";
 import ProductCard from "./productCard";
+import SearchBar from "./searchBar";
+
 type ProdcutListProps = {
   products: FullProduct[];
   allProducts?: boolean;
@@ -17,10 +19,17 @@ export default function ProductList(props: ProdcutListProps) {
 
   return (
     <div className={`${themeGen(appTheme)} ${pagePadding()}`}>
-      {products.length ? (
-        <ListHeader
-          title={allProducts ? "All Products" : `${products[0].category?.name}`}
-        />
+      {Array.isArray(products) ? (
+        <div className="flex flex-row items-center">
+          <ListHeader
+            title={
+              allProducts ? "All Products" : `${products[0].category?.name}`
+            }
+          />
+          <div className="ml-auto w-1/3">
+            <SearchBar />
+          </div>
+        </div>
       ) : (
         <ListHeader title={"No Products"} />
       )}
