@@ -28,7 +28,7 @@ model Product {
 model Category {
   id String @default(cuid()) @id
   name String
-  imageUrl String?
+  imageUrl String
   products Product[]
   @@unique([name])
 }

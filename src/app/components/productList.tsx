@@ -18,7 +18,9 @@ export default function ProductList(props: ProdcutListProps) {
   const { appTheme } = useContext(ThemeContext);
 
   return (
-    <div className={`${themeGen(appTheme)} ${pagePadding()}`}>
+    <div
+      className={`${themeGen(appTheme)} ${pagePadding()} h-[calc(100vh-4rem)]`}
+    >
       {Array.isArray(products) ? (
         <div className="flex flex-row items-center">
           <ListHeader
