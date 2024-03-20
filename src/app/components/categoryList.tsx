@@ -14,7 +14,11 @@ export default function CategoryList(props: CategoryListProps) {
   const { categories } = props;
   const { appTheme } = useContext(ThemeContext);
   return (
-    <div className={`flex flex-col ${themeGen(appTheme)} ${pagePadding()}`}>
+    <div
+      className={`flex flex-col ${themeGen(
+        appTheme
+      )} ${pagePadding()} min-h-screen`}
+    >
       <ListHeader title={"Product Categories"} />
       <div className={`grid grid-cols-3 text-xl gap-6 gap-y-8 grid-auto-rows`}>
         {categories

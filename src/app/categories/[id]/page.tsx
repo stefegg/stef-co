@@ -1,18 +1,5 @@
-import prisma from "../../../../lib/prisma";
 import ProductList from "@/app/components/productList";
-
-async function getCatProducts(id: string) {
-  "use server";
-  const res = await prisma.product.findMany({
-    where: {
-      categoryId: id,
-    },
-    include: {
-      category: true,
-    },
-  });
-  return res;
-}
+import { getCategoryProducts } from "@/app/_utils/serverutils";
 
 export default async function Page({
   params,
@@ -23,7 +10,7 @@ export default async function Page({
 }) {
   const { id } = params;
   const query = searchParams?.query || "";
-  const products = await getCatProducts(id);
+  const products = await getCategoryProducts(id);
   const filteredProducts = Array.isArray(products)
     ? products.filter((product) => {
         return product.name.toLowerCase().includes(query.toLowerCase());

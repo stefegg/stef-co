@@ -1,15 +1,5 @@
-import prisma from "../../../lib/prisma";
 import ProductList from "@/app/components/productList";
-
-async function getProducts() {
-  "use server";
-  const res = await prisma.product.findMany({
-    include: {
-      category: true,
-    },
-  });
-  return res;
-}
+import { getProducts } from "../_utils/serverutils";
 
 export default async function AllProducts({
   searchParams,

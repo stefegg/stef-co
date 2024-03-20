@@ -1,9 +1,9 @@
 "use client";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
-import { useState } from "react";
 import magnifyingGlass from "../../../public/icons/magglass.svg";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function SearchBar() {
   const [isTyping, setIsTyping] = useState(false);
@@ -25,8 +25,8 @@ export default function SearchBar() {
   return (
     <div className="flex flex-row items-center justify-end mb-6">
       <input
-        className="peer w-full rounded-md py-[9px] pl-10 text-sm text-black placeholder:text-gray-500"
-        placeholder="Search"
+        className={`peer w-full rounded-md py-[9px] pl-10 text-sm text-black border border-black placeholder:text-gray-500 focus:outline-0`}
+        placeholder="Search Products"
         defaultValue={searchParams.get("query")?.toString()}
         onChange={(e) => {
           handleSearch(e.target.value);
@@ -35,7 +35,7 @@ export default function SearchBar() {
       <Image
         src={magnifyingGlass}
         alt="Magnifying Glass"
-        className="absolute right-10"
+        className="sticky right-16 peer-focus:invert-[27%] peer-focus:sepia-[70%] saturate-[298%] hue-rotate-[177deg] brightness-[99%] contrast-[92%]"
       />
     </div>
   );
