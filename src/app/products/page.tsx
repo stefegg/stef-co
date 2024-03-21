@@ -1,4 +1,4 @@
-import { ProductList } from "@/app/components";
+import { ProductList } from "@/app/_components";
 import { getProducts } from "../_utils/serverutils";
 
 export default async function AllProducts({

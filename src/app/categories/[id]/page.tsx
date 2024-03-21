@@ -1,4 +1,4 @@
-import { ProductList } from "@/app/components";
+import { ProductList } from "@/app/_components";
 import { getCategoryProducts } from "@/app/_utils/serverutils";
 
 export default async function Page({

@@ -26,10 +26,8 @@ export default function ProductList(props: ProdcutListProps) {
   };
 
   return (
-    <div
-      className={`${themeGen(appTheme)} ${pagePadding()} h-[calc(100vh-4rem)]`}
-    >
-      {Array.isArray(products) ? (
+    <div className={`${themeGen(appTheme)} ${pagePadding()} 100vh`}>
+      {products.length > 0 ? (
         <div className="flex flex-row items-center">
           <ListHeader title={getTitle()} />
           {!featuredProducts && (

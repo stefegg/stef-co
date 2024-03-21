@@ -1,6 +1,6 @@
 import React from "react";
 import { lobsterFont } from "./fonts";
-import { Logo } from "./components/index";
+import { Logo } from "./_components/index";
 
 export default function Home() {
   return (

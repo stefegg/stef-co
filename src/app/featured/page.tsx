@@ -1,5 +1,5 @@
 import { getFeaturedProducts } from "../_utils/serverutils";
-import { ProductList } from "../components";
+import { ProductList } from "../_components";
 
 export default async function FeaturedProducts() {
   const products = await getFeaturedProducts();
