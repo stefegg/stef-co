@@ -6,7 +6,7 @@ import Link from "next/link";
 import { themeGen, hoverGen } from "../_utils";
 import { lobsterFont } from "../fonts";
 
-export function Sidebar() {
+export default function Sidebar() {
   const { appTheme } = useContext(ThemeContext);
 
   return (

@@ -2,10 +2,8 @@
 import { themeGen, pagePadding } from "../_utils";
 import { ThemeContext } from "../providers/theme-provider";
 import { useContext } from "react";
-import { ListHeader } from "./listHeader";
+import { ListHeader, SearchBar, ProductTile } from "./index";
 import { FullProduct } from "../_types";
-import ProductTile from "./productTile";
-import SearchBar from "./searchBar";
 
 type ProdcutListProps = {
   products: FullProduct[];

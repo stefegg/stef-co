@@ -1,5 +1,5 @@
 import { getProductById } from "@/app/_utils/serverutils";
-import ProductDisplay from "@/app/components/productDisplay";
+import { ProductDisplay } from "@/app/components";
 
 export default async function Page({ params }: { params: { prodId: string } }) {
   const { prodId } = params;

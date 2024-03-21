@@ -2,8 +2,7 @@
 import { ThemeContext } from "../providers/theme-provider";
 import { useContext } from "react";
 import { themeGen, pagePadding } from "../_utils";
-import CategoryTile from "./categoryTile";
-import { ListHeader } from "./listHeader";
+import { CategoryTile, ListHeader } from "./index";
 import { FullCategory } from "../_types";
 
 type CategoryListProps = {

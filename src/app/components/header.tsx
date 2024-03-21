@@ -2,13 +2,13 @@
 import React from "react";
 import { ThemeContext } from "../providers/theme-provider";
 import { useContext, useState } from "react";
-import { HeaderMenu } from "./headerMenu";
+import HeaderMenu from "./headerMenu";
 import { themeGen } from "../_utils";
 import Image from "next/image";
 import accountIcon from "../../../public/icons/account.png";
 import cartIcon from "../../../public/icons/cart_png.png";
 
-export function Header() {
+export default function Header() {
   const { appTheme } = useContext(ThemeContext);
   const [showDrop, setShowDrop] = useState(false);
 

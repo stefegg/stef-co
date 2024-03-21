@@ -1,11 +1,10 @@
 import React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
-import { Sidebar } from "./components/sideBar";
-import { Header } from "./components/header";
+import { Sidebar, Header, SidebarCap } from "./components";
 import { ThemeProvider } from "./providers/theme-provider";
+import { CartProvider } from "./providers/cart-provider";
 import { interFont } from "./fonts";
-import { SidebarCap } from "./components/sidebarCap";
 
 export const metadata: Metadata = {
   title: "Stef Co.",
@@ -19,20 +18,24 @@ export default function Layout({
 }>) {
   return (
     <ThemeProvider>
-      <html lang="en">
-        <body className={`${interFont.className} flex flex-row`}>
-          <div className="w-[13%] h-screen flex flex-col">
-            <SidebarCap />
-            <Sidebar />
-          </div>
-          <div className="w-[87%] max-h-screen overflow-scroll">
-            <div className="absolute w-[87%]">
-              <Header />
+      <CartProvider>
+        <html lang="en">
+          <body className={`${interFont.className} flex flex-row`}>
+            <div className="w-[13%] h-screen flex flex-col">
+              <SidebarCap />
+              <Sidebar />
             </div>
-            <div className="max-h-screen overflow-scroll pt-16">{children}</div>
-          </div>
-        </body>
-      </html>
+            <div className="w-[87%] max-h-screen overflow-scroll">
+              <div className="absolute w-[87%]">
+                <Header />
+              </div>
+              <div className="max-h-screen overflow-scroll pt-16">
+                {children}
+              </div>
+            </div>
+          </body>
+        </html>
+      </CartProvider>
     </ThemeProvider>
   );
 }

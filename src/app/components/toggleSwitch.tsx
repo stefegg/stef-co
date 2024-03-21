@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ThemeContext } from "../providers/theme-provider";
 
-export function ToggleSwitch() {
+export default function ToggleSwitch() {
   const { appTheme, setAppTheme } = useContext(ThemeContext);
 
   return (

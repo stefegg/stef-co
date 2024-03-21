@@ -8,7 +8,7 @@ type LogoProps = {
   size: string;
 };
 
-export function Logo(props: LogoProps) {
+export default function Logo(props: LogoProps) {
   const { appTheme } = useContext(ThemeContext);
   const { size } = props;
   return (

@@ -4,12 +4,13 @@ import { ThemeContext } from "../providers/theme-provider";
 import { useContext } from "react";
 import { Dispatch, SetStateAction } from "react";
 import { themeGen } from "../_utils";
-import { ToggleSwitch } from "./toggleSwitch";
+import { ToggleSwitch } from "./index";
+
 type HeaderMenuProps = {
   setShowDrop: Dispatch<SetStateAction<boolean>>;
 };
 
-export function HeaderMenu(props: HeaderMenuProps) {
+export default function HeaderMenu(props: HeaderMenuProps) {
   const { setShowDrop } = props;
   const { appTheme } = useContext(ThemeContext);
 
