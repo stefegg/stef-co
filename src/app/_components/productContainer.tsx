@@ -33,7 +33,11 @@ export default function ProductContainer(props: ProdcutContainerProps) {
   };
 
   return (
-    <div className={`${themeGen(appTheme)} ${pagePadding()} min-h-screen`}>
+    <div
+      className={`${themeGen(
+        appTheme
+      )} ${pagePadding()} min-h-[calc(100vh-4rem)]`}
+    >
       {products.length > 0 ? (
         <div className={`mb-4 flex flex-col`}>
           <div className="flex flex-row items-center mb-2">
