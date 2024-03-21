@@ -29,7 +29,7 @@ export default function Layout({
               <div className="absolute w-[87%]">
                 <Header />
               </div>
-              <div className="max-h-screen overflow-scroll pt-16">
+              <div className="h-[calc(100vh-4rem)] overflow-scroll mt-16">
                 {children}
               </div>
             </div>
