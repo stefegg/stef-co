@@ -1,12 +1,12 @@
 import { FullProduct } from "../_types";
 import Link from "next/link";
 
-type ProductCardProps = {
+type ProductTileProps = {
   product: FullProduct;
   catId?: string;
 };
 
-export default function ProductCard(props: ProductCardProps) {
+export default function ProductTile(props: ProductTileProps) {
   const { product, catId } = props;
   const { name, price, id } = product;
   return (

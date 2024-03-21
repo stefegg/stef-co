@@ -4,7 +4,7 @@ import { ThemeContext } from "../providers/theme-provider";
 import { useContext } from "react";
 import { ListHeader } from "./listHeader";
 import { FullProduct } from "../_types";
-import ProductCard from "./productCard";
+import ProductTile from "./productTile";
 import SearchBar from "./searchBar";
 
 type ProdcutListProps = {
@@ -38,7 +38,7 @@ export default function ProductList(props: ProdcutListProps) {
       <div className={`grid grid-cols-3 text-xl gap-6 gap-y-8 grid-auto-rows`}>
         {products.map((product, idx) => (
           <div key={idx}>
-            <ProductCard catId={catId} product={product} />
+            <ProductTile catId={catId} product={product} />
           </div>
         ))}
       </div>

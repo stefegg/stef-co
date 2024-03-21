@@ -2,7 +2,7 @@
 import { ThemeContext } from "../providers/theme-provider";
 import { useContext } from "react";
 import { themeGen, pagePadding } from "../_utils";
-import CategoryCard from "./categoryCard";
+import CategoryTile from "./categoryTile";
 import { ListHeader } from "./listHeader";
 import { FullCategory } from "../_types";
 
@@ -34,7 +34,7 @@ export default function CategoryList(props: CategoryListProps) {
             return 0;
           })
           .map((category, idx) => (
-            <CategoryCard key={idx} category={category} />
+            <CategoryTile key={idx} category={category} />
           ))}
       </div>
     </div>
