@@ -1,17 +1,18 @@
 "use client";
 import React from "react";
-import { ThemeContext } from "../providers/theme-provider";
+import { ThemeContext } from "../_providers/theme-provider";
 import { useContext } from "react";
 import { Dispatch, SetStateAction } from "react";
 import { themeGen } from "../_utils";
-import { ToggleSwitch } from "./toggleSwitch";
+import { ToggleSwitch } from "./index";
+
 type HeaderMenuProps = {
   setShowDrop: Dispatch<SetStateAction<boolean>>;
 };
 
-export function HeaderMenu(props: HeaderMenuProps) {
+export default function HeaderMenu(props: HeaderMenuProps) {
   const { setShowDrop } = props;
-  const { appTheme } = useContext(ThemeContext);
+  const { appTheme, setAppTheme } = useContext(ThemeContext);
 
   return (
     <div
@@ -24,7 +25,8 @@ export function HeaderMenu(props: HeaderMenuProps) {
         {appTheme} Theme
       </div>
       <div>
-        <ToggleSwitch />
+        Under Construction
+        {/* <ToggleSwitch /> */}
       </div>
     </div>
   );

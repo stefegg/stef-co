@@ -1,4 +1,4 @@
-import CategoryList from "../components/categoryList";
+import { CategoryList } from "../_components";
 import { getCategories } from "../_utils/serverutils";
 
 export default async function Categories() {

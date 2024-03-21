@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
-import { ThemeContext } from "../providers/theme-provider";
+import { ThemeContext } from "../_providers/theme-provider";
 import { useContext } from "react";
 import Link from "next/link";
 import { themeGen, hoverGen } from "../_utils";
 import { lobsterFont } from "../fonts";
 
-export function Sidebar() {
+export default function Sidebar() {
   const { appTheme } = useContext(ThemeContext);
 
   return (
@@ -18,10 +18,10 @@ export function Sidebar() {
     >
       <Link href="/featured">
         <div className={`${hoverGen(appTheme)} rounded-md p-2 px-4`}>
-          New Products
+          Featured Products
         </div>
       </Link>
-      <Link href="/allProducts">
+      <Link href="/products">
         <div className={`${hoverGen(appTheme)} rounded-md p-2 px-4`}>
           All Products
         </div>

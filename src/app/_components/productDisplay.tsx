@@ -2,7 +2,7 @@
 import { FullProduct } from "../_types";
 import { pagePadding, themeGen } from "../_utils";
 import { useContext } from "react";
-import { ThemeContext } from "../providers/theme-provider";
+import { ThemeContext } from "../_providers/theme-provider";
 
 type ProductDisplayProps = {
   product: FullProduct;

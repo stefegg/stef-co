@@ -49,5 +49,11 @@ export const logoLineGen = (appTheme: string, size: string) => {
 };
 
 export const pagePadding = () => {
-  return `px-8 pt-10 pb-4`;
+  return `px-8 pt-8 pb-4 pl-12`;
+};
+
+export const currencyGen = (currency: string) => {
+  if (currency === "USD") {
+    return "$";
+  } else return "R";
 };

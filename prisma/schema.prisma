@@ -19,7 +19,7 @@ model Product {
   imageUrl String?
   createdAt DateTime @default(now())
   active Boolean @default(false)
-  onSale Boolean @default(false)
+  featured Boolean @default(false)
   category Category @relation(fields:[categoryId], references: [id]) 
   categoryId String
   @@unique([name])

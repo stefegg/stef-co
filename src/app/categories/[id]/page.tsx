@@ -1,4 +1,4 @@
-import ProductList from "@/app/components/productList";
+import { ProductContainer } from "@/app/_components";
 import { getCategoryProducts } from "@/app/_utils/serverutils";
 
 export default async function Page({
@@ -18,7 +18,7 @@ export default async function Page({
     : [];
   return (
     <>
-      <ProductList catId={id} products={filteredProducts} />
+      <ProductContainer catId={id} products={filteredProducts} />
     </>
   );
 }

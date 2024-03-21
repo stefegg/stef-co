@@ -1,16 +1,16 @@
 "use client";
-import { ThemeContext } from "../providers/theme-provider";
+import { ThemeContext } from "../_providers/theme-provider";
 import { useContext } from "react";
 import { themeGen } from "../_utils";
 import Link from "next/link";
 import Image from "next/image";
 import { FullCategory } from "../_types";
 
-type CategoryCardProps = {
+type CategoryTileProps = {
   category: FullCategory;
 };
 
-export default function CategoryCard(props: CategoryCardProps) {
+export default function CategoryTile(props: CategoryTileProps) {
   const { id, name, products, imageUrl } = props.category;
   const { appTheme } = useContext(ThemeContext);
   return (

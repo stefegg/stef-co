@@ -1,13 +1,13 @@
 "use client";
 import React from "react";
-import { ThemeContext } from "../providers/theme-provider";
+import { ThemeContext } from "../_providers/theme-provider";
 import { useContext } from "react";
 import { themeGen } from "../_utils";
 import Link from "next/link";
 import { lobsterFont } from "../fonts";
-import { Logo } from "./logo";
+import { Logo } from "./index";
 
-export function SidebarCap() {
+export default function SidebarCap() {
   const { appTheme } = useContext(ThemeContext);
 
   return (

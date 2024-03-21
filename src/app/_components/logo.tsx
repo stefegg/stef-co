@@ -1,14 +1,14 @@
 "use client";
 import React from "react";
 import { useContext } from "react";
-import { ThemeContext } from "../providers/theme-provider";
+import { ThemeContext } from "../_providers/theme-provider";
 import { logoTextGen, logoLineGen } from "../_utils";
 
 type LogoProps = {
   size: string;
 };
 
-export function Logo(props: LogoProps) {
+export default function Logo(props: LogoProps) {
   const { appTheme } = useContext(ThemeContext);
   const { size } = props;
   return (
