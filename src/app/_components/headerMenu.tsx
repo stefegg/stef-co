@@ -12,7 +12,7 @@ type HeaderMenuProps = {
 
 export default function HeaderMenu(props: HeaderMenuProps) {
   const { setShowDrop } = props;
-  const { appTheme } = useContext(ThemeContext);
+  const { appTheme, setAppTheme } = useContext(ThemeContext);
 
   return (
     <div
@@ -25,7 +25,8 @@ export default function HeaderMenu(props: HeaderMenuProps) {
         {appTheme} Theme
       </div>
       <div>
-        <ToggleSwitch />
+        Under Construction
+        {/* <ToggleSwitch /> */}
       </div>
     </div>
   );

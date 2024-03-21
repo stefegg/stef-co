@@ -23,7 +23,7 @@ export default function SearchBar() {
   }, 100);
 
   return (
-    <div className="flex flex-row items-center justify-end mb-6">
+    <div className="flex flex-row items-center justify-end">
       <input
         className={`peer w-full rounded-md py-[9px] pl-10 text-sm text-black border border-black placeholder:text-gray-500 focus:outline-0`}
         placeholder="Search Products"

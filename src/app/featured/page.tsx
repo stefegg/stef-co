@@ -1,11 +1,11 @@
 import { getFeaturedProducts } from "../_utils/serverutils";
-import { ProductList } from "../_components";
+import { ProductContainer } from "../_components";
 
 export default async function FeaturedProducts() {
   const products = await getFeaturedProducts();
   return (
     <div>
-      <ProductList
+      <ProductContainer
         products={products.sort(
           (a, b) => Number(a.categoryId) - Number(b.categoryId)
         )}

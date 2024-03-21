@@ -1,4 +1,4 @@
-import { ProductList } from "@/app/_components";
+import { ProductContainer } from "@/app/_components";
 import { getProducts } from "../_utils/serverutils";
 
 export default async function AllProducts({
@@ -15,7 +15,7 @@ export default async function AllProducts({
     : [];
   return (
     <>
-      <ProductList
+      <ProductContainer
         products={filteredProducts.sort(
           (a, b) => Number(a.categoryId) - Number(b.categoryId)
         )}

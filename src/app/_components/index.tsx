@@ -5,12 +5,15 @@ import HeaderMenu from "./headerMenu";
 import ListHeader from "./listHeader";
 import Logo from "./logo";
 import ProductDisplay from "./productDisplay";
-import ProductList from "./productList";
+import ProductContainer from "./productContainer";
 import ProductTile from "./productTile";
 import SearchBar from "./searchBar";
 import Sidebar from "./sideBar";
 import SidebarCap from "./sidebarCap";
 import ToggleSwitch from "./toggleSwitch";
+import ProductGrid from "./productGrid";
+import ProductList from "./productList";
+import ProductListItem from "./productListItem";
 
 export {
   CategoryList,
@@ -20,10 +23,13 @@ export {
   ListHeader,
   Logo,
   ProductDisplay,
-  ProductList,
+  ProductContainer,
   ProductTile,
   SearchBar,
   Sidebar,
   SidebarCap,
   ToggleSwitch,
+  ProductGrid,
+  ProductList,
+  ProductListItem,
 };
