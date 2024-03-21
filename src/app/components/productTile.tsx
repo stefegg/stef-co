@@ -11,7 +11,7 @@ export default function ProductTile(props: ProductTileProps) {
   const { name, price, id } = product;
   return (
     <div>
-      <Link href={catId ? `/categories/${catId}/${id}` : `/allProducts/${id}`}>
+      <Link href={catId ? `/categories/${catId}/${id}` : `/products/${id}`}>
         <div>{name}</div>
         <div>{price}</div>
       </Link>

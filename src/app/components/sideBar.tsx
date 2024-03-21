@@ -18,10 +18,10 @@ export default function Sidebar() {
     >
       <Link href="/featured">
         <div className={`${hoverGen(appTheme)} rounded-md p-2 px-4`}>
-          New Products
+          Featured Products
         </div>
       </Link>
-      <Link href="/allProducts">
+      <Link href="/products">
         <div className={`${hoverGen(appTheme)} rounded-md p-2 px-4`}>
           All Products
         </div>

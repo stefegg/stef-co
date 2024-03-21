@@ -35,3 +35,11 @@ export async function getProducts() {
     },
   });
 }
+
+export async function getFeaturedProducts() {
+  return await prisma.product.findMany({
+    where: {
+      featured: true,
+    },
+  });
+}
