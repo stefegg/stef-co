@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ThemeContext } from "../providers/theme-provider";
+import { ThemeContext } from "../_providers/theme-provider";
 
 type ToggleSwitchProps = {
   state: boolean;
@@ -27,9 +27,9 @@ export default function ToggleSwitch(props: ToggleSwitchProps) {
         onChange={() => setState(!state)}
       />
       <span
-        className={`block h-[26px] bg-slate-700 absolute cursor-pointer top-0 left-0 right-0 bottom-0 transition duration-500 rounded-xl 
-    before:block before:rounded-xl before:absolute before:h-[26px] before:w-[26px] before:left-[4px] before:duration-500 
-     before:peer-checked:translate-x-[26px] ${getStyles()}`}
+        className={`block h-[24px] bg-slate-700 absolute cursor-pointer top-0 left-0 right-0 bottom-0 transition duration-500 rounded-xl 
+    before:block before:rounded-xl before:absolute before:h-[24px] before:w-[24px] before:left-[4px] before:duration-500 
+     before:peer-checked:translate-x-[24px] ${getStyles()}`}
       />
     </label>
   );

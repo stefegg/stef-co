@@ -1,5 +1,5 @@
 "use client";
-import { ThemeContext } from "../providers/theme-provider";
+import { ThemeContext } from "../_providers/theme-provider";
 import { useContext } from "react";
 import { themeGen, pagePadding } from "../_utils";
 import { CategoryTile, ListHeader } from "./index";

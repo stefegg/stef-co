@@ -2,8 +2,8 @@ import React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
 import { Sidebar, Header, SidebarCap } from "./_components";
-import { ThemeProvider } from "./providers/theme-provider";
-import { CartProvider } from "./providers/cart-provider";
+import { ThemeProvider } from "./_providers/theme-provider";
+import { CartProvider } from "./_providers/cart-provider";
 import { interFont } from "./fonts";
 
 export const metadata: Metadata = {

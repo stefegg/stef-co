@@ -1,6 +1,6 @@
 "use client";
 import { themeGen, pagePadding } from "../_utils";
-import { ThemeContext } from "../providers/theme-provider";
+import { ThemeContext } from "../_providers/theme-provider";
 import { useContext, useState } from "react";
 import {
   ListHeader,
@@ -45,8 +45,10 @@ export default function ProductContainer(props: ProdcutContainerProps) {
             )}
           </div>
           <div className="ml-auto mr-6">
-            {gridView ? "Grid View" : "List View"}
-            <ToggleSwitch state={gridView} setState={setGridView} />
+            <div className="flex flex-row gap-2">
+              {gridView ? "Grid View" : "List View"}
+              <ToggleSwitch state={gridView} setState={setGridView} />
+            </div>
           </div>
         </div>
       ) : (

@@ -10,7 +10,7 @@ type ProductListProps = {
 export default function ProductList(props: ProductListProps) {
   const { products, catId } = props;
   return (
-    <ul>
+    <ul className="gap-6 flex flex-col pr-6">
       {products.map((product, idx) => (
         <ProductListItem key={idx} product={product} catId={catId} />
       ))}
