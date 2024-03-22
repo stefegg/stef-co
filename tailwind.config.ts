@@ -11,8 +11,8 @@ const config: Config = {
         dark: {
           border: "#03c51d",
           text: "#03c51d",
-          containerBg: "#0000",
-          bodyBg: "#0000",
+          containerBg: "#000000",
+          bodyBg: "#000000",
           bodyHover: "#363636",
         },
         classic: {

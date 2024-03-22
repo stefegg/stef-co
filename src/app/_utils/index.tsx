@@ -7,10 +7,10 @@ export const logoTextGen = (appTheme: string, size: string) => {
   if (appTheme === "classic" && size === "small") {
     return `font-outline-1 text-yellow ${small}`;
   }
-  if (appTheme === "Dark" && size === "large") {
+  if (appTheme === "dark" && size === "large") {
     return `font-outline-3 text-black bg-black ${large}`;
   }
-  if (appTheme === "Dark" && size === "small") {
+  if (appTheme === "dark" && size === "small") {
     return `font-outline-4 text-green bg-black ${small}`;
   }
 };
@@ -24,10 +24,10 @@ export const logoLineGen = (appTheme: string, size: string) => {
   if (appTheme === "classic" && size === "small") {
     return `bg-yellow border-red ${small}`;
   }
-  if (appTheme === "Dark" && size === "large") {
+  if (appTheme === "dark" && size === "large") {
     return `bg-black border-green ${large}`;
   }
-  if (appTheme === "Dark" && size === "small") {
+  if (appTheme === "dark" && size === "small") {
     return `bg-black border-green ${small}`;
   }
 };
@@ -40,4 +40,13 @@ export const currencyGen = (currency: string) => {
   if (currency === "USD") {
     return "$";
   } else return "R";
+};
+
+export const getFilter = (appTheme: string) => {
+  if (appTheme === "classic") {
+    return "invert(86%) sepia(21%) saturate(3341%) hue-rotate(360deg) brightness(105%) contrast(101%)";
+  }
+  if (appTheme === "dark") {
+    return "invert(44%) sepia(97%) saturate(749%) hue-rotate(88deg) brightness(99%) contrast(104%)";
+  }
 };

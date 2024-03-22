@@ -2,36 +2,46 @@
 import React from "react";
 import { ThemeContext } from "../_providers/theme-provider";
 import { useContext, useState } from "react";
-import HeaderMenu from "./headerMenu";
+import { HeaderMenu, Dropdown } from ".";
 import Image from "next/image";
+import { getFilter } from "../_utils";
 import accountIcon from "../../../public/icons/account.png";
 import cartIcon from "../../../public/icons/cart_png.png";
 
 export default function Header() {
-  const { appTheme } = useContext(ThemeContext);
+  const { appTheme, setAppTheme } = useContext(ThemeContext);
   const [showDrop, setShowDrop] = useState(false);
 
-  const getFilter = () => {
-    if (appTheme === "classic") {
-      return "invert(86%) sepia(21%) saturate(3341%) hue-rotate(360deg) brightness(105%) contrast(101%)";
-    }
-    if (appTheme === "dark") {
-      return "invert(44%) sepia(97%) saturate(749%) hue-rotate(88deg) brightness(99%) contrast(104%)";
-    }
+  const iconStyle = {
+    filter: getFilter(appTheme),
   };
 
-  const iconStyle = {
-    filter: getFilter(),
-  };
+  const themeOptions = [
+    {
+      title: "Classic",
+      setter: () => setAppTheme("classic"),
+    },
+    {
+      title: "Light",
+      setter: () => setAppTheme("light"),
+    },
+    {
+      title: "Dark",
+      setter: () => setAppTheme("dark"),
+    },
+  ];
 
   return (
     <span
       className={`h-16 flex items-center px-4 border-b-2 z-10 absolute w-full
-    bg-${appTheme}-containerBg border-${appTheme}-border text-${appTheme}-text
+    bg-${appTheme}-containerBg border-${appTheme}-border text-${appTheme}-text gap-10
     `}
     >
+      <div className="ml-auto">
+        <Dropdown title={"Site Theme"} options={themeOptions} />
+      </div>
       <div
-        className="ml-auto cursor-pointer"
+        className="cursor-pointer"
         onClick={() => console.log("coming soon")}
       >
         <Image
@@ -42,10 +52,7 @@ export default function Header() {
           style={iconStyle}
         />
       </div>
-      <div
-        className="ml-6 cursor-pointer"
-        onClick={() => setShowDrop(!showDrop)}
-      >
+      <div className="cursor-pointer" onClick={() => setShowDrop(!showDrop)}>
         <Image
           src={accountIcon}
           height={24}
