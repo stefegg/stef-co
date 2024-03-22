@@ -20,7 +20,9 @@ export default function ProductDisplay(props: ProductDisplayProps) {
       className={`${pagePadding()} text-${appTheme}-text border-${appTheme}-border bg-${appTheme}-bodyBg min-h-[calc(100vh-4rem)] gap-2 flex flex-col`}
     >
       <div className={`flex flex-row gap-32 mb-4 pt-8 `}>
-        <div className={`w-1/3 h-auto border-2 border-red rounded-lg`}>
+        <div
+          className={`w-1/3 h-auto border-2 border-${appTheme}-border rounded-lg`}
+        >
           <Image
             src={"https://i.imgur.com/xWhRNZQ.jpg"}
             alt="imageUrl"

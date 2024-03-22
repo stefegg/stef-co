@@ -8,27 +8,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        light: {
+          bodyBy: "#E5E5E5",
+        },
         dark: {
-          border: "#03c51d",
-          text: "#03c51d",
+          border: "#3700b3",
+          text: "#BB86FC",
           containerBg: "#000000",
-          bodyBg: "#000000",
-          bodyHover: "#363636",
+          containerHover: "#3700b3",
+          bodyBg: "#121212",
+          secondary: "#03DAc6",
         },
         classic: {
           border: "#cd0909",
           text: "#ffdd00",
           containerBg: "#3f5577",
+          containerHover: "#33435B",
           bodyBg: "#33435B",
-          bodyHover: "#33435B",
+          seconadry: "#03c51d",
         },
-        red: "#cd0909",
-        yellow: "#ffdd00",
-        green: "#03c51d",
-        navy: "#33435B",
-        eggWhite: "#E5E5E5",
-        newNavy: "#3f5577",
-        charcoal: "#363636",
       },
     },
   },
@@ -36,17 +34,17 @@ const config: Config = {
   safelist: [
     {
       pattern:
-        /(bg|text|border)-light-(border|text|containerBg|bodyBg|bodyHover)/,
+        /(bg|text|border)-light-(border|text|containerBg|bodyBg|containerHover)/,
       variants: ["before", "hover"],
     },
     {
       pattern:
-        /(bg|text|border)-classic-(border|text|containerBg|bodyBg|bodyHover)/,
+        /(bg|text|border)-classic-(border|text|containerBg|bodyBg|containerHover)/,
       variants: ["before", "hover"],
     },
     {
       pattern:
-        /(bg|text|border)-dark-(border|text|containerBg|bodyBg|bodyHover)/,
+        /(bg|text|border)-dark-(border|text|containerBg|bodyBg|containerHover)/,
       variants: ["before", "hover"],
     },
   ],

@@ -15,7 +15,9 @@ export default function ProductListItem(props: ProductListProps) {
   const { appTheme } = useContext(ThemeContext);
 
   return (
-    <li className="border-2 border-yellow rounded-lg">
+    <li
+      className={`border-2 border-${appTheme}-border rounded-lg bg-${appTheme}-containerBg`}
+    >
       <Link href={catId ? `/categories/${catId}/${id}` : `/products/${id}`}>
         <div className={`flex flex-row h-24`}>
           <div
@@ -31,7 +33,7 @@ export default function ProductListItem(props: ProductListProps) {
             </div>
           </div>
           <div
-            className={`bg-navy w-[40%] overflow-scroll py-2 pl-2 border-l-2 border-r-2 border-yellow`}
+            className={`w-[40%] overflow-scroll py-2 pl-2 border-l-2 border-r-2 border-${appTheme}-border`}
           >
             <div className={`grid grid-cols-2 gap-2 text-sm`}>
               {specs.map((spec, idx) => (

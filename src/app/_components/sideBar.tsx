@@ -14,27 +14,37 @@ export default function Sidebar() {
       bg-${appTheme}-containerBg text-${appTheme}-text border-${appTheme}-border`}
     >
       <Link href="/featured">
-        <div className={`hover:bg-${appTheme}-bodyHover rounded-md p-2 px-4`}>
+        <div
+          className={`hover:bg-${appTheme}-containerHover rounded-md p-2 px-4`}
+        >
           Featured Products
         </div>
       </Link>
       <Link href="/products">
-        <div className={`hover:bg-${appTheme}-bodyHover rounded-md p-2 px-4`}>
+        <div
+          className={`hover:bg-${appTheme}-containerHover rounded-md p-2 px-4`}
+        >
           All Products
         </div>
       </Link>
       <Link href="/categories">
-        <div className={`hover:bg-${appTheme}-bodyHover rounded-md p-2 px-4`}>
+        <div
+          className={`hover:bg-${appTheme}-containerHover rounded-md p-2 px-4`}
+        >
           Categories
         </div>
       </Link>
       <Link href="/adminPanel">
-        <div className={`hover:bg-${appTheme}-bodyHover rounded-md p-2 px-4`}>
+        <div
+          className={`hover:bg-${appTheme}-containerHover rounded-md p-2 px-4`}
+        >
           Admin Panel
         </div>
       </Link>
       <Link href="/about">
-        <div className={`hover:bg-${appTheme}-bodyHover rounded-md p-2 px-4`}>
+        <div
+          className={`hover:bg-${appTheme}-containerHover rounded-md p-2 px-4`}
+        >
           About
         </div>
       </Link>

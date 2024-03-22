@@ -20,7 +20,7 @@ export default function ToggleSwitch(props: ToggleSwitchProps) {
       <span
         className={`block h-[24px] absolute cursor-pointer top-0 left-0 right-0 bottom-0 transition duration-500 rounded-xl 
     before:block before:rounded-xl before:absolute before:h-[24px] before:w-[24px] before:left-[4px] before:duration-500 
-     before:peer-checked:translate-x-[24px] bg-${appTheme}-bodyHover before:bg-${appTheme}-text`}
+     before:peer-checked:translate-x-[24px] bg-${appTheme}-containerBg before:bg-${appTheme}-text`}
       />
     </label>
   );
