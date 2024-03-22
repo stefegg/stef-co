@@ -58,7 +58,7 @@ export default function Dropdown(props: DropdownProps) {
             <div
               key={idx}
               onClick={() => changeTheme(o.setter)}
-              className={`flex flex-row p-4 items-center hover:bg-${appTheme}-bodyHover rounded-lg cursor-pointer`}
+              className={`flex flex-row p-4 items-center hover:bg-${appTheme}-containerHover rounded-lg cursor-pointer`}
             >
               {o.title}
             </div>
