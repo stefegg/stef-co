@@ -14,6 +14,7 @@ import ToggleSwitch from "./toggleSwitch";
 import ProductGrid from "./productGrid";
 import ProductList from "./productList";
 import ProductListItem from "./productListItem";
+import Dropdown from "./dropDown";
 
 export {
   CategoryList,
@@ -32,4 +33,5 @@ export {
   ProductGrid,
   ProductList,
   ProductListItem,
+  Dropdown,
 };

@@ -1,5 +1,5 @@
 "use client";
-import { themeGen, pagePadding } from "../_utils";
+import { pagePadding } from "../_utils";
 import { ThemeContext } from "../_providers/theme-provider";
 import { useContext, useState } from "react";
 import {
@@ -34,9 +34,7 @@ export default function ProductContainer(props: ProdcutContainerProps) {
 
   return (
     <div
-      className={`${themeGen(
-        appTheme
-      )} ${pagePadding()} min-h-[calc(100vh-4rem)]`}
+      className={`text-${appTheme}-text bg-${appTheme}-bodyBg border-${appTheme}-border ${pagePadding()} min-h-[calc(100vh-4rem)]`}
     >
       {products.length > 0 ? (
         <div className={`mb-4 flex flex-col`}>

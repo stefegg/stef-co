@@ -3,8 +3,6 @@ import React from "react";
 import { ThemeContext } from "../_providers/theme-provider";
 import { useContext } from "react";
 import { Dispatch, SetStateAction } from "react";
-import { themeGen } from "../_utils";
-import { ToggleSwitch } from "./index";
 
 type HeaderMenuProps = {
   setShowDrop: Dispatch<SetStateAction<boolean>>;
@@ -16,18 +14,10 @@ export default function HeaderMenu(props: HeaderMenuProps) {
 
   return (
     <div
-      className={`flex flex-row  w-[225px] border-2 rounded-md py-4 ${themeGen(
-        appTheme
-      )}`}
+      className={`flex flex-row  w-[225px] border-2 rounded-md py-4 text-${appTheme}-text border-${appTheme}-border bg-${appTheme}-bodyBg`}
       onMouseLeave={() => setShowDrop(false)}
     >
-      <div className="flex flex-row gap-2 px-2 min-w-[150px]">
-        {appTheme} Theme
-      </div>
-      <div>
-        Under Construction
-        {/* <ToggleSwitch /> */}
-      </div>
+      <div>Under Construction</div>
     </div>
   );
 }
