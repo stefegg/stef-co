@@ -1,6 +1,6 @@
 "use client";
 import { FullProduct } from "../_types";
-import { pagePadding, themeGen, currencyGen } from "../_utils";
+import { pagePadding, currencyGen } from "../_utils";
 import { useContext } from "react";
 import { ThemeContext } from "../_providers/theme-provider";
 import Image from "next/image";
@@ -17,9 +17,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
   const { appTheme } = useContext(ThemeContext);
   return (
     <div
-      className={`${pagePadding()} ${themeGen(
-        appTheme
-      )}  min-h-[calc(100vh-4rem)] gap-2 flex flex-col`}
+      className={`${pagePadding()} text-${appTheme}-text border-${appTheme}-border bg-${appTheme}-bodyBg min-h-[calc(100vh-4rem)] gap-2 flex flex-col`}
     >
       <div className={`flex flex-row gap-32 mb-4 pt-8 `}>
         <div className={`w-1/3 h-auto border-2 border-red rounded-lg`}>

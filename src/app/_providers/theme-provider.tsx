@@ -8,7 +8,7 @@ interface ThemeContextType {
 }
 
 export const ThemeContext = createContext<ThemeContextType>({
-  appTheme: "Classic",
+  appTheme: "classic",
   setAppTheme: () => null,
 });
 
@@ -17,7 +17,7 @@ interface Props {
 }
 
 export const ThemeProvider: React.FC<Props> = ({ children }) => {
-  const [appTheme, setAppTheme] = useState("Classic");
+  const [appTheme, setAppTheme] = useState("classic");
   const value = {
     appTheme,
     setAppTheme,

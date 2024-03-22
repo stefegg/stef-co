@@ -1,7 +1,7 @@
 "use client";
 import { ThemeContext } from "../_providers/theme-provider";
 import { useContext } from "react";
-import { themeGen, pagePadding } from "../_utils";
+import { pagePadding } from "../_utils";
 import { CategoryTile, ListHeader } from "./index";
 import { FullCategory } from "../_types";
 
@@ -14,12 +14,12 @@ export default function CategoryList(props: CategoryListProps) {
   const { appTheme } = useContext(ThemeContext);
   return (
     <div
-      className={`flex flex-col ${themeGen(
-        appTheme
-      )} ${pagePadding()} min-h-screen`}
+      className={`flex flex-col bg-${appTheme}-bodyBg text-${appTheme}-text border-${appTheme}-border ${pagePadding()} min-h-screen`}
     >
       <ListHeader title={"Product Categories"} />
-      <div className={`grid grid-cols-3 text-xl gap-6 gap-y-8 grid-auto-rows`}>
+      <div
+        className={`grid grid-cols-3 text-xl gap-10 gap-y-8 grid-auto-rows mt-4`}
+      >
         {categories
           .sort((a, b) => {
             const nameA = a.name.toUpperCase();

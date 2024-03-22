@@ -8,6 +8,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        dark: {
+          border: "#03c51d",
+          text: "#03c51d",
+          containerBg: "#0000",
+          bodyBg: "#0000",
+          bodyHover: "#363636",
+        },
+        classic: {
+          border: "#cd0909",
+          text: "#ffdd00",
+          containerBg: "#3f5577",
+          bodyBg: "#33435B",
+          bodyHover: "#33435B",
+        },
         red: "#cd0909",
         yellow: "#ffdd00",
         green: "#03c51d",
@@ -19,5 +33,22 @@ const config: Config = {
     },
   },
   plugins: [],
+  safelist: [
+    {
+      pattern:
+        /(bg|text|border)-light-(border|text|containerBg|bodyBg|bodyHover)/,
+      variants: ["before", "hover"],
+    },
+    {
+      pattern:
+        /(bg|text|border)-classic-(border|text|containerBg|bodyBg|bodyHover)/,
+      variants: ["before", "hover"],
+    },
+    {
+      pattern:
+        /(bg|text|border)-dark-(border|text|containerBg|bodyBg|bodyHover)/,
+      variants: ["before", "hover"],
+    },
+  ],
 };
 export default config;
