@@ -1,15 +1,17 @@
 "use client";
 import React from "react";
-import { ThemeContext } from "../_providers/theme-provider";
+import { CartContext, ThemeContext } from "../_providers/index";
 import { useContext, useState } from "react";
-import { HeaderMenu, Dropdown } from ".";
+import { HeaderMenu, Dropdown, IndicatorBanner, IndicatorCircle } from ".";
 import Image from "next/image";
 import { getFilter } from "../_utils";
 import accountIcon from "../../../public/icons/account.png";
 import cartIcon from "../../../public/icons/cart_png.png";
+import wishList from "../../../public/icons/wishlist.svg";
 
 export default function Header() {
   const { appTheme, setAppTheme } = useContext(ThemeContext);
+  const { cart, wishlist } = useContext(CartContext);
   const [showDrop, setShowDrop] = useState(false);
 
   const iconStyle = {
@@ -32,38 +34,66 @@ export default function Header() {
   ];
 
   return (
-    <span
-      className={`h-16 flex items-center px-4 border-b-2 z-10 absolute w-full
+    <div className="flex flex-col relative">
+      <span
+        className={`h-16 flex items-center px-4 border-b-2 z-10 absolute w-full
     bg-${appTheme}-containerBg border-${appTheme}-border text-${appTheme}-text gap-10
     `}
-    >
-      <div className="ml-auto">
-        <Dropdown title={"Site Theme"} options={themeOptions} />
-      </div>
-      <div
-        className="cursor-pointer"
-        onClick={() => console.log("coming soon")}
       >
-        <Image
-          src={cartIcon}
-          height={24}
-          width={24}
-          alt="cart Icon"
-          style={iconStyle}
-        />
-      </div>
-      <div className="cursor-pointer" onClick={() => setShowDrop(!showDrop)}>
-        <Image
-          src={accountIcon}
-          height={24}
-          width={24}
-          alt="Account Icon"
-          style={iconStyle}
-        />
-      </div>
-      <div className={`fixed top-14 right-4  ${showDrop ? "flex" : "hidden"}`}>
-        <HeaderMenu setShowDrop={setShowDrop} />
-      </div>
-    </span>
+        <div className="ml-auto">
+          <Dropdown title={"Site Theme"} options={themeOptions} />
+        </div>
+        <div
+          className="cursor-pointer relative"
+          onClick={() => console.log("coming soon")}
+        >
+          <Image
+            src={wishList}
+            height={24}
+            width={24}
+            alt="wishlist Icon"
+            style={iconStyle}
+          />
+          {wishlist.length > 0 && (
+            <div className="absolute left-5 top-5">
+              <IndicatorCircle type="wishlist" />
+            </div>
+          )}
+        </div>
+        <div
+          className="cursor-pointer relative"
+          onClick={() => console.log("coming soon")}
+        >
+          <Image
+            src={cartIcon}
+            height={24}
+            width={24}
+            alt="cart Icon"
+            style={iconStyle}
+          />
+          {cart.length > 0 && (
+            <div className="absolute left-5 top-5">
+              <IndicatorCircle type="cart" />
+            </div>
+          )}
+        </div>
+
+        <div className="cursor-pointer" onClick={() => setShowDrop(!showDrop)}>
+          <Image
+            src={accountIcon}
+            height={24}
+            width={24}
+            alt="Account Icon"
+            style={iconStyle}
+          />
+        </div>
+        <div
+          className={`fixed top-14 right-4  ${showDrop ? "flex" : "hidden"}`}
+        >
+          <HeaderMenu setShowDrop={setShowDrop} />
+        </div>
+      </span>
+      <IndicatorBanner />
+    </div>
   );
 }

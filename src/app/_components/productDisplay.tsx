@@ -2,8 +2,7 @@
 import { FullProduct } from "../_types";
 import { pagePadding, currencyGen } from "../_utils";
 import { useContext } from "react";
-import { ThemeContext } from "../_providers/theme-provider";
-import { CartContext } from "../_providers/cart-provider";
+import { ThemeContext, CartContext, BannerContext } from "../_providers/index";
 import { Button } from ".";
 import Image from "next/image";
 import { lobsterFont } from "../fonts";
@@ -14,16 +13,67 @@ type ProductDisplayProps = {
 
 export default function ProductDisplay(props: ProductDisplayProps) {
   const { product } = props;
-  const { name, price, description, specs, imageUrl, currency } = product;
+  const { id, name, price, description, specs, imageUrl, currency } = product;
   const { appTheme } = useContext(ThemeContext);
-  const { cart, setCart } = useContext(CartContext);
+  const {
+    cart,
+    setCart,
+    wishlist,
+    setWishlist,
+    cartQuantity,
+    setCartQuantity,
+  } = useContext(CartContext);
+  const { setOpacity, setType, setOperation } = useContext(BannerContext);
 
   const addToCart = () => {
-    setCart([...cart, product]);
+    setOpacity("0");
+    if (cart.length > 0) {
+      cart.map((cItem) =>
+        cItem.prodId === id ? (cItem.quantity = cItem.quantity + 1) : null
+      );
+      setCartQuantity(cartQuantity + 1);
+      setOperation("Updated ");
+    } else {
+      setCart([
+        {
+          prodId: id,
+          name: name,
+          price: price,
+          currency: currency,
+          quantity: 1,
+        },
+      ]);
+      setCartQuantity(cartQuantity + 1);
+      setOperation("Added to ");
+    }
+    setOpacity("100");
+    setType("Cart");
+    setTimeout(() => {
+      setOpacity("0");
+    }, 1000);
   };
 
-  const saveForLater = () => {
-    console.log("coming soon");
+  const toggleWishlist = () => {
+    setOpacity("0");
+    if (wishlist.includes(product)) {
+      const newWishlist = wishlist.filter((e) => e !== product);
+      setWishlist(newWishlist);
+      setOperation("Removed from ");
+    } else {
+      setWishlist([...wishlist, product]);
+      setOperation("Added to ");
+    }
+    setOpacity("100");
+    setType("Wishlist");
+    setTimeout(() => {
+      setOpacity("0");
+    }, 1000);
+  };
+
+  const getWishlistText = () => {
+    if (wishlist.includes(product)) {
+      return "Remove from Wishlist";
+    } else return "Add to Wishlist";
   };
 
   return (
@@ -65,8 +115,8 @@ export default function ProductDisplay(props: ProductDisplayProps) {
         <div className={`w-1/3 ml-2`}>pics</div>
         <div className={`w-1/2 gap-16 flex flex-row`}>
           <Button
-            onClick={() => saveForLater()}
-            buttonText="Save for Later"
+            onClick={() => toggleWishlist()}
+            buttonText={getWishlistText()}
             size="lg"
             styleType="secondary"
           />

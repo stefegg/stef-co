@@ -4,7 +4,7 @@ import chevDown from "../../../public/icons/chevdown.svg";
 import chevUp from "../../../public/icons/chevup.svg";
 import Image from "next/image";
 import { getFilter } from "../_utils";
-import { ThemeContext } from "../_providers/theme-provider";
+import { ThemeContext } from "../_providers/index";
 
 type DropdownProps = {
   title: string;
