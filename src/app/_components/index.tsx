@@ -16,6 +16,7 @@ import ProductList from "./productList";
 import ProductListItem from "./productListItem";
 import Dropdown from "./dropDown";
 import Button from "./button";
+import IndicatorBanner from "./indicatorBanner";
 
 export {
   CategoryList,
@@ -36,4 +37,5 @@ export {
   ProductListItem,
   Dropdown,
   Button,
+  IndicatorBanner,
 };

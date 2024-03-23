@@ -4,6 +4,7 @@ import { pagePadding, currencyGen } from "../_utils";
 import { useContext } from "react";
 import { ThemeContext } from "../_providers/theme-provider";
 import { CartContext } from "../_providers/cart-provider";
+import { BannerContext } from "../_providers/banner-provider";
 import { Button } from ".";
 import Image from "next/image";
 import { lobsterFont } from "../fonts";
@@ -16,14 +17,27 @@ export default function ProductDisplay(props: ProductDisplayProps) {
   const { product } = props;
   const { name, price, description, specs, imageUrl, currency } = product;
   const { appTheme } = useContext(ThemeContext);
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart, wishlist, setWishlist } = useContext(CartContext);
+  const { setOpacity, setTitle } = useContext(BannerContext);
 
   const addToCart = () => {
+    setOpacity("0");
     setCart([...cart, product]);
+    setOpacity("100");
+    setTitle("Cart");
+    setTimeout(() => {
+      setOpacity("0");
+    }, 1000);
   };
 
   const saveForLater = () => {
-    console.log("coming soon");
+    setOpacity("0");
+    setWishlist([...wishlist, product]);
+    setOpacity("100");
+    setTitle("Wishlist");
+    setTimeout(() => {
+      setOpacity("0");
+    }, 1000);
   };
 
   return (
