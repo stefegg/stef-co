@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import { ThemeContext } from "../_providers/theme-provider";
+import { CartContext, ThemeContext } from "../_providers/index";
 import { useContext, useState } from "react";
-import { HeaderMenu, Dropdown, IndicatorBanner } from ".";
+import { HeaderMenu, Dropdown, IndicatorBanner, IndicatorCircle } from ".";
 import Image from "next/image";
 import { getFilter } from "../_utils";
 import accountIcon from "../../../public/icons/account.png";
@@ -11,6 +11,7 @@ import wishList from "../../../public/icons/wishlist.svg";
 
 export default function Header() {
   const { appTheme, setAppTheme } = useContext(ThemeContext);
+  const { cart, wishlist } = useContext(CartContext);
   const [showDrop, setShowDrop] = useState(false);
 
   const iconStyle = {
@@ -43,7 +44,7 @@ export default function Header() {
           <Dropdown title={"Site Theme"} options={themeOptions} />
         </div>
         <div
-          className="cursor-pointer"
+          className="cursor-pointer relative"
           onClick={() => console.log("coming soon")}
         >
           <Image
@@ -53,9 +54,14 @@ export default function Header() {
             alt="wishlist Icon"
             style={iconStyle}
           />
+          {wishlist.length > 0 && (
+            <div className="absolute left-5 top-5">
+              <IndicatorCircle type="wishlist" />
+            </div>
+          )}
         </div>
         <div
-          className="cursor-pointer"
+          className="cursor-pointer relative"
           onClick={() => console.log("coming soon")}
         >
           <Image
@@ -65,6 +71,11 @@ export default function Header() {
             alt="cart Icon"
             style={iconStyle}
           />
+          {cart.length > 0 && (
+            <div className="absolute left-5 top-5">
+              <IndicatorCircle type="cart" />
+            </div>
+          )}
         </div>
 
         <div className="cursor-pointer" onClick={() => setShowDrop(!showDrop)}>

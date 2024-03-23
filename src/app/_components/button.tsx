@@ -1,6 +1,6 @@
 "use client";
 import { useContext } from "react";
-import { ThemeContext } from "../_providers/theme-provider";
+import { ThemeContext } from "../_providers/index";
 
 type ButtonProps = {
   buttonText: string;

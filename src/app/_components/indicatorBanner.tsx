@@ -1,5 +1,4 @@
-import { ThemeContext } from "../_providers/theme-provider";
-import { BannerContext } from "../_providers/banner-provider";
+import { ThemeContext, BannerContext } from "../_providers/index";
 import { useContext } from "react";
 
 export default function IndicatorBanner() {

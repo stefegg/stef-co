@@ -1,6 +1,6 @@
 "use client";
 import { pagePadding } from "../_utils";
-import { ThemeContext } from "../_providers/theme-provider";
+import { ThemeContext } from "../_providers/index";
 import { useContext, useState } from "react";
 import {
   ListHeader,

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useContext } from "react";
-import { ThemeContext } from "../_providers/theme-provider";
+import { ThemeContext } from "../_providers/index";
 import { logoTextGen, logoLineGen } from "../_utils";
 
 type LogoProps = {
