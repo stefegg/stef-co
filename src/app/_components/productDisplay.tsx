@@ -46,16 +46,29 @@ export default function ProductDisplay(props: ProductDisplayProps) {
     }, 1000);
   };
 
-  const saveForLater = () => {
+  const toggleWishlist = () => {
     setOpacity("0");
-    setWishlist([...wishlist, product]);
+    if (wishlist.includes(product)) {
+      const newWishlist = wishlist.filter((e) => e !== product);
+      setWishlist(newWishlist);
+      setOperation("Removed from ");
+    } else {
+      setWishlist([...wishlist, product]);
+      setOperation("Added to ");
+    }
     setOpacity("100");
     setType("Wishlist");
     setTimeout(() => {
       setOpacity("0");
     }, 1000);
   };
-  console.log(cart, "--------cart");
+
+  const getWishlistText = () => {
+    if (wishlist.includes(product)) {
+      return "Remove from Wishlist";
+    } else return "Add to Wishlist";
+  };
+
   return (
     <div
       className={`${pagePadding()} text-${appTheme}-text border-${appTheme}-border bg-${appTheme}-bodyBg min-h-[calc(100vh-4rem)] gap-2 flex flex-col pl-16`}
@@ -95,8 +108,8 @@ export default function ProductDisplay(props: ProductDisplayProps) {
         <div className={`w-1/3 ml-2`}>pics</div>
         <div className={`w-1/2 gap-16 flex flex-row`}>
           <Button
-            onClick={() => saveForLater()}
-            buttonText="Save for Later"
+            onClick={() => toggleWishlist()}
+            buttonText={getWishlistText()}
             size="lg"
             styleType="secondary"
           />
