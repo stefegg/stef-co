@@ -3,6 +3,7 @@ import { FullProduct } from "../_types";
 import { pagePadding, currencyGen } from "../_utils";
 import { useContext } from "react";
 import { ThemeContext } from "../_providers/theme-provider";
+import { CartContext } from "../_providers/cart-provider";
 import { Button } from ".";
 import Image from "next/image";
 import { lobsterFont } from "../fonts";
@@ -14,8 +15,17 @@ type ProductDisplayProps = {
 export default function ProductDisplay(props: ProductDisplayProps) {
   const { product } = props;
   const { name, price, description, specs, imageUrl, currency } = product;
-
   const { appTheme } = useContext(ThemeContext);
+  const { cart, setCart } = useContext(CartContext);
+
+  const addToCart = () => {
+    setCart([...cart, product]);
+  };
+
+  const saveForLater = () => {
+    console.log("coming soon");
+  };
+
   return (
     <div
       className={`${pagePadding()} text-${appTheme}-text border-${appTheme}-border bg-${appTheme}-bodyBg min-h-[calc(100vh-4rem)] gap-2 flex flex-col pl-16`}
@@ -54,8 +64,18 @@ export default function ProductDisplay(props: ProductDisplayProps) {
       <div className="flex flex-row gap-36">
         <div className={`w-1/3 ml-2`}>pics</div>
         <div className={`w-1/2 gap-16 flex flex-row`}>
-          <Button buttonText="Save for Later" size="lg" styleType="secondary" />
-          <Button buttonText="Add to Cart" size="lg" styleType="primary" />
+          <Button
+            onClick={() => saveForLater()}
+            buttonText="Save for Later"
+            size="lg"
+            styleType="secondary"
+          />
+          <Button
+            onClick={() => addToCart()}
+            buttonText="Add to Cart"
+            size="lg"
+            styleType="primary"
+          />
         </div>
       </div>
     </div>

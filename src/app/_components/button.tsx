@@ -6,11 +6,12 @@ type ButtonProps = {
   buttonText: string;
   size?: "sm" | "med" | "lg";
   styleType: "primary" | "secondary";
+  onClick: () => void;
 };
 
 export default function Button(props: ButtonProps) {
   const { appTheme } = useContext(ThemeContext);
-  const { buttonText, size, styleType } = props;
+  const { buttonText, size, styleType, onClick } = props;
   const getSize = () => {
     switch (size) {
       case "sm":
@@ -32,7 +33,10 @@ export default function Button(props: ButtonProps) {
     }
   };
   return (
-    <button className={`${getSize()} ${getStyle()} rounded-lg border-2`}>
+    <button
+      onClick={onClick}
+      className={`${getSize()} ${getStyle()} rounded-lg border-2`}
+    >
       {buttonText}
     </button>
   );
