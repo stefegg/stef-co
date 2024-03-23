@@ -15,6 +15,7 @@ import ProductGrid from "./productGrid";
 import ProductList from "./productList";
 import ProductListItem from "./productListItem";
 import Dropdown from "./dropDown";
+import Button from "./button";
 
 export {
   CategoryList,
@@ -34,4 +35,5 @@ export {
   ProductList,
   ProductListItem,
   Dropdown,
+  Button,
 };
