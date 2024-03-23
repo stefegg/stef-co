@@ -16,7 +16,7 @@ export default function Logo(props: LogoProps) {
       className={`${logoTextGen(
         appTheme,
         size
-      )} flex flex-col h-auto w-full items-center `}
+      )} flex flex-col h-full w-full items-center `}
     >
       StefCo
       <div

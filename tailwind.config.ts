@@ -24,7 +24,7 @@ const config: Config = {
           text: "#ffdd00",
           containerBg: "#3f5577",
           containerHover: "#33435B",
-          bodyBg: "#33435B",
+          bodyBg: "#1F2E47",
           seconadry: "#03c51d",
         },
       },
