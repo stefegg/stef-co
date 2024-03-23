@@ -4,9 +4,17 @@ import { createContext, useState } from "react";
 import { FullProduct } from "../_types";
 import { Dispatch, SetStateAction } from "react";
 
+type CartItem = {
+  prodId: string;
+  name: string;
+  price: number;
+  currency: string;
+  quantity: number;
+};
+
 interface CartContextType {
-  cart: FullProduct[];
-  setCart: Dispatch<SetStateAction<FullProduct[]>>;
+  cart: CartItem[];
+  setCart: Dispatch<SetStateAction<CartItem[]>>;
   wishlist: FullProduct[];
   setWishlist: Dispatch<SetStateAction<FullProduct[]>>;
 }
@@ -23,7 +31,7 @@ interface Props {
 }
 
 export const CartProvider: React.FC<Props> = ({ children }) => {
-  const [cart, setCart] = useState<FullProduct[]>([]);
+  const [cart, setCart] = useState<CartItem[]>([]);
   const [wishlist, setWishlist] = useState<FullProduct[]>([]);
   const value = {
     cart,

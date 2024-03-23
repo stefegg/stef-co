@@ -15,16 +15,32 @@ type ProductDisplayProps = {
 
 export default function ProductDisplay(props: ProductDisplayProps) {
   const { product } = props;
-  const { name, price, description, specs, imageUrl, currency } = product;
+  const { id, name, price, description, specs, imageUrl, currency } = product;
   const { appTheme } = useContext(ThemeContext);
   const { cart, setCart, wishlist, setWishlist } = useContext(CartContext);
-  const { setOpacity, setTitle } = useContext(BannerContext);
+  const { setOpacity, setType, setOperation } = useContext(BannerContext);
 
   const addToCart = () => {
     setOpacity("0");
-    setCart([...cart, product]);
+    if (cart.length > 0) {
+      cart.map((cItem) =>
+        cItem.prodId === id ? (cItem.quantity = cItem.quantity + 1) : null
+      );
+      setOperation("Updated ");
+    } else {
+      setCart([
+        {
+          prodId: id,
+          name: name,
+          price: price,
+          currency: currency,
+          quantity: 1,
+        },
+      ]);
+      setOperation("Added to ");
+    }
     setOpacity("100");
-    setTitle("Cart");
+    setType("Cart");
     setTimeout(() => {
       setOpacity("0");
     }, 1000);
@@ -34,12 +50,12 @@ export default function ProductDisplay(props: ProductDisplayProps) {
     setOpacity("0");
     setWishlist([...wishlist, product]);
     setOpacity("100");
-    setTitle("Wishlist");
+    setType("Wishlist");
     setTimeout(() => {
       setOpacity("0");
     }, 1000);
   };
-
+  console.log(cart, "--------cart");
   return (
     <div
       className={`${pagePadding()} text-${appTheme}-text border-${appTheme}-border bg-${appTheme}-bodyBg min-h-[calc(100vh-4rem)] gap-2 flex flex-col pl-16`}

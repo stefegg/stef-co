@@ -4,15 +4,19 @@ import { createContext, useState } from "react";
 import { Dispatch, SetStateAction } from "react";
 
 interface BannerContextType {
-  title: string;
-  setTitle: Dispatch<SetStateAction<string>>;
+  operation: string;
+  setOperation: Dispatch<SetStateAction<string>>;
+  type: string;
+  setType: Dispatch<SetStateAction<string>>;
   opacity: string;
   setOpacity: Dispatch<SetStateAction<string>>;
 }
 
 export const BannerContext = createContext<BannerContextType>({
-  title: "",
-  setTitle: () => null,
+  operation: "",
+  setOperation: () => null,
+  type: "",
+  setType: () => null,
   opacity: "0",
   setOpacity: () => null,
 });
@@ -22,11 +26,14 @@ interface Props {
 }
 
 export const BannerProvider: React.FC<Props> = ({ children }) => {
-  const [title, setTitle] = useState<string>("");
+  const [operation, setOperation] = useState<string>("");
+  const [type, setType] = useState<string>("");
   const [opacity, setOpacity] = useState<string>("0");
   const value = {
-    title,
-    setTitle,
+    operation,
+    setOperation,
+    type,
+    setType,
     opacity,
     setOpacity,
   };
