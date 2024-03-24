@@ -18,6 +18,8 @@ import Dropdown from "./dropDown";
 import Button from "./button";
 import IndicatorBanner from "./indicatorBanner";
 import IndicatorCircle from "./indicatorCircle";
+import PageWrapper from "./pageWrapper";
+import LoadingSpinner from "./loadingSpinner";
 
 export {
   CategoryList,
@@ -40,4 +42,6 @@ export {
   Button,
   IndicatorBanner,
   IndicatorCircle,
+  PageWrapper,
+  LoadingSpinner,
 };

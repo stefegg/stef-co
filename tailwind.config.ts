@@ -22,11 +22,20 @@ const config: Config = {
         classic: {
           border: "#cd0909",
           text: "#ffdd00",
-          containerBg: "#3f5577",
+          bodyBg: "#3f5577",
           containerHover: "#33435B",
-          bodyBg: "#1F2E47",
+          containerBg: "#1F2E47",
           seconadry: "#03c51d",
         },
+      },
+      keyframes: {
+        "spin-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+      },
+      animation: {
+        "spin-slow": "spin-slow 3s linear infinite",
       },
     },
   },
