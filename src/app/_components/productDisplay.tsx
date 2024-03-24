@@ -1,6 +1,6 @@
 "use client";
 import { FullProduct } from "../_types";
-import { pagePadding, currencyGen } from "../_utils";
+import { currencyGen } from "../_utils";
 import { useContext } from "react";
 import { ThemeContext, CartContext, BannerContext } from "../_providers/index";
 import { Button } from ".";
@@ -77,9 +77,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
   };
 
   return (
-    <div
-      className={`${pagePadding()} text-${appTheme}-text border-${appTheme}-border bg-${appTheme}-bodyBg min-h-[calc(100vh-4rem)] gap-2 flex flex-col pl-16`}
-    >
+    <div className={`gap-2 flex flex-col pl-16`}>
       <div className={`flex flex-row gap-36 mb-4 pt-8`}>
         <div
           className={`w-1/3 h-2/3 border-2 border-${appTheme}-border rounded-lg ml-2`}
