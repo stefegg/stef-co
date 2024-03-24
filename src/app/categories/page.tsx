@@ -13,7 +13,7 @@ export default async function Categories() {
     <PageWrapper>
       <div className={`flex flex-col`}>
         <div className="mb-2">
-          <ListHeader title={"Product Categories"} />
+          <ListHeader title={"Shop by Category"} />
         </div>
         <Suspense fallback={<LoadingSpinner />}>
           <CategoryList categories={categories} />

@@ -9,7 +9,6 @@ export default async function FeaturedProducts() {
         products={products.sort(
           (a, b) => Number(a.categoryId) - Number(b.categoryId)
         )}
-        featuredProducts
       />
     </div>
   );

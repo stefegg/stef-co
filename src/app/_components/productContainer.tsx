@@ -4,12 +4,12 @@ import { useState } from "react";
 import { ProductGrid, ToggleSwitch, ProductList } from "./index";
 import { FullProduct } from "../_types";
 
-type ProdcutContainerProps = {
+type ProductContainerProps = {
   products: FullProduct[];
   catId?: string;
 };
 
-export default function ProductContainer(props: ProdcutContainerProps) {
+export default function ProductContainer(props: ProductContainerProps) {
   const { products, catId } = props;
   const [gridView, setGridView] = useState(true);
 
