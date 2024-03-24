@@ -1,5 +1,12 @@
-import { ProductContainer } from "@/app/_components";
 import { getCategoryProducts } from "@/app/_utils/serverutils";
+import {
+  ListHeader,
+  SearchBar,
+  ProductContainer,
+  PageWrapper,
+  LoadingSpinner,
+} from "@/app/_components";
+import { Suspense } from "react";
 
 export default async function Page({
   params,
@@ -17,8 +24,23 @@ export default async function Page({
       })
     : [];
   return (
-    <>
-      <ProductContainer catId={id} products={filteredProducts} />
-    </>
+    <PageWrapper>
+      <div className="flex flex-row items-center mb-4">
+        <Suspense fallback={<LoadingSpinner />}>
+          <ListHeader
+            title={
+              products.length ? `${products[0].category.name}` : "No Products"
+            }
+          />
+
+          <div className="ml-auto w-1/3">
+            <SearchBar />
+          </div>
+        </Suspense>
+      </div>
+      <Suspense fallback={<LoadingSpinner />}>
+        <ProductContainer catId={id} products={filteredProducts} />
+      </Suspense>
+    </PageWrapper>
   );
 }
