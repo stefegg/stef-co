@@ -9,7 +9,11 @@ const config: Config = {
     extend: {
       colors: {
         light: {
-          bodyBy: "#E5E5E5",
+          border: "#878787",
+          text: "#005faf",
+          containerBg: "#d0d0d0",
+          bodyBg: "#E5E5E5",
+          containerHover: "#E5E5E5",
         },
         dark: {
           border: "#3700b3",

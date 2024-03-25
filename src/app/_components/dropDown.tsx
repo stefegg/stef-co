@@ -23,7 +23,7 @@ export default function Dropdown(props: DropdownProps) {
     filter: getFilter(appTheme),
   };
 
-  const changeTheme = (setter: () => void) => {
+  const clickItem = (setter: () => void) => {
     setter();
     setIsOpen(false);
   };
@@ -57,7 +57,7 @@ export default function Dropdown(props: DropdownProps) {
           {options?.map((o, idx) => (
             <div
               key={idx}
-              onClick={() => changeTheme(o.setter)}
+              onClick={() => clickItem(o.setter)}
               className={`flex flex-row p-4 items-center hover:bg-${appTheme}-containerHover rounded-lg cursor-pointer`}
             >
               {o.title}
