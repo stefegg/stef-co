@@ -2,7 +2,13 @@
 import React from "react";
 import { CartContext, ThemeContext } from "../_providers/index";
 import { useContext, useState } from "react";
-import { HeaderMenu, Dropdown, IndicatorBanner, IndicatorCircle } from ".";
+import {
+  HeaderMenu,
+  Dropdown,
+  IndicatorBanner,
+  IndicatorCircle,
+  Cart,
+} from ".";
 import Image from "next/image";
 import { getFilter } from "../_utils";
 import accountIcon from "../../../public/icons/account.png";
@@ -11,7 +17,7 @@ import wishList from "../../../public/icons/wishlist.svg";
 
 export default function Header() {
   const { appTheme, setAppTheme } = useContext(ThemeContext);
-  const { cart, wishlist } = useContext(CartContext);
+  const { cart, wishlist, showCart, setShowCart } = useContext(CartContext);
   const [showDrop, setShowDrop] = useState(false);
 
   const iconStyle = {
@@ -62,7 +68,7 @@ export default function Header() {
         </div>
         <div
           className="cursor-pointer relative"
-          onClick={() => console.log("coming soon")}
+          onClick={() => setShowCart(!showCart)}
         >
           <Image
             src={cartIcon}
@@ -92,6 +98,7 @@ export default function Header() {
         >
           <HeaderMenu setShowDrop={setShowDrop} />
         </div>
+        <Cart />
       </span>
       <IndicatorBanner />
     </div>
