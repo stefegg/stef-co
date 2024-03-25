@@ -21,4 +21,10 @@
   .font-outline-4 {
     -webkit-text-stroke: 1px #3700b3;
   }
+  .font-outline-5 {
+    -webkit-text-stroke: 2px #005faf;
+  }
+  .font-outline-6 {
+    -webkit-text-stroke: 1px #878787;
+  }
 }
