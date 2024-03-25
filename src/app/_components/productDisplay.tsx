@@ -1,7 +1,7 @@
 "use client";
 import { FullProduct } from "../_types";
 import { currencyGen } from "../_utils";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ThemeContext, CartContext, BannerContext } from "../_providers/index";
 import { Button } from ".";
 import Image from "next/image";
@@ -28,9 +28,23 @@ export default function ProductDisplay(props: ProductDisplayProps) {
   const addToCart = () => {
     setOpacity("0");
     if (cart.length > 0) {
-      cart.map((cItem) =>
-        cItem.prodId === id ? (cItem.quantity = cItem.quantity + 1) : null
-      );
+      const findItem = cart.find((c) => c.prodId === id);
+      if (findItem !== undefined) {
+        cart.map((c) =>
+          c.prodId === id ? (c.quantity = c.quantity + 1) : null
+        );
+      } else {
+        setCart([
+          ...cart,
+          {
+            prodId: id,
+            name: name,
+            price: price,
+            currency: currency,
+            quantity: 1,
+          },
+        ]);
+      }
       setCartQuantity(cartQuantity + 1);
       setOperation("Updated ");
     } else {
