@@ -51,7 +51,7 @@ export default function Dropdown(props: DropdownProps) {
       </div>
       {isOpen && (
         <div
-          className={`mt-2 w-36 rounded-lg absolute h-auto border-2 bg-${appTheme}-containerBg border-${appTheme}-border`}
+          className={`mt-2 w-36 z-40 rounded-lg absolute h-auto border-2 bg-${appTheme}-containerBg border-${appTheme}-border`}
           onMouseLeave={() => mouseOut()}
         >
           {options?.map((o, idx) => (

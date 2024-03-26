@@ -19,7 +19,7 @@ export default function Button(props: ButtonProps) {
       case "med":
         return `w-48 h-12 text-base`;
       case "lg":
-        return `w-72 h-16 text-lg`;
+        return `w-80 h-16 text-xl`;
       default:
         `w-48 h-12 text-base`;
     }

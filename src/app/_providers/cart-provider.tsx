@@ -3,14 +3,7 @@ import React from "react";
 import { createContext, useState } from "react";
 import { FullProduct } from "../_types";
 import { Dispatch, SetStateAction } from "react";
-
-type CartItem = {
-  prodId: string;
-  name: string;
-  price: number;
-  currency: string;
-  quantity: number;
-};
+import { CartItem } from "../_types";
 
 interface CartContextType {
   cart: CartItem[];
