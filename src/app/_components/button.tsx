@@ -15,7 +15,7 @@ export default function Button(props: ButtonProps) {
   const getSize = () => {
     switch (size) {
       case "sm":
-        return `w-24 h-6 text-base text-sm`;
+        return `w-24 h-6 text-base text-xs`;
       case "med":
         return `w-48 h-12 text-base`;
       case "lg":

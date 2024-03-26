@@ -1,3 +1,5 @@
+import { AddCartProps, ToggleWishProps } from "../_types";
+
 export const logoTextGen = (appTheme: string, size: string) => {
   const large = "text-7xl pt-[20%]";
   const small = "text-4xl pt-1";
@@ -61,4 +63,74 @@ export const getFilter = (appTheme: string) => {
   if (appTheme === "dark") {
     return "invert(72%) sepia(35%) saturate(6167%) hue-rotate(219deg) brightness(101%) contrast(98%)";
   }
+};
+
+export const addToCart = (props: AddCartProps) => {
+  const {
+    setOpacity,
+    cart,
+    setCart,
+    product,
+    setCartQuantity,
+    cartQuantity,
+    setOperation,
+    setType,
+  } = props;
+  setOpacity("0");
+  if (cart.length > 0) {
+    const findItem = cart.find((c) => c.prodId === product.id);
+    if (findItem !== undefined) {
+      cart.map((c) =>
+        c.prodId === product.id ? (c.quantity = c.quantity + 1) : null
+      );
+    } else {
+      setCart([
+        ...cart,
+        {
+          prodId: product.id,
+          name: product.name,
+          price: product.price,
+          currency: product.currency,
+          quantity: 1,
+        },
+      ]);
+    }
+    setCartQuantity(cartQuantity + 1);
+  } else {
+    setCart([
+      {
+        prodId: product.id,
+        name: product.name,
+        price: product.price,
+        currency: product.currency,
+        quantity: 1,
+      },
+    ]);
+    setCartQuantity(cartQuantity + 1);
+  }
+  setOperation("Added to ");
+  setOpacity("100");
+  setType("Cart");
+  setTimeout(() => {
+    setOpacity("0");
+  }, 1000);
+};
+
+export const toggleWishlist = (props: ToggleWishProps) => {
+  const { setOpacity, wishlist, product, setOperation, setType, setWishlist } =
+    props;
+  setOpacity("0");
+  if (wishlist.includes(product)) {
+    const newWishlist = wishlist.filter((e) => e !== product);
+    setWishlist(newWishlist);
+    setOperation("Removed from ");
+  } else {
+    setWishlist([...wishlist, product]);
+    setOperation("Added to ");
+  }
+  setOpacity("100");
+  setType("Wishlist");
+  setTimeout(() => {
+    setOpacity("0");
+  }, 1000);
 };
