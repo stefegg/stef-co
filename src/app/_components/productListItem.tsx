@@ -1,6 +1,11 @@
 import { FullProduct } from "../_types";
 import Link from "next/link";
-import { currencyGen, addToCart, toggleWishlist } from "../_utils";
+import {
+  currencyGen,
+  addToCart,
+  toggleWishlist,
+  getWishlistText,
+} from "../_utils";
 import { useContext } from "react";
 import { ThemeContext, CartContext, BannerContext } from "../_providers/index";
 import { Button } from ".";
@@ -24,12 +29,6 @@ export default function ProductListItem(props: ProductListProps) {
   } = useContext(CartContext);
   const { setOpacity, setType, setOperation } = useContext(BannerContext);
 
-  const getWishlistText = () => {
-    if (wishlist.includes(product)) {
-      return "Remove from Wishlist";
-    } else return "Add to Wishlist";
-  };
-
   return (
     <li
       className={`border-2 border-${appTheme}-border rounded-lg bg-${appTheme}-containerBg`}
@@ -45,7 +44,7 @@ export default function ProductListItem(props: ProductListProps) {
           <div className={`flex flex-row w-full justify-between pr-6`}>
             <div className="flex flex-row gap-2 mr-2">
               <Button
-                buttonText={getWishlistText()}
+                buttonText={getWishlistText({ wishlist, product })}
                 styleType="secondary"
                 onClick={() =>
                   toggleWishlist({

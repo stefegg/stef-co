@@ -1,4 +1,4 @@
-import { AddCartProps, ToggleWishProps } from "../_types";
+import { AddCartProps, ToggleWishProps, WishlistTextProps } from "../_types";
 
 export const logoTextGen = (appTheme: string, size: string) => {
   const large = "text-7xl pt-[20%]";
@@ -133,4 +133,11 @@ export const toggleWishlist = (props: ToggleWishProps) => {
   setTimeout(() => {
     setOpacity("0");
   }, 1000);
+};
+
+export const getWishlistText = (props: WishlistTextProps) => {
+  const { wishlist, product } = props;
+  if (wishlist.includes(product)) {
+    return "Remove from Wishlist";
+  } else return "Add to Wishlist";
 };

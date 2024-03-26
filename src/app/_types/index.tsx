@@ -34,3 +34,8 @@ export type ToggleWishProps = {
   setType: (value: SetStateAction<string>) => void;
   setWishlist: (value: SetStateAction<FullProduct[]>) => void;
 };
+
+export type WishlistTextProps = {
+  wishlist: FullProduct[];
+  product: FullProduct;
+};

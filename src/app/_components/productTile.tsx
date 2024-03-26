@@ -1,6 +1,11 @@
 import { FullProduct } from "../_types";
 import Link from "next/link";
-import { currencyGen, addToCart, toggleWishlist } from "../_utils";
+import {
+  currencyGen,
+  addToCart,
+  toggleWishlist,
+  getWishlistText,
+} from "../_utils";
 import { useContext } from "react";
 import { ThemeContext, CartContext, BannerContext } from "../_providers/index";
 import { Button } from ".";
@@ -24,12 +29,6 @@ export default function ProductTile(props: ProductTileProps) {
   } = useContext(CartContext);
   const { setOpacity, setType, setOperation } = useContext(BannerContext);
 
-  const getWishlistText = () => {
-    if (wishlist.includes(product)) {
-      return "Remove from Wishlist";
-    } else return "Add to Wishlist";
-  };
-
   return (
     <div
       className={`bg-${appTheme}-containerBg text-${appTheme}-text border-${appTheme}-border border-2 rounded-lg p-4 h-96`}
@@ -50,7 +49,7 @@ export default function ProductTile(props: ProductTileProps) {
       <div className="flex flex-row gap-2">
         <Button
           styleType="secondary"
-          buttonText={getWishlistText()}
+          buttonText={getWishlistText({ wishlist, product })}
           size="med"
           onClick={() =>
             toggleWishlist({

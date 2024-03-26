@@ -1,6 +1,11 @@
 "use client";
 import { FullProduct } from "../_types";
-import { currencyGen, addToCart, toggleWishlist } from "../_utils";
+import {
+  currencyGen,
+  addToCart,
+  toggleWishlist,
+  getWishlistText,
+} from "../_utils";
 import { useContext } from "react";
 import { ThemeContext, CartContext, BannerContext } from "../_providers/index";
 import { Button } from ".";
@@ -24,12 +29,6 @@ export default function ProductDisplay(props: ProductDisplayProps) {
     setCartQuantity,
   } = useContext(CartContext);
   const { setOpacity, setType, setOperation } = useContext(BannerContext);
-
-  const getWishlistText = () => {
-    if (wishlist.includes(product)) {
-      return "Remove from Wishlist";
-    } else return "Add to Wishlist";
-  };
 
   return (
     <div className={`gap-2 flex flex-col pl-16`}>
@@ -78,7 +77,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
                 setWishlist,
               })
             }
-            buttonText={getWishlistText()}
+            buttonText={getWishlistText({ wishlist, product })}
             size="lg"
             styleType="secondary"
           />
