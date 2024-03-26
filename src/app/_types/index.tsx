@@ -5,3 +5,11 @@ export type FullProduct = Product &
 
 export type FullCategory = Category &
   Partial<Prisma.CategoryGetPayload<{ include: { products: true } }>>;
+
+export type CartItem = {
+  prodId: string;
+  name: string;
+  price: number;
+  currency: string;
+  quantity: number;
+};

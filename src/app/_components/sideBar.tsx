@@ -11,28 +11,32 @@ export default function Sidebar() {
   return (
     <div
       className={`${lobsterFont.className} flex flex-col gap-6 -mt-[2px] h-full pt-10 items-center border-r-2 text-xl
-      bg-${appTheme}-containerBg text-${appTheme}-text border-${appTheme}-border`}
+      bg-${appTheme}-containerBg text-${appTheme}-text border-${appTheme}-border min-w-full px-4`}
     >
-      <Link href="/categories">
-        <div className={`hover:bg-${appTheme}-bodyBg rounded-md p-2 px-4`}>
-          Shop By Category
-        </div>
+      <Link
+        href="/categories"
+        className={`min-w-full flex justify-center hover:bg-${appTheme}-bodyBg rounded-md p-2`}
+      >
+        Shop By Category
       </Link>
-      <Link href="/products">
-        <div className={`hover:bg-${appTheme}-bodyBg rounded-md p-2 px-4`}>
-          All Products
-        </div>
+      <Link
+        href="/products"
+        className={`min-w-full flex justify-center hover:bg-${appTheme}-bodyBg rounded-md p-2 `}
+      >
+        All Products
       </Link>
 
-      <Link href="/adminPanel">
-        <div className={`hover:bg-${appTheme}-bodyBg rounded-md p-2 px-4`}>
-          Admin Panel
-        </div>
+      <Link
+        href="/adminPanel"
+        className={`min-w-full flex justify-center hover:bg-${appTheme}-bodyBg rounded-md p-2 `}
+      >
+        Admin Panel
       </Link>
-      <Link href="/about">
-        <div className={`hover:bg-${appTheme}-bodyBg rounded-md p-2 px-4`}>
-          About
-        </div>
+      <Link
+        href="/about"
+        className={`min-w-full flex justify-center hover:bg-${appTheme}-bodyBg rounded-md p-2 `}
+      >
+        About
       </Link>
     </div>
   );

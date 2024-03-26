@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
-import { Sidebar, Header, SidebarCap } from "./_components";
+import { Sidebar, Header, SidebarCap, Cart } from "./_components";
 import {
   ThemeProvider,
   CartProvider,
@@ -33,7 +33,7 @@ export default function Layout({
                 <div className="absolute w-[87%]">
                   <Header />
                 </div>
-                <div className="h-[calc(100vh-4rem)] overflow-scroll mt-16">
+                <div className="min-h-[calc(100vh-4rem)] overflow-y-scroll overflow-x-hidden mt-16 flex flex-row relative">
                   {children}
                 </div>
               </div>

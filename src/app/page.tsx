@@ -5,7 +5,7 @@ import { Logo } from "./_components/index";
 export default function Home() {
   return (
     <main
-      className={`${lobsterFont.className} flex h-screen flex-col items-center`}
+      className={`${lobsterFont.className} flex h-screen flex-col w-full items-center`}
     >
       <Logo size="large" />
     </main>
