@@ -27,7 +27,7 @@ export default async function AllProducts({
         <ListHeader title={"All Products"} />
 
         <div className="ml-auto w-1/3">
-          <SearchBar />
+          <SearchBar placeholder="Search Products" />
         </div>
       </div>
       <Suspense fallback={<LoadingSpinner />}>

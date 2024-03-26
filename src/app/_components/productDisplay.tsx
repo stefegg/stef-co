@@ -1,7 +1,7 @@
 "use client";
 import { FullProduct } from "../_types";
 import { currencyGen } from "../_utils";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ThemeContext, CartContext, BannerContext } from "../_providers/index";
 import { Button } from ".";
 import Image from "next/image";

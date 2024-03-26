@@ -15,7 +15,7 @@ export default function Sidebar() {
     >
       <Link
         href="/categories"
-        className={`min-w-full flex justify-center hover:bg-${appTheme}-bodyBg rounded-md p-2`}
+        className={`min-w-full flex justify-center text-nowrap hover:bg-${appTheme}-bodyBg rounded-md p-2`}
       >
         Shop By Category
       </Link>

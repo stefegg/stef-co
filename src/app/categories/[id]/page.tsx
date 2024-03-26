@@ -34,7 +34,7 @@ export default async function Page({
           />
 
           <div className="ml-auto w-1/3">
-            <SearchBar />
+            <SearchBar placeholder={"Search Products"} />
           </div>
         </Suspense>
       </div>
