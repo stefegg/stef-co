@@ -1,7 +1,12 @@
 "use client";
 import { FullProduct } from "../_types";
-import { currencyGen } from "../_utils";
-import { useContext, useState } from "react";
+import {
+  currencyGen,
+  addToCart,
+  toggleWishlist,
+  getWishlistText,
+} from "../_utils";
+import { useContext } from "react";
 import { ThemeContext, CartContext, BannerContext } from "../_providers/index";
 import { Button } from ".";
 import Image from "next/image";
@@ -24,71 +29,6 @@ export default function ProductDisplay(props: ProductDisplayProps) {
     setCartQuantity,
   } = useContext(CartContext);
   const { setOpacity, setType, setOperation } = useContext(BannerContext);
-
-  const addToCart = () => {
-    setOpacity("0");
-    if (cart.length > 0) {
-      const findItem = cart.find((c) => c.prodId === id);
-      if (findItem !== undefined) {
-        cart.map((c) =>
-          c.prodId === id ? (c.quantity = c.quantity + 1) : null
-        );
-      } else {
-        setCart([
-          ...cart,
-          {
-            prodId: id,
-            name: name,
-            price: price,
-            currency: currency,
-            quantity: 1,
-          },
-        ]);
-      }
-      setCartQuantity(cartQuantity + 1);
-      setOperation("Updated ");
-    } else {
-      setCart([
-        {
-          prodId: id,
-          name: name,
-          price: price,
-          currency: currency,
-          quantity: 1,
-        },
-      ]);
-      setCartQuantity(cartQuantity + 1);
-      setOperation("Added to ");
-    }
-    setOpacity("100");
-    setType("Cart");
-    setTimeout(() => {
-      setOpacity("0");
-    }, 1000);
-  };
-
-  const toggleWishlist = () => {
-    setOpacity("0");
-    if (wishlist.includes(product)) {
-      const newWishlist = wishlist.filter((e) => e !== product);
-      setWishlist(newWishlist);
-      setOperation("Removed from ");
-    } else {
-      setWishlist([...wishlist, product]);
-      setOperation("Added to ");
-    }
-    setOpacity("100");
-    setType("Wishlist");
-    setTimeout(() => {
-      setOpacity("0");
-    }, 1000);
-  };
-
-  const getWishlistText = () => {
-    if (wishlist.includes(product)) {
-      return "Remove from Wishlist";
-    } else return "Add to Wishlist";
-  };
 
   return (
     <div className={`gap-2 flex flex-col pl-16`}>
@@ -127,13 +67,33 @@ export default function ProductDisplay(props: ProductDisplayProps) {
         <div className={`w-1/3 ml-2`}>pics</div>
         <div className={`w-1/2 gap-16 flex flex-row`}>
           <Button
-            onClick={() => toggleWishlist()}
-            buttonText={getWishlistText()}
+            onClick={() =>
+              toggleWishlist({
+                setOpacity,
+                product,
+                wishlist,
+                setOperation,
+                setType,
+                setWishlist,
+              })
+            }
+            buttonText={getWishlistText({ wishlist, product })}
             size="lg"
             styleType="secondary"
           />
           <Button
-            onClick={() => addToCart()}
+            onClick={() =>
+              addToCart({
+                setOpacity,
+                cart,
+                setCart,
+                product,
+                setCartQuantity,
+                cartQuantity,
+                setOperation,
+                setType,
+              })
+            }
             buttonText="Add to Cart"
             size="lg"
             styleType="primary"

@@ -5,7 +5,8 @@ import magnifyingGlass from "../../../public/icons/magglass.svg";
 import Image from "next/image";
 import { useState } from "react";
 
-export default function SearchBar() {
+export default function SearchBar(props: { placeholder: string }) {
+  const { placeholder } = props;
   const [isTyping, setIsTyping] = useState(false);
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -26,7 +27,7 @@ export default function SearchBar() {
     <div className="flex flex-row items-center justify-end">
       <input
         className={`peer w-screen rounded-md py-[9px] pl-10 text-sm text-black border border-black placeholder:text-gray-500 focus:outline-0`}
-        placeholder="Search Products"
+        placeholder={placeholder}
         defaultValue={searchParams.get("query")?.toString()}
         onChange={(e) => {
           handleSearch(e.target.value);
