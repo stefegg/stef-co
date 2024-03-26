@@ -100,7 +100,7 @@ export default function Cart() {
         >
           <div>Subtotal</div>
           <div>
-            {currencyGen(cart[0].currency)}
+            {cart.length > 0 ? currencyGen(cart[0].currency) : null}
             {getSubtotal()}
           </div>
         </div>
