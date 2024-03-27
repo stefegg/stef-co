@@ -1,6 +1,6 @@
 "use client";
 import { CartContext, ThemeContext } from "../_providers";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Button } from ".";
 import { lobsterFont } from "../fonts";
 import { currencyGen } from "../_utils";
@@ -11,11 +11,23 @@ export default function CheckoutDisplay() {
   const { appTheme } = useContext(ThemeContext);
   const [shippingCost, setShippingCost] = useState(10);
   const [subTotal, setsubTotal] = useState(0);
-  const getSubtotal = () => {
-    let subtotal = 0;
-    cart.map((c) => (subtotal = c.price * c.quantity + subtotal));
-    return subtotal;
+  const [salesTax, setSalesTax] = useState(0);
+  const [orderTotal, setOrderTotal] = useState(0);
+
+  const getOrderTotal = () => {
+    let sum = 0;
+    cart.map((c) => (sum = c.price * c.quantity + sum));
+    setsubTotal(sum);
+    let salesTax = 0;
+    cart.map((c) => (salesTax = c.price * c.quantity * 0.06625 + salesTax));
+    setSalesTax(salesTax);
+    let orderTotal = sum + salesTax + shippingCost;
+    setOrderTotal(orderTotal);
   };
+
+  useEffect(() => {
+    getOrderTotal();
+  }, []);
 
   return (
     <>
@@ -23,16 +35,21 @@ export default function CheckoutDisplay() {
         <div
           className={`flex flex-row border-${appTheme}-text border-2 rounded-lg h-full`}
         >
-          <div className="w-3/4 bg-blue-500 rounded-l-lg">left</div>
+          <div className="w-3/4  rounded-l-lg flex flex-col">
+            <div
+              className={`h-[10%] ${lobsterFont.className} text-4xl flex items-center pl-6 border-b-2 border-${appTheme}-text bg-${appTheme}-containerBg rounded-tl-lg`}
+            >
+              Checkout
+            </div>
+            <div>body</div>
+          </div>
           <div
             className={`w-1/4  bg-${appTheme}-bodyBg h-full flex flex-col justify-between rounded-r-lg border-l-2 border-${appTheme}-text`}
           >
             <div
-              className={`flex border-b-2 border-${appTheme}-text rounded-tr-lg h-[10%] items-center text-4xl bg-${appTheme}-containerBg`}
+              className={`flex border-b-2 border-${appTheme}-text rounded-tr-lg h-[10%] items-center text-4xl bg-${appTheme}-containerBg ${lobsterFont.className} pl-6`}
             >
-              <div className={`pl-6 ${lobsterFont.className} rounded-tr-lg  `}>
-                Your Order
-              </div>
+              Your Order
             </div>
             <div className="h-[60%]">
               <div
@@ -61,21 +78,21 @@ export default function CheckoutDisplay() {
                 <div>Subtotal:</div>
                 <div>
                   {currencyGen(cart[0].currency)}
-                  {getSubtotal()}
+                  {subTotal.toFixed(2)}
                 </div>
               </div>
               <div className="flex flex-row pl-6 text-lg justify-between pr-4">
                 <div>Shipping & Handling:</div>
                 <div>
                   {currencyGen(cart[0].currency)}
-                  {shippingCost}
+                  {shippingCost.toFixed(2)}
                 </div>
               </div>
               <div className="flex flex-row pl-6 text-lg justify-between pr-4">
                 <div>Tax:</div>
                 <div>
                   {currencyGen(cart[0].currency)}
-                  {shippingCost}
+                  {salesTax.toFixed(2)}
                 </div>
               </div>
               <div
@@ -85,7 +102,7 @@ export default function CheckoutDisplay() {
                 <div>
                   {currencyGen(cart[0].currency)}
 
-                  {shippingCost}
+                  {orderTotal.toFixed(2)}
                 </div>
               </div>
               <div className="flex flex-row pl-6 text-xl justify-between pr-4">
