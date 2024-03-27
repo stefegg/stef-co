@@ -14,13 +14,14 @@ import { getFilter } from "../_utils";
 import accountIcon from "../../../public/icons/account.png";
 import cartIcon from "../../../public/icons/cart_png.png";
 import wishList from "../../../public/icons/wishlist.svg";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function Header() {
   const { appTheme, setAppTheme } = useContext(ThemeContext);
   const { cart, wishlist, showCart, setShowCart } = useContext(CartContext);
   const [showDrop, setShowDrop] = useState(false);
   const router = useRouter();
+  const pathName = usePathname();
 
   const iconStyle = {
     filter: getFilter(appTheme),
@@ -40,6 +41,12 @@ export default function Header() {
       setter: () => setAppTheme("dark"),
     },
   ];
+
+  const toggleCart = () => {
+    if (pathName !== "/checkout") {
+      setShowCart(!showCart);
+    } else null;
+  };
 
   return (
     <div className="flex flex-col relative">
@@ -68,10 +75,7 @@ export default function Header() {
             </div>
           )}
         </div>
-        <div
-          className="cursor-pointer relative"
-          onClick={() => setShowCart(!showCart)}
-        >
+        <div className="cursor-pointer relative" onClick={() => toggleCart()}>
           <Image
             src={cartIcon}
             height={24}
