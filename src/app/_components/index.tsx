@@ -21,6 +21,7 @@ import IndicatorCircle from "./indicatorCircle";
 import PageWrapper from "./pageWrapper";
 import LoadingSpinner from "./loadingSpinner";
 import Cart from "./cart";
+import CheckoutDisplay from "./checkoutDisplay";
 
 export {
   CategoryList,
@@ -46,4 +47,5 @@ export {
   PageWrapper,
   LoadingSpinner,
   Cart,
+  CheckoutDisplay,
 };

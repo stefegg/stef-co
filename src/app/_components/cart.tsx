@@ -8,11 +8,13 @@ import trashCan from "../../../public/icons/trash.svg";
 import { getFilter } from "../_utils";
 import { CartItem } from "../_types";
 import { Button } from ".";
+import { useRouter } from "next/navigation";
 
 export default function Cart() {
   const { appTheme } = useContext(ThemeContext);
   const { cart, showCart, setShowCart, cartQuantity, setCartQuantity } =
     useContext(CartContext);
+  const router = useRouter();
 
   const getTranslate = () => {
     if (showCart === false) {
@@ -46,6 +48,12 @@ export default function Cart() {
     cart.map((c) => (subtotal = c.price * c.quantity + subtotal));
     return subtotal;
   };
+
+  const clickCheckout = () => {
+    setShowCart(false);
+    router.push("/checkout");
+  };
+
   return (
     <div
       className={`text-${appTheme}-text bg-${appTheme}-containerBg border-${appTheme}-text absolute border-l-2 min-h-[calc(100vh-4rem)] w-1/4 top-16 right-0 ${getTranslate()} transition duration-500 p-4 overflow-y-scroll z-30`}
@@ -89,30 +97,32 @@ export default function Cart() {
             </div>
           ))
         ) : (
-          <div className="flex flex-row w-full text-lg pl-2">
+          <div className="flex flex-row w-full text-lg pl-2 pt-2">
             Your cart is empty
           </div>
         )}
       </div>
-      <div className="absolute flex flex-col w-full pr-6 ml-1 bottom-0 max-h-[24vh] mb-8">
-        <div
-          className={`text-4xl ${lobsterFont.className} mt-8 flex flex-row justify-between pr-4 pl-1 `}
-        >
-          <div>Subtotal</div>
-          <div>
-            {cart.length > 0 ? currencyGen(cart[0].currency) : null}
-            {getSubtotal()}
+      {cart.length > 0 && (
+        <div className="absolute flex flex-col w-full pr-6 ml-1 bottom-0 max-h-[24vh] mb-8">
+          <div
+            className={`text-4xl ${lobsterFont.className} mt-8 flex flex-row justify-between pr-4 pl-1 `}
+          >
+            <div>Subtotal</div>
+            <div>
+              {cart.length > 0 ? currencyGen(cart[0].currency) : null}
+              {getSubtotal()}
+            </div>
+          </div>
+          <div className="flex flex-row justify-center w-full pt-4 pr-2">
+            <Button
+              buttonText="Checkout"
+              styleType="secondary"
+              onClick={() => clickCheckout()}
+              size="lg"
+            />
           </div>
         </div>
-        <div className="flex flex-row justify-center w-full pt-4 pr-2">
-          <Button
-            buttonText="Checkout"
-            styleType="secondary"
-            onClick={() => setShowCart(false)}
-            size="lg"
-          />
-        </div>
-      </div>
+      )}
     </div>
   );
 }
