@@ -22,6 +22,7 @@ import PageWrapper from "./pageWrapper";
 import LoadingSpinner from "./loadingSpinner";
 import Cart from "./cart";
 import CheckoutDisplay from "./checkoutDisplay";
+import Input from "./input";
 
 export {
   CategoryList,
@@ -48,4 +49,5 @@ export {
   LoadingSpinner,
   Cart,
   CheckoutDisplay,
+  Input,
 };

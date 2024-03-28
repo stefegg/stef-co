@@ -44,22 +44,22 @@ export default function CheckoutDisplay() {
             <div>body</div>
           </div>
           <div
-            className={`w-1/4  bg-${appTheme}-bodyBg h-full flex flex-col justify-between rounded-r-lg border-l-2 border-${appTheme}-text`}
+            className={`w-1/4  bg-${appTheme}-bodyBg h-full flex flex-col  rounded-r-lg border-l-2 border-${appTheme}-text`}
           >
             <div
-              className={`flex border-b-2 border-${appTheme}-text rounded-tr-lg h-[10%] items-center text-4xl bg-${appTheme}-containerBg ${lobsterFont.className} pl-6`}
+              className={`flex border-b-2 border-${appTheme}-text rounded-tr-lg h-16 items-center text-4xl bg-${appTheme}-containerBg ${lobsterFont.className} pl-6`}
             >
               Your Order
             </div>
-            <div className="h-[60%]">
+            <div className="h-2/3">
               <div
-                className={`pl-6 text-lg h-[10%] flex items-center border-b-2 border-${appTheme}-text`}
+                className={`pl-6 text-lg h-10 flex items-center border-b-2 border-${appTheme}-text`}
               >
                 {`Order Details (${cartQuantity} item${
                   cartQuantity > 1 ? "s" : ""
                 })`}
               </div>
-              <div className="flex flex-col overflow-y-scroll h-[90%]">
+              <div className="flex flex-col overflow-y-scroll min-h-72 py-4 gap-2">
                 {cart.map((c, idx) => (
                   <div
                     className={`px-6 text-base flex min-h-[10%] flex-row justify-between items-center w-full`}
@@ -72,7 +72,7 @@ export default function CheckoutDisplay() {
               </div>
             </div>
             <div
-              className={`flex flex-col h-[30%] border-t-2 border-${appTheme}-text bg-${appTheme}-containerBg w-full gap-2 rounded-br-lg justify-center`}
+              className={`flex flex-col h-72 py-4 border-t-2 border-${appTheme}-text bg-${appTheme}-containerBg w-full gap-2 rounded-br-lg justify-center`}
             >
               <div className="flex flex-row pl-6 text-lg justify-between pr-4">
                 <div>Subtotal:</div>
