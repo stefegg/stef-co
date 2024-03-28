@@ -56,7 +56,7 @@ export default function Cart() {
 
   return (
     <div
-      className={`text-${appTheme}-text bg-${appTheme}-containerBg border-${appTheme}-text absolute border-l-2 h-[calc(100vh-4rem)] w-1/4 top-16 right-0 ${getTranslate()} transition duration-500 p-4 overflow-y-scroll z-30`}
+      className={`flex flex-col text-${appTheme}-text bg-${appTheme}-containerBg border-${appTheme}-text absolute justify-between border-l-2 h-[calc(100vh-4rem)] w-1/4 top-16 right-0 ${getTranslate()} transition duration-500 p-4 overflow-y-scroll z-30`}
     >
       <div
         className={`${lobsterFont.className} text-5xl border-b-2 border-${appTheme}-border h-16`}
@@ -103,7 +103,7 @@ export default function Cart() {
         )}
       </div>
       {cart.length > 0 && (
-        <div className="flex flex-col w-full ml-1 h-40 py-4 items-end">
+        <div className="flex flex-col w-full ml-1 h-40 py-4 ">
           <div
             className={`text-4xl ${lobsterFont.className} flex flex-row justify-between pr-4 pl-1 `}
           >

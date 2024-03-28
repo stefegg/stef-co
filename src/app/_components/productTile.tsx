@@ -46,7 +46,7 @@ export default function ProductTile(props: ProductTileProps) {
           </div>
         </div>
       </Link>
-      <div className="flex flex-row gap-2">
+      <div className="flex flex-row gap-2 w-full justify-evenly">
         <Button
           styleType="secondary"
           buttonText={getWishlistText({ wishlist, product })}
