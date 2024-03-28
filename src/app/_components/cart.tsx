@@ -56,19 +56,19 @@ export default function Cart() {
 
   return (
     <div
-      className={`text-${appTheme}-text bg-${appTheme}-containerBg border-${appTheme}-text absolute border-l-2 min-h-[calc(100vh-4rem)] w-1/4 top-16 right-0 ${getTranslate()} transition duration-500 p-4 overflow-y-scroll z-30`}
+      className={`flex flex-col text-${appTheme}-text bg-${appTheme}-containerBg border-${appTheme}-text absolute justify-between border-l-2 h-[calc(100vh-4rem)] w-1/4 top-16 right-0 ${getTranslate()} transition duration-500 p-4 overflow-y-scroll z-30`}
     >
       <div
-        className={`${lobsterFont.className} text-5xl border-b-2 border-${appTheme}-border max-h-24`}
+        className={`${lobsterFont.className} text-5xl border-b-2 border-${appTheme}-border h-16`}
       >
         Shopping Cart
       </div>
-      <div className="max-h-[64vh] overflow-scroll">
+      <div className="h-2/3 py-4 overflow-y-scroll gap-4 flex flex-col">
         {cart.length > 0 ? (
           cart.map((cartItem, idx) => (
             <div
               key={idx}
-              className={`flex flex-col w-full gap-2 mt-8 pl-2 bg-${appTheme}-bodyBg rounded-lg py-2`}
+              className={`flex flex-col w-full gap-2 pl-2 bg-${appTheme}-bodyBg rounded-lg py-2`}
             >
               <div className="text-3xl flex flex-row justify-between w-full ">
                 <div className={lobsterFont.className}>{cartItem.name}</div>
@@ -103,9 +103,9 @@ export default function Cart() {
         )}
       </div>
       {cart.length > 0 && (
-        <div className="absolute flex flex-col w-full pr-6 ml-1 bottom-0 max-h-[24vh] mb-8">
+        <div className="flex flex-col w-full ml-1 h-40 py-4 ">
           <div
-            className={`text-4xl ${lobsterFont.className} mt-8 flex flex-row justify-between pr-4 pl-1 `}
+            className={`text-4xl ${lobsterFont.className} flex flex-row justify-between pr-4 pl-1 `}
           >
             <div>Subtotal</div>
             <div>
