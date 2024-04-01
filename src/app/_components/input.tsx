@@ -13,9 +13,9 @@ export default function Input(props: InputProps) {
   const { label, error, width, placeholder } = props;
   console.log(width, "------w");
   return (
-    <div className={`flex flex-col gap-1 w-${width}`}>
+    <div className={`flex flex-col gap-1 w-${width} rounded-sm`}>
       <span className="text-sm">{label && label}</span>
-      <div className={`rounded-sm pl-1 w-full`}>
+      <div className={`rounded w-full border-2 border-${appTheme}-text`}>
         <input
           className={`outline-0 border-0 pl-[6px] w-full rounded-sm text-black`}
           placeholder={placeholder && placeholder}
