@@ -11,9 +11,9 @@ type InputProps = {
 export default function Input(props: InputProps) {
   const { appTheme } = useContext(ThemeContext);
   const { label, error, width, placeholder } = props;
-  console.log(width, "------w");
+
   return (
-    <div className={`flex flex-col gap-1 w-${width} rounded-sm`}>
+    <div className={`flex flex-col w-${width} rounded-sm`}>
       <span className="text-sm">{label && label}</span>
       <div className={`rounded w-full border-2 border-${appTheme}-text`}>
         <input

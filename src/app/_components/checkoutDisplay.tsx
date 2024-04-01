@@ -42,12 +42,12 @@ export default function CheckoutDisplay() {
             >
               Checkout
             </div>
-            <div className="p-4">
+            <div className="p-4 flex flex-col gap-2">
               <span className="flex flex-row w-5/6 gap-10 px-2">
                 <Input width="1/2" label="First Name" />
                 <Input width="1/2" label="Last Name" />
               </span>
-              <span className="flex flex-col w-5/6 gap-2 px-2 pt-2">
+              <span className="flex flex-col w-5/6 gap-4 px-2 pt-2">
                 <Input
                   width="full"
                   label="Address"
@@ -81,12 +81,12 @@ export default function CheckoutDisplay() {
               Your Order
             </div>
             <div className="h-2/3">
-              <div className={`pl-6 text-lg h-10 flex items-center`}>
+              <div className={`pl-6 pt-2 text-lg h-10 flex items-center`}>
                 {`Order Details (${cartQuantity} item${
                   cartQuantity > 1 ? "s" : ""
                 })`}
               </div>
-              <div className="flex flex-col overflow-y-scroll min-h-72 py-4 gap-2">
+              <div className="flex flex-col overflow-y-scroll min-h-72 pt-2 pb-4 gap-2">
                 {cart.map((c, idx) => (
                   <div
                     className={`px-6 text-base flex min-h-[10%] flex-row justify-between items-center w-full`}

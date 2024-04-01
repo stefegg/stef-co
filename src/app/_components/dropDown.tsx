@@ -41,7 +41,7 @@ export default function Dropdown(props: DropdownProps) {
         className="cursor-pointer flex flex-row gap-2"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <div className="cursor-pointer text-sm">
+        <div className="cursor-pointer text-base">
           <div className="mb-1">{title}</div>
           {stateSelect && (
             <div
