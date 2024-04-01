@@ -7,7 +7,7 @@ import {
   CartProvider,
   BannerProvider,
 } from "./_providers/index";
-import { interFont } from "./fonts";
+import { ptSansFont } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Stef Co.",
@@ -24,13 +24,13 @@ export default function Layout({
       <ThemeProvider>
         <CartProvider>
           <html lang="en">
-            <body className={`${interFont.className} flex flex-row`}>
+            <body className={`${ptSansFont.className} flex flex-row`}>
               <div className="w-[13%] h-screen flex flex-col">
                 <SidebarCap />
                 <Sidebar />
               </div>
               <div className="w-[87%] max-h-screen overflow-scroll">
-                <div className="absolute w-[87%]">
+                <div className="absolute w-[87%] h-full overflow-x-hidden">
                   <Header />
                 </div>
                 <div className="min-h-[calc(100vh-4rem)] overflow-y-scroll overflow-x-hidden mt-16 flex flex-row relative">

@@ -52,7 +52,7 @@ export default function Header() {
     <div className="flex flex-col relative">
       <span
         className={`h-16 flex items-center px-4 border-b-2 z-10 absolute w-full
-    bg-${appTheme}-containerBg border-${appTheme}-border text-${appTheme}-text gap-10
+    bg-${appTheme}-containerBg border-${appTheme}-border text-${appTheme}-text gap-10 
     `}
       >
         <div className="ml-auto">

@@ -12,12 +12,13 @@ type DropdownProps = {
     title: string;
     setter: () => void;
   }[];
+  stateSelect?: boolean;
 };
 
 export default function Dropdown(props: DropdownProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { appTheme } = useContext(ThemeContext);
-  const { title, options } = props;
+  const { title, options, stateSelect } = props;
 
   const iconStyle = {
     filter: getFilter(appTheme),
@@ -35,19 +36,30 @@ export default function Dropdown(props: DropdownProps) {
   };
 
   return (
-    <>
+    <div>
       <div
-        className="cursor-pointer flex flex-row gap-2 relative"
+        className="cursor-pointer flex flex-row gap-2"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <div className="cursor-pointer">{title}</div>
-        <Image
-          src={isOpen ? chevUp : chevDown}
-          alt="chev"
-          width={20}
-          height={20}
-          style={iconStyle}
-        />
+        <div className="cursor-pointer text-base">
+          <div className="mb-1">{title}</div>
+          {stateSelect && (
+            <div
+              className={`border-2 border-${appTheme}-text w-24 rounded text-black bg-white pl-1`}
+            >
+              Nj
+            </div>
+          )}
+        </div>
+        <div className="flex items-end pb-1">
+          <Image
+            src={isOpen ? chevUp : chevDown}
+            alt="chev"
+            width={20}
+            height={20}
+            style={iconStyle}
+          />
+        </div>
       </div>
       {isOpen && (
         <div
@@ -65,6 +77,6 @@ export default function Dropdown(props: DropdownProps) {
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 }

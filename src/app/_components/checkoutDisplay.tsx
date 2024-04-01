@@ -4,6 +4,7 @@ import { useContext, useState, useEffect } from "react";
 import { Button, Input } from ".";
 import { lobsterFont } from "../fonts";
 import { currencyGen } from "../_utils";
+import { Dropdown } from ".";
 
 export default function CheckoutDisplay() {
   const { cart, setCart, cartQuantity, setCartQuantity } =
@@ -33,35 +34,59 @@ export default function CheckoutDisplay() {
     <>
       {cart.length > 0 ? (
         <div
-          className={`flex flex-row border-${appTheme}-text border-2 rounded-lg h-full`}
+          className={`flex flex-row border-${appTheme}-text  rounded-lg h-full gap-6`}
         >
-          <div className="w-3/4 rounded-l-lg flex flex-col">
+          <div className="w-3/4 rounded-lg flex flex-col shadow-[0px_0px_10px_5px_rgba(31,46,71,1);]">
             <div
-              className={`h-16 ${lobsterFont.className} text-4xl flex items-center pl-6 border-b-2 border-${appTheme}-text bg-${appTheme}-containerBg rounded-tl-lg`}
+              className={`h-16 ${lobsterFont.className} text-4xl flex items-center pl-6 border-b-2 border-${appTheme}-text bg-${appTheme}-containerBg rounded-t-lg`}
             >
               Checkout
             </div>
-            <div>
-              <Input />
+            <div className="p-4 flex flex-col gap-2">
+              <span className="flex flex-row w-5/6 gap-10 px-2">
+                <Input width="1/2" label="First Name" />
+                <Input width="1/2" label="Last Name" />
+              </span>
+              <span className="flex flex-col w-5/6 gap-4 px-2 pt-2">
+                <Input
+                  width="full"
+                  label="Address"
+                  placeholder="Street address or P.O. Box"
+                />
+                <Input
+                  width="full"
+                  placeholder="Apt, suite, unit, building, floor, etc."
+                />
+              </span>
+              <span className="flex flex-row w-5/6 px-2 pt-2 justify-between">
+                <Input width="1/3" label="City" />
+                <Dropdown
+                  title="State"
+                  options={[
+                    { title: "NJ", setter: () => console.log("Nj") },
+                    { title: "NY", setter: () => console.log("NY") },
+                  ]}
+                  stateSelect
+                />
+                <Input width="1/3" label="Zip Code" />
+              </span>
             </div>
           </div>
           <div
-            className={`w-1/4 bg-${appTheme}-bodyBg h-full flex flex-col rounded-r-lg border-l-2 border-${appTheme}-text`}
+            className={`w-1/4 bg-${appTheme}-bodyBg h-full flex flex-col rounded-lg shadow-[0px_0px_10px_5px_rgba(31,46,71,1)]`}
           >
             <div
-              className={`flex border-b-2 border-${appTheme}-text rounded-tr-lg h-16 items-center text-4xl bg-${appTheme}-containerBg ${lobsterFont.className} pl-6 py-4`}
+              className={`flex border-b-2 border-${appTheme}-text rounded-t-lg h-16 items-center text-4xl bg-${appTheme}-containerBg ${lobsterFont.className} pl-6 py-4 `}
             >
               Your Order
             </div>
             <div className="h-2/3">
-              <div
-                className={`pl-6 text-lg h-10 flex items-center border-b-2 border-${appTheme}-text`}
-              >
+              <div className={`pl-6 pt-2 text-lg h-10 flex items-center`}>
                 {`Order Details (${cartQuantity} item${
                   cartQuantity > 1 ? "s" : ""
                 })`}
               </div>
-              <div className="flex flex-col overflow-y-scroll min-h-72 py-4 gap-2">
+              <div className="flex flex-col overflow-y-scroll min-h-72 pt-2 pb-4 gap-2">
                 {cart.map((c, idx) => (
                   <div
                     className={`px-6 text-base flex min-h-[10%] flex-row justify-between items-center w-full`}
@@ -74,7 +99,7 @@ export default function CheckoutDisplay() {
               </div>
             </div>
             <div
-              className={`flex flex-col h-72 py-4 border-t-2 border-${appTheme}-text bg-${appTheme}-containerBg w-full gap-2 rounded-br-lg justify-center`}
+              className={`flex flex-col h-72 py-4 border-t-2 border-${appTheme}-text bg-${appTheme}-containerBg w-full gap-2 rounded-b-lg justify-center`}
             >
               <div className="flex flex-row pl-6 text-lg justify-between pr-4">
                 <div>Subtotal:</div>
