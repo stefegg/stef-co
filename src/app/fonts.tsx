@@ -1,6 +1,5 @@
 import { Lobster } from "next/font/google";
 import { Inter } from "next/font/google";
-import { Rubik } from "next/font/google";
 import { PT_Sans } from "next/font/google";
 
 export const interFont = Inter({ subsets: ["latin"] });
