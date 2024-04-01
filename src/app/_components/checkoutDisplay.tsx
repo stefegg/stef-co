@@ -2,7 +2,7 @@
 import { CartContext, ThemeContext } from "../_providers";
 import { useContext, useState, useEffect } from "react";
 import { Button, Input } from ".";
-import { lobsterFont } from "../fonts";
+import { lobsterFont, ptSansFont } from "../fonts";
 import { currencyGen } from "../_utils";
 import { Dropdown } from ".";
 
@@ -34,7 +34,7 @@ export default function CheckoutDisplay() {
     <>
       {cart.length > 0 ? (
         <div
-          className={`flex flex-row border-${appTheme}-text  rounded-lg h-full gap-6`}
+          className={`flex flex-row border-${appTheme}-text  rounded-lg h-full gap-6 ${ptSansFont.className}`}
         >
           <div className="w-3/4 rounded-lg flex flex-col shadow-[0px_0px_10px_5px_rgba(31,46,71,1);]">
             <div

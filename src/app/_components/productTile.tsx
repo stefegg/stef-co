@@ -9,6 +9,7 @@ import {
 import { useContext } from "react";
 import { ThemeContext, CartContext, BannerContext } from "../_providers/index";
 import { Button } from ".";
+import { ptSansFont } from "../fonts";
 
 type ProductTileProps = {
   product: FullProduct;
@@ -31,7 +32,7 @@ export default function ProductTile(props: ProductTileProps) {
 
   return (
     <div
-      className={`bg-${appTheme}-containerBg text-${appTheme}-text border-${appTheme}-border border-2 rounded-lg p-4 h-96`}
+      className={`bg-${appTheme}-containerBg text-${appTheme}-text border-${appTheme}-border border-2 rounded-lg p-4 h-96 ${ptSansFont.className}`}
     >
       <Link
         href={catId ? `/categories/${catId}/${id}` : `/products/${id}`}
