@@ -5,6 +5,8 @@ import { Button, Input } from ".";
 import { lobsterFont } from "../fonts";
 import { currencyGen } from "../_utils";
 import { Dropdown } from ".";
+import { useFormik } from "formik";
+import { addressSchema } from "../_validation";
 
 export default function CheckoutDisplay() {
   const { cart, setCart, cartQuantity, setCartQuantity } =
@@ -25,6 +27,23 @@ export default function CheckoutDisplay() {
     let orderTotal = sum + salesTax + shippingCost;
     setOrderTotal(orderTotal);
   };
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      addressOne: "",
+      addressTwo: "",
+      addressCity: "",
+      addressState: "",
+      addressPostal: "",
+    },
+    onSubmit: (values) => {
+      console.log(values, "submit--------");
+    },
+    validateOnChange: false,
+    validateOnBlur: true,
+    validationSchema: addressSchema,
+  });
 
   useEffect(() => {
     getOrderTotal();
@@ -34,7 +53,7 @@ export default function CheckoutDisplay() {
     <>
       {cart.length > 0 ? (
         <div
-          className={`flex flex-row border-${appTheme}-text  rounded-lg h-full gap-6`}
+          className={`flex flex-row border-${appTheme}-text rounded-lg h-full gap-6`}
         >
           <div className="w-3/4 rounded-lg flex flex-col shadow-[0px_0px_10px_5px_rgba(31,46,71,1);]">
             <div
@@ -42,35 +61,79 @@ export default function CheckoutDisplay() {
             >
               Checkout
             </div>
-            <div className="p-4 flex flex-col gap-2">
-              <span className="flex flex-row w-5/6 gap-10 px-2">
-                <Input width="1/2" label="First Name" />
-                <Input width="1/2" label="Last Name" />
-              </span>
-              <span className="flex flex-col w-5/6 gap-4 px-2 pt-2">
-                <Input
-                  width="full"
-                  label="Address"
-                  placeholder="Street address or P.O. Box"
-                />
-                <Input
-                  width="full"
-                  placeholder="Apt, suite, unit, building, floor, etc."
-                />
-              </span>
-              <span className="flex flex-row w-5/6 px-2 pt-2 justify-between">
-                <Input width="1/3" label="City" />
-                <Dropdown
-                  title="State"
-                  options={[
-                    { title: "NJ", setter: () => console.log("Nj") },
-                    { title: "NY", setter: () => console.log("NY") },
-                  ]}
-                  stateSelect
-                />
-                <Input width="1/3" label="Zip Code" />
-              </span>
-            </div>
+            <form onSubmit={formik.handleSubmit}>
+              <div className="p-4 flex flex-col gap-2">
+                <span className="flex flex-row w-5/6 gap-10 px-2">
+                  <Input
+                    width="1/2"
+                    label="First Name"
+                    onChange={formik.handleChange("firstName")}
+                    onBlur={formik.handleBlur("firstName")}
+                    value={formik.values.firstName}
+                    error={formik.touched.firstName && formik.errors.firstName}
+                  />
+                  <Input
+                    width="1/2"
+                    label="Last Name"
+                    onChange={formik.handleChange("lastName")}
+                    onBlur={formik.handleBlur("lastName")}
+                    value={formik.values.lastName}
+                    error={formik.touched.lastName && formik.errors.lastName}
+                  />
+                </span>
+                <span className="flex flex-col w-5/6 gap-4 px-2">
+                  <Input
+                    width="full"
+                    label="Address"
+                    placeholder="Street address or P.O. Box"
+                    onChange={formik.handleChange("addressOne")}
+                    onBlur={formik.handleBlur("addressOne")}
+                    value={formik.values.addressOne}
+                    error={
+                      formik.touched.addressOne && formik.errors.addressOne
+                    }
+                  />
+                  <Input
+                    width="full"
+                    placeholder="Apt, suite, unit, building, floor, etc."
+                    onChange={formik.handleChange("addressTwo")}
+                    value={formik.values.addressTwo}
+                  />
+                </span>
+                <span className="flex flex-row w-5/6 px-2 justify-between">
+                  <Input
+                    width="1/3"
+                    label="City"
+                    onChange={formik.handleChange("addressCity")}
+                    onBlur={formik.handleBlur("addressCity")}
+                    value={formik.values.addressCity}
+                    error={
+                      formik.touched.addressCity && formik.errors.addressCity
+                    }
+                  />
+                  <Dropdown
+                    title="State"
+                    options={[
+                      { title: "NJ", setter: () => console.log("Nj") },
+                      { title: "NY", setter: () => console.log("NY") },
+                    ]}
+                    stateSelect
+                  />
+                  <Input
+                    width="1/3"
+                    label="Zip Code"
+                    onChange={formik.handleChange("addressPostal")}
+                    onBlur={formik.handleBlur("addressPostal")}
+                    value={formik.values.addressPostal}
+                    error={
+                      formik.touched.addressPostal &&
+                      formik.errors.addressPostal
+                    }
+                  />
+                </span>
+                <button type="submit">Submit</button>
+              </div>
+            </form>
           </div>
           <div
             className={`w-1/4 bg-${appTheme}-bodyBg h-full flex flex-col rounded-lg shadow-[0px_0px_10px_5px_rgba(31,46,71,1)]`}
