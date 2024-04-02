@@ -16,7 +16,7 @@ export default function Input(props: InputProps) {
   const { label, error, width, placeholder, value, onChange, onBlur } = props;
   return (
     <div className={`flex flex-col w-${width} rounded-sm`}>
-      <span className="text-sm">{label && label}</span>
+      <span className="text-base mb-1">{label && label}</span>
       <div className={`rounded w-full}`}>
         <input
           value={value}

@@ -13,12 +13,14 @@ type DropdownProps = {
     setter: () => void;
   }[];
   stateSelect?: boolean;
+  value?: string;
+  error?: string;
 };
 
 export default function Dropdown(props: DropdownProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { appTheme } = useContext(ThemeContext);
-  const { title, options, stateSelect } = props;
+  const { title, options, stateSelect, value, error } = props;
 
   const iconStyle = {
     filter: getFilter(appTheme),
@@ -44,14 +46,27 @@ export default function Dropdown(props: DropdownProps) {
         <div className="cursor-pointer text-base">
           <div className="mb-1">{title}</div>
           {stateSelect && (
-            <div
-              className={`border-2 border-${appTheme}-text w-24 rounded text-black bg-white pl-1`}
-            >
-              Nj
-            </div>
+            <>
+              <div
+                className={`border-2 border-${appTheme}-${
+                  error ? "error" : "text"
+                } w-24 rounded text-black bg-white pl-1 h-[28px]`}
+              >
+                {value}
+              </div>
+              <span
+                className={`h-3.5 text-sm text-${appTheme}-${
+                  error ? "error" : "bodyBg"
+                }`}
+              >
+                {error ? error : "x"}
+              </span>
+            </>
           )}
         </div>
-        <div className="flex items-end pb-1">
+        <div
+          className={`flex ${stateSelect ? "items-center" : "items-end"} pb-1`}
+        >
           <Image
             src={isOpen ? chevUp : chevDown}
             alt="chev"

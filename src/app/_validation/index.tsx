@@ -7,4 +7,5 @@ export const addressSchema = Yup.object().shape({
   addressCity: Yup.string().required("Required"),
   addressState: Yup.string().required("Required"),
   addressPostal: Yup.string().required("Required"),
+  email: Yup.string().email("Invalid email").required("Required"),
 });

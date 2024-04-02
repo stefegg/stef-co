@@ -16,6 +16,7 @@ export default function CheckoutDisplay() {
   const [subTotal, setsubTotal] = useState(0);
   const [salesTax, setSalesTax] = useState(0);
   const [orderTotal, setOrderTotal] = useState(0);
+  const [shipState, setShipState] = useState("");
 
   const getOrderTotal = () => {
     let sum = 0;
@@ -36,11 +37,12 @@ export default function CheckoutDisplay() {
       addressCity: "",
       addressState: "",
       addressPostal: "",
+      email: "",
     },
     onSubmit: (values) => {
       console.log(values, "submit--------");
     },
-    validateOnChange: false,
+    validateOnChange: true,
     validateOnBlur: true,
     validationSchema: addressSchema,
   });
@@ -55,14 +57,14 @@ export default function CheckoutDisplay() {
         <div
           className={`flex flex-row border-${appTheme}-text rounded-lg h-full gap-6`}
         >
-          <div className="w-3/4 rounded-lg flex flex-col shadow-[0px_0px_10px_5px_rgba(31,46,71,1);]">
+          <div className="w-2/3 rounded-lg flex flex-col shadow-[0px_0px_10px_5px_rgba(31,46,71,1);]">
             <div
               className={`h-16 ${lobsterFont.className} text-4xl flex items-center pl-6 border-b-2 border-${appTheme}-text bg-${appTheme}-containerBg rounded-t-lg`}
             >
               Checkout
             </div>
             <form onSubmit={formik.handleSubmit}>
-              <div className="p-4 flex flex-col gap-2">
+              <div className="flex flex-col gap-2 items-center py-8">
                 <span className="flex flex-row w-5/6 gap-10 px-2">
                   <Input
                     width="1/2"
@@ -81,7 +83,7 @@ export default function CheckoutDisplay() {
                     error={formik.touched.lastName && formik.errors.lastName}
                   />
                 </span>
-                <span className="flex flex-col w-5/6 gap-4 px-2">
+                <span className="flex flex-col w-5/6 gap-2 px-2">
                   <Input
                     width="full"
                     label="Address"
@@ -95,6 +97,7 @@ export default function CheckoutDisplay() {
                   />
                   <Input
                     width="full"
+                    label="Address Line Two"
                     placeholder="Apt, suite, unit, building, floor, etc."
                     onChange={formik.handleChange("addressTwo")}
                     value={formik.values.addressTwo}
@@ -114,10 +117,18 @@ export default function CheckoutDisplay() {
                   <Dropdown
                     title="State"
                     options={[
-                      { title: "NJ", setter: () => console.log("Nj") },
-                      { title: "NY", setter: () => console.log("NY") },
+                      {
+                        title: "NJ",
+                        setter: () => {
+                          setShipState("NJ");
+                          formik.setFieldValue("addressState", "NJ");
+                        },
+                      },
+                      { title: "NY", setter: () => setShipState("NY") },
                     ]}
+                    error={formik.errors.addressState}
                     stateSelect
+                    value={shipState}
                   />
                   <Input
                     width="1/3"
@@ -131,12 +142,21 @@ export default function CheckoutDisplay() {
                     }
                   />
                 </span>
-                <button type="submit">Submit</button>
+                <span className="flex flex-row w-5/6 px-2 pr-10">
+                  <Input
+                    width="1/2"
+                    label="Email"
+                    onChange={formik.handleChange("email")}
+                    onBlur={formik.handleBlur("email")}
+                    value={formik.values.email}
+                    error={formik.touched.email && formik.errors.email}
+                  />
+                </span>
               </div>
             </form>
           </div>
           <div
-            className={`w-1/4 bg-${appTheme}-bodyBg h-full flex flex-col rounded-lg shadow-[0px_0px_10px_5px_rgba(31,46,71,1)]`}
+            className={`w-1/3 bg-${appTheme}-bodyBg h-full flex flex-col rounded-lg shadow-[0px_0px_10px_5px_rgba(31,46,71,1)]`}
           >
             <div
               className={`flex border-b-2 border-${appTheme}-text rounded-t-lg h-16 items-center text-4xl bg-${appTheme}-containerBg ${lobsterFont.className} pl-6 py-4 `}
@@ -191,16 +211,15 @@ export default function CheckoutDisplay() {
                 <div>Order Total:</div>
                 <div>
                   {currencyGen(cart[0].currency)}
-
                   {orderTotal.toFixed(2)}
                 </div>
               </div>
-              <div className="flex flex-row pl-6 text-xl justify-between pr-4">
+              <div className="flex flex-row text-xl justify-center w-full px-6">
                 <Button
                   buttonText="Submit Order"
-                  size="lg"
+                  size="xl"
                   styleType="secondary"
-                  onClick={() => console.log("click")}
+                  onClick={formik.handleSubmit}
                 />
               </div>
             </div>
