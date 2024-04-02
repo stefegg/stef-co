@@ -78,14 +78,14 @@ export default function Dropdown(props: DropdownProps) {
       </div>
       {isOpen && (
         <div
-          className={`mt-2 w-36 z-40 rounded-lg absolute h-auto border-2 bg-${appTheme}-containerBg border-${appTheme}-border`}
+          className={`mt-2 w-36 z-40 rounded-lg absolute h-auto max-h-32 overflow-scroll border-2 bg-${appTheme}-containerBg border-${appTheme}-border`}
           onMouseLeave={() => mouseOut()}
         >
           {options?.map((o, idx) => (
             <div
               key={idx}
               onClick={() => clickItem(o.setter)}
-              className={`flex flex-row p-4 items-center hover:bg-${appTheme}-containerHover rounded-lg cursor-pointer`}
+              className={`flex flex-row p-2 items-center hover:bg-${appTheme}-containerHover rounded-lg cursor-pointer`}
             >
               {o.title}
             </div>
