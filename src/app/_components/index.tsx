@@ -23,6 +23,7 @@ import LoadingSpinner from "./loadingSpinner";
 import Cart from "./cart";
 import CheckoutDisplay from "./checkoutDisplay";
 import Input from "./input";
+import CheckoutDetails from "./checkoutDetails";
 
 export {
   CategoryList,
@@ -50,4 +51,5 @@ export {
   Cart,
   CheckoutDisplay,
   Input,
+  CheckoutDetails,
 };

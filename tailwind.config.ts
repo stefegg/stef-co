@@ -14,6 +14,7 @@ const config: Config = {
           containerBg: "#d0d0d0",
           bodyBg: "#E5E5E5",
           containerHover: "#E5E5E5",
+          error: "#B00020",
         },
         dark: {
           border: "#3700b3",
@@ -22,6 +23,7 @@ const config: Config = {
           containerHover: "#3700b3",
           bodyBg: "#121212",
           secondary: "#03DAc6",
+          error: "#cf6679",
         },
         classic: {
           border: "#cd0909",
@@ -30,6 +32,7 @@ const config: Config = {
           containerHover: "#33435B",
           containerBg: "#1F2E47",
           seconadry: "#03c51d",
+          error: "#cd0909",
         },
       },
       keyframes: {
@@ -47,17 +50,17 @@ const config: Config = {
   safelist: [
     {
       pattern:
-        /(bg|text|border)-light-(border|text|containerBg|bodyBg|containerHover)/,
+        /(bg|text|border)-light-(border|text|containerBg|bodyBg|containerHover|error)/,
       variants: ["before", "hover"],
     },
     {
       pattern:
-        /(bg|text|border)-classic-(border|text|containerBg|bodyBg|containerHover)/,
+        /(bg|text|border)-classic-(border|text|containerBg|bodyBg|containerHover|error)/,
       variants: ["before", "hover"],
     },
     {
       pattern:
-        /(bg|text|border)-dark-(border|text|containerBg|bodyBg|containerHover)/,
+        /(bg|text|border)-dark-(border|text|containerBg|bodyBg|containerHover|error)/,
       variants: ["before", "hover"],
     },
   ],

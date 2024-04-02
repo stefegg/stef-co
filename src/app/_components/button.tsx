@@ -4,7 +4,7 @@ import { ThemeContext } from "../_providers/index";
 
 type ButtonProps = {
   buttonText: string;
-  size?: "sm" | "med" | "lg";
+  size?: "sm" | "med" | "lg" | "xl";
   styleType: "primary" | "secondary";
   onClick: () => void;
 };
@@ -20,6 +20,8 @@ export default function Button(props: ButtonProps) {
         return `w-48 h-12 text-base`;
       case "lg":
         return `w-80 h-16 text-xl`;
+      case "xl":
+        return `w-full h-16 text-xl`;
       default:
         `w-48 h-12 text-base`;
     }
@@ -36,6 +38,7 @@ export default function Button(props: ButtonProps) {
     <button
       onClick={onClick}
       className={`${getSize()} ${getStyle()} rounded-lg border-2`}
+      type="button"
     >
       {buttonText}
     </button>
