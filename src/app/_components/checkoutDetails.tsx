@@ -4,13 +4,14 @@ import { useContext, useState, useEffect } from "react";
 import { Button } from ".";
 import { lobsterFont } from "../fonts";
 import { currencyGen } from "../_utils";
+import { FormEvent } from "react";
 
 type CheckoutDetailsProps = {
-  formik: any;
+  submit: (e?: FormEvent<HTMLFormElement> | undefined) => void;
 };
 
 export default function CheckoutDetails(props: CheckoutDetailsProps) {
-  const { formik } = props;
+  const { submit } = props;
   const { appTheme } = useContext(ThemeContext);
   const { cart, setCart, cartQuantity, setCartQuantity } =
     useContext(CartContext);
@@ -97,7 +98,7 @@ export default function CheckoutDetails(props: CheckoutDetailsProps) {
             buttonText="Submit Order"
             size="xl"
             styleType="secondary"
-            onClick={formik.handleSubmit}
+            onClick={submit}
           />
         </div>
       </div>

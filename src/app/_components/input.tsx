@@ -1,13 +1,14 @@
 import { ThemeContext } from "../_providers";
 import { useContext } from "react";
+import { ChangeEvent } from "react";
 
 type InputProps = {
   label?: string;
   error?: string | false;
   width: string;
   placeholder?: string;
-  onChange: any;
-  onBlur?: any;
+  onChange: (e: string | ChangeEvent<any>) => void;
+  onBlur?: (e: any) => void;
   value: string;
 };
 

@@ -134,7 +134,7 @@ export default function CheckoutDisplay() {
               </div>
             </form>
           </div>
-          <CheckoutDetails formik={formik} />
+          <CheckoutDetails submit={formik.handleSubmit} />
         </div>
       ) : (
         "Cart Empty"
