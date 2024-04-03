@@ -15,8 +15,14 @@ import accountIcon from "../../../public/icons/account.png";
 import cartIcon from "../../../public/icons/cart_png.png";
 import wishList from "../../../public/icons/wishlist.svg";
 import { useRouter, usePathname } from "next/navigation";
+import { Session } from "next-auth";
 
-export default function Header() {
+type HeaderProps = {
+  session: Session | null;
+};
+
+export default function Header(props: HeaderProps) {
+  const { session } = props;
   const { appTheme, setAppTheme } = useContext(ThemeContext);
   const { cart, wishlist, showCart, setShowCart } = useContext(CartContext);
   const [showDrop, setShowDrop] = useState(false);
@@ -102,7 +108,7 @@ export default function Header() {
         <div
           className={`fixed top-14 right-4  ${showDrop ? "flex" : "hidden"}`}
         >
-          <HeaderMenu setShowDrop={setShowDrop} />
+          <HeaderMenu session={session} setShowDrop={setShowDrop} />
         </div>
         <Cart />
       </span>

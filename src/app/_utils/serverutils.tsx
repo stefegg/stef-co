@@ -43,3 +43,22 @@ export async function getFeaturedProducts() {
     },
   });
 }
+
+export async function registerUser(email: string, password: string) {
+  return await prisma.user.create({
+    data: {
+      email: email,
+      password: password,
+      addresses: {},
+    },
+  });
+}
+
+export async function loginUser(email: string | undefined) {
+  const user = await prisma.user.findUniqueOrThrow({
+    where: {
+      email: email,
+    },
+  });
+  return user;
+}

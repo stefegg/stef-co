@@ -8,17 +8,19 @@ import {
   BannerProvider,
 } from "./_providers/index";
 import { ptSansFont } from "./fonts";
+import { getServerSession } from "next-auth";
 
 export const metadata: Metadata = {
   title: "Stef Co.",
   description: "Created by Stef",
 };
 
-export default function Layout({
+export default async function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await getServerSession();
   return (
     <BannerProvider>
       <ThemeProvider>
@@ -31,7 +33,7 @@ export default function Layout({
               </div>
               <div className="w-[87%] max-h-screen overflow-scroll">
                 <div className="absolute w-[87%] h-full overflow-x-hidden">
-                  <Header />
+                  <Header session={session} />
                 </div>
                 <div className="min-h-[calc(100vh-4rem)] overflow-y-scroll overflow-x-hidden mt-16 flex flex-row relative">
                   {children}
