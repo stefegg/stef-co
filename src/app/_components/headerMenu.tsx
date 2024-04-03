@@ -27,10 +27,10 @@ export default function HeaderMenu(props: HeaderMenuProps) {
             signOut();
           }}
         >
-          "Log Out"
+          Log Out
         </div>
       ) : (
-        <div onClick={() => router.push("/login")}>"Log In"</div>
+        <div onClick={() => router.push("/login")}>Log In</div>
       )}
     </div>
   );
