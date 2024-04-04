@@ -16,12 +16,13 @@ import cartIcon from "../../../public/icons/cart_png.png";
 import wishList from "../../../public/icons/wishlist.svg";
 import { useRouter, usePathname } from "next/navigation";
 import { Session } from "next-auth";
-import { SafeUser } from "../_types";
+import { FullWishlist, SafeUser } from "../_types";
 
 type HeaderProps = {
   session: {
     session: Session;
     user: SafeUser;
+    wishlist: FullWishlist | null;
   } | null;
 };
 
@@ -29,7 +30,8 @@ export default function Header(props: HeaderProps) {
   const { session } = props;
   const { appTheme, setAppTheme } = useContext(ThemeContext);
   const { user, setUser } = useContext(UserContext);
-  const { cart, wishlist, showCart, setShowCart } = useContext(CartContext);
+  const { cart, wishlist, showCart, setShowCart, setWishlist } =
+    useContext(CartContext);
   const [showDrop, setShowDrop] = useState(false);
   const router = useRouter();
   const pathName = usePathname();
@@ -37,6 +39,7 @@ export default function Header(props: HeaderProps) {
   useEffect(() => {
     if (session !== null) {
       setUser(session.user);
+      setWishlist(session?.wishlist?.wishlistItems || []);
     }
   }, []);
 

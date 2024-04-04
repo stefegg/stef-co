@@ -10,7 +10,7 @@ import {
 } from "./_providers/index";
 import { ptSansFont } from "./fonts";
 import { getServerSession } from "next-auth";
-import { findUser } from "./_utils/serverutils";
+import { findUser, getWishlist } from "./_utils/serverutils";
 
 export const metadata: Metadata = {
   title: "Stef Co.",
@@ -26,7 +26,8 @@ export default async function Layout({
     const session = await getServerSession();
     if (session && session.user && session.user.name) {
       const user = await findUser(session.user.name);
-      return { session, user };
+      const wishlist = await getWishlist(session.user.name);
+      return { session, user, wishlist };
     } else return null;
   };
   const session = await getSetSessionUser();

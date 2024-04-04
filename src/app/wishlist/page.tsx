@@ -31,13 +31,13 @@ export default function Wishlist({
           <SearchBar placeholder={"Search Wishlist"} />
         </div>
       </div>
-      {wishlist.length > 0 ? (
+      {wishlist ? (
         <Suspense fallback={<LoadingSpinner />}>
-          <ProductContainer
+          {/* <ProductContainer
             products={filteredList.sort(
-              (a, b) => Number(a.categoryId) - Number(b.categoryId)
+              (a, b) => Number(a.name) - Number(b.name)
             )}
-          />
+          /> */}
         </Suspense>
       ) : (
         <div className="text-xl mt-8 ml-2">Your wishlist is empty</div>

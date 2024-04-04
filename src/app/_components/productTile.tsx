@@ -7,7 +7,12 @@ import {
   getWishlistText,
 } from "../_utils";
 import { useContext } from "react";
-import { ThemeContext, CartContext, BannerContext } from "../_providers/index";
+import {
+  ThemeContext,
+  CartContext,
+  BannerContext,
+  UserContext,
+} from "../_providers/index";
 import { Button } from ".";
 
 type ProductTileProps = {
@@ -19,6 +24,8 @@ export default function ProductTile(props: ProductTileProps) {
   const { product, catId } = props;
   const { name, price, id, currency } = product;
   const { appTheme } = useContext(ThemeContext);
+  const { user } = useContext(UserContext);
+
   const {
     cart,
     setCart,
@@ -59,6 +66,7 @@ export default function ProductTile(props: ProductTileProps) {
               setOperation,
               setType,
               setWishlist,
+              user,
             })
           }
         />

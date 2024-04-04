@@ -1,4 +1,5 @@
 import { AddCartProps, ToggleWishProps, WishlistTextProps } from "../_types";
+import { updateWishlist } from "./serverutils";
 
 export const logoTextGen = (appTheme: string, size: string) => {
   const large = "text-7xl pt-[20%]";
@@ -117,15 +118,31 @@ export const addToCart = (props: AddCartProps) => {
 };
 
 export const toggleWishlist = (props: ToggleWishProps) => {
-  const { setOpacity, wishlist, product, setOperation, setType, setWishlist } =
-    props;
+  const {
+    setOpacity,
+    wishlist,
+    product,
+    setOperation,
+    setType,
+    setWishlist,
+    user,
+  } = props;
   setOpacity("0");
-  if (wishlist.includes(product)) {
-    const newWishlist = wishlist.filter((e) => e !== product);
+  const wishlistValues = wishlist.map((e) => e.prodId);
+  const prodAsWishItem = {
+    prodId: product.id,
+    name: product.name,
+    price: product.price,
+    imageUrl: product.imageUrl || "",
+  };
+  if (wishlistValues.includes(product.id)) {
+    const newWishlist = wishlist.filter((e) => e.prodId !== product.id);
     setWishlist(newWishlist);
+    user !== null && updateWishlist(product, user.id, "remove");
     setOperation("Removed from ");
   } else {
-    setWishlist([...wishlist, product]);
+    setWishlist([...wishlist, prodAsWishItem]);
+    user !== null && updateWishlist(product, user.id, "add");
     setOperation("Added to ");
   }
   setOpacity("100");
@@ -137,7 +154,9 @@ export const toggleWishlist = (props: ToggleWishProps) => {
 
 export const getWishlistText = (props: WishlistTextProps) => {
   const { wishlist, product } = props;
-  if (wishlist.includes(product)) {
+  const wishlistValues = wishlist.map((e) => e.prodId);
+
+  if (wishlistValues.includes(product.id)) {
     return "Remove from Wishlist";
   } else return "Add to Wishlist";
 };
