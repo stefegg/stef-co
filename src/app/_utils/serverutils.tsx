@@ -62,3 +62,17 @@ export async function loginUser(email: string | undefined) {
   });
   return user;
 }
+
+export async function findUser(id: string) {
+  const user = await prisma.user.findUniqueOrThrow({
+    where: {
+      id: id,
+    },
+    select: {
+      id: true,
+      email: true,
+      addresses: true,
+    },
+  });
+  return user;
+}

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import { CartContext, ThemeContext } from "../_providers/index";
-import { useContext, useState } from "react";
+import { CartContext, ThemeContext, UserContext } from "../_providers/index";
+import { useContext, useState, useEffect } from "react";
 import {
   HeaderMenu,
   Dropdown,
@@ -16,18 +16,29 @@ import cartIcon from "../../../public/icons/cart_png.png";
 import wishList from "../../../public/icons/wishlist.svg";
 import { useRouter, usePathname } from "next/navigation";
 import { Session } from "next-auth";
+import { SafeUser } from "../_types";
 
 type HeaderProps = {
-  session: Session | null;
+  session: {
+    session: Session;
+    user: SafeUser;
+  } | null;
 };
 
 export default function Header(props: HeaderProps) {
   const { session } = props;
   const { appTheme, setAppTheme } = useContext(ThemeContext);
+  const { user, setUser } = useContext(UserContext);
   const { cart, wishlist, showCart, setShowCart } = useContext(CartContext);
   const [showDrop, setShowDrop] = useState(false);
   const router = useRouter();
   const pathName = usePathname();
+
+  useEffect(() => {
+    if (session !== null) {
+      setUser(session.user);
+    }
+  }, []);
 
   const iconStyle = {
     filter: getFilter(appTheme),

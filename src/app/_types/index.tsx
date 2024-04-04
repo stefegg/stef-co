@@ -1,4 +1,4 @@
-import { Prisma, Product, Category } from "@prisma/client";
+import { Prisma, Product, Category, CustomerAddress } from "@prisma/client";
 import { SetStateAction } from "react";
 
 export type FullProduct = Product &
@@ -38,4 +38,10 @@ export type ToggleWishProps = {
 export type WishlistTextProps = {
   wishlist: FullProduct[];
   product: FullProduct;
+};
+
+export type SafeUser = {
+  id: string;
+  email: string;
+  addresses: CustomerAddress[] | [];
 };
