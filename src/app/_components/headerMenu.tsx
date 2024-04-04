@@ -6,10 +6,14 @@ import { Dispatch, SetStateAction } from "react";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Session } from "next-auth";
+import { SafeUser } from "../_types";
 
 type HeaderMenuProps = {
   setShowDrop: Dispatch<SetStateAction<boolean>>;
-  session: Session | null;
+  session: {
+    session: Session;
+    user: SafeUser;
+  } | null;
 };
 
 export default function HeaderMenu(props: HeaderMenuProps) {
