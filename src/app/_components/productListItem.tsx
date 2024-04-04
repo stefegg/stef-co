@@ -7,7 +7,12 @@ import {
   getWishlistText,
 } from "../_utils";
 import { useContext } from "react";
-import { ThemeContext, CartContext, BannerContext } from "../_providers/index";
+import {
+  ThemeContext,
+  CartContext,
+  BannerContext,
+  UserContext,
+} from "../_providers/index";
 import { Button } from ".";
 
 type ProductListProps = {
@@ -19,6 +24,7 @@ export default function ProductListItem(props: ProductListProps) {
   const { product, catId } = props;
   const { name, price, id, currency, specs, description, stock } = product;
   const { appTheme } = useContext(ThemeContext);
+  const { user } = useContext(UserContext);
   const {
     cart,
     setCart,
@@ -54,6 +60,7 @@ export default function ProductListItem(props: ProductListProps) {
                     setOperation,
                     setType,
                     setWishlist,
+                    user,
                   })
                 }
                 size="sm"

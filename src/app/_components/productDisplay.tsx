@@ -7,7 +7,12 @@ import {
   getWishlistText,
 } from "../_utils";
 import { useContext } from "react";
-import { ThemeContext, CartContext, BannerContext } from "../_providers/index";
+import {
+  ThemeContext,
+  CartContext,
+  BannerContext,
+  UserContext,
+} from "../_providers/index";
 import { Button } from ".";
 import Image from "next/image";
 import { lobsterFont } from "../fonts";
@@ -20,6 +25,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
   const { product } = props;
   const { id, name, price, description, specs, imageUrl, currency } = product;
   const { appTheme } = useContext(ThemeContext);
+  const { user } = useContext(UserContext);
   const {
     cart,
     setCart,
@@ -75,6 +81,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
                 setOperation,
                 setType,
                 setWishlist,
+                user,
               })
             }
             buttonText={getWishlistText({ wishlist, product })}
