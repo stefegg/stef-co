@@ -1,6 +1,7 @@
 "use server";
+import { Product } from "@prisma/client";
 import prisma from "../../../lib/prisma";
-
+import { SafeUser, FullWishlist } from "../_types";
 export async function getProductById(prodId: string) {
   return await prisma.product.findUniqueOrThrow({
     where: {
@@ -50,6 +51,8 @@ export async function registerUser(email: string, password: string) {
       email: email,
       password: password,
       addresses: {},
+      orders: {},
+      wishlist: {},
     },
   });
 }
@@ -63,7 +66,7 @@ export async function loginUser(email: string | undefined) {
   return user;
 }
 
-export async function findUser(id: string) {
+export async function findUser(id: string): Promise<SafeUser> {
   const user = await prisma.user.findUniqueOrThrow({
     where: {
       id: id,
@@ -75,4 +78,80 @@ export async function findUser(id: string) {
     },
   });
   return user;
+}
+
+export async function getWishlist(
+  userId: string
+): Promise<FullWishlist | null> {
+  return await prisma.wishlist.findUnique({
+    where: {
+      userId: userId,
+    },
+    include: {
+      wishlistItems: {
+        select: {
+          prodId: true,
+          name: true,
+          price: true,
+          imageUrl: true,
+        },
+      },
+    },
+  });
+}
+
+export async function updateWishlist(
+  product: Product,
+  userId: string,
+  type: string
+) {
+  let foundWishlist = await prisma.wishlist.findUnique({
+    where: {
+      userId: userId,
+    },
+  });
+  if (foundWishlist === null) {
+    foundWishlist = await prisma.wishlist.create({
+      data: {
+        userId: userId,
+      },
+    });
+  }
+  if (type === "add" && foundWishlist) {
+    const res = await prisma.wishlist.findUnique({
+      where: {
+        userId: userId,
+      },
+    });
+    if (res) {
+      await prisma.wishlist.update({
+        where: { id: res.id },
+
+        data: {
+          wishlistItems: {
+            create: {
+              prodId: product.id,
+              name: product.name,
+              price: product.price,
+              imageUrl: product.imageUrl || "",
+            },
+          },
+        },
+      });
+    }
+  }
+  if (type === "remove" && foundWishlist) {
+    const res = await prisma.wishlist.findUnique({
+      where: {
+        userId: userId,
+      },
+    });
+    if (res) {
+      await prisma.wishlistItem.deleteMany({
+        where: {
+          prodId: product.id,
+        },
+      });
+    }
+  }
 }

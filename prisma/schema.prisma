@@ -22,8 +22,7 @@ model Product {
   featured Boolean @default(false)
   category Category @relation(fields:[categoryId], references: [id]) 
   categoryId String
-  // orders Order @relation(fields:[orderIds], references: [id])
-  // orderIds String[]
+  orders OrderItem[]
   @@unique([name])
 }
 
@@ -40,7 +39,8 @@ model User {
   email String
   password String
   addresses CustomerAddress[]
-  // orders Order[]
+  orders Order[]
+  wishlist Wishlist?
   @@unique([email])
 }
 
@@ -58,9 +58,40 @@ model CustomerAddress {
   @@unique([userId])
 }
 
-// model Order {
-//   id String @default(uuid()) @id
-//   user User @relation(fields:[userId], references: [id])
-//   userId String
-//   products Product[]
-// }
+model Order {
+  id String @default(uuid()) @id
+  user User @relation(fields:[userId], references: [id])
+  userId String
+  orderItems OrderItem[]
+  createdAt DateTime @default(now())
+  orderTotal Int
+  shipMethod String
+}
+
+model OrderItem {
+  id String @default(uuid()) @id
+  product Product @relation(fields:[productId], references: [id])
+  order Order @relation(fields:[orderId], references: [id])
+  orderId String 
+  productId String
+  quantity Int
+}
+
+model Wishlist {
+  id String @default(uuid()) @id
+  user User @relation(fields:[userId], references:[id])
+  userId String
+  wishlistItems WishlistItem[]
+  @@unique([userId])
+}
+
+model WishlistItem {
+  id String @default(uuid()) @id
+  prodId String
+  name String
+  price Int 
+  imageUrl String
+  wishlist Wishlist @relation(fields:[wishlistId], references:[id])
+  wishlistId String
+  // @@unique([wishlistId])
+}

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { createContext, useState } from "react";
-import { FullProduct } from "../_types";
+import { CleanWishlistItem } from "../_types";
 import { Dispatch, SetStateAction } from "react";
 import { CartItem } from "../_types";
 
@@ -10,8 +10,8 @@ interface CartContextType {
   setCart: Dispatch<SetStateAction<CartItem[]>>;
   cartQuantity: number;
   setCartQuantity: Dispatch<SetStateAction<number>>;
-  wishlist: FullProduct[];
-  setWishlist: Dispatch<SetStateAction<FullProduct[]>>;
+  wishlist: CleanWishlistItem[];
+  setWishlist: Dispatch<SetStateAction<CleanWishlistItem[] | []>>;
   showCart: boolean;
   setShowCart: Dispatch<SetStateAction<boolean>>;
 }
@@ -33,7 +33,7 @@ interface Props {
 
 export const CartProvider: React.FC<Props> = ({ children }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
-  const [wishlist, setWishlist] = useState<FullProduct[]>([]);
+  const [wishlist, setWishlist] = useState<CleanWishlistItem[]>([]);
   const [cartQuantity, setCartQuantity] = useState<number>(0);
   const [showCart, setShowCart] = useState<boolean>(false);
   const value = {
