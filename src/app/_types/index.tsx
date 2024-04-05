@@ -18,7 +18,13 @@ export type FullWishlist = Wishlist &
     Prisma.WishlistGetPayload<{
       include: {
         wishlistItems: {
-          select: { prodId: true; name: true; price: true; imageUrl: true };
+          select: {
+            prodId: true;
+            name: true;
+            price: true;
+            imageUrl: true;
+            currency: true;
+          };
         };
       };
     }>

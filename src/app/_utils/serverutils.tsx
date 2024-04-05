@@ -93,6 +93,7 @@ export async function getWishlist(
           name: true,
           price: true,
           imageUrl: true,
+          currency: true,
         },
       },
     },
