@@ -1,4 +1,5 @@
 "use server";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 import prisma from "../../../lib/prisma";
 import { SafeUser, FullWishlist, CleanWishlistItem } from "../_types";
 export async function getProductById(prodId: string) {
@@ -45,15 +46,22 @@ export async function getFeaturedProducts() {
 }
 
 export async function registerUser(email: string, password: string) {
-  return await prisma.user.create({
-    data: {
-      email: email,
-      password: password,
-      addresses: {},
-      orders: {},
-      wishlist: {},
-    },
-  });
+  try {
+    return await prisma.user.create({
+      data: {
+        email: email,
+        password: password,
+        addresses: {},
+        orders: {},
+        wishlist: {},
+      },
+    });
+  } catch (e) {
+    if (e instanceof PrismaClientKnownRequestError) {
+      return e.code;
+    }
+    throw e;
+  }
 }
 
 export async function loginUser(email: string | undefined) {
