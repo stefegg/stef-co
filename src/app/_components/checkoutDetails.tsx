@@ -37,7 +37,7 @@ export default function CheckoutDetails(props: CheckoutDetailsProps) {
 
   return (
     <div
-      className={`w-1/3 bg-${appTheme}-bodyBg h-full flex flex-col rounded-lg shadow-[0px_0px_10px_5px_rgba(31,46,71,1)]`}
+      className={`w-1/3 bg-${appTheme}-bodyBg h-full flex flex-col rounded-lg shadow-[0px_0px_5px_5px_rgba(0,0,0,0.5)]`}
     >
       <div
         className={`flex border-b-2 border-${appTheme}-text rounded-t-lg h-16 items-center text-4xl bg-${appTheme}-containerBg ${lobsterFont.className} pl-6 py-4 `}

@@ -41,7 +41,7 @@ export default function Header(props: HeaderProps) {
       setUser(session.user);
       setWishlist(session?.wishlist?.wishlistItems || []);
     }
-  }, []);
+  }, [session]);
 
   const iconStyle = {
     filter: getFilter(appTheme),

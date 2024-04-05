@@ -1,10 +1,14 @@
 "use client";
 import { signIn } from "next-auth/react";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
+import { CartContext } from "../_providers";
+import { useContext } from "react";
 
 export default function Form() {
   const router = useRouter();
+  const [error, setError] = useState("");
+  const { setWishlist } = useContext(CartContext);
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -14,8 +18,13 @@ export default function Form() {
       redirect: false,
     });
     if (!response?.error) {
+      setWishlist([]);
       router.push("/");
       router.refresh();
+    }
+    if (response?.error) {
+      // console.log(response.error, "-------error");
+      setError(response.error);
     }
   };
   return (

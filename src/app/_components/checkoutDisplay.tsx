@@ -39,7 +39,7 @@ export default function CheckoutDisplay() {
         <div
           className={`flex flex-row border-${appTheme}-text rounded-lg h-full gap-6`}
         >
-          <div className="w-2/3 rounded-lg flex flex-col shadow-[0px_0px_10px_5px_rgba(31,46,71,1);]">
+          <div className="w-2/3 rounded-lg flex flex-col shadow-[0px_0px_5px_5px_rgba(0,0,0,0.5);]">
             <div
               className={`h-16 ${lobsterFont.className} text-4xl flex items-center pl-6 border-b-2 border-${appTheme}-text bg-${appTheme}-containerBg rounded-t-lg`}
             >
