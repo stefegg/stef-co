@@ -36,7 +36,10 @@ export type AddCartProps = {
   setOpacity: (value: SetStateAction<string>) => void;
   cart: CartItem[];
   setCart: (value: SetStateAction<CartItem[]>) => void;
-  product: FullProduct;
+  prodId: string;
+  prodName: string;
+  prodPrice: number;
+  prodCurrency: string;
   setCartQuantity: (value: SetStateAction<number>) => void;
   cartQuantity: number;
   setOperation: (value: SetStateAction<string>) => void;
@@ -45,7 +48,11 @@ export type AddCartProps = {
 
 export type ToggleWishProps = {
   setOpacity: (value: SetStateAction<string>) => void;
-  product: FullProduct;
+  prodId: string;
+  prodName: string;
+  prodPrice: number;
+  prodCurrency: string;
+  prodImageUrl: string;
   wishlist: CleanWishlistItem[];
   setOperation: (value: SetStateAction<string>) => void;
   setType: (value: SetStateAction<string>) => void;
@@ -55,7 +62,7 @@ export type ToggleWishProps = {
 
 export type WishlistTextProps = {
   wishlist: CleanWishlistItem[];
-  product: FullProduct;
+  prodId: string;
 };
 
 export type SafeUser = {
@@ -69,4 +76,5 @@ export type CleanWishlistItem = {
   name: string;
   price: number;
   imageUrl: string;
+  currency: string;
 };
