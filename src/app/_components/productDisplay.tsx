@@ -76,7 +76,11 @@ export default function ProductDisplay(props: ProductDisplayProps) {
             onClick={() =>
               toggleWishlist({
                 setOpacity,
-                product,
+                prodId: product.id,
+                prodName: product.name,
+                prodCurrency: product.currency,
+                prodImageUrl: product.imageUrl || "",
+                prodPrice: product.price,
                 wishlist,
                 setOperation,
                 setType,
@@ -84,7 +88,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
                 user,
               })
             }
-            buttonText={getWishlistText({ wishlist, product })}
+            buttonText={getWishlistText({ wishlist, prodId: product.id })}
             size="lg"
             styleType="secondary"
           />
@@ -94,7 +98,10 @@ export default function ProductDisplay(props: ProductDisplayProps) {
                 setOpacity,
                 cart,
                 setCart,
-                product,
+                prodId: product.id,
+                prodName: product.name,
+                prodCurrency: product.currency,
+                prodPrice: product.price,
                 setCartQuantity,
                 cartQuantity,
                 setOperation,

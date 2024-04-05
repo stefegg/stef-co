@@ -91,7 +91,7 @@ model WishlistItem {
   name String
   price Int 
   imageUrl String
+  currency String
   wishlist Wishlist @relation(fields:[wishlistId], references:[id])
   wishlistId String
-  // @@unique([wishlistId])
 }

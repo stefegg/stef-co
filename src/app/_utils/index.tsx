@@ -71,7 +71,10 @@ export const addToCart = (props: AddCartProps) => {
     setOpacity,
     cart,
     setCart,
-    product,
+    prodId,
+    prodName,
+    prodPrice,
+    prodCurrency,
     setCartQuantity,
     cartQuantity,
     setOperation,
@@ -79,19 +82,19 @@ export const addToCart = (props: AddCartProps) => {
   } = props;
   setOpacity("0");
   if (cart.length > 0) {
-    const findItem = cart.find((c) => c.prodId === product.id);
+    const findItem = cart.find((c) => c.prodId === prodId);
     if (findItem !== undefined) {
       cart.map((c) =>
-        c.prodId === product.id ? (c.quantity = c.quantity + 1) : null
+        c.prodId === prodId ? (c.quantity = c.quantity + 1) : null
       );
     } else {
       setCart([
         ...cart,
         {
-          prodId: product.id,
-          name: product.name,
-          price: product.price,
-          currency: product.currency,
+          prodId: prodId,
+          name: prodName,
+          price: prodPrice,
+          currency: prodCurrency,
           quantity: 1,
         },
       ]);
@@ -100,10 +103,10 @@ export const addToCart = (props: AddCartProps) => {
   } else {
     setCart([
       {
-        prodId: product.id,
-        name: product.name,
-        price: product.price,
-        currency: product.currency,
+        prodId: prodId,
+        name: prodName,
+        price: prodPrice,
+        currency: prodCurrency,
         quantity: 1,
       },
     ]);
@@ -121,7 +124,11 @@ export const toggleWishlist = (props: ToggleWishProps) => {
   const {
     setOpacity,
     wishlist,
-    product,
+    prodId,
+    prodName,
+    prodPrice,
+    prodCurrency,
+    prodImageUrl,
     setOperation,
     setType,
     setWishlist,
@@ -130,19 +137,20 @@ export const toggleWishlist = (props: ToggleWishProps) => {
   setOpacity("0");
   const wishlistValues = wishlist.map((e) => e.prodId);
   const prodAsWishItem = {
-    prodId: product.id,
-    name: product.name,
-    price: product.price,
-    imageUrl: product.imageUrl || "",
+    prodId: prodId,
+    name: prodName,
+    price: prodPrice,
+    imageUrl: prodImageUrl || "",
+    currency: prodCurrency,
   };
-  if (wishlistValues.includes(product.id)) {
-    const newWishlist = wishlist.filter((e) => e.prodId !== product.id);
+  if (wishlistValues.includes(prodId)) {
+    const newWishlist = wishlist.filter((e) => e.prodId !== prodId);
     setWishlist(newWishlist);
-    user !== null && updateWishlist(product, user.id, "remove");
+    user !== null && updateWishlist(prodAsWishItem, user.id, "remove");
     setOperation("Removed from ");
   } else {
     setWishlist([...wishlist, prodAsWishItem]);
-    user !== null && updateWishlist(product, user.id, "add");
+    user !== null && updateWishlist(prodAsWishItem, user.id, "add");
     setOperation("Added to ");
   }
   setOpacity("100");
@@ -153,10 +161,9 @@ export const toggleWishlist = (props: ToggleWishProps) => {
 };
 
 export const getWishlistText = (props: WishlistTextProps) => {
-  const { wishlist, product } = props;
+  const { wishlist, prodId } = props;
   const wishlistValues = wishlist.map((e) => e.prodId);
-
-  if (wishlistValues.includes(product.id)) {
+  if (wishlistValues.includes(prodId)) {
     return "Remove from Wishlist";
   } else return "Add to Wishlist";
 };

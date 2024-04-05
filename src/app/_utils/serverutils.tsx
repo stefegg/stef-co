@@ -1,7 +1,6 @@
 "use server";
-import { Product } from "@prisma/client";
 import prisma from "../../../lib/prisma";
-import { SafeUser, FullWishlist } from "../_types";
+import { SafeUser, FullWishlist, CleanWishlistItem } from "../_types";
 export async function getProductById(prodId: string) {
   return await prisma.product.findUniqueOrThrow({
     where: {
@@ -94,6 +93,7 @@ export async function getWishlist(
           name: true,
           price: true,
           imageUrl: true,
+          currency: true,
         },
       },
     },
@@ -101,7 +101,7 @@ export async function getWishlist(
 }
 
 export async function updateWishlist(
-  product: Product,
+  product: CleanWishlistItem,
   userId: string,
   type: string
 ) {
@@ -130,10 +130,11 @@ export async function updateWishlist(
         data: {
           wishlistItems: {
             create: {
-              prodId: product.id,
+              prodId: product.prodId,
               name: product.name,
               price: product.price,
               imageUrl: product.imageUrl || "",
+              currency: product.currency,
             },
           },
         },
@@ -149,9 +150,17 @@ export async function updateWishlist(
     if (res) {
       await prisma.wishlistItem.deleteMany({
         where: {
-          prodId: product.id,
+          prodId: product.prodId,
         },
       });
     }
   }
+}
+
+export async function getProduct(productId: string) {
+  return await prisma.product.findUnique({
+    where: {
+      id: productId,
+    },
+  });
 }

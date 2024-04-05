@@ -3,8 +3,8 @@ import {
   PageWrapper,
   ListHeader,
   SearchBar,
-  ProductContainer,
   LoadingSpinner,
+  ProductTile,
 } from "../_components";
 import { CartContext } from "../_providers";
 import { useContext } from "react";
@@ -22,7 +22,6 @@ export default function Wishlist({
         return wish.name.toLowerCase().includes(query.toLowerCase());
       })
     : [];
-
   return (
     <PageWrapper>
       <div className="flex flex-row items-center mb-4">
@@ -33,11 +32,13 @@ export default function Wishlist({
       </div>
       {wishlist ? (
         <Suspense fallback={<LoadingSpinner />}>
-          {/* <ProductContainer
-            products={filteredList.sort(
-              (a, b) => Number(a.name) - Number(b.name)
-            )}
-          /> */}
+          <div className={`grid grid-cols-3 text-xl gap-6 grud-auto-rows pr-6`}>
+            {filteredList.map((item, idx) => (
+              <div key={idx}>
+                <ProductTile wishItem={item} />
+              </div>
+            ))}
+          </div>
         </Suspense>
       ) : (
         <div className="text-xl mt-8 ml-2">Your wishlist is empty</div>

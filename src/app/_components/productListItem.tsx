@@ -50,12 +50,16 @@ export default function ProductListItem(props: ProductListProps) {
           <div className={`flex flex-row w-full justify-between pr-6`}>
             <div className="flex flex-row gap-2 mr-2">
               <Button
-                buttonText={getWishlistText({ wishlist, product })}
+                buttonText={getWishlistText({ wishlist, prodId: product.id })}
                 styleType="secondary"
                 onClick={() =>
                   toggleWishlist({
                     setOpacity,
-                    product,
+                    prodId: product.id,
+                    prodName: product.name,
+                    prodCurrency: product.currency,
+                    prodImageUrl: product.imageUrl || "",
+                    prodPrice: product.price,
                     wishlist,
                     setOperation,
                     setType,
@@ -73,7 +77,10 @@ export default function ProductListItem(props: ProductListProps) {
                     setOpacity,
                     cart,
                     setCart,
-                    product,
+                    prodId: product.id,
+                    prodName: product.name,
+                    prodCurrency: product.currency,
+                    prodPrice: product.price,
                     setCartQuantity,
                     cartQuantity,
                     setOperation,
