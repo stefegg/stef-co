@@ -1,19 +1,48 @@
 "use client";
-import { CartContext, ThemeContext } from "../_providers";
-import { useContext, useState } from "react";
+import { CartContext, ThemeContext, UserContext } from "../_providers";
+import { useContext, useState, useEffect } from "react";
 import { CheckoutDetails, Input } from ".";
 import { lobsterFont } from "../fonts";
 import { Dropdown } from ".";
 import { useFormik } from "formik";
 import { addressSchema } from "../_validation";
 import { stateAbbrev } from "../_utils/constants";
+import { uuid } from "uuidv4";
+import { createOrder, createGuestOrder } from "../_utils/serverutils";
 
 export default function CheckoutDisplay() {
   const { cart, setCart, cartQuantity, setCartQuantity } =
     useContext(CartContext);
+  const { user } = useContext(UserContext);
   const { appTheme } = useContext(ThemeContext);
   const [shipState, setShipState] = useState("");
-
+  useEffect(() => {
+    if (user) {
+      formik.setFieldValue("email", user.email);
+    }
+  }, [user]);
+  const submitOrder = () => {
+    const orderId = uuid();
+    if (!user) {
+      createGuestOrder(
+        orderId,
+        formik.values.email,
+        cart,
+        {
+          id: orderId,
+          firstName: formik.values.firstName,
+          lastName: formik.values.lastName,
+          addressOne: formik.values.addressOne,
+          addressTwo: formik.values.addressTwo,
+          city: formik.values.addressCity,
+          state: formik.values.addressState,
+          zipCode: formik.values.addressPostal,
+        },
+        100,
+        "ground"
+      );
+    }
+  };
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -26,6 +55,7 @@ export default function CheckoutDisplay() {
       email: "",
     },
     onSubmit: (values) => {
+      submitOrder();
       console.log(values, "submit--------");
     },
     validateOnChange: true,
@@ -45,6 +75,7 @@ export default function CheckoutDisplay() {
             >
               Checkout
             </div>
+            {!user ? <div>Login or continue as guest</div> : null}
             <form onSubmit={formik.handleSubmit}>
               <div className="flex flex-col gap-2 items-center py-8">
                 <span className="flex flex-row w-5/6 gap-10 px-2">
@@ -121,16 +152,18 @@ export default function CheckoutDisplay() {
                     }
                   />
                 </span>
-                <span className="flex flex-row w-5/6 px-2 pr-10">
-                  <Input
-                    width="1/2"
-                    label="Email"
-                    onChange={formik.handleChange("email")}
-                    onBlur={formik.handleBlur("email")}
-                    value={formik.values.email}
-                    error={formik.touched.email && formik.errors.email}
-                  />
-                </span>
+                {!user && (
+                  <span className="flex flex-row w-5/6 px-2 pr-10">
+                    <Input
+                      width="1/2"
+                      label="Email"
+                      onChange={formik.handleChange("email")}
+                      onBlur={formik.handleBlur("email")}
+                      value={formik.values.email}
+                      error={formik.touched.email && formik.errors.email}
+                    />
+                  </span>
+                )}
               </div>
             </form>
           </div>
