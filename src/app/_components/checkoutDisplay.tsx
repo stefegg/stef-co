@@ -23,15 +23,6 @@ export default function CheckoutDisplay() {
   }, [user]);
   const submitOrder = () => {
     const orderId = uuid();
-    // const cartToOrder = cart.map((c) => ({
-    //   // orderId: null,
-    //   // guestId: null,
-    //   prodId: c.prodId,
-    //   name: c.name,
-    //   price: c.price,
-    //   quantity: c.quantity,
-    //   currency: c.currency,
-    // }));
     if (!user) {
       createGuestOrder(
         orderId,
