@@ -80,7 +80,6 @@ model GuestOrder {
   orderTotal Int
   shipMethod String
   shippingStatus String
-  // @@unique([addId])
 }
 
 model OrderAddress {

@@ -9,6 +9,7 @@ import { addressSchema } from "../_validation";
 import { stateAbbrev, shipMethods } from "../_utils/constants";
 import { createOrder, createGuestOrder } from "../_utils/serverutils";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function CheckoutDisplay() {
   const { cart, setCart, cartQuantity, setCartQuantity } =
@@ -40,12 +41,14 @@ export default function CheckoutDisplay() {
           zipCode: formik.values.addressPostal,
         },
         100,
-        formik.values.shipMethod
+        shipMethod
       );
       if (res.id) {
-        router.push(`/order-success/${res.id}`);
-        setCart([]);
-        setCartQuantity(0);
+        router.push(`/order-success/guest/${res.id}`);
+        setTimeout(() => {
+          setCart([]);
+          setCartQuantity(0);
+        }, 500);
       }
       //@@TODO: set error
     }
@@ -98,7 +101,10 @@ export default function CheckoutDisplay() {
             </div>
             {!user ? (
               <div className="flex justify-center w-full pt-4 text-lg">
-                Login or continue as guest
+                <Link href="/login" className="mr-2 text-blue-300">
+                  Login
+                </Link>
+                or continue as guest
               </div>
             ) : null}
             <form onSubmit={formik.handleSubmit}>
@@ -180,18 +186,8 @@ export default function CheckoutDisplay() {
                   />
                 </span>
                 <span className="flex flex-row w-5/6 px-2 justify-between">
-                  {!user && (
-                    <Input
-                      width="1/2"
-                      label="Email"
-                      onChange={formik.handleChange("email")}
-                      onBlur={formik.handleBlur("email")}
-                      value={formik.values.email}
-                      error={formik.touched.email && formik.errors.email}
-                    />
-                  )}
                   <Dropdown
-                    title="Shipping"
+                    title="Shipping Method"
                     options={shipMethods.map((s) => ({
                       title: s,
                       setter: () => {
@@ -204,6 +200,16 @@ export default function CheckoutDisplay() {
                     stateSelect
                     value={shipMethod}
                   />
+                  {!user && (
+                    <Input
+                      width="1/2"
+                      label="Email"
+                      onChange={formik.handleChange("email")}
+                      onBlur={formik.handleBlur("email")}
+                      value={formik.values.email}
+                      error={formik.touched.email && formik.errors.email}
+                    />
+                  )}
                 </span>
               </div>
             </form>
@@ -211,7 +217,9 @@ export default function CheckoutDisplay() {
           <CheckoutDetails submit={formik.handleSubmit} />
         </div>
       ) : (
-        "Cart Empty"
+        <div className="flex w-full justify-center text-lg">
+          Your Cart is Empty
+        </div>
       )}
     </>
   );
