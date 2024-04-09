@@ -14,7 +14,7 @@ type DropdownProps = {
   }[];
   stateSelect?: boolean;
   value?: string;
-  error?: string;
+  error?: string | false;
 };
 
 export default function Dropdown(props: DropdownProps) {

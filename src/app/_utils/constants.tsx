@@ -51,3 +51,5 @@ export const stateAbbrev = [
   "WI",
   "WY",
 ];
+
+export const shipMethods = ["Ground - 9.99", "Air - 12.99", "Space - 19.99"];

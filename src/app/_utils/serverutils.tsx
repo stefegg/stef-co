@@ -2,7 +2,6 @@
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 import prisma from "../../../lib/prisma";
 import { SafeUser, FullWishlist, CleanWishlistItem } from "../_types";
-import { OrderItem, OrderAddress, GuestOrderAddress } from "@prisma/client";
 import { Prisma } from "@prisma/client";
 
 export async function getProductById(prodId: string) {
@@ -179,27 +178,30 @@ export async function getProduct(productId: string) {
 export async function createOrder() {}
 
 export async function createGuestOrder(
-  orderId: string,
   email: string,
   orderItems: Prisma.OrderItemCreateManyGuestOrderInput[],
-  orderAddress: GuestOrderAddress,
+  orderAddress: Prisma.GuestOrderAddressCreateInput,
   orderTotal: number,
   shipMethod: string
 ) {
-  return await prisma.guestOrder.create({
-    data: {
-      id: orderId,
-      email,
-      orderItems: {
-        createMany: {
-          data: orderItems,
+  try {
+    return await prisma.guestOrder.create({
+      data: {
+        email,
+        orderItems: {
+          createMany: {
+            data: orderItems,
+          },
         },
+        orderAddress: {
+          create: orderAddress,
+        },
+        orderTotal,
+        shipMethod,
+        shippingStatus: "unfulfilled",
       },
-      orderAddress: {
-        create: orderAddress,
-      },
-      orderTotal,
-      shipMethod,
-    },
-  });
+    });
+  } catch (e) {
+    throw e;
+  }
 }
