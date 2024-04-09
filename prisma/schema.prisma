@@ -79,6 +79,7 @@ model GuestOrder {
   createdAt DateTime @default(now())
   orderTotal Int
   shipMethod String
+  shippingStatus String
   // @@unique([addId])
 }
 

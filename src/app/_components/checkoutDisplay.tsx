@@ -6,9 +6,9 @@ import { lobsterFont } from "../fonts";
 import { Dropdown } from ".";
 import { useFormik } from "formik";
 import { addressSchema } from "../_validation";
-import { stateAbbrev } from "../_utils/constants";
-import { uuid } from "uuidv4";
+import { stateAbbrev, shipMethods } from "../_utils/constants";
 import { createOrder, createGuestOrder } from "../_utils/serverutils";
+import { useRouter } from "next/navigation";
 
 export default function CheckoutDisplay() {
   const { cart, setCart, cartQuantity, setCartQuantity } =
@@ -16,20 +16,21 @@ export default function CheckoutDisplay() {
   const { user } = useContext(UserContext);
   const { appTheme } = useContext(ThemeContext);
   const [shipState, setShipState] = useState("");
+  const [shipMethod, setShipMethod] = useState("");
+
+  const router = useRouter();
+
   useEffect(() => {
     if (user) {
       formik.setFieldValue("email", user.email);
     }
   }, [user]);
-  const submitOrder = () => {
-    const orderId = uuid();
+  const submitOrder = async () => {
     if (!user) {
-      createGuestOrder(
-        orderId,
+      const res = await createGuestOrder(
         formik.values.email,
         cart,
         {
-          id: orderId,
           firstName: formik.values.firstName,
           lastName: formik.values.lastName,
           addressOne: formik.values.addressOne,
@@ -39,8 +40,28 @@ export default function CheckoutDisplay() {
           zipCode: formik.values.addressPostal,
         },
         100,
-        "ground"
+        formik.values.shipMethod
       );
+      if (res.id) {
+        router.push(`/order-success/${res.id}`);
+        setCart([]);
+        setCartQuantity(0);
+      }
+      //@@TODO: set error
+    }
+  };
+  const setShippingMethod = (s: string) => {
+    if (s === "Ground - 9.99") {
+      setShipMethod("Ground");
+      formik.setFieldValue("shipMethod", 9.99);
+    }
+    if (s === "Air - 12.99") {
+      setShipMethod("Air");
+      formik.setFieldValue("shipMethod", 12.99);
+    }
+    if (s === "Space - 19.99") {
+      setShipMethod("Space");
+      formik.setFieldValue("shipMethod", 19.99);
     }
   };
   const formik = useFormik({
@@ -53,10 +74,10 @@ export default function CheckoutDisplay() {
       addressState: "",
       addressPostal: "",
       email: "",
+      shipMethod: "",
     },
     onSubmit: (values) => {
       submitOrder();
-      console.log(values, "submit--------");
     },
     validateOnChange: true,
     validateOnBlur: true,
@@ -75,9 +96,13 @@ export default function CheckoutDisplay() {
             >
               Checkout
             </div>
-            {!user ? <div>Login or continue as guest</div> : null}
+            {!user ? (
+              <div className="flex justify-center w-full pt-4 text-lg">
+                Login or continue as guest
+              </div>
+            ) : null}
             <form onSubmit={formik.handleSubmit}>
-              <div className="flex flex-col gap-2 items-center py-8">
+              <div className="flex flex-col gap-2 items-center py-6">
                 <span className="flex flex-row w-5/6 gap-10 px-2">
                   <Input
                     width="1/2"
@@ -136,7 +161,9 @@ export default function CheckoutDisplay() {
                         formik.setFieldValue("addressState", s);
                       },
                     }))}
-                    error={formik.errors.addressState}
+                    error={
+                      formik.touched.addressState && formik.errors.addressState
+                    }
                     stateSelect
                     value={shipState}
                   />
@@ -152,8 +179,8 @@ export default function CheckoutDisplay() {
                     }
                   />
                 </span>
-                {!user && (
-                  <span className="flex flex-row w-5/6 px-2 pr-10">
+                <span className="flex flex-row w-5/6 px-2 justify-between">
+                  {!user && (
                     <Input
                       width="1/2"
                       label="Email"
@@ -162,8 +189,22 @@ export default function CheckoutDisplay() {
                       value={formik.values.email}
                       error={formik.touched.email && formik.errors.email}
                     />
-                  </span>
-                )}
+                  )}
+                  <Dropdown
+                    title="Shipping"
+                    options={shipMethods.map((s) => ({
+                      title: s,
+                      setter: () => {
+                        setShippingMethod(s);
+                      },
+                    }))}
+                    error={
+                      formik.touched.shipMethod && formik.errors.shipMethod
+                    }
+                    stateSelect
+                    value={shipMethod}
+                  />
+                </span>
               </div>
             </form>
           </div>

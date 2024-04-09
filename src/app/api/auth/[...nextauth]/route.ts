@@ -17,7 +17,7 @@ const handler = NextAuth({
         password: {},
       },
       async authorize(credentials, req) {
-        // validation
+        //@@TODO validation
         const user = await loginUser(credentials?.email);
         const passwordCorrect = await compare(
           credentials?.password || "",
