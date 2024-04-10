@@ -27,6 +27,7 @@ export default function HeaderMenu(props: HeaderMenuProps) {
     signOut();
     setWishlist([]);
     setUser(null);
+    router.push("/");
   };
 
   return (

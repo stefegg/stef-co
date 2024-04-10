@@ -44,7 +44,7 @@ export default function CheckoutDisplay() {
         shipMethod
       );
       if (res.id) {
-        router.push(`/order-success/guest/${res.id}`);
+        router.push(`/order-success/guest-order/${res.id}`);
         setTimeout(() => {
           setCart([]);
           setCartQuantity(0);
@@ -68,12 +68,13 @@ export default function CheckoutDisplay() {
         100,
         shipMethod
       );
-      if (res.id) {
-        router.push(`/order-success/guest/${res.id}`);
+      if (res) {
+        const id = res.orders[0].id;
+        router.push(`/order-success/order/${id}`);
         setTimeout(() => {
           setCart([]);
           setCartQuantity(0);
-        }, 500);
+        }, 1000);
       }
     }
   };

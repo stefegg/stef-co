@@ -54,6 +54,7 @@ export async function registerUser(email: string, password: string) {
         email: email,
         password: password,
         addresses: {},
+        orders: {},
         wishlist: {},
       },
     });
@@ -182,20 +183,33 @@ export async function createOrder(
   shipMethod: string
 ) {
   try {
-    return await prisma.order.create({
+    await prisma.user.update({
+      where: { id: userId },
       data: {
-        userId,
-        orderItems: {
-          createMany: {
-            data: orderItems,
+        orders: {
+          create: {
+            orderItems: {
+              createMany: {
+                data: orderItems,
+              },
+            },
+            orderAddress: {
+              create: orderAddress,
+            },
+            orderTotal,
+            shipMethod,
+            shippingStatus: "unfulfilled",
           },
         },
-        orderAddress: {
-          create: orderAddress,
+      },
+    });
+    return await prisma.user.findUnique({
+      where: { id: userId },
+      select: {
+        orders: {
+          orderBy: { createdAt: "desc" },
+          take: 1,
         },
-        orderTotal,
-        shipMethod,
-        shippingStatus: "unfulfilled",
       },
     });
   } catch (e) {
