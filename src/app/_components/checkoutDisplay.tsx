@@ -52,6 +52,30 @@ export default function CheckoutDisplay() {
       }
       //@@TODO: set error
     }
+    if (user) {
+      const res = await createOrder(
+        user.id,
+        cart,
+        {
+          firstName: formik.values.firstName,
+          lastName: formik.values.lastName,
+          addressOne: formik.values.addressOne,
+          addressTwo: formik.values.addressTwo,
+          city: formik.values.addressCity,
+          state: formik.values.addressState,
+          zipCode: formik.values.addressPostal,
+        },
+        100,
+        shipMethod
+      );
+      if (res.id) {
+        router.push(`/order-success/guest/${res.id}`);
+        setTimeout(() => {
+          setCart([]);
+          setCartQuantity(0);
+        }, 500);
+      }
+    }
   };
   const setShippingMethod = (s: string) => {
     if (s === "Ground - 9.99") {

@@ -38,8 +38,8 @@ model User {
   id String @default(uuid()) @id
   email String
   password String
-  addresses CustomerAddress[]
-  orders Order[]
+  addresses CustomerAddress[] 
+  // orders Order[]
   wishlist Wishlist?
   @@unique([email])
 }
@@ -60,7 +60,7 @@ model CustomerAddress {
 
 model Order {
   id String @default(uuid()) @id
-  user User @relation(fields:[userId], references: [id])
+  // user User @relation(fields:[userId], references: [id])
   userId String
   orderItems OrderItem[]
   orderAddress OrderAddress @relation(fields:[addId], references: [id])
@@ -68,6 +68,7 @@ model Order {
   createdAt DateTime @default(now())
   orderTotal Int
   shipMethod String
+  shippingStatus String
 }
 
 model GuestOrder {
@@ -84,15 +85,14 @@ model GuestOrder {
 
 model OrderAddress {
   id String @default(uuid()) @id
-  orders Order[]
-  // guestOrders GuestOrder[]
+  order Order[]
   firstName String
   lastName String
-  AddressOne String
-  AddressTwo String?
-  City String
-  State String
-  ZipCode String
+  addressOne String
+  addressTwo String?
+  city String
+  state String
+  zipCode String
 }
 
 model GuestOrderAddress {

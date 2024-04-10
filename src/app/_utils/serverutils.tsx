@@ -175,7 +175,34 @@ export async function getProduct(productId: string) {
   });
 }
 
-export async function createOrder() {}
+export async function createOrder(
+  userId: string,
+  orderItems: Prisma.OrderItemCreateManyOrderInput[],
+  orderAddress: Prisma.OrderAddressCreateInput,
+  orderTotal: number,
+  shipMethod: string
+) {
+  try {
+    return await prisma.order.create({
+      data: {
+        userId,
+        orderItems: {
+          createMany: {
+            data: orderItems,
+          },
+        },
+        orderAddress: {
+          create: orderAddress,
+        },
+        orderTotal,
+        shipMethod,
+        shippingStatus: "unfulfilled",
+      },
+    });
+  } catch (e) {
+    throw e;
+  }
+}
 
 export async function createGuestOrder(
   email: string,
