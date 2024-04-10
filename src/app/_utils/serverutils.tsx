@@ -54,7 +54,6 @@ export async function registerUser(email: string, password: string) {
         email: email,
         password: password,
         addresses: {},
-        orders: {},
         wishlist: {},
       },
     });
