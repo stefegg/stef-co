@@ -93,7 +93,7 @@ export default function ProductListItem(props: ProductListProps) {
             <div>{stock} in stock</div>
             <div>
               {currencyGen(currency)}
-              {price}
+              {price.toNumber()}
             </div>
           </div>
         </div>
