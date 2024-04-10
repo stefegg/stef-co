@@ -44,13 +44,38 @@ export default function CheckoutDisplay() {
         shipMethod
       );
       if (res.id) {
-        router.push(`/order-success/guest/${res.id}`);
+        router.push(`/order-success/guest-order/${res.id}`);
         setTimeout(() => {
           setCart([]);
           setCartQuantity(0);
         }, 500);
       }
       //@@TODO: set error
+    }
+    if (user) {
+      const res = await createOrder(
+        user.id,
+        cart,
+        {
+          firstName: formik.values.firstName,
+          lastName: formik.values.lastName,
+          addressOne: formik.values.addressOne,
+          addressTwo: formik.values.addressTwo,
+          city: formik.values.addressCity,
+          state: formik.values.addressState,
+          zipCode: formik.values.addressPostal,
+        },
+        100,
+        shipMethod
+      );
+      if (res) {
+        const id = res.orders[0].id;
+        router.push(`/order-success/order/${id}`);
+        setTimeout(() => {
+          setCart([]);
+          setCartQuantity(0);
+        }, 1000);
+      }
     }
   };
   const setShippingMethod = (s: string) => {
