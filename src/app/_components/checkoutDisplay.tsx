@@ -1,24 +1,24 @@
 "use client";
 import { CartContext, ThemeContext, UserContext } from "../_providers";
 import { useContext, useState, useEffect } from "react";
-import { CheckoutDetails, Input } from ".";
+import { CheckoutDetails, CheckoutAddressForm } from ".";
 import { lobsterFont } from "../fonts";
-import { Dropdown } from ".";
 import { useFormik } from "formik";
 import { addressSchema } from "../_validation";
-import { stateAbbrev, shipMethods } from "../_utils/constants";
 import { createOrder, createGuestOrder } from "../_utils/serverutils";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default function CheckoutDisplay() {
-  const { cart, setCart, cartQuantity, setCartQuantity } =
-    useContext(CartContext);
+  const { cart, setCart, setCartQuantity } = useContext(CartContext);
   const { user } = useContext(UserContext);
   const { appTheme } = useContext(ThemeContext);
   const [shipState, setShipState] = useState("");
   const [shipMethod, setShipMethod] = useState("");
-
+  const [salesTax, setSalesTax] = useState(0);
+  const [shippingCost, setShippingCost] = useState(0);
+  const [subTotal, setsubTotal] = useState<number>(0);
+  const [orderTotal, setOrderTotal] = useState(0);
   const router = useRouter();
 
   useEffect(() => {
@@ -26,6 +26,24 @@ export default function CheckoutDisplay() {
       formik.setFieldValue("email", user.email);
     }
   }, [user]);
+
+  const getOrderTotal = () => {
+    let sum = 0;
+    cart.map((c) => (sum = c.price.toNumber() * c.quantity + sum));
+    setsubTotal(sum);
+    let salesTax = 0;
+    cart.map(
+      (c) => (salesTax = c.price.toNumber() * c.quantity * 0.06625 + salesTax)
+    );
+    setSalesTax(salesTax);
+    let orderTotal = sum + salesTax + shippingCost;
+    setOrderTotal(orderTotal);
+  };
+
+  useEffect(() => {
+    getOrderTotal();
+  }, [shippingCost]);
+
   const submitOrder = async () => {
     if (!user) {
       const res = await createGuestOrder(
@@ -40,11 +58,14 @@ export default function CheckoutDisplay() {
           state: formik.values.addressState,
           zipCode: formik.values.addressPostal,
         },
-        100,
+        parseFloat(subTotal.toFixed(2)),
+        parseFloat(salesTax.toFixed(2)),
+        parseFloat(shippingCost.toFixed(2)),
+        parseFloat(orderTotal.toFixed(2)),
         shipMethod
       );
-      if (res.id) {
-        router.push(`/order-success/guest-order/${res.id}`);
+      if (res) {
+        router.push(`/order-success/guest-order/${res}`);
         setTimeout(() => {
           setCart([]);
           setCartQuantity(0);
@@ -65,30 +86,36 @@ export default function CheckoutDisplay() {
           state: formik.values.addressState,
           zipCode: formik.values.addressPostal,
         },
-        100,
+        parseFloat(subTotal.toFixed(2)),
+        parseFloat(salesTax.toFixed(2)),
+        parseFloat(shippingCost.toFixed(2)),
+        parseFloat(orderTotal.toFixed(2)),
         shipMethod
       );
-      if (res) {
-        const id = res.orders[0].id;
-        router.push(`/order-success/order/${id}`);
+      if (res !== "Error") {
+        router.push(`/order-success/order/${res}`);
         setTimeout(() => {
           setCart([]);
           setCartQuantity(0);
         }, 1000);
+        //@@TODO: set error
       }
     }
   };
   const setShippingMethod = (s: string) => {
     if (s === "Ground - 9.99") {
       setShipMethod("Ground");
+      setShippingCost(9.99);
       formik.setFieldValue("shipMethod", 9.99);
     }
     if (s === "Air - 12.99") {
       setShipMethod("Air");
+      setShippingCost(12.99);
       formik.setFieldValue("shipMethod", 12.99);
     }
     if (s === "Space - 19.99") {
       setShipMethod("Space");
+      setShippingCost(19.99);
       formik.setFieldValue("shipMethod", 19.99);
     }
   };
@@ -104,7 +131,7 @@ export default function CheckoutDisplay() {
       email: "",
       shipMethod: "",
     },
-    onSubmit: (values) => {
+    onSubmit: () => {
       submitOrder();
     },
     validateOnChange: true,
@@ -132,114 +159,22 @@ export default function CheckoutDisplay() {
                 or continue as guest
               </div>
             ) : null}
-            <form onSubmit={formik.handleSubmit}>
-              <div className="flex flex-col gap-2 items-center py-6">
-                <span className="flex flex-row w-5/6 gap-10 px-2">
-                  <Input
-                    width="1/2"
-                    label="First Name"
-                    onChange={formik.handleChange("firstName")}
-                    onBlur={formik.handleBlur("firstName")}
-                    value={formik.values.firstName}
-                    error={formik.touched.firstName && formik.errors.firstName}
-                  />
-                  <Input
-                    width="1/2"
-                    label="Last Name"
-                    onChange={formik.handleChange("lastName")}
-                    onBlur={formik.handleBlur("lastName")}
-                    value={formik.values.lastName}
-                    error={formik.touched.lastName && formik.errors.lastName}
-                  />
-                </span>
-                <span className="flex flex-col w-5/6 gap-2 px-2">
-                  <Input
-                    width="full"
-                    label="Address"
-                    placeholder="Street address or P.O. Box"
-                    onChange={formik.handleChange("addressOne")}
-                    onBlur={formik.handleBlur("addressOne")}
-                    value={formik.values.addressOne}
-                    error={
-                      formik.touched.addressOne && formik.errors.addressOne
-                    }
-                  />
-                  <Input
-                    width="full"
-                    label="Address Line Two"
-                    placeholder="Apt, suite, unit, building, floor, etc."
-                    onChange={formik.handleChange("addressTwo")}
-                    value={formik.values.addressTwo}
-                  />
-                </span>
-                <span className="flex flex-row w-5/6 px-2 justify-between">
-                  <Input
-                    width="1/3"
-                    label="City"
-                    onChange={formik.handleChange("addressCity")}
-                    onBlur={formik.handleBlur("addressCity")}
-                    value={formik.values.addressCity}
-                    error={
-                      formik.touched.addressCity && formik.errors.addressCity
-                    }
-                  />
-                  <Dropdown
-                    title="State"
-                    options={stateAbbrev.map((s) => ({
-                      title: s,
-                      setter: () => {
-                        setShipState(s);
-                        formik.setFieldValue("addressState", s);
-                      },
-                    }))}
-                    error={
-                      formik.touched.addressState && formik.errors.addressState
-                    }
-                    stateSelect
-                    value={shipState}
-                  />
-                  <Input
-                    width="1/3"
-                    label="Zip Code"
-                    onChange={formik.handleChange("addressPostal")}
-                    onBlur={formik.handleBlur("addressPostal")}
-                    value={formik.values.addressPostal}
-                    error={
-                      formik.touched.addressPostal &&
-                      formik.errors.addressPostal
-                    }
-                  />
-                </span>
-                <span className="flex flex-row w-5/6 px-2 justify-between">
-                  <Dropdown
-                    title="Shipping Method"
-                    options={shipMethods.map((s) => ({
-                      title: s,
-                      setter: () => {
-                        setShippingMethod(s);
-                      },
-                    }))}
-                    error={
-                      formik.touched.shipMethod && formik.errors.shipMethod
-                    }
-                    stateSelect
-                    value={shipMethod}
-                  />
-                  {!user && (
-                    <Input
-                      width="1/2"
-                      label="Email"
-                      onChange={formik.handleChange("email")}
-                      onBlur={formik.handleBlur("email")}
-                      value={formik.values.email}
-                      error={formik.touched.email && formik.errors.email}
-                    />
-                  )}
-                </span>
-              </div>
-            </form>
+            <CheckoutAddressForm
+              formik={formik}
+              shipState={shipState}
+              setShipState={setShipState}
+              shipMethod={shipMethod}
+              setShippingMethod={setShippingMethod}
+              user={user}
+            />
           </div>
-          <CheckoutDetails submit={formik.handleSubmit} />
+          <CheckoutDetails
+            submit={formik.handleSubmit}
+            subTotal={subTotal.toFixed(2)}
+            salesTax={salesTax.toFixed(2)}
+            shippingCost={shippingCost.toFixed(2)}
+            orderTotal={orderTotal.toFixed(2)}
+          />
         </div>
       ) : (
         <div className="flex w-full justify-center text-lg">

@@ -6,6 +6,7 @@ import {
   Wishlist,
 } from "@prisma/client";
 import { SetStateAction } from "react";
+import { Decimal } from "@prisma/client/runtime/library";
 
 export type FullProduct = Product &
   Partial<Prisma.ProductGetPayload<{ include: { category: true } }>>;
@@ -33,7 +34,7 @@ export type FullWishlist = Wishlist &
 export type CartItem = {
   prodId: string;
   name: string;
-  price: number;
+  price: Decimal;
   currency: string;
   quantity: number;
 };
@@ -44,7 +45,7 @@ export type AddCartProps = {
   setCart: (value: SetStateAction<CartItem[]>) => void;
   prodId: string;
   prodName: string;
-  prodPrice: number;
+  prodPrice: Decimal;
   prodCurrency: string;
   setCartQuantity: (value: SetStateAction<number>) => void;
   cartQuantity: number;
@@ -56,7 +57,7 @@ export type ToggleWishProps = {
   setOpacity: (value: SetStateAction<string>) => void;
   prodId: string;
   prodName: string;
-  prodPrice: number;
+  prodPrice: Decimal;
   prodCurrency: string;
   prodImageUrl: string;
   wishlist: CleanWishlistItem[];
@@ -80,7 +81,7 @@ export type SafeUser = {
 export type CleanWishlistItem = {
   prodId: string;
   name: string;
-  price: number;
+  price: Decimal;
   imageUrl: string;
   currency: string;
 };

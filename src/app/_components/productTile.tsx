@@ -15,6 +15,7 @@ import {
   UserContext,
 } from "../_providers/index";
 import { Button } from ".";
+import { Prisma } from "@prisma/client";
 
 type ProductTileProps = {
   product?: FullProduct;
@@ -68,7 +69,7 @@ export default function ProductTile(props: ProductTileProps) {
           <div className="text-lg">{propType && propType.name}</div>
           <div className="text-base">
             {currencyGen(propType ? propType.currency : "USD")}
-            {propType && propType.price}
+            {propType && propType.price.toString()}
           </div>
         </div>
       </Link>
@@ -82,7 +83,9 @@ export default function ProductTile(props: ProductTileProps) {
               setOpacity,
               prodId: getId(),
               prodName: (propType && propType.name) || "",
-              prodPrice: (propType && propType.price) || 0,
+              prodPrice:
+                (propType && new Prisma.Decimal(propType.price)) ||
+                new Prisma.Decimal(0),
               prodCurrency: (propType && propType.currency) || "",
               prodImageUrl: (propType && propType.imageUrl) || "",
               wishlist,
@@ -104,7 +107,9 @@ export default function ProductTile(props: ProductTileProps) {
               setCart,
               prodId: getId(),
               prodName: (propType && propType.name) || "",
-              prodPrice: (propType && propType.price) || 0,
+              prodPrice:
+                (propType && new Prisma.Decimal(propType.price)) ||
+                new Prisma.Decimal(0),
               prodCurrency: (propType && propType.currency) || "",
               setCartQuantity,
               cartQuantity,
