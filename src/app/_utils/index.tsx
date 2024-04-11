@@ -2,7 +2,7 @@ import { AddCartProps, ToggleWishProps, WishlistTextProps } from "../_types";
 import { updateWishlist } from "./serverutils";
 
 export const logoTextGen = (appTheme: string, size: string) => {
-  const large = "text-7xl pt-[20%]";
+  const large = "text-7xl";
   const small = "text-4xl pt-1";
   if (appTheme === "classic" && size === "large") {
     return `font-outline-2 text-${appTheme}-border bg-${appTheme}-bodyBg ${large}`;

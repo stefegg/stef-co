@@ -3,9 +3,10 @@ import React from "react";
 import { useContext } from "react";
 import { ThemeContext } from "../_providers/index";
 import { logoTextGen, logoLineGen } from "../_utils";
+import { lobsterFont } from "../fonts";
 
 type LogoProps = {
-  size: string;
+  size: "large" | "small";
 };
 
 export default function Logo(props: LogoProps) {
@@ -13,10 +14,9 @@ export default function Logo(props: LogoProps) {
   const { size } = props;
   return (
     <div
-      className={`${logoTextGen(
-        appTheme,
-        size
-      )} flex flex-col h-full w-full items-center `}
+      className={`${logoTextGen(appTheme, size)} flex flex-col items-center ${
+        lobsterFont.className
+      }`}
     >
       StefCo
       <div

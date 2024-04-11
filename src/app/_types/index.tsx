@@ -6,7 +6,6 @@ import {
   Wishlist,
 } from "@prisma/client";
 import { SetStateAction } from "react";
-import { Decimal } from "@prisma/client/runtime/library";
 
 export type FullProduct = Product &
   Partial<Prisma.ProductGetPayload<{ include: { category: true } }>>;
@@ -90,4 +89,35 @@ export type CleanWishlistItem = {
   price: number;
   imageUrl: string;
   currency: string;
+};
+
+export type CleanOrderUser = {
+  email: string;
+};
+
+export type CleanOrder = {
+  user: CleanOrderUser;
+  id: string;
+  userId: string;
+  addId: string;
+  createdAt: Date;
+  subTotal: number;
+  orderTax: number;
+  shippingCost: number;
+  orderTotal: number;
+  shipMethod: string;
+  shippingStatus: string;
+};
+
+export type CleanGuestOrder = {
+  id: string;
+  email: string;
+  addId: string;
+  createdAt: Date;
+  subTotal: number;
+  orderTax: number;
+  shippingCost: number;
+  orderTotal: number;
+  shipMethod: string;
+  shippingStatus: string;
 };
