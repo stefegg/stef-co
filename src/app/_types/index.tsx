@@ -78,10 +78,16 @@ export type SafeUser = {
   addresses: CustomerAddress[] | [];
 };
 
+export type CleanWishlist = {
+  id: string;
+  userId: string;
+  wishlistItems: CleanWishlistItem[];
+};
+
 export type CleanWishlistItem = {
   prodId: string;
   name: string;
-  price: number | Decimal;
+  price: number;
   imageUrl: string;
   currency: string;
 };

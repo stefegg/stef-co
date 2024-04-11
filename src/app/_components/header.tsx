@@ -16,13 +16,13 @@ import cartIcon from "../../../public/icons/cart_png.png";
 import wishList from "../../../public/icons/wishlist.svg";
 import { useRouter, usePathname } from "next/navigation";
 import { Session } from "next-auth";
-import { FullWishlist, SafeUser } from "../_types";
+import { CleanWishlist, SafeUser } from "../_types";
 
 type HeaderProps = {
   session: {
     session: Session;
     user: SafeUser;
-    wishlist: FullWishlist | null;
+    cleanWishlist: CleanWishlist | null;
   } | null;
 };
 
@@ -39,7 +39,7 @@ export default function Header(props: HeaderProps) {
   useEffect(() => {
     if (session !== null) {
       setUser(session.user);
-      setWishlist(session?.wishlist?.wishlistItems || []);
+      setWishlist(session?.cleanWishlist?.wishlistItems || []);
     }
   }, [session]);
 
