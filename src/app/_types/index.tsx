@@ -34,7 +34,7 @@ export type FullWishlist = Wishlist &
 export type CartItem = {
   prodId: string;
   name: string;
-  price: Decimal;
+  price: number;
   currency: string;
   quantity: number;
 };
@@ -81,7 +81,7 @@ export type SafeUser = {
 export type CleanWishlistItem = {
   prodId: string;
   name: string;
-  price: Decimal;
+  price: number;
   imageUrl: string;
   currency: string;
 };

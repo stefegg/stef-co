@@ -65,7 +65,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
             className={`${lobsterFont.className} flex flex-col w-full items-end text-5xl pr-12`}
           >
             {currencyGen(currency)}
-            {price.toNumber()}
+            {price.toString()}
           </div>
         </div>
       </div>

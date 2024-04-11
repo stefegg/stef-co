@@ -45,7 +45,7 @@ export default function Cart() {
 
   const getSubtotal = () => {
     let subtotal = 0;
-    cart.map((c) => (subtotal = c.price.toNumber() * c.quantity + subtotal));
+    cart.map((c) => (subtotal = c.price * c.quantity + subtotal));
     return subtotal;
   };
 
@@ -77,7 +77,7 @@ export default function Cart() {
                     <div className="flex justify-end">x{cartItem.quantity}</div>
                     <div className="ml-auto text-lg ">
                       {currencyGen(cartItem.currency)}
-                      {cartItem.price.toNumber() * cartItem.quantity}
+                      {cartItem.price * cartItem.quantity}
                     </div>
                   </div>
                   <div

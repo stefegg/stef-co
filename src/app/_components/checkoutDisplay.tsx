@@ -29,12 +29,10 @@ export default function CheckoutDisplay() {
 
   const getOrderTotal = () => {
     let sum = 0;
-    cart.map((c) => (sum = c.price.toNumber() * c.quantity + sum));
+    cart.map((c) => (sum = c.price * c.quantity + sum));
     setsubTotal(sum);
     let salesTax = 0;
-    cart.map(
-      (c) => (salesTax = c.price.toNumber() * c.quantity * 0.06625 + salesTax)
-    );
+    cart.map((c) => (salesTax = c.price * c.quantity * 0.06625 + salesTax));
     setSalesTax(salesTax);
     let orderTotal = sum + salesTax + shippingCost;
     setOrderTotal(orderTotal);
