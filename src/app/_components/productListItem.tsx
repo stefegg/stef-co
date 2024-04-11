@@ -59,7 +59,7 @@ export default function ProductListItem(props: ProductListProps) {
                     prodName: product.name,
                     prodCurrency: product.currency,
                     prodImageUrl: product.imageUrl || "",
-                    prodPrice: product.price,
+                    prodPrice: product.price.toNumber(),
                     wishlist,
                     setOperation,
                     setType,
@@ -80,7 +80,7 @@ export default function ProductListItem(props: ProductListProps) {
                     prodId: product.id,
                     prodName: product.name,
                     prodCurrency: product.currency,
-                    prodPrice: product.price,
+                    prodPrice: product.price.toNumber(),
                     setCartQuantity,
                     cartQuantity,
                     setOperation,
@@ -93,7 +93,7 @@ export default function ProductListItem(props: ProductListProps) {
             <div>{stock} in stock</div>
             <div>
               {currencyGen(currency)}
-              {price}
+              {price.toNumber()}
             </div>
           </div>
         </div>

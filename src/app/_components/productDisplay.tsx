@@ -65,7 +65,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
             className={`${lobsterFont.className} flex flex-col w-full items-end text-5xl pr-12`}
           >
             {currencyGen(currency)}
-            {price}
+            {price.toString()}
           </div>
         </div>
       </div>
@@ -80,7 +80,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
                 prodName: product.name,
                 prodCurrency: product.currency,
                 prodImageUrl: product.imageUrl || "",
-                prodPrice: product.price,
+                prodPrice: product.price.toNumber(),
                 wishlist,
                 setOperation,
                 setType,
@@ -101,7 +101,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
                 prodId: product.id,
                 prodName: product.name,
                 prodCurrency: product.currency,
-                prodPrice: product.price,
+                prodPrice: product.price.toNumber(),
                 setCartQuantity,
                 cartQuantity,
                 setOperation,

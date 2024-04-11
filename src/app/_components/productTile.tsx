@@ -68,7 +68,7 @@ export default function ProductTile(props: ProductTileProps) {
           <div className="text-lg">{propType && propType.name}</div>
           <div className="text-base">
             {currencyGen(propType ? propType.currency : "USD")}
-            {propType && propType.price}
+            {propType && propType.price.toString()}
           </div>
         </div>
       </Link>
@@ -82,7 +82,8 @@ export default function ProductTile(props: ProductTileProps) {
               setOpacity,
               prodId: getId(),
               prodName: (propType && propType.name) || "",
-              prodPrice: (propType && propType.price) || 0,
+              prodPrice:
+                (propType && JSON.parse(JSON.stringify(propType.price))) || 0,
               prodCurrency: (propType && propType.currency) || "",
               prodImageUrl: (propType && propType.imageUrl) || "",
               wishlist,
@@ -104,7 +105,8 @@ export default function ProductTile(props: ProductTileProps) {
               setCart,
               prodId: getId(),
               prodName: (propType && propType.name) || "",
-              prodPrice: (propType && propType.price) || 0,
+              prodPrice:
+                (propType && JSON.parse(JSON.stringify(propType.price))) || 0,
               prodCurrency: (propType && propType.currency) || "",
               setCartQuantity,
               cartQuantity,

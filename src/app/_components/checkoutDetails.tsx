@@ -1,6 +1,6 @@
 "use client";
 import { CartContext, ThemeContext } from "../_providers";
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import { Button } from ".";
 import { lobsterFont } from "../fonts";
 import { currencyGen } from "../_utils";
@@ -8,32 +8,16 @@ import { FormEvent } from "react";
 
 type CheckoutDetailsProps = {
   submit: (e?: FormEvent<HTMLFormElement> | undefined) => void;
+  subTotal: string;
+  salesTax: string;
+  shippingCost: string;
+  orderTotal: string;
 };
 
 export default function CheckoutDetails(props: CheckoutDetailsProps) {
-  const { submit } = props;
+  const { submit, subTotal, salesTax, shippingCost, orderTotal } = props;
   const { appTheme } = useContext(ThemeContext);
-  const { cart, setCart, cartQuantity, setCartQuantity } =
-    useContext(CartContext);
-  const [salesTax, setSalesTax] = useState(0);
-  const [shippingCost, setShippingCost] = useState(10);
-  const [subTotal, setsubTotal] = useState(0);
-  const [orderTotal, setOrderTotal] = useState(0);
-
-  const getOrderTotal = () => {
-    let sum = 0;
-    cart.map((c) => (sum = c.price * c.quantity + sum));
-    setsubTotal(sum);
-    let salesTax = 0;
-    cart.map((c) => (salesTax = c.price * c.quantity * 0.06625 + salesTax));
-    setSalesTax(salesTax);
-    let orderTotal = sum + salesTax + shippingCost;
-    setOrderTotal(orderTotal);
-  };
-
-  useEffect(() => {
-    getOrderTotal();
-  }, []);
+  const { cart, cartQuantity } = useContext(CartContext);
 
   return (
     <div
@@ -67,21 +51,21 @@ export default function CheckoutDetails(props: CheckoutDetailsProps) {
           <div>Subtotal:</div>
           <div>
             {currencyGen(cart[0].currency)}
-            {subTotal.toFixed(2)}
+            {subTotal}
           </div>
         </div>
         <div className="flex flex-row pl-6 text-lg justify-between pr-4">
           <div>Shipping & Handling:</div>
           <div>
             {currencyGen(cart[0].currency)}
-            {shippingCost.toFixed(2)}
+            {shippingCost}
           </div>
         </div>
         <div className="flex flex-row pl-6 text-lg justify-between pr-4">
           <div>Tax:</div>
           <div>
             {currencyGen(cart[0].currency)}
-            {salesTax.toFixed(2)}
+            {salesTax}
           </div>
         </div>
         <div
@@ -90,7 +74,7 @@ export default function CheckoutDetails(props: CheckoutDetailsProps) {
           <div>Order Total:</div>
           <div>
             {currencyGen(cart[0].currency)}
-            {orderTotal.toFixed(2)}
+            {orderTotal}
           </div>
         </div>
         <div className="flex flex-row text-xl justify-center w-full px-6">

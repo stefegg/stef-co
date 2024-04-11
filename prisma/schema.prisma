@@ -11,7 +11,7 @@ datasource db {
 model Product {
   id String @default(cuid()) @id
   name String
-  price Int
+  price Decimal @db.Money
   currency String
   stock Int
   description String
@@ -66,7 +66,10 @@ model Order {
   orderAddress OrderAddress @relation(fields:[addId], references: [id])
   addId String
   createdAt DateTime @default(now())
-  orderTotal Int
+  subTotal Decimal @db.Money
+  orderTax Decimal @db.Money
+  shippingCost Decimal @db.Money
+  orderTotal Decimal @db.Money
   shipMethod String
   shippingStatus String
 }
@@ -78,7 +81,10 @@ model GuestOrder {
   orderAddress GuestOrderAddress @relation(fields:[addId], references: [id])
   addId String
   createdAt DateTime @default(now())
-  orderTotal Int
+  subTotal Decimal @db.Money
+  orderTax Decimal @db.Money
+  shippingCost Decimal @db.Money
+  orderTotal Decimal @db.Money
   shipMethod String
   shippingStatus String
 }
@@ -116,7 +122,7 @@ model OrderItem {
   guestId String?
   prodId String 
   name String
-  price Int
+  price Decimal @db.Money
   quantity Int
   currency String
 }
@@ -133,7 +139,7 @@ model WishlistItem {
   id String @default(uuid()) @id
   prodId String
   name String
-  price Int 
+  price Decimal @db.Money
   imageUrl String
   currency String
   wishlist Wishlist @relation(fields:[wishlistId], references:[id])

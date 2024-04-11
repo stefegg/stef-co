@@ -24,6 +24,7 @@ import Cart from "./cart";
 import CheckoutDisplay from "./checkoutDisplay";
 import Input from "./input";
 import CheckoutDetails from "./checkoutDetails";
+import CheckoutAddressForm from "./checkoutAddressForm";
 
 export {
   CategoryList,
@@ -52,4 +53,5 @@ export {
   CheckoutDisplay,
   Input,
   CheckoutDetails,
+  CheckoutAddressForm,
 };

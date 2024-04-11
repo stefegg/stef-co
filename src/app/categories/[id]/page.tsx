@@ -18,8 +18,10 @@ export default async function Page({
   const { id } = params;
   const query = searchParams?.query || "";
   const products = await getCategoryProducts(id);
-  const filteredProducts = Array.isArray(products)
-    ? products.filter((product) => {
+  const cleanedProducts = JSON.parse(JSON.stringify(products));
+
+  const filteredProducts = Array.isArray(cleanedProducts)
+    ? cleanedProducts.filter((product) => {
         return product.name.toLowerCase().includes(query.toLowerCase());
       })
     : [];

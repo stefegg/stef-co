@@ -179,6 +179,9 @@ export async function createOrder(
   userId: string,
   orderItems: Prisma.OrderItemCreateManyOrderInput[],
   orderAddress: Prisma.OrderAddressCreateInput,
+  subTotal: number,
+  orderTax: number,
+  shippingCost: number,
   orderTotal: number,
   shipMethod: string
 ) {
@@ -196,6 +199,9 @@ export async function createOrder(
             orderAddress: {
               create: orderAddress,
             },
+            subTotal,
+            orderTax,
+            shippingCost,
             orderTotal,
             shipMethod,
             shippingStatus: "unfulfilled",
@@ -203,7 +209,7 @@ export async function createOrder(
         },
       },
     });
-    return await prisma.user.findUnique({
+    const order = await prisma.user.findUnique({
       where: { id: userId },
       select: {
         orders: {
@@ -212,6 +218,9 @@ export async function createOrder(
         },
       },
     });
+    if (order) {
+      return order.orders[0].id.toString();
+    } else return "Error";
   } catch (e) {
     throw e;
   }
@@ -221,11 +230,14 @@ export async function createGuestOrder(
   email: string,
   orderItems: Prisma.OrderItemCreateManyGuestOrderInput[],
   orderAddress: Prisma.GuestOrderAddressCreateInput,
+  subTotal: number,
+  orderTax: number,
+  shippingCost: number,
   orderTotal: number,
   shipMethod: string
 ) {
   try {
-    return await prisma.guestOrder.create({
+    const order = await prisma.guestOrder.create({
       data: {
         email,
         orderItems: {
@@ -236,11 +248,15 @@ export async function createGuestOrder(
         orderAddress: {
           create: orderAddress,
         },
+        subTotal,
+        orderTax,
+        shippingCost,
         orderTotal,
         shipMethod,
         shippingStatus: "unfulfilled",
       },
     });
+    return order.id;
   } catch (e) {
     throw e;
   }
