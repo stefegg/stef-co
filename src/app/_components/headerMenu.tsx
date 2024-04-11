@@ -28,6 +28,7 @@ export default function HeaderMenu(props: HeaderMenuProps) {
     setWishlist([]);
     setUser(null);
     router.push("/");
+    router.refresh();
   };
 
   return (

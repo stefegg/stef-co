@@ -52,6 +52,7 @@ export default function Cart() {
   const clickCheckout = () => {
     setShowCart(false);
     router.push("/checkout");
+    router.refresh();
   };
 
   return (

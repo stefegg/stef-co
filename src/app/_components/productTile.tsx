@@ -15,7 +15,6 @@ import {
   UserContext,
 } from "../_providers/index";
 import { Button } from ".";
-import { Prisma } from "@prisma/client";
 
 type ProductTileProps = {
   product?: FullProduct;
@@ -84,8 +83,7 @@ export default function ProductTile(props: ProductTileProps) {
               prodId: getId(),
               prodName: (propType && propType.name) || "",
               prodPrice:
-                (propType && new Prisma.Decimal(propType.price)) ||
-                new Prisma.Decimal(0),
+                (propType && JSON.parse(JSON.stringify(propType.price))) || 0,
               prodCurrency: (propType && propType.currency) || "",
               prodImageUrl: (propType && propType.imageUrl) || "",
               wishlist,
@@ -108,8 +106,7 @@ export default function ProductTile(props: ProductTileProps) {
               prodId: getId(),
               prodName: (propType && propType.name) || "",
               prodPrice:
-                (propType && new Prisma.Decimal(propType.price)) ||
-                new Prisma.Decimal(0),
+                (propType && JSON.parse(JSON.stringify(propType.price))) || 0,
               prodCurrency: (propType && propType.currency) || "",
               setCartQuantity,
               cartQuantity,
