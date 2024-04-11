@@ -28,7 +28,6 @@ type HeaderProps = {
 
 export default function Header(props: HeaderProps) {
   const { session } = props;
-  console.log(session, "-----sesh");
   const { appTheme, setAppTheme } = useContext(ThemeContext);
   const { user, setUser } = useContext(UserContext);
   const { cart, wishlist, showCart, setShowCart, setWishlist } =
