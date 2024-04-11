@@ -125,6 +125,7 @@ model OrderItem {
   price Decimal @db.Money
   quantity Int
   currency String
+  imageUrl String?
 }
 
 model Wishlist {

@@ -25,8 +25,8 @@ export const logoTextGen = (appTheme: string, size: string) => {
 };
 
 export const logoLineGen = (appTheme: string, size: string) => {
-  const large = "h-[24px] w-1/4 mt-3 border-2";
-  const small = "h-[6px] w-1/2 mt-1 border";
+  const large = "h-[24px] w-full mt-3 border-2";
+  const small = "h-[6px] w-full mt-1 border";
   if (appTheme === "classic" && size === "large") {
     return `bg-${appTheme}-border border-${appTheme}-text ${large}`;
   }
@@ -75,6 +75,7 @@ export const addToCart = (props: AddCartProps) => {
     prodName,
     prodPrice,
     prodCurrency,
+    prodImageUrl,
     setCartQuantity,
     cartQuantity,
     setOperation,
@@ -96,6 +97,7 @@ export const addToCart = (props: AddCartProps) => {
           price: prodPrice,
           currency: prodCurrency,
           quantity: 1,
+          imageUrl: prodImageUrl || "",
         },
       ]);
     }
@@ -108,6 +110,7 @@ export const addToCart = (props: AddCartProps) => {
         price: prodPrice,
         currency: prodCurrency,
         quantity: 1,
+        imageUrl: "",
       },
     ]);
     setCartQuantity(cartQuantity + 1);

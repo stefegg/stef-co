@@ -4,6 +4,8 @@ import {
   Category,
   CustomerAddress,
   Wishlist,
+  OrderAddress,
+  GuestOrderAddress,
 } from "@prisma/client";
 import { SetStateAction } from "react";
 
@@ -36,6 +38,7 @@ export type CartItem = {
   price: number;
   currency: string;
   quantity: number;
+  imageUrl: string | undefined;
 };
 
 export type AddCartProps = {
@@ -46,6 +49,7 @@ export type AddCartProps = {
   prodName: string;
   prodPrice: number;
   prodCurrency: string;
+  prodImageUrl: string | undefined;
   setCartQuantity: (value: SetStateAction<number>) => void;
   cartQuantity: number;
   setOperation: (value: SetStateAction<string>) => void;
@@ -107,6 +111,8 @@ export type CleanOrder = {
   orderTotal: number;
   shipMethod: string;
   shippingStatus: string;
+  orderItems: CleanOrderItem[];
+  orderAddress: OrderAddress;
 };
 
 export type CleanGuestOrder = {
@@ -120,4 +126,14 @@ export type CleanGuestOrder = {
   orderTotal: number;
   shipMethod: string;
   shippingStatus: string;
+  orderItems: CleanOrderItem[];
+  orderAddress: GuestOrderAddress;
+};
+
+export type CleanOrderItem = {
+  name: string;
+  price: number;
+  quantity: number;
+  currency: string;
+  imageUrl: string | undefined;
 };

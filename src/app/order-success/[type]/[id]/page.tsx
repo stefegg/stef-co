@@ -24,7 +24,11 @@ export default async function Page({
 
   return (
     <PageWrapper>
-      <Logo size="large" />
+      <div className="w-full flex flex-row justify-center">
+        <div className=" w-1/4">
+          <Logo size="large" />
+        </div>
+      </div>
       <div className="w-full flex flex-col items-center pt-8 pb-8">
         <ListHeader title={"Thank you for your order!"} />
       </div>
