@@ -108,6 +108,7 @@ export default function ProductTile(props: ProductTileProps) {
               prodPrice:
                 (propType && JSON.parse(JSON.stringify(propType.price))) || 0,
               prodCurrency: (propType && propType.currency) || "",
+              prodImageUrl: (propType && propType.imageUrl) || "",
               setCartQuantity,
               cartQuantity,
               setOperation,

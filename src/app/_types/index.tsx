@@ -4,9 +4,10 @@ import {
   Category,
   CustomerAddress,
   Wishlist,
+  OrderAddress,
+  GuestOrderAddress,
 } from "@prisma/client";
 import { SetStateAction } from "react";
-import { Decimal } from "@prisma/client/runtime/library";
 
 export type FullProduct = Product &
   Partial<Prisma.ProductGetPayload<{ include: { category: true } }>>;
@@ -37,6 +38,7 @@ export type CartItem = {
   price: number;
   currency: string;
   quantity: number;
+  imageUrl: string | undefined;
 };
 
 export type AddCartProps = {
@@ -47,6 +49,7 @@ export type AddCartProps = {
   prodName: string;
   prodPrice: number;
   prodCurrency: string;
+  prodImageUrl: string | undefined;
   setCartQuantity: (value: SetStateAction<number>) => void;
   cartQuantity: number;
   setOperation: (value: SetStateAction<string>) => void;
@@ -90,4 +93,47 @@ export type CleanWishlistItem = {
   price: number;
   imageUrl: string;
   currency: string;
+};
+
+export type CleanOrderUser = {
+  email: string;
+};
+
+export type CleanOrder = {
+  user: CleanOrderUser;
+  id: string;
+  userId: string;
+  addId: string;
+  createdAt: Date;
+  subTotal: number;
+  orderTax: number;
+  shippingCost: number;
+  orderTotal: number;
+  shipMethod: string;
+  shippingStatus: string;
+  orderItems: CleanOrderItem[];
+  orderAddress: OrderAddress;
+};
+
+export type CleanGuestOrder = {
+  id: string;
+  email: string;
+  addId: string;
+  createdAt: Date;
+  subTotal: number;
+  orderTax: number;
+  shippingCost: number;
+  orderTotal: number;
+  shipMethod: string;
+  shippingStatus: string;
+  orderItems: CleanOrderItem[];
+  orderAddress: GuestOrderAddress;
+};
+
+export type CleanOrderItem = {
+  name: string;
+  price: number;
+  quantity: number;
+  currency: string;
+  imageUrl: string | undefined;
 };

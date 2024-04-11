@@ -102,6 +102,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
                 prodName: product.name,
                 prodCurrency: product.currency,
                 prodPrice: product.price.toNumber(),
+                prodImageUrl: product.imageUrl ? product.imageUrl : "",
                 setCartQuantity,
                 cartQuantity,
                 setOperation,

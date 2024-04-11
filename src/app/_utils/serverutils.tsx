@@ -261,3 +261,48 @@ export async function createGuestOrder(
     throw e;
   }
 }
+
+export async function getOrderById(orderId: string) {
+  return await prisma.order.findUnique({
+    where: {
+      id: orderId,
+    },
+    include: {
+      orderAddress: true,
+      orderItems: {
+        select: {
+          name: true,
+          price: true,
+          quantity: true,
+          currency: true,
+          imageUrl: true,
+        },
+      },
+      user: {
+        select: {
+          email: true,
+        },
+      },
+    },
+  });
+}
+
+export async function getGuestOrderById(orderId: string) {
+  return await prisma.guestOrder.findUnique({
+    where: {
+      id: orderId,
+    },
+    include: {
+      orderAddress: true,
+      orderItems: {
+        select: {
+          name: true,
+          price: true,
+          quantity: true,
+          currency: true,
+          imageUrl: true,
+        },
+      },
+    },
+  });
+}
