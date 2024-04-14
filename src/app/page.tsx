@@ -5,7 +5,7 @@ import { Logo, PageWrapper } from "./_components/index";
 export default function Home() {
   return (
     <main
-      className={`${lobsterFont.className} flex h-screen flex-col w-full items-center`}
+      className={`${lobsterFont.className} flex flex-col w-full items-center`}
     >
       <PageWrapper>
         <div className="flex flex-row w-full justify-center">
