@@ -5,22 +5,16 @@ import { useContext } from "react";
 import { Dispatch, SetStateAction } from "react";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { Session } from "next-auth";
-import { SafeUser } from "../_types";
 
 type HeaderMenuProps = {
   setShowDrop: Dispatch<SetStateAction<boolean>>;
-  session: {
-    session: Session;
-    user: SafeUser;
-  } | null;
 };
 
 export default function HeaderMenu(props: HeaderMenuProps) {
-  const { setShowDrop, session } = props;
+  const { setShowDrop } = props;
   const { appTheme } = useContext(ThemeContext);
   const { setWishlist } = useContext(CartContext);
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const router = useRouter();
 
   const logOutClick = () => {
@@ -36,7 +30,7 @@ export default function HeaderMenu(props: HeaderMenuProps) {
       className={`flex flex-row  w-[225px] border-2 rounded-md text-${appTheme}-text border-${appTheme}-border bg-${appTheme}-bodyBg`}
       onMouseLeave={() => setShowDrop(false)}
     >
-      {session ? (
+      {user ? (
         <div
           className={`cursor-pointer flex flex-row justify-center w-full hover:bg-${appTheme}-containerBg py-4 rounded-md`}
           onClick={() => {

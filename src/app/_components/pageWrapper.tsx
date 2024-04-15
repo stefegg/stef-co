@@ -1,6 +1,8 @@
 "use client";
 import { ThemeContext } from "../_providers/index";
 import { ReactElement, useContext } from "react";
+import Header from "./header";
+
 type PageWrapperProps = {
   children: ReactElement | ReactElement[];
 };
@@ -8,11 +10,13 @@ type PageWrapperProps = {
 export default function PageWrapper(props: PageWrapperProps) {
   const { children } = props;
   const { appTheme } = useContext(ThemeContext);
+
   return (
     <div
-      className={`text-${appTheme}-text border-${appTheme}-border bg-${appTheme}-bodyBg px-8 pt-6 pb-6 pl-10 min-h-[calc(100vh-4rem)] min-w-full max-w-full`}
+      className={`text-${appTheme}-text border-${appTheme}-border bg-${appTheme}-bodyBg  overflow-scroll min-w-full max-w-full h-screen`}
     >
-      {children}
+      <Header />
+      <div className="px-8 pt-6 pb-6 pl-10 mt-16">{children}</div>
     </div>
   );
 }
