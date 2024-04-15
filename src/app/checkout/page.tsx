@@ -1,4 +1,4 @@
-import { PageWrapper, ListHeader, CheckoutDisplay } from "../_components";
+import { PageWrapper, CheckoutDisplay } from "../_components";
 
 export default function Checkout() {
   return (

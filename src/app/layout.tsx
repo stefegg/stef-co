@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
-import { Sidebar, Header, SidebarCap } from "./_components";
+import { Sidebar, SidebarCap } from "./_components";
 import {
   ThemeProvider,
   CartProvider,
@@ -40,16 +40,11 @@ export default async function Layout({
             <html lang="en">
               <body className={`${ptSansFont.className} flex flex-row`}>
                 <div className="w-[13%] h-screen flex flex-col">
-                  <SidebarCap />
+                  <SidebarCap session={session} />
                   <Sidebar />
                 </div>
-                <div className="w-[87%] max-h-screen overflow-scroll">
-                  <div className="absolute w-[87%] h-full overflow-x-hidden">
-                    <Header session={session} />
-                  </div>
-                  <div className="min-h-[calc(100vh-4rem)] overflow-y-scroll overflow-x-hidden mt-16 flex flex-row relative">
-                    {children}
-                  </div>
+                <div className="w-[87%] h-full max-h-screen overflow-y-scroll overflow-x-hidden">
+                  {children}
                 </div>
               </body>
             </html>

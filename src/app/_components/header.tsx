@@ -15,33 +15,13 @@ import accountIcon from "../../../public/icons/account.png";
 import cartIcon from "../../../public/icons/cart_png.png";
 import wishList from "../../../public/icons/wishlist.svg";
 import { useRouter, usePathname } from "next/navigation";
-import { Session } from "next-auth";
-import { CleanWishlist, SafeUser } from "../_types";
 
-type HeaderProps = {
-  session: {
-    session: Session;
-    user: SafeUser;
-    cleanWishlist: CleanWishlist | null;
-  } | null;
-};
-
-export default function Header(props: HeaderProps) {
-  const { session } = props;
+export default function Header() {
   const { appTheme, setAppTheme } = useContext(ThemeContext);
-  const { user, setUser } = useContext(UserContext);
-  const { cart, wishlist, showCart, setShowCart, setWishlist } =
-    useContext(CartContext);
+  const { cart, wishlist, showCart, setShowCart } = useContext(CartContext);
   const [showDrop, setShowDrop] = useState(false);
   const router = useRouter();
   const pathName = usePathname();
-
-  useEffect(() => {
-    if (session !== null) {
-      setUser(session.user);
-      setWishlist(session?.cleanWishlist?.wishlistItems || []);
-    }
-  }, [session]);
 
   const iconStyle = {
     filter: getFilter(appTheme),
@@ -71,7 +51,7 @@ export default function Header(props: HeaderProps) {
   return (
     <div className="flex flex-col relative">
       <span
-        className={`h-16 flex items-center px-4 border-b-2 z-10 absolute w-full
+        className={`h-16 flex items-center px-4 border-b-2 z-10 fixed w-[87%]
     bg-${appTheme}-containerBg border-${appTheme}-border text-${appTheme}-text gap-10 
     `}
       >
@@ -122,7 +102,7 @@ export default function Header(props: HeaderProps) {
         <div
           className={`fixed top-14 right-4  ${showDrop ? "flex" : "hidden"}`}
         >
-          <HeaderMenu session={session} setShowDrop={setShowDrop} />
+          <HeaderMenu setShowDrop={setShowDrop} />
         </div>
         <Cart />
       </span>
