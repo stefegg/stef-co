@@ -6,6 +6,5 @@ type OrderListItemProps = {
 
 export default function OrderListItem(props: OrderListItemProps) {
   const { order } = props;
-  console.log(order, "test-------");
-  return <div>hi</div>;
+  return <div>{order.id}</div>;
 }
