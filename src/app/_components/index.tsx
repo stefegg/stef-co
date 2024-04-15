@@ -26,6 +26,8 @@ import Input from "./input";
 import CheckoutDetails from "./checkoutDetails";
 import CheckoutAddressForm from "./checkoutAddressForm";
 import OrderSummary from "./orderSummary";
+import OrderList from "./orderList";
+import OrderListItem from "./orderListItem";
 
 export {
   CategoryList,
@@ -56,4 +58,6 @@ export {
   CheckoutDetails,
   CheckoutAddressForm,
   OrderSummary,
+  OrderList,
+  OrderListItem,
 };

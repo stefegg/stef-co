@@ -14,6 +14,7 @@ import { getFilter } from "../_utils";
 import accountIcon from "../../../public/icons/account.png";
 import cartIcon from "../../../public/icons/cart_png.png";
 import wishList from "../../../public/icons/wishlist.svg";
+import orderTruck from "../../../public/icons/truck.svg";
 import { useRouter, usePathname } from "next/navigation";
 
 export default function Header() {
@@ -57,6 +58,18 @@ export default function Header() {
       >
         <div className="ml-auto">
           <Dropdown title={"Site Theme"} options={themeOptions} />
+        </div>
+        <div
+          className="cursor-pointer relative"
+          onClick={() => router.push("/my-orders")}
+        >
+          <Image
+            src={orderTruck}
+            height={24}
+            width={24}
+            alt="my orders Icon"
+            style={iconStyle}
+          />
         </div>
         <div
           className="cursor-pointer relative"
