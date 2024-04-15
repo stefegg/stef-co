@@ -1,11 +1,16 @@
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import Form from "./form";
+import LoginForm from "./form";
+import { PageWrapper } from "../_components";
 
 export default async function Login() {
   const session = await getServerSession();
   if (session) {
     redirect("/");
   }
-  return <Form />;
+  return (
+    <PageWrapper>
+      <LoginForm />
+    </PageWrapper>
+  );
 }

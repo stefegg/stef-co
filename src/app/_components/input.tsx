@@ -10,11 +10,13 @@ type InputProps = {
   onChange: (e: string | ChangeEvent<any>) => void;
   onBlur?: (e: any) => void;
   value: string;
+  type?: string;
 };
 
 export default function Input(props: InputProps) {
   const { appTheme } = useContext(ThemeContext);
-  const { label, error, width, placeholder, value, onChange, onBlur } = props;
+  const { label, error, width, placeholder, value, onChange, onBlur, type } =
+    props;
   return (
     <div className={`flex flex-col w-${width} rounded-sm`}>
       <span className="text-base mb-1">{label && label}</span>
@@ -27,6 +29,7 @@ export default function Input(props: InputProps) {
             error ? `error` : `text`
           } pl-[6px] w-full rounded text-black`}
           placeholder={placeholder && placeholder}
+          type={type}
         />
       </div>
       <span className={`h-3.5 text-sm text-${appTheme}-error`}>

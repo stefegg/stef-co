@@ -1,20 +1,33 @@
 "use client";
 import { signIn } from "next-auth/react";
-import { FormEvent, useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { CartContext } from "../_providers";
-import { useContext } from "react";
+import { CartContext, ThemeContext, BannerContext } from "../_providers";
+import { Input, Logo, Button } from "../_components";
+import { useFormik } from "formik";
+import { loginSchema } from "../_validation";
+import Link from "next/link";
 
-export default function Form() {
+export default function LoginForm() {
   const router = useRouter();
   const [error, setError] = useState("");
+  const { setOpacity, setType, setOperation } = useContext(BannerContext);
   const { setWishlist } = useContext(CartContext);
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+  const { appTheme } = useContext(ThemeContext);
+  useEffect(() => {
+    if (error) {
+      setOpacity("100");
+      setOperation("");
+      setType("Internal Server Error");
+      setTimeout(() => {
+        setOpacity("0");
+      }, 1000);
+    }
+  }, [error]);
+  const handleSubmit = async () => {
     const response = await signIn("credentials", {
-      email: formData.get("email"),
-      password: formData.get("password"),
+      email: formik.values.email,
+      password: formik.values.password,
       redirect: false,
     });
     if (!response?.error) {
@@ -23,18 +36,60 @@ export default function Form() {
       router.refresh();
     }
     if (response?.error) {
-      // console.log(response.error, "-------error");
       setError(response.error);
     }
   };
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    onSubmit: () => {
+      handleSubmit();
+    },
+    validateOnChange: true,
+    validateOnBlur: true,
+    validationSchema: loginSchema,
+  });
   return (
     <form
-      className="flex flex-col gap-2 mx-auto max-w-md mt-10"
-      onSubmit={handleSubmit}
+      className="flex flex-col gap-2 mx-auto max-w-l items-center"
+      onSubmit={formik.handleSubmit}
     >
-      <input name="email" className="border border-black" type="email" />
-      <input name="password" type="password" className="border border-black" />
-      <button type="submit">Login</button>
+      <div className=" w-1/4">
+        <Logo size="large" />
+      </div>
+      <Input
+        width="1/2"
+        label="Email"
+        onChange={formik.handleChange("email")}
+        onBlur={formik.handleBlur("email")}
+        value={formik.values.email}
+        type="email"
+        error={formik.touched.email && formik.errors.email}
+      />
+      <Input
+        width="1/2"
+        label="Password"
+        onChange={formik.handleChange("password")}
+        onBlur={formik.handleBlur("password")}
+        value={formik.values.password}
+        type="password"
+        error={formik.touched.password && formik.errors.password}
+      />
+      <Button
+        buttonText="Login"
+        size="med"
+        styleType="primary"
+        onClick={formik.handleSubmit}
+      />
+      <div className="mt-2">
+        {`Don't have an account?`}
+        <Link href="/register" className={`mx-2 text-${appTheme}-link`}>
+          Sign up
+        </Link>
+        for free.
+      </div>
     </form>
   );
 }

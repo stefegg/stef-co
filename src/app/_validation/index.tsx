@@ -10,3 +10,8 @@ export const addressSchema = Yup.object().shape({
   shipMethod: Yup.number().required("Required"),
   email: Yup.string().email("Invalid email").required("Required"),
 });
+
+export const loginSchema = Yup.object().shape({
+  email: Yup.string().email("Invalid email").required("Required"),
+  password: Yup.string().required("Required"),
+});

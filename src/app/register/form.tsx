@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { BannerContext } from "../_providers";
 import { useContext } from "react";
 
-export default function Form() {
+export default function RegisterForm() {
   const router = useRouter();
   const [error, setError] = useState("");
   const { setOperation, setType, setOpacity } = useContext(BannerContext);

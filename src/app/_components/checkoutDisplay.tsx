@@ -151,7 +151,7 @@ export default function CheckoutDisplay() {
             </div>
             {!user ? (
               <div className="flex justify-center w-full pt-4 text-lg">
-                <Link href="/login" className="mr-2 text-blue-300">
+                <Link href="/login" className={`mr-2 text-${appTheme}-link`}>
                   Login
                 </Link>
                 or continue as guest
