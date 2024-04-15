@@ -8,7 +8,7 @@ import { format } from "date-fns";
 
 type OrderSummaryProps = {
   order: CleanOrder | CleanGuestOrder;
-  type: string;
+  type?: string;
 };
 
 export default function OrderSummary(props: OrderSummaryProps) {
