@@ -11,17 +11,28 @@ type InputProps = {
   onBlur?: (e: any) => void;
   value: string;
   type?: string;
+  name?: string;
 };
 
 export default function Input(props: InputProps) {
   const { appTheme } = useContext(ThemeContext);
-  const { label, error, width, placeholder, value, onChange, onBlur, type } =
-    props;
+  const {
+    label,
+    error,
+    width,
+    placeholder,
+    value,
+    onChange,
+    onBlur,
+    type,
+    name,
+  } = props;
   return (
     <div className={`flex flex-col w-${width} rounded-sm`}>
       <span className="text-base mb-1">{label && label}</span>
       <div className={`rounded w-full}`}>
         <input
+          name={name}
           value={value}
           onChange={onChange}
           onBlur={onBlur}

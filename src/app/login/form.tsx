@@ -60,6 +60,7 @@ export default function LoginForm() {
         <Logo size="large" />
       </div>
       <Input
+        name="email"
         width="1/2"
         label="Email"
         onChange={formik.handleChange("email")}
