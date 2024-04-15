@@ -61,7 +61,7 @@ export default function Header() {
         </div>
         <div
           className="cursor-pointer relative"
-          onClick={() => router.push("/wishlist")}
+          onClick={() => router.push("/my-orders")}
         >
           <Image
             src={orderTruck}
@@ -73,7 +73,7 @@ export default function Header() {
         </div>
         <div
           className="cursor-pointer relative"
-          onClick={() => router.push("/my-orders")}
+          onClick={() => router.push("/wishlist")}
         >
           <Image
             src={wishList}

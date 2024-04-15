@@ -306,3 +306,22 @@ export async function getGuestOrderById(orderId: string) {
     },
   });
 }
+
+export async function getOrdersByUserId(userId: string) {
+  return await prisma.order.findMany({
+    where: {
+      userId: userId,
+    },
+    include: {
+      orderItems: {
+        select: {
+          name: true,
+          price: true,
+          quantity: true,
+          currency: true,
+          imageUrl: true,
+        },
+      },
+    },
+  });
+}
