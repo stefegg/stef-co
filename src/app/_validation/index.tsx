@@ -10,3 +10,18 @@ export const addressSchema = Yup.object().shape({
   shipMethod: Yup.number().required("Required"),
   email: Yup.string().email("Invalid email").required("Required"),
 });
+
+export const loginSchema = Yup.object().shape({
+  email: Yup.string().email("Invalid email").required("Required"),
+  password: Yup.string().required("Required"),
+});
+
+export const registerSchema = Yup.object().shape({
+  email: Yup.string().email("Invalid email").required("Required"),
+  password: Yup.string()
+    .required("Required")
+    .min(8, "Your password is too short"),
+  confirmPassword: Yup.string()
+    .required("Please retype your password")
+    .oneOf([Yup.ref("password")], "Your passwords do not match."),
+});

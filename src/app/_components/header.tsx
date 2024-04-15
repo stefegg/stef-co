@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import { CartContext, ThemeContext, UserContext } from "../_providers/index";
-import { useContext, useState, useEffect } from "react";
+import { CartContext, ThemeContext } from "../_providers/index";
+import { useContext, useState } from "react";
 import {
   HeaderMenu,
   Dropdown,

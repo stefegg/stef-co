@@ -26,12 +26,12 @@ export default function Sidebar() {
         All Products
       </Link>
 
-      <Link
+      {/* <Link
         href="/adminPanel"
         className={`min-w-full flex justify-center hover:bg-${appTheme}-bodyBg rounded-md p-2 `}
       >
         Admin Panel
-      </Link>
+      </Link> */}
       <Link
         href="/about"
         className={`min-w-full flex justify-center hover:bg-${appTheme}-bodyBg rounded-md p-2 `}

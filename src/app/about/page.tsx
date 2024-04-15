@@ -1,7 +1,9 @@
+import { PageWrapper } from "../_components";
+
 export default function AboutPage() {
   return (
-    <div>
+    <PageWrapper>
       <div>Coming Soon</div>
-    </div>
+    </PageWrapper>
   );
 }
