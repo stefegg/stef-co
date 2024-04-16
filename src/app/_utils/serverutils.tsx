@@ -288,7 +288,7 @@ export async function getOrderById(orderId: string) {
 }
 
 export async function getGuestOrderById(orderId: string) {
-  return await prisma.guestOrder.findUnique({
+  const resp = await prisma.guestOrder.findUnique({
     where: {
       id: orderId,
     },
@@ -305,6 +305,7 @@ export async function getGuestOrderById(orderId: string) {
       },
     },
   });
+  return resp;
 }
 
 export async function getOrdersByUserId(userId: string) {
@@ -312,6 +313,7 @@ export async function getOrdersByUserId(userId: string) {
     where: {
       userId: userId,
     },
+    orderBy: { createdAt: "desc" },
     include: {
       orderItems: {
         select: {

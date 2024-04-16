@@ -17,10 +17,10 @@ export const logoTextGen = (appTheme: string, size: string) => {
     return `font-outline-6 text-${appTheme}-text ${small}`;
   }
   if (appTheme === "dark" && size === "large") {
-    return `font-outline-3 text-black bg-black ${large}`;
+    return `font-outline-3 text-black bg-${appTheme}-bodyBg ${large}`;
   }
   if (appTheme === "dark" && size === "small") {
-    return `font-outline-4 text-${appTheme}-text bg-black ${small}`;
+    return `font-outline-4 text-${appTheme}-text bg-${appTheme}-containerBg ${small}`;
   }
 };
 

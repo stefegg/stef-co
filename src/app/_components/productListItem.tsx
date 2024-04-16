@@ -67,7 +67,7 @@ export default function ProductListItem(props: ProductListProps) {
                     user,
                   })
                 }
-                size="sm"
+                size="xs"
               />
               <Button
                 buttonText={"Add to Cart"}
@@ -88,7 +88,7 @@ export default function ProductListItem(props: ProductListProps) {
                     setType,
                   })
                 }
-                size="sm"
+                size="xs"
               />
             </div>
             <div>{stock} in stock</div>

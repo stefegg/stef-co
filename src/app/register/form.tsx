@@ -92,6 +92,7 @@ export default function RegisterForm() {
         error={formik.touched.confirmPassword && formik.errors.confirmPassword}
       />
       <Button
+        type="submit"
         buttonText="Register"
         size="med"
         styleType="primary"

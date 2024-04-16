@@ -38,7 +38,7 @@ export default function Input(props: InputProps) {
           onBlur={onBlur}
           className={`outline-0 border-2 border-${appTheme}-${
             error ? `error` : `text`
-          } pl-[6px] w-full rounded text-black`}
+          } pl-[6px] w-full rounded text-black focus:border-${appTheme}-secondary`}
           placeholder={placeholder && placeholder}
           type={type}
         />

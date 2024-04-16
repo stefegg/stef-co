@@ -25,3 +25,10 @@ export const registerSchema = Yup.object().shape({
     .required("Please retype your password")
     .oneOf([Yup.ref("password")], "Your passwords do not match."),
 });
+
+export const searchSchema = Yup.object().shape({
+  search: Yup.string()
+    .required("Please enter your order number")
+    .min(36, "Invalid Order Number")
+    .max(36, "Invalid Order Number"),
+});

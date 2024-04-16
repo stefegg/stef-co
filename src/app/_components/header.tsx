@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { CartContext, ThemeContext } from "../_providers/index";
+import { CartContext, ThemeContext, UserContext } from "../_providers/index";
 import { useContext, useState } from "react";
 import {
   HeaderMenu,
@@ -19,6 +19,7 @@ import { useRouter, usePathname } from "next/navigation";
 
 export default function Header() {
   const { appTheme, setAppTheme } = useContext(ThemeContext);
+  const { user } = useContext(UserContext);
   const { cart, wishlist, showCart, setShowCart } = useContext(CartContext);
   const [showDrop, setShowDrop] = useState(false);
   const router = useRouter();
@@ -61,7 +62,7 @@ export default function Header() {
         </div>
         <div
           className="cursor-pointer relative"
-          onClick={() => router.push("/my-orders")}
+          onClick={() => router.push(user ? "/my-orders" : "/order-search")}
         >
           <Image
             src={orderTruck}

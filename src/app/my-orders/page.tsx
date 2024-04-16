@@ -10,7 +10,7 @@ export default async function Page() {
     if (session && session.user && session.user.name) {
       return await getOrdersByUserId(session.user?.name);
     } else {
-      redirect("/");
+      redirect("/order-search");
     }
   };
 
