@@ -1,9 +1,9 @@
 "use client";
-import { FullProduct } from "../_types";
+import { FetchedProduct } from "../_types";
 import { ProductTile } from ".";
 
 type ProductGridProps = {
-  products: FullProduct[];
+  products: FetchedProduct[];
   catId?: string;
 };
 

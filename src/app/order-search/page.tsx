@@ -29,7 +29,7 @@ export default function Page() {
   return (
     <PageWrapper>
       <form onSubmit={formik.handleSubmit}>
-        <div className="text-2xl">Enter Order Number</div>
+        <div className="text-2xl mb-2">Enter Order Number</div>
         <Input
           name="search"
           width={"1/2"}

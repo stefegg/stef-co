@@ -1,4 +1,4 @@
-import { FullProduct } from "../_types";
+import { FetchedProduct } from "../_types";
 import Link from "next/link";
 import {
   currencyGen,
@@ -16,7 +16,7 @@ import {
 import { Button } from ".";
 
 type ProductListProps = {
-  product: FullProduct;
+  product: FetchedProduct;
   catId?: string;
 };
 
@@ -59,7 +59,7 @@ export default function ProductListItem(props: ProductListProps) {
                     prodName: product.name,
                     prodCurrency: product.currency,
                     prodImageUrl: product.imageUrl || "",
-                    prodPrice: product.price.toNumber(),
+                    prodPrice: product.price,
                     wishlist,
                     setOperation,
                     setType,
@@ -80,7 +80,7 @@ export default function ProductListItem(props: ProductListProps) {
                     prodId: product.id,
                     prodName: product.name,
                     prodCurrency: product.currency,
-                    prodPrice: product.price.toNumber(),
+                    prodPrice: product.price,
                     prodImageUrl: product.imageUrl ? product.imageUrl : "",
                     setCartQuantity,
                     cartQuantity,
@@ -94,7 +94,7 @@ export default function ProductListItem(props: ProductListProps) {
             <div>{stock} in stock</div>
             <div>
               {currencyGen(currency)}
-              {price.toNumber()}
+              {price.toString()}
             </div>
           </div>
         </div>

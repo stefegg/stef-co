@@ -38,7 +38,7 @@ export default function Dropdown(props: DropdownProps) {
   };
 
   return (
-    <div>
+    <div className="relative">
       <div
         className="cursor-pointer flex flex-row gap-2"
         onClick={() => setIsOpen(!isOpen)}
@@ -78,7 +78,9 @@ export default function Dropdown(props: DropdownProps) {
       </div>
       {isOpen && (
         <div
-          className={`mt-2 w-36 z-40 rounded-lg absolute h-auto max-h-32 overflow-scroll border-2 bg-${appTheme}-containerBg border-${appTheme}-border`}
+          className={`w-36 z-40 rounded-lg absolute h-auto max-h-32 overflow-scroll border-2 bg-${appTheme}-containerBg border-${appTheme}-border ${
+            stateSelect ? `top-16` : `mt-2`
+          }`}
           onMouseLeave={() => mouseOut()}
         >
           {options?.map((o, idx) => (

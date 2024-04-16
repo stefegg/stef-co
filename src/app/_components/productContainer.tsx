@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { ProductGrid, ToggleSwitch, ProductList } from "./index";
-import { FullProduct } from "../_types";
+import { FetchedProduct } from "../_types";
 
 type ProductContainerProps = {
-  products: FullProduct[];
+  products: FetchedProduct[];
   catId?: string;
 };
 

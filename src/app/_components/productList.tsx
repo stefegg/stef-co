@@ -1,9 +1,9 @@
 "use client";
-import { FullProduct } from "../_types";
+import { FetchedProduct } from "../_types";
 import { ProductListItem } from ".";
 
 type ProductListProps = {
-  products: FullProduct[];
+  products: FetchedProduct[];
   catId?: string;
 };
 

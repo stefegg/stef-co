@@ -1,5 +1,5 @@
 "use client";
-import { FullProduct } from "../_types";
+import { FetchedProduct } from "../_types";
 import {
   currencyGen,
   addToCart,
@@ -18,7 +18,7 @@ import Image from "next/image";
 import { lobsterFont } from "../fonts";
 
 type ProductDisplayProps = {
-  product: FullProduct;
+  product: FetchedProduct;
 };
 
 export default function ProductDisplay(props: ProductDisplayProps) {
@@ -80,7 +80,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
                 prodName: product.name,
                 prodCurrency: product.currency,
                 prodImageUrl: product.imageUrl || "",
-                prodPrice: product.price.toNumber(),
+                prodPrice: product.price,
                 wishlist,
                 setOperation,
                 setType,
@@ -101,7 +101,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
                 prodId: product.id,
                 prodName: product.name,
                 prodCurrency: product.currency,
-                prodPrice: product.price.toNumber(),
+                prodPrice: product.price,
                 prodImageUrl: product.imageUrl ? product.imageUrl : "",
                 setCartQuantity,
                 cartQuantity,
