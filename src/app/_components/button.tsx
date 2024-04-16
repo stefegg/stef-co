@@ -28,7 +28,7 @@ export default function Button(props: ButtonProps) {
   };
   const getStyle = () => {
     if (styleType === "primary") {
-      return `bg-${appTheme}-containerBg border-${appTheme}-border text-${appTheme}-text hover:bg-${appTheme}-bodyBg`;
+      return `bg-${appTheme}-containerBg border-${appTheme}-border text-${appTheme}-text hover:bg-${appTheme}-bodyBg hover:border-${appTheme}-secondary`;
     }
     if (styleType === "secondary") {
       return `bg-${appTheme}-text border-${appTheme}-border text-${appTheme}-bodyBg hover:bg-${appTheme}-border hover:text-${appTheme}-text hover:border-${appTheme}-text`;

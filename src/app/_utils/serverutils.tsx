@@ -312,6 +312,7 @@ export async function getOrdersByUserId(userId: string) {
     where: {
       userId: userId,
     },
+    orderBy: { createdAt: "desc" },
     include: {
       orderItems: {
         select: {

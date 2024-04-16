@@ -14,6 +14,7 @@ const config: Config = {
           containerBg: "#d0d0d0",
           bodyBg: "#E5E5E5",
           containerHover: "#E5E5E5",
+          secondary: "#5fafd7",
           error: "#B00020",
           link: "#5fafd7",
         },
@@ -33,7 +34,7 @@ const config: Config = {
           bodyBg: "#3f5577",
           containerHover: "#33435B",
           containerBg: "#1F2E47",
-          seconadry: "#03c51d",
+          secondary: "#03c51d",
           error: "#cd0909",
           link: "#5fafd7",
         },
@@ -53,17 +54,17 @@ const config: Config = {
   safelist: [
     {
       pattern:
-        /(bg|text|border)-light-(border|text|containerBg|bodyBg|containerHover|error|link)/,
+        /(bg|text|border)-light-(border|text|containerBg|bodyBg|containerHover|error|link|secondary)/,
       variants: ["before", "hover"],
     },
     {
       pattern:
-        /(bg|text|border)-classic-(border|text|containerBg|bodyBg|containerHover|error|link)/,
+        /(bg|text|border)-classic-(border|text|containerBg|bodyBg|containerHover|error|link|secondary)/,
       variants: ["before", "hover"],
     },
     {
       pattern:
-        /(bg|text|border)-dark-(border|text|containerBg|bodyBg|containerHover|error|link)/,
+        /(bg|text|border)-dark-(border|text|containerBg|bodyBg|containerHover|error|link|secondary)/,
       variants: ["before", "hover"],
     },
   ],
