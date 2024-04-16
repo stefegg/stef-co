@@ -79,6 +79,7 @@ export default function LoginForm() {
         error={formik.touched.password && formik.errors.password}
       />
       <Button
+        type="submit"
         buttonText="Login"
         size="med"
         styleType="primary"

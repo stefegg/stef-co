@@ -79,6 +79,7 @@ export default function CheckoutDetails(props: CheckoutDetailsProps) {
         </div>
         <div className="flex flex-row text-xl justify-center w-full px-6">
           <Button
+            type="submit"
             buttonText="Submit Order"
             size="xl"
             styleType="secondary"

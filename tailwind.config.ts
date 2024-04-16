@@ -55,17 +55,17 @@ const config: Config = {
     {
       pattern:
         /(bg|text|border)-light-(border|text|containerBg|bodyBg|containerHover|error|link|secondary)/,
-      variants: ["before", "hover"],
+      variants: ["before", "hover", "focus"],
     },
     {
       pattern:
         /(bg|text|border)-classic-(border|text|containerBg|bodyBg|containerHover|error|link|secondary)/,
-      variants: ["before", "hover"],
+      variants: ["before", "hover", "focus"],
     },
     {
       pattern:
         /(bg|text|border)-dark-(border|text|containerBg|bodyBg|containerHover|error|link|secondary)/,
-      variants: ["before", "hover"],
+      variants: ["before", "hover", "focus"],
     },
   ],
 };
