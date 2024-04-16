@@ -56,7 +56,7 @@ export default function Carousel(props: CarouselProps) {
   }, []);
 
   return (
-    <div className="carousel mt-12 ">
+    <div className="carousel mt-8">
       <div className="relative overflow-hidden">
         <div className="flex justify-between absolute top left w-full h-full">
           <button
