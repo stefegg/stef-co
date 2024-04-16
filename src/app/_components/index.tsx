@@ -28,6 +28,7 @@ import CheckoutAddressForm from "./checkoutAddressForm";
 import OrderSummary from "./orderSummary";
 import OrderList from "./orderList";
 import OrderListItem from "./orderListItem";
+import Carousel from "./carousel";
 
 export {
   CategoryList,
@@ -60,4 +61,5 @@ export {
   OrderSummary,
   OrderList,
   OrderListItem,
+  Carousel,
 };

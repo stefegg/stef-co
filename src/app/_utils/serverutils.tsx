@@ -9,6 +9,17 @@ export async function getProductById(prodId: string) {
     where: {
       id: prodId,
     },
+    select: {
+      id: true,
+      name: true,
+      price: true,
+      currency: true,
+      specs: true,
+      description: true,
+      stock: true,
+      imageUrl: true,
+      categoryId: true,
+    },
   });
 }
 
@@ -33,8 +44,16 @@ export async function getCategories() {
 
 export async function getProducts() {
   return await prisma.product.findMany({
-    include: {
-      category: true,
+    select: {
+      id: true,
+      name: true,
+      price: true,
+      currency: true,
+      specs: true,
+      description: true,
+      stock: true,
+      imageUrl: true,
+      categoryId: true,
     },
   });
 }
@@ -43,6 +62,17 @@ export async function getFeaturedProducts() {
   return await prisma.product.findMany({
     where: {
       featured: true,
+    },
+    select: {
+      id: true,
+      name: true,
+      price: true,
+      currency: true,
+      specs: true,
+      description: true,
+      stock: true,
+      imageUrl: true,
+      categoryId: true,
     },
   });
 }
@@ -165,14 +195,6 @@ export async function updateWishlist(
       });
     }
   }
-}
-
-export async function getProduct(productId: string) {
-  return await prisma.product.findUnique({
-    where: {
-      id: productId,
-    },
-  });
 }
 
 export async function createOrder(
