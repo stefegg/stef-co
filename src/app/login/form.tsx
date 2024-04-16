@@ -87,10 +87,10 @@ export default function LoginForm() {
       />
       <div className="mt-2">
         {`Don't have an account?`}
-        <Link href="/register" className={`mx-2 text-${appTheme}-link`}>
+        <Link href="/register" className={`ml-2 text-${appTheme}-link`}>
           Sign up
         </Link>
-        for free.
+        {` for free.`}
       </div>
     </form>
   );

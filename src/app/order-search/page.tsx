@@ -2,10 +2,17 @@
 import { PageWrapper, Input, Button } from "../_components";
 import { useFormik } from "formik";
 import { searchSchema } from "../_validation";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { useContext } from "react";
+import { ThemeContext } from "../_providers";
 
 export default function Page() {
+  const router = useRouter();
+  const { appTheme } = useContext(ThemeContext);
+
   const handleSubmit = () => {
-    console.log("submit");
+    router.push(`/order-search/${formik.values.search}`);
   };
   const formik = useFormik({
     initialValues: {
@@ -42,6 +49,13 @@ export default function Page() {
           />
         </div>
       </form>
+      <div className="text-lg">
+        {`Already a user? `}
+        <Link href="/login" className={`text-${appTheme}-link`}>
+          Login
+        </Link>
+        {` to view your orders.`}
+      </div>
     </PageWrapper>
   );
 }
