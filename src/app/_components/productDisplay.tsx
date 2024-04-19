@@ -43,7 +43,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
           className={`w-1/3 h-2/3 border-2 border-${appTheme}-border rounded-lg ml-2`}
         >
           <Image
-            src={"https://i.imgur.com/xWhRNZQ.jpg"}
+            src={imageUrl}
             alt="imageUrl"
             width={0}
             height={0}
@@ -70,7 +70,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
         </div>
       </div>
       <div className="flex flex-row gap-36">
-        <div className={`w-1/3 ml-2`}>pics</div>
+        <div className={`w-1/3 ml-2 text-${appTheme}-bodyBg`}>pics</div>
         <div className={`w-1/2 gap-16 flex flex-row`}>
           <Button
             onClick={() =>

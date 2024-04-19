@@ -11,7 +11,6 @@ export default function AboutPage() {
     <PageWrapper>
       <div className="p-8">
         <div className={`p-6  flex flex-row gap-6`}>
-          {/* <div className={`rounded-md  border-${appTheme}-secondary border-2`}> */}
           <Image
             src={self}
             alt="self"
@@ -21,7 +20,6 @@ export default function AboutPage() {
             unoptimized
             style={{ width: "30%", height: "40%", borderRadius: "6px" }}
           />
-          {/* </div> */}
           <div className="w-2/3 text-xl gap-4 flex flex-col">
             <div>
               Thanks for visiting Stef-Co. As you probably know, this is not an

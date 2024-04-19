@@ -67,7 +67,7 @@ export default function CheckoutDisplay() {
         setTimeout(() => {
           setCart([]);
           setCartQuantity(0);
-        }, 500);
+        }, 1000);
       }
       //@@TODO: set error
     }

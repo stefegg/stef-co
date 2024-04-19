@@ -20,7 +20,7 @@ export type FetchedProduct = {
   specs: string[];
   description: string;
   stock: number;
-  imageUrl?: string;
+  imageUrl: string;
 };
 
 export type FullCategory = Category &
@@ -49,7 +49,7 @@ export type CartItem = {
   price: number;
   currency: string;
   quantity: number;
-  imageUrl: string | undefined;
+  imageUrl: string;
 };
 
 export type AddCartProps = {
@@ -60,7 +60,7 @@ export type AddCartProps = {
   prodName: string;
   prodPrice: number;
   prodCurrency: string;
-  prodImageUrl: string | undefined;
+  prodImageUrl: string;
   setCartQuantity: (value: SetStateAction<number>) => void;
   cartQuantity: number;
   setOperation: (value: SetStateAction<string>) => void;
@@ -146,5 +146,5 @@ export type CleanOrderItem = {
   price: number;
   quantity: number;
   currency: string;
-  imageUrl: string | undefined;
+  imageUrl: string;
 };

@@ -97,7 +97,7 @@ export const addToCart = (props: AddCartProps) => {
           price: prodPrice,
           currency: prodCurrency,
           quantity: 1,
-          imageUrl: prodImageUrl || "",
+          imageUrl: prodImageUrl,
         },
       ]);
     }
@@ -110,7 +110,7 @@ export const addToCart = (props: AddCartProps) => {
         price: prodPrice,
         currency: prodCurrency,
         quantity: 1,
-        imageUrl: "",
+        imageUrl: prodImageUrl,
       },
     ]);
     setCartQuantity(cartQuantity + 1);
@@ -143,7 +143,7 @@ export const toggleWishlist = (props: ToggleWishProps) => {
     prodId: prodId,
     name: prodName,
     price: prodPrice,
-    imageUrl: prodImageUrl || "",
+    imageUrl: prodImageUrl,
     currency: prodCurrency,
   };
   if (wishlistValues.includes(prodId)) {
