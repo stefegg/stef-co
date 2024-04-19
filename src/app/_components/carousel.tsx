@@ -106,7 +106,7 @@ export default function Carousel(props: CarouselProps) {
         >
           {products.map((prod, index) => {
             return (
-              <div key="index" className="max-w-96">
+              <div key={index} className="max-w-96">
                 <ProductTile key={index} product={prod} />
               </div>
             );
