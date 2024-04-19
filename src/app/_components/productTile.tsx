@@ -49,7 +49,6 @@ export default function ProductTile(props: ProductTileProps) {
     setCartQuantity,
   } = useContext(CartContext);
   const { setOpacity, setType, setOperation } = useContext(BannerContext);
-  // console.log(product, "------prod");
   return (
     <div
       className={`bg-${appTheme}-containerBg text-${appTheme}-text border-${appTheme}-border border-2 rounded-lg p-4 h-96`}
