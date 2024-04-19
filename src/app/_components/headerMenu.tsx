@@ -18,7 +18,7 @@ export default function HeaderMenu(props: HeaderMenuProps) {
   const router = useRouter();
 
   const logOutClick = () => {
-    signOut();
+    signOut({ redirect: false });
     setWishlist([]);
     setUser(null);
     router.push("/");

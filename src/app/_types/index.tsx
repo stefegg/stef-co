@@ -56,7 +56,7 @@ export type AddCartProps = {
   setOpacity: (value: SetStateAction<string>) => void;
   cart: CartItem[];
   setCart: (value: SetStateAction<CartItem[]>) => void;
-  prodId: string;
+  id: string;
   prodName: string;
   prodPrice: number;
   prodCurrency: string;
@@ -69,7 +69,7 @@ export type AddCartProps = {
 
 export type ToggleWishProps = {
   setOpacity: (value: SetStateAction<string>) => void;
-  prodId: string;
+  id: string;
   prodName: string;
   prodPrice: number;
   prodCurrency: string;
@@ -83,7 +83,7 @@ export type ToggleWishProps = {
 
 export type WishlistTextProps = {
   wishlist: CleanWishlistItem[];
-  prodId: string;
+  id: string;
 };
 
 export type SafeUser = {
