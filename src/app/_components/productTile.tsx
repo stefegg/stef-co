@@ -15,6 +15,7 @@ import {
   UserContext,
 } from "../_providers/index";
 import { Button } from ".";
+import Image from "next/image";
 
 type ProductTileProps = {
   product?: FetchedProduct;
@@ -65,7 +66,17 @@ export default function ProductTile(props: ProductTileProps) {
         }
         className={`flex flex-col items-center h-72 w-full`}
       >
-        <div className={`bg-${appTheme}-text h-3/4 w-3/4 rounded-lg mt-2`} />
+        <div className={`bg-${appTheme}-text h-3/4 w-3/4 rounded-lg mt-2`}>
+          <Image
+            src={propType?.imageUrl || ""}
+            alt="image"
+            width={0}
+            height={0}
+            quality={100}
+            unoptimized
+            style={{ height: "100%", width: "100%" }}
+          />
+        </div>
         <div className="flex flex-row gap-2 items-center mt-4">
           <div className="text-lg">{propType && propType.name}</div>
           <div className="text-base">

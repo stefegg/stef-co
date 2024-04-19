@@ -124,16 +124,15 @@ export default function OrderSummary(props: OrderSummaryProps) {
             className={`w-full rounded-md border border-${appTheme}-border p-2 h-40 flex flex-row mb-2`}
           >
             <div className={`bg-${appTheme}-text w-40 rounded-md h-full`}>
-              image placeholder
-              {/* <Image
+              <Image
                 width={0}
                 height={0}
-                style={{ width: "10%", height: "100%" }}
+                style={{ width: "100%", height: "100%" }}
                 quality={100}
                 unoptimized
                 alt="imageUrl"
-                src={x.imageUrl || ""}
-              /> */}
+                src={x.imageUrl}
+              />
             </div>
             <div className="flex flex-col w-full justify-between py-4">
               <div className="flex flex-row justify-between ">

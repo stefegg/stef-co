@@ -16,7 +16,7 @@ model Product {
   stock Int
   description String
   specs String[]
-  imageUrl String?
+  imageUrl String
   createdAt DateTime @default(now())
   active Boolean @default(false)
   featured Boolean @default(false)
@@ -125,7 +125,7 @@ model OrderItem {
   price Decimal @db.Money
   quantity Int
   currency String
-  imageUrl String?
+  imageUrl String
 }
 
 model Wishlist {
