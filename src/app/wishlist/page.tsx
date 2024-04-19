@@ -35,7 +35,7 @@ export default function Wishlist({
           <div className={`grid grid-cols-3 text-xl gap-8 grid-auto-rows pr-6`}>
             {filteredList.map((item, idx) => (
               <div key={idx}>
-                <ProductTile wishItem={item} />
+                <ProductTile product={item} />
               </div>
             ))}
           </div>

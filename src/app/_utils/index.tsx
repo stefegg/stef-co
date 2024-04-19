@@ -71,7 +71,7 @@ export const addToCart = (props: AddCartProps) => {
     setOpacity,
     cart,
     setCart,
-    prodId,
+    id,
     prodName,
     prodPrice,
     prodCurrency,
@@ -83,16 +83,14 @@ export const addToCart = (props: AddCartProps) => {
   } = props;
   setOpacity("0");
   if (cart.length > 0) {
-    const findItem = cart.find((c) => c.prodId === prodId);
+    const findItem = cart.find((c) => c.prodId === id);
     if (findItem !== undefined) {
-      cart.map((c) =>
-        c.prodId === prodId ? (c.quantity = c.quantity + 1) : null
-      );
+      cart.map((c) => (c.prodId === id ? (c.quantity = c.quantity + 1) : null));
     } else {
       setCart([
         ...cart,
         {
-          prodId: prodId,
+          prodId: id,
           name: prodName,
           price: prodPrice,
           currency: prodCurrency,
@@ -105,7 +103,7 @@ export const addToCart = (props: AddCartProps) => {
   } else {
     setCart([
       {
-        prodId: prodId,
+        prodId: id,
         name: prodName,
         price: prodPrice,
         currency: prodCurrency,
@@ -127,7 +125,7 @@ export const toggleWishlist = (props: ToggleWishProps) => {
   const {
     setOpacity,
     wishlist,
-    prodId,
+    id,
     prodName,
     prodPrice,
     prodCurrency,
@@ -140,14 +138,14 @@ export const toggleWishlist = (props: ToggleWishProps) => {
   setOpacity("0");
   const wishlistValues = wishlist.map((e) => e.prodId);
   const prodAsWishItem = {
-    prodId: prodId,
+    prodId: id,
     name: prodName,
     price: prodPrice,
     imageUrl: prodImageUrl,
     currency: prodCurrency,
   };
-  if (wishlistValues.includes(prodId)) {
-    const newWishlist = wishlist.filter((e) => e.prodId !== prodId);
+  if (wishlistValues.includes(id)) {
+    const newWishlist = wishlist.filter((e) => e.prodId !== id);
     setWishlist(newWishlist);
     user !== null && updateWishlist(prodAsWishItem, user.id, "remove");
     setOperation("Removed from ");
@@ -164,9 +162,9 @@ export const toggleWishlist = (props: ToggleWishProps) => {
 };
 
 export const getWishlistText = (props: WishlistTextProps) => {
-  const { wishlist, prodId } = props;
+  const { wishlist, id } = props;
   const wishlistValues = wishlist.map((e) => e.prodId);
-  if (wishlistValues.includes(prodId)) {
+  if (wishlistValues.includes(id)) {
     return "Remove from Wishlist";
   } else return "Add to Wishlist";
 };

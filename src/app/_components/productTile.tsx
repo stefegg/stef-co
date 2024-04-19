@@ -1,5 +1,4 @@
 "use client";
-import { CleanWishlistItem, FetchedProduct } from "../_types";
 import Link from "next/link";
 import {
   currencyGen,
@@ -7,7 +6,7 @@ import {
   toggleWishlist,
   getWishlistText,
 } from "../_utils";
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import {
   ThemeContext,
   CartContext,
@@ -18,15 +17,28 @@ import { Button } from ".";
 import Image from "next/image";
 
 type ProductTileProps = {
-  product?: FetchedProduct;
-  wishItem?: CleanWishlistItem;
+  product: {
+    id?: string;
+    prodId?: string;
+    name: string;
+    price: number;
+    currency: string;
+    imageUrl: string;
+  };
   catId?: string;
 };
 
 export default function ProductTile(props: ProductTileProps) {
-  const { product, catId, wishItem } = props;
+  const { product, catId } = props;
+  const { id, prodId, name, price, currency, imageUrl } = product;
   const { appTheme } = useContext(ThemeContext);
   const { user } = useContext(UserContext);
+
+  const getId = () => {
+    if (prodId) {
+      return `${prodId}`;
+    } else return `${id}`;
+  };
 
   const {
     cart,
@@ -37,25 +49,7 @@ export default function ProductTile(props: ProductTileProps) {
     setCartQuantity,
   } = useContext(CartContext);
   const { setOpacity, setType, setOperation } = useContext(BannerContext);
-  const [propType, setpropType] = useState<
-    FetchedProduct | CleanWishlistItem
-  >();
-  useEffect(() => {
-    if (props.product) {
-      setpropType(product);
-    }
-    if (props.wishItem) {
-      setpropType(wishItem);
-    }
-  }, []);
-  const getId = () => {
-    if (props.product) {
-      return `${props.product.id}`;
-    }
-    if (props.wishItem) {
-      return `${props.wishItem.prodId}`;
-    } else return `id`;
-  };
+  // console.log(product, "------prod");
   return (
     <div
       className={`bg-${appTheme}-containerBg text-${appTheme}-text border-${appTheme}-border border-2 rounded-lg p-4 h-96`}
@@ -68,7 +62,7 @@ export default function ProductTile(props: ProductTileProps) {
       >
         <div className={`bg-${appTheme}-text h-3/4 w-3/4 rounded-lg mt-2`}>
           <Image
-            src={propType?.imageUrl || ""}
+            src={imageUrl}
             alt="image"
             width={0}
             height={0}
@@ -78,27 +72,26 @@ export default function ProductTile(props: ProductTileProps) {
           />
         </div>
         <div className="flex flex-row gap-2 items-center mt-4">
-          <div className="text-lg">{propType && propType.name}</div>
+          <div className="text-lg">{name}</div>
           <div className="text-base">
-            {currencyGen(propType ? propType.currency : "USD")}
-            {propType && propType.price.toString()}
+            {currencyGen(currency)}
+            {price}
           </div>
         </div>
       </Link>
       <div className="flex flex-row gap-2 w-full justify-evenly">
         <Button
           styleType="secondary"
-          buttonText={getWishlistText({ wishlist, prodId: getId() })}
+          buttonText={getWishlistText({ wishlist, id: getId() })}
           size="med"
           onClick={() =>
             toggleWishlist({
               setOpacity,
-              prodId: getId(),
-              prodName: (propType && propType.name) || "",
-              prodPrice:
-                (propType && JSON.parse(JSON.stringify(propType.price))) || 0,
-              prodCurrency: (propType && propType.currency) || "",
-              prodImageUrl: (propType && propType.imageUrl) || "",
+              id: getId(),
+              prodName: name,
+              prodPrice: price,
+              prodCurrency: currency,
+              prodImageUrl: imageUrl,
               wishlist,
               setOperation,
               setType,
@@ -116,12 +109,11 @@ export default function ProductTile(props: ProductTileProps) {
               setOpacity,
               cart,
               setCart,
-              prodId: getId(),
-              prodName: (propType && propType.name) || "",
-              prodPrice:
-                (propType && JSON.parse(JSON.stringify(propType.price))) || 0,
-              prodCurrency: (propType && propType.currency) || "",
-              prodImageUrl: (propType && propType.imageUrl) || "",
+              id: getId(),
+              prodName: name,
+              prodPrice: price,
+              prodCurrency: currency,
+              prodImageUrl: imageUrl,
               setCartQuantity,
               cartQuantity,
               setOperation,

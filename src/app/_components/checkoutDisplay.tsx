@@ -64,6 +64,7 @@ export default function CheckoutDisplay() {
       );
       if (res) {
         router.push(`/order-success/guest-order/${res}`);
+        router.refresh();
         setTimeout(() => {
           setCart([]);
           setCartQuantity(0);
@@ -92,6 +93,7 @@ export default function CheckoutDisplay() {
       );
       if (res !== "Error") {
         router.push(`/order-success/order/${res}`);
+        router.refresh();
         setTimeout(() => {
           setCart([]);
           setCartQuantity(0);
