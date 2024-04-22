@@ -43,7 +43,7 @@ export default async function Layout({
                   <SidebarCap session={session} />
                   <Sidebar />
                 </div>
-                <div className="w-[87%] h-full max-h-screen overflow-y-scroll overflow-x-hidden">
+                <div className="w-[87%] h-full max-h-screen overflow-y-auto overflow-x-hidden">
                   {children}
                 </div>
               </body>

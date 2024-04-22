@@ -32,7 +32,7 @@ export default function CheckoutDetails(props: CheckoutDetailsProps) {
         <div className={`pl-6 pt-2 text-lg h-10 flex items-center`}>
           {`Order Details (${cartQuantity} item${cartQuantity > 1 ? "s" : ""})`}
         </div>
-        <div className="flex flex-col overflow-y-scroll min-h-72 pt-2 pb-4 gap-2">
+        <div className="flex flex-col overflow-y-auto min-h-72 pt-2 pb-4 gap-2">
           {cart.map((c, idx) => (
             <div
               className={`px-6 text-base flex min-h-[10%] flex-row justify-between items-center w-full`}

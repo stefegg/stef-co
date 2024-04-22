@@ -41,7 +41,7 @@ export default function ProductListItem(props: ProductListProps) {
     >
       <div className={`flex flex-row h-24`}>
         <div
-          className={`flex flex-col w-[30%] pt-3 pl-4 gap-3 overflow-scroll rounded-l-lg`}
+          className={`flex flex-col w-[30%] pt-3 pl-4 gap-3 overflow-auto rounded-l-lg`}
         >
           <Link href={catId ? `/categories/${catId}/${id}` : `/products/${id}`}>
             <div className={`text-xl mb-1`}>{name}</div>
@@ -99,7 +99,7 @@ export default function ProductListItem(props: ProductListProps) {
           </div>
         </div>
         <div
-          className={`w-[40%] overflow-scroll py-2 pl-2 border-l-2 border-r-2 border-${appTheme}-border`}
+          className={`w-[40%] overflow-auto py-2 pl-2 border-l-2 border-r-2 border-${appTheme}-border`}
         >
           <div className={`grid grid-cols-2 gap-2 text-sm`}>
             {specs.map((spec, idx) => (
@@ -107,9 +107,7 @@ export default function ProductListItem(props: ProductListProps) {
             ))}
           </div>
         </div>
-        <div
-          className={`w-[30%] overflow-scroll text-sm py-2 rounded-r-lg px-2`}
-        >
+        <div className={`w-[30%] overflow-auto text-sm py-2 rounded-r-lg px-2`}>
           {description}
         </div>
       </div>

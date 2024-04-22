@@ -55,7 +55,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
           <div>{description}</div>
           <div>
             Specs:
-            <div className="w-full grid grid-cols-2 gap-2 pt-2 pl-4 overflow-scroll">
+            <div className="w-full grid grid-cols-2 gap-2 pt-2 pl-4 overflow-auto">
               {specs.map((spec, idx) => (
                 <div key={idx}>•{spec}</div>
               ))}
