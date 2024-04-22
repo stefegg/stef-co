@@ -37,7 +37,7 @@ export default function OrderSummary(props: OrderSummaryProps) {
   };
 
   return (
-    <div className="w-full shadow-[0px_0px_5px_5px_rgba(0,0,0,0.5)] rounded-md overflow-scroll">
+    <div className="w-full shadow-[0px_0px_5px_5px_rgba(0,0,0,0.5)] rounded-md overflow-auto">
       <span
         className={`text-xl bg-${appTheme}-containerBg p-4 rounded-t-md flex flex-row justify-between`}
       >

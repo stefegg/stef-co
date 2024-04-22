@@ -78,7 +78,7 @@ export default function Dropdown(props: DropdownProps) {
       </div>
       {isOpen && (
         <div
-          className={`w-36 z-40 rounded-lg absolute h-auto max-h-32 overflow-scroll border-2 bg-${appTheme}-containerBg border-${appTheme}-border ${
+          className={`w-36 z-40 rounded-lg absolute h-auto max-h-32 overflow-auto border-2 bg-${appTheme}-containerBg border-${appTheme}-border ${
             stateSelect ? `top-16` : `mt-2`
           }`}
           onMouseLeave={() => mouseOut()}
