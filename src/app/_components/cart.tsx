@@ -46,7 +46,7 @@ export default function Cart() {
   const getSubtotal = () => {
     let subtotal = 0;
     cart.map((c) => (subtotal = c.price * c.quantity + subtotal));
-    return subtotal;
+    return subtotal.toFixed(2);
   };
 
   const clickCheckout = () => {
@@ -60,25 +60,25 @@ export default function Cart() {
       className={`flex flex-col text-${appTheme}-text bg-${appTheme}-containerBg border-${appTheme}-text absolute justify-between border-l-2 h-[calc(100vh-4rem)] w-1/4 top-16 right-0 ${getTranslate()} transition duration-500 p-4 overflow-y-auto z-30`}
     >
       <div
-        className={`${lobsterFont.className} text-4xl border-b-2 border-${appTheme}-border h-16`}
+        className={`${lobsterFont.className} text-base md:text-2xl lg:text-3xl xl:text-4xl border-b-2 border-${appTheme}-border h-16 max-w-full`}
       >
         Shopping Cart
       </div>
-      <div className="h-2/3 py-4 overflow-y-auto gap-4 flex flex-col">
+      <div className="h-2/3 py-4 overflow-y-auto gap-4 flex flex-col max-w-full">
         {cart.length > 0 ? (
           cart.map((cartItem, idx) => (
             <div
               key={idx}
               className={`flex flex-col w-full gap-2 pl-2 bg-${appTheme}-bodyBg rounded-lg py-2`}
             >
-              <div className="text-3xl flex flex-row justify-between w-full ">
+              <div className="text-base md:text-xl lg:text-2xl xl:text-3xl flex flex-row justify-between w-full ">
                 <div className={lobsterFont.className}>{cartItem.name}</div>
-                <div className="text-lg grid grid-cols-2 gap-2 mr-2">
+                <div className="text-sm lg:text-lg grid grid-cols-2 gap-2 mr-2">
                   <div>
                     <div className="flex justify-end">x{cartItem.quantity}</div>
-                    <div className="ml-auto text-lg ">
+                    <div className="ml-auto ">
                       {currencyGen(cartItem.currency)}
-                      {cartItem.price * cartItem.quantity}
+                      {(cartItem.price * cartItem.quantity).toFixed(2)}
                     </div>
                   </div>
                   <div
@@ -98,15 +98,15 @@ export default function Cart() {
             </div>
           ))
         ) : (
-          <div className="flex flex-row w-full text-lg pl-2 pt-2">
+          <div className="flex flex-row w-full text-sm md:text-lg pl-2 pt-2">
             Your cart is empty
           </div>
         )}
       </div>
       {cart.length > 0 && (
-        <div className="flex flex-col w-full ml-1 h-40 py-4 ">
+        <div className="flex flex-col max-w-full ml-1 h-40 py-4 ">
           <div
-            className={`text-4xl ${lobsterFont.className} flex flex-row justify-between pr-4 pl-1 `}
+            className={`text-base md:text-2xl lg:text-3xl xl:text-4xl ${lobsterFont.className} flex flex-row justify-between pr-4 pl-1 `}
           >
             <div>Subtotal</div>
             <div>
