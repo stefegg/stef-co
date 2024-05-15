@@ -10,8 +10,8 @@ export default function Sidebar() {
 
   return (
     <div
-      className={`${lobsterFont.className} flex flex-col gap-6 -mt-[2px] h-full pt-10 items-center border-r-2 text-xl
-      bg-${appTheme}-containerBg text-${appTheme}-text border-${appTheme}-border min-w-full px-4`}
+      className={`${lobsterFont.className} flex flex-col gap-6 -mt-[2px] h-full pt-10 items-center border-r-2 
+      bg-${appTheme}-containerBg text-${appTheme}-text border-${appTheme}-border min-w-full px-4 xl:text-xl lg:text-lg md:text-base sm:text-xs`}
     >
       <Link
         href="/categories"
@@ -26,12 +26,6 @@ export default function Sidebar() {
         All Products
       </Link>
 
-      {/* <Link
-        href="/adminPanel"
-        className={`min-w-full flex justify-center hover:bg-${appTheme}-bodyBg rounded-md p-2 `}
-      >
-        Admin Panel
-      </Link> */}
       <Link
         href="/about"
         className={`min-w-full flex justify-center hover:bg-${appTheme}-bodyBg rounded-md p-2 `}

@@ -46,7 +46,7 @@ export default function Cart() {
   const getSubtotal = () => {
     let subtotal = 0;
     cart.map((c) => (subtotal = c.price * c.quantity + subtotal));
-    return subtotal;
+    return subtotal.toFixed(2);
   };
 
   const clickCheckout = () => {
@@ -60,11 +60,11 @@ export default function Cart() {
       className={`flex flex-col text-${appTheme}-text bg-${appTheme}-containerBg border-${appTheme}-text absolute justify-between border-l-2 h-[calc(100vh-4rem)] w-1/4 top-16 right-0 ${getTranslate()} transition duration-500 p-4 overflow-y-auto z-30`}
     >
       <div
-        className={`${lobsterFont.className} text-4xl border-b-2 border-${appTheme}-border h-16`}
+        className={`${lobsterFont.className} text-4xl border-b-2 border-${appTheme}-border h-16 max-w-full`}
       >
         Shopping Cart
       </div>
-      <div className="h-2/3 py-4 overflow-y-auto gap-4 flex flex-col">
+      <div className="h-2/3 py-4 overflow-y-auto gap-4 flex flex-col max-w-full">
         {cart.length > 0 ? (
           cart.map((cartItem, idx) => (
             <div
@@ -78,7 +78,7 @@ export default function Cart() {
                     <div className="flex justify-end">x{cartItem.quantity}</div>
                     <div className="ml-auto text-lg ">
                       {currencyGen(cartItem.currency)}
-                      {cartItem.price * cartItem.quantity}
+                      {(cartItem.price * cartItem.quantity).toFixed(2)}
                     </div>
                   </div>
                   <div
@@ -104,7 +104,7 @@ export default function Cart() {
         )}
       </div>
       {cart.length > 0 && (
-        <div className="flex flex-col w-full ml-1 h-40 py-4 ">
+        <div className="flex flex-col max-w-full ml-1 h-40 py-4 ">
           <div
             className={`text-4xl ${lobsterFont.className} flex flex-row justify-between pr-4 pl-1 `}
           >

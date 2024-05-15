@@ -91,7 +91,6 @@ export default function ProductListItem(props: ProductListProps) {
                 size="xs"
               />
             </div>
-            <div>{stock} in stock</div>
             <div>
               {currencyGen(currency)}
               {price.toString()}
