@@ -15,9 +15,8 @@ export default async function AllProducts({
 }) {
   const query = searchParams?.query || "";
   const products = await getProducts();
-  const fixedProds = JSON.parse(JSON.stringify(products));
-  const filteredProducts = Array.isArray(fixedProds)
-    ? fixedProds.filter((product) => {
+  const filteredProducts = Array.isArray(products)
+    ? products.filter((product) => {
         return product.name.toLowerCase().includes(query.toLowerCase());
       })
     : [];

@@ -4,7 +4,6 @@ import { getFeaturedProducts } from "./_utils/serverutils";
 
 export default async function Home() {
   const products = await getFeaturedProducts();
-  const cleanedProducts = JSON.parse(JSON.stringify(products));
   return (
     <main className={`flex flex-col w-full items-center`}>
       <PageWrapper>
@@ -15,7 +14,7 @@ export default async function Home() {
             </div>
             <ListHeader title="Featured Products" />
           </div>
-          <Carousel products={cleanedProducts} />
+          <Carousel products={products} />
         </div>
       </PageWrapper>
     </main>

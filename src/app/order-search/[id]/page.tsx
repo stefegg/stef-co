@@ -4,7 +4,6 @@ import { PageWrapper, ListHeader, OrderSummary } from "@/app/_components";
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params;
   const order = await getGuestOrderById(id);
-  const cleanOrder = JSON.parse(JSON.stringify(order));
   return (
     <PageWrapper>
       {order ? (
@@ -12,7 +11,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           <div className="w-full flex justify-center mb-6">
             <ListHeader title="Order Summary" />
           </div>
-          <OrderSummary order={cleanOrder} />
+          <OrderSummary order={order} />
         </>
       ) : (
         <div className="w-full flex flex-col items-center">

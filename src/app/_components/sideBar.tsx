@@ -11,11 +11,11 @@ export default function Sidebar() {
   return (
     <div
       className={`${lobsterFont.className} flex flex-col gap-6 -mt-[2px] h-full pt-10 items-center border-r-2 
-      bg-${appTheme}-containerBg text-${appTheme}-text border-${appTheme}-border min-w-full px-4 xl:text-xl lg:text-lg md:text-base sm:text-xs`}
+      bg-${appTheme}-containerBg text-${appTheme}-text border-${appTheme}-border min-w-full px-4 text-xs xl:text-xl lg:text-lg md:text-base sm:text-xs`}
     >
       <Link
         href="/categories"
-        className={`min-w-full flex justify-center text-nowrap hover:bg-${appTheme}-bodyBg rounded-md p-2`}
+        className={`min-w-full flex justify-center lg:text-nowrap hover:bg-${appTheme}-bodyBg rounded-md p-2`}
       >
         Shop By Category
       </Link>

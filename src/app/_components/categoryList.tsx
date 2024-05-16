@@ -9,7 +9,9 @@ type CategoryListProps = {
 export default function CategoryList(props: CategoryListProps) {
   const { categories } = props;
   return (
-    <div className={`grid grid-cols-3 text-xl gap-6 grid-auto-rows mt-4`}>
+    <div
+      className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 text-xl gap-6 grid-auto-rows mt-4`}
+    >
       {categories
         .sort((a, b) => {
           const nameA = a.name.toUpperCase();
