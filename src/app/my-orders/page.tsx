@@ -15,10 +15,9 @@ export default async function Page() {
   };
 
   const sessionOrders = await getSessionUserOrders();
-  const cleanOrders = JSON.parse(JSON.stringify(sessionOrders));
   return (
     <PageWrapper>
-      <div>{sessionOrders ? <OrderList orders={cleanOrders} /> : null}</div>
+      <div>{sessionOrders ? <OrderList orders={sessionOrders} /> : null}</div>
     </PageWrapper>
   );
 }

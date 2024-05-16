@@ -27,8 +27,7 @@ export default async function Layout({
     if (session && session.user && session.user.name) {
       const user = await findUser(session.user.name);
       const wishlist = await getWishlist(session.user.name);
-      const cleanWishlist = JSON.parse(JSON.stringify(wishlist));
-      return { session, user, cleanWishlist };
+      return { session, user, cleanWishlist: wishlist };
     } else return null;
   };
   const session = await getSetSessionUser();

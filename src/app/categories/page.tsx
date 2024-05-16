@@ -9,7 +9,6 @@ import { Suspense } from "react";
 
 export default async function Categories() {
   const categories = await getCategories();
-  const cleanedCategories = JSON.parse(JSON.stringify(categories));
 
   return (
     <PageWrapper>
@@ -18,7 +17,7 @@ export default async function Categories() {
           <ListHeader title={"Shop by Category"} />
         </div>
         <Suspense fallback={<LoadingSpinner />}>
-          <CategoryList categories={cleanedCategories} />
+          <CategoryList categories={categories} />
         </Suspense>
       </div>
     </PageWrapper>

@@ -6,5 +6,9 @@ type ListHeaderProps = {
 
 export default function ListHeader(props: ListHeaderProps) {
   const { title } = props;
-  return <div className={`${lobsterFont.className} text-5xl`}>{title}</div>;
+  return (
+    <div className={`${lobsterFont.className} text-4xl sm:text-5xl`}>
+      {title}
+    </div>
+  );
 }

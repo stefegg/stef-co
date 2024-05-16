@@ -1,11 +1,11 @@
 "use server";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 import prisma from "../../../lib/prisma";
-import { SafeUser, FullWishlist, CleanWishlistItem } from "../_types";
+import { SafeUser, CleanWishlist, CleanWishlistItem } from "../_types";
 import { Prisma } from "@prisma/client";
 
 export async function getProductById(prodId: string) {
-  return await prisma.product.findUniqueOrThrow({
+  const prods = await prisma.product.findUniqueOrThrow({
     where: {
       id: prodId,
     },
@@ -21,10 +21,11 @@ export async function getProductById(prodId: string) {
       categoryId: true,
     },
   });
+  return JSON.parse(JSON.stringify(prods));
 }
 
 export async function getCategoryProducts(id: string) {
-  return await prisma.product.findMany({
+  const catProds = await prisma.product.findMany({
     where: {
       categoryId: id,
     },
@@ -32,18 +33,20 @@ export async function getCategoryProducts(id: string) {
       category: true,
     },
   });
+  return JSON.parse(JSON.stringify(catProds));
 }
 
 export async function getCategories() {
-  return await prisma.category.findMany({
+  const cats = await prisma.category.findMany({
     include: {
       products: true,
     },
   });
+  return JSON.parse(JSON.stringify(cats));
 }
 
 export async function getProducts() {
-  return await prisma.product.findMany({
+  const prods = await prisma.product.findMany({
     select: {
       id: true,
       name: true,
@@ -56,10 +59,11 @@ export async function getProducts() {
       categoryId: true,
     },
   });
+  return JSON.parse(JSON.stringify(prods));
 }
 
 export async function getFeaturedProducts() {
-  return await prisma.product.findMany({
+  const prods = await prisma.product.findMany({
     where: {
       featured: true,
     },
@@ -75,6 +79,7 @@ export async function getFeaturedProducts() {
       categoryId: true,
     },
   });
+  return JSON.parse(JSON.stringify(prods));
 }
 
 export async function registerUser(email: string, password: string) {
@@ -121,8 +126,8 @@ export async function findUser(id: string): Promise<SafeUser> {
 
 export async function getWishlist(
   userId: string
-): Promise<FullWishlist | null> {
-  return await prisma.wishlist.findUnique({
+): Promise<CleanWishlist | null> {
+  const wishlist = await prisma.wishlist.findUnique({
     where: {
       userId: userId,
     },
@@ -138,6 +143,7 @@ export async function getWishlist(
       },
     },
   });
+  return JSON.parse(JSON.stringify(wishlist));
 }
 
 export async function updateWishlist(
@@ -285,7 +291,7 @@ export async function createGuestOrder(
 }
 
 export async function getOrderById(orderId: string) {
-  return await prisma.order.findUnique({
+  const orders = await prisma.order.findUnique({
     where: {
       id: orderId,
     },
@@ -307,6 +313,7 @@ export async function getOrderById(orderId: string) {
       },
     },
   });
+  return JSON.parse(JSON.stringify(orders));
 }
 
 export async function getGuestOrderById(orderId: string) {
@@ -327,11 +334,11 @@ export async function getGuestOrderById(orderId: string) {
       },
     },
   });
-  return resp;
+  return JSON.parse(JSON.stringify(resp));
 }
 
 export async function getOrdersByUserId(userId: string) {
-  return await prisma.order.findMany({
+  const userOrders = await prisma.order.findMany({
     where: {
       userId: userId,
     },
@@ -348,4 +355,5 @@ export async function getOrdersByUserId(userId: string) {
       },
     },
   });
+  return JSON.parse(JSON.stringify(userOrders));
 }

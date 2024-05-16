@@ -20,7 +20,6 @@ export default async function Page({
     } else return await getOrderById(id);
   };
   const order = await getOrder();
-  const cleanOrder = JSON.parse(JSON.stringify(order));
 
   return (
     <PageWrapper>
@@ -33,7 +32,7 @@ export default async function Page({
         <ListHeader title={"Thank you for your order!"} />
       </div>
       <Suspense fallback={<LoadingSpinner />}>
-        <OrderSummary order={cleanOrder} type={type} />
+        <OrderSummary order={order} type={type} />
       </Suspense>
     </PageWrapper>
   );
