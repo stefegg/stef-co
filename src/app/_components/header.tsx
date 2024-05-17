@@ -54,6 +54,11 @@ export default function Header() {
     } else null;
   };
 
+  const showMobMenu = () => {
+    setShowCart(false);
+    setShowMobileMenu(!showMobileMenu);
+  };
+
   return (
     <div className="flex flex-col relative">
       <span
@@ -63,7 +68,7 @@ export default function Header() {
       >
         <div
           className={`sm:hidden cursor-pointer relative hover:bg-${appTheme}-bodyBg rounded-full p-2`}
-          onClick={() => setShowMobileMenu(!showMobileMenu)}
+          onClick={() => showMobMenu()}
         >
           <Image
             src={showMobileMenu ? barsDown : bars}

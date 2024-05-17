@@ -57,7 +57,7 @@ export default function Cart() {
 
   return (
     <div
-      className={`flex flex-col text-${appTheme}-text bg-${appTheme}-containerBg border-${appTheme}-text absolute justify-between border-l-2 h-[calc(100vh-4rem)] w-1/4 top-16 right-0 ${getTranslate()} transition duration-500 p-4 overflow-y-auto z-30`}
+      className={`flex flex-col text-${appTheme}-text bg-${appTheme}-containerBg border-${appTheme}-text absolute justify-between sm:border-l-2 h-[calc(100vh-4rem)] xl:w-1/4 lg:w-1/3 sm:w-1/2 w-full top-16 right-0 ${getTranslate()} transition duration-500 p-4 overflow-y-auto z-30`}
     >
       <div
         className={`${lobsterFont.className} text-base md:text-2xl lg:text-3xl xl:text-4xl border-b-2 border-${appTheme}-border h-16 max-w-full`}
