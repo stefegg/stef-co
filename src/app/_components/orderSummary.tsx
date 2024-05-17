@@ -39,7 +39,7 @@ export default function OrderSummary(props: OrderSummaryProps) {
   return (
     <div className="w-full shadow-[0px_0px_5px_5px_rgba(0,0,0,0.5)] rounded-md overflow-auto">
       <span
-        className={`text-xl bg-${appTheme}-containerBg p-4 rounded-t-md flex flex-row justify-between`}
+        className={`sm:text-xl bg-${appTheme}-containerBg p-4 rounded-t-md flex flex-row justify-between`}
       >
         <div className="flex flex-col gap-2">
           <div>{`Order No.: ${order.id}`}</div>
@@ -50,7 +50,9 @@ export default function OrderSummary(props: OrderSummaryProps) {
         </div>
         <div>Email: {getEmail()}</div>
       </span>
-      <div className={`p-2 flex flex-row gap-8 text-xl justify-evenly pt-4`}>
+      <div
+        className={`p-2 flex sm:flex-row flex-col text-base md:text-xl sm:px-8 gap-2 pt-4 justify-evenly`}
+      >
         <div className="flex flex-col gap-2">
           <div className="font-bold">Shipping Address:</div>
           <div className="flex flex-row gap-2">
@@ -64,6 +66,16 @@ export default function OrderSummary(props: OrderSummaryProps) {
             <div>{orderAddress.zipCode}</div>
           </div>
         </div>
+        <div className="flex flex-col gap-2 md:ml-36 w-1/3">
+          <div className="font-bold">Shipping Method:</div>
+          <div>{order.shipMethod}</div>
+          <div>{getShipTime()}</div>
+          <div>Ship Status: {order.shippingStatus}</div>
+        </div>
+      </div>
+      <div
+        className={`p-2 flex sm:flex-row flex-col gap-2 text-base md:text-xl sm:px-8 pt-4 justify-evenly`}
+      >
         <div className="flex flex-col gap-2">
           <div className="font-bold">Billing Address:</div>
           <div className="flex flex-row gap-2">
@@ -77,13 +89,7 @@ export default function OrderSummary(props: OrderSummaryProps) {
             <div>{orderAddress.zipCode}</div>
           </div>
         </div>
-        <div className="flex flex-col gap-2">
-          <div className="font-bold">Shipping Method:</div>
-          <div>{order.shipMethod}</div>
-          <div>{getShipTime()}</div>
-          <div>Ship Status: {order.shippingStatus}</div>
-        </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 md:ml-36 w-1/3">
           <div className="font-bold">Cost Summary:</div>
           <div className="flex flex-row justify-between">
             <div>Subtotal: </div>
@@ -136,15 +142,15 @@ export default function OrderSummary(props: OrderSummaryProps) {
             </div>
             <div className="flex flex-col w-full justify-between py-4">
               <div className="flex flex-row justify-between ">
-                <div className={`text-xl px-6 font-bold`}>{x.name}</div>
-                <div className={`text-xl px-6`}>Quantity: {x.quantity}</div>
+                <div className={`sm:text-xl px-6 font-bold`}>{x.name}</div>
+                <div className={`sm:text-xl px-6`}>Quantity: {x.quantity}</div>
               </div>
               <div className="flex flex-row justify-between ">
-                <div className={`text-xl px-6`}>
+                <div className={`sm:text-xl px-6`}>
                   Price: {currencyGen(x.currency)}
                   {x.price} each
                 </div>
-                <div className={`text-xl px-6`}>
+                <div className={`sm:text-xl px-6`}>
                   Total: {currencyGen(x.currency)}
                   {x.quantity * x.price}
                 </div>
