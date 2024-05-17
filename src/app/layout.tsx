@@ -38,11 +38,11 @@ export default async function Layout({
           <CartProvider>
             <html lang="en">
               <body className={`${ptSansFont.className} flex flex-row`}>
-                <div className="w-[13%] h-screen flex flex-col">
+                <div className="hidden w-[13%] h-screen sm:flex flex-col">
                   <SidebarCap session={session} />
                   <Sidebar />
                 </div>
-                <div className="w-[87%] h-full max-h-screen overflow-y-auto overflow-x-hidden">
+                <div className="w-[100%] sm:w-[87%] h-full max-h-screen overflow-y-auto overflow-x-hidden">
                   {children}
                 </div>
               </body>

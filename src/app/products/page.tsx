@@ -23,7 +23,7 @@ export default async function AllProducts({
 
   return (
     <PageWrapper>
-      <div className="flex flex-row items-center mb-4">
+      <div className="flex sm:flex-row flex-col sm:items-center mb-4">
         <ListHeader title={"All Products"} />
 
         <div className="ml-auto w-1/3">

@@ -26,7 +26,7 @@ export default async function Page({
     : [];
   return (
     <PageWrapper>
-      <div className="flex flex-row items-center mb-4">
+      <div className="flex sm:flex-row flex-col mb-4">
         <Suspense fallback={<LoadingSpinner />}>
           <ListHeader
             title={
