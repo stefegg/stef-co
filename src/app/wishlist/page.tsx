@@ -33,7 +33,7 @@ export default function Wishlist({
       {wishlist.length ? (
         <Suspense fallback={<LoadingSpinner />}>
           <div
-            className={`grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 text-xl gap-8 grid-auto-rows pr-6`}
+            className={`grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 text-xl gap-8 grid-auto-rows sm:pr-6`}
           >
             {filteredList.map((item, idx) => (
               <div key={idx}>
