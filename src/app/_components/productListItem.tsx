@@ -41,7 +41,7 @@ export default function ProductListItem(props: ProductListProps) {
     >
       <div className={`flex flex-row h-24`}>
         <div
-          className={`flex flex-col w-[100%] sm:w-[50%] lg:w-[30%] pt-3 pl-4 gap-3 overflow-auto rounded-l-lg`}
+          className={`flex flex-col w-[100%] md:w-[50%] lg:w-[30%] pt-3 pl-4 gap-3 overflow-auto rounded-l-lg`}
         >
           <Link
             className="flex flex-row gap-4 items-center"
@@ -110,7 +110,7 @@ export default function ProductListItem(props: ProductListProps) {
           </div>
         </div>
         <div
-          className={`sm:w-[50%] lg:w-[30%] hidden sm:block overflow-auto text-sm py-2 rounded-r-lg px-2`}
+          className={`md:w-[50%] lg:w-[30%] hidden md:block overflow-auto text-sm py-2 rounded-r-lg px-2`}
         >
           {description}
         </div>
