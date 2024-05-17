@@ -16,7 +16,7 @@ export default function PageWrapper(props: PageWrapperProps) {
       className={`text-${appTheme}-text border-${appTheme}-border bg-${appTheme}-bodyBg  overflow-auto min-w-full max-w-full h-screen`}
     >
       <Header />
-      <div className="px-4 sm:px-8 pt-6 pb-6 mt-16">{children}</div>
+      <div className="px-4 sm:px-8 pb-6 mt-20">{children}</div>
     </div>
   );
 }

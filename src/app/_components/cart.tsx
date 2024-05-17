@@ -57,7 +57,7 @@ export default function Cart() {
 
   return (
     <div
-      className={`flex flex-col text-${appTheme}-text bg-${appTheme}-containerBg border-${appTheme}-text absolute justify-between sm:border-l-2 h-[calc(100vh-4rem)] xl:w-1/4 lg:w-1/3 sm:w-1/2 w-full top-16 right-0 ${getTranslate()} transition duration-500 p-4 overflow-y-auto z-30`}
+      className={`flex flex-col text-${appTheme}-text bg-${appTheme}-containerBg border-${appTheme}-text absolute justify-between sm:border-l-2 h-[calc(100vh-4rem)] xl:w-1/4 lg:w-1/3 sm:w-1/2 w-full top-16 right-0 ${getTranslate()} transition duration-500 p-4 px-8 sm:px-4 overflow-y-auto z-30`}
     >
       <div
         className={`${lobsterFont.className} text-base md:text-2xl lg:text-3xl xl:text-4xl border-b-2 border-${appTheme}-border h-16 max-w-full`}
@@ -106,7 +106,7 @@ export default function Cart() {
       {cart.length > 0 && (
         <div className="flex flex-col max-w-full ml-1 h-40 py-4 ">
           <div
-            className={`text-base md:text-2xl lg:text-3xl xl:text-4xl ${lobsterFont.className} flex flex-row justify-between pr-4 pl-1 `}
+            className={`text-base md:text-2xl lg:text-3xl ${lobsterFont.className} flex flex-row justify-between pr-4 pl-1 `}
           >
             <div>Subtotal</div>
             <div>
@@ -119,7 +119,7 @@ export default function Cart() {
               buttonText="Checkout"
               styleType="secondary"
               onClick={() => clickCheckout()}
-              size="lg"
+              size="xl"
             />
           </div>
         </div>

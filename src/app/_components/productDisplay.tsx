@@ -37,10 +37,10 @@ export default function ProductDisplay(props: ProductDisplayProps) {
   const { setOpacity, setType, setOperation } = useContext(BannerContext);
 
   return (
-    <div className={`gap-2 flex flex-col pl-16`}>
-      <div className={`flex flex-row gap-36 mb-4 pt-8`}>
+    <div className={`gap-2 flex flex-col lg:pl-16`}>
+      <div className={`flex lg:flex-row flex-col lg:gap-36 gap-2 mb-4 pt-4`}>
         <div
-          className={`w-1/3 h-2/3 border-2 border-${appTheme}-border rounded-lg ml-2`}
+          className={`lg:w-1/3 h-2/3 border-2 border-${appTheme}-border rounded-lg ml-2 `}
         >
           <Image
             src={imageUrl}
@@ -50,8 +50,12 @@ export default function ProductDisplay(props: ProductDisplayProps) {
             style={{ width: "100%", height: "100%", borderRadius: "8px" }}
           />
         </div>
-        <div className={`w-1/2 h-auto gap-6 flex flex-col`}>
-          <div className={`${lobsterFont.className} text-7xl`}>{name}</div>
+        <div className={`lg:w-1/2 h-auto sm:gap-6 gap-2 flex flex-col`}>
+          <div
+            className={`${lobsterFont.className} text-2xl md:text-5xl sm:text-4xl`}
+          >
+            {name}
+          </div>
           <div>{description}</div>
           <div>
             Specs:
@@ -70,8 +74,10 @@ export default function ProductDisplay(props: ProductDisplayProps) {
         </div>
       </div>
       <div className="flex flex-row gap-36">
-        <div className={`w-1/3 ml-2 text-${appTheme}-bodyBg`}>pics</div>
-        <div className={`w-1/2 gap-16 flex flex-row`}>
+        <div className={`hidden lg:block w-1/3 ml-2 text-${appTheme}-bodyBg`}>
+          pics
+        </div>
+        <div className={`lg:w-1/2 w-full lg:gap-16 gap-4 flex flex-row`}>
           <Button
             onClick={() =>
               toggleWishlist({
