@@ -10,7 +10,7 @@ export default function AboutPage() {
   return (
     <PageWrapper>
       <div className="p-8">
-        <div className={`p-6  flex flex-row gap-6`}>
+        <div className={`p-6  flex flex-col sm:flex-row gap-6`}>
           <Image
             src={self}
             alt="self"
@@ -18,9 +18,10 @@ export default function AboutPage() {
             height={0}
             quality={100}
             unoptimized
-            style={{ width: "30%", height: "40%", borderRadius: "6px" }}
+            className="sm:w-[30%] w-full"
+            style={{ height: "40%", borderRadius: "6px" }}
           />
-          <div className="w-2/3 text-xl gap-4 flex flex-col">
+          <div className="w-full sm:w-2/3 text-xl gap-4 flex flex-col">
             <div>
               Thanks for visiting Stef-Co. As you probably know, this is not an
               actual shop for anything. This is a for fun / porfolio project for
