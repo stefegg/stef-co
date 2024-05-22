@@ -40,7 +40,7 @@ export default function Dropdown(props: DropdownProps) {
   return (
     <div className="relative">
       <div
-        className="cursor-pointer flex flex-row gap-2"
+        className="cursor-pointer flex flex-row gap-2 mt-2 sm:mt-0"
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="cursor-pointer text-sm sm:text-base">
