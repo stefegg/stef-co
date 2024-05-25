@@ -31,18 +31,18 @@ export default function Wishlist({
         </div>
       </div>
       {wishlist.length ? (
-        <Suspense fallback={<LoadingSpinner />}>
-          <div
-            className={`grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 text-xl gap-8 grid-auto-rows sm:pr-6`}
-          >
-            {filteredList.map((item, idx) => (
-              <div key={idx}>
-                <ProductTile product={item} />
-              </div>
-            ))}
-          </div>
-        </Suspense>
+        // <Suspense fallback={<LoadingSpinner />}>
+        <div
+          className={`grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 text-xl gap-8 grid-auto-rows sm:pr-6`}
+        >
+          {filteredList.map((item, idx) => (
+            <div key={idx}>
+              <ProductTile product={item} />
+            </div>
+          ))}
+        </div>
       ) : (
+        // </Suspense>
         <div className="text-xl mt-8 ml-2">Your wishlist is empty</div>
       )}
     </PageWrapper>
