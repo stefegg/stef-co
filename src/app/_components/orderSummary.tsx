@@ -8,12 +8,11 @@ import { format } from "date-fns";
 
 type OrderSummaryProps = {
   order: CleanOrder | CleanGuestOrder;
-  type?: string;
 };
 
 export default function OrderSummary(props: OrderSummaryProps) {
   const { appTheme } = useContext(ThemeContext);
-  const { order, type } = props;
+  const { order } = props;
   const { orderItems, orderAddress } = order;
   const getEmail = () => {
     if ("user" in order) {

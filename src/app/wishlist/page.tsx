@@ -3,12 +3,10 @@ import {
   PageWrapper,
   ListHeader,
   SearchBar,
-  LoadingSpinner,
   ProductTile,
 } from "../_components";
 import { CartContext } from "../_providers";
 import { useContext } from "react";
-import { Suspense } from "react";
 
 export default function Wishlist({
   searchParams,
@@ -31,7 +29,6 @@ export default function Wishlist({
         </div>
       </div>
       {wishlist.length ? (
-        // <Suspense fallback={<LoadingSpinner />}>
         <div
           className={`grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 text-xl gap-8 grid-auto-rows sm:pr-6`}
         >
@@ -42,7 +39,6 @@ export default function Wishlist({
           ))}
         </div>
       ) : (
-        // </Suspense>
         <div className="text-xl mt-8 ml-2">Your wishlist is empty</div>
       )}
     </PageWrapper>
