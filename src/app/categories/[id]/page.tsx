@@ -27,20 +27,18 @@ export default async function Page({
   return (
     <PageWrapper>
       <div className="flex sm:flex-row flex-col mb-4">
-        <Suspense fallback={<LoadingSpinner />}>
-          <ListHeader
-            title={
-              products.length ? `${products[0].category.name}` : "No Products"
-            }
-          />
+        <ListHeader
+          title={
+            products.length ? `${products[0].category.name}` : "No Products"
+          }
+        />
 
-          <div className="ml-auto w-1/3">
-            <SearchBar placeholder={"Search Products"} />
-          </div>
-        </Suspense>
+        <div className="ml-auto w-1/3">
+          <SearchBar placeholder={"Search Products"} />
+        </div>
       </div>
       <Suspense fallback={<LoadingSpinner />}>
-        <ProductContainer catId={id} products={filteredProducts} />
+        <ProductContainer catId={id} query={query} />
       </Suspense>
     </PageWrapper>
   );

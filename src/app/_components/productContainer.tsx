@@ -1,31 +1,24 @@
-"use client";
-
-import { useState } from "react";
-import { ProductGrid, ToggleSwitch, ProductList } from "./index";
-import { FetchedProduct } from "../_types";
+import { ProductList } from "./index";
+import { getCategoryProducts, getProducts } from "../_utils/serverutils";
 
 type ProductContainerProps = {
-  products: FetchedProduct[];
   catId?: string;
+  query: string;
 };
 
-export default function ProductContainer(props: ProductContainerProps) {
-  const { products, catId } = props;
-  const [gridView, setGridView] = useState(true);
-
+export default async function ProductContainer(props: ProductContainerProps) {
+  const { catId, query } = props;
+  const products = catId
+    ? await getCategoryProducts(catId)
+    : await getProducts();
+  const filteredProducts = Array.isArray(products)
+    ? products.filter((product) => {
+        return product.name.toLowerCase().includes(query.toLowerCase());
+      })
+    : [];
   return (
     <>
-      <div className=" mr-6 mb-4">
-        <div className="flex flex-row gap-2 w-full justify-end">
-          {gridView ? "Grid View" : "List View"}
-          <ToggleSwitch state={gridView} setState={setGridView} />
-        </div>
-      </div>
-      {gridView ? (
-        <ProductGrid products={products} catId={catId} />
-      ) : (
-        <ProductList products={products} catId={catId} />
-      )}
+      <ProductList products={filteredProducts} catId={catId} />
     </>
   );
 }

@@ -30,20 +30,25 @@ export async function getProductById(prodId: string) {
 }
 
 export async function getCategoryProducts(id: string) {
-  const catProds = await prisma.product.findMany({
-    where: {
-      categoryId: id,
-    },
-    include: {
-      category: true,
-    },
-  });
-  return JSON.parse(JSON.stringify(catProds));
+  try {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const catProds = await prisma.product.findMany({
+      where: {
+        categoryId: id,
+      },
+      include: {
+        category: true,
+      },
+    });
+    return JSON.parse(JSON.stringify(catProds));
+  } catch (error) {
+    throw new Error("failed to fetch category products");
+  }
 }
 
 export async function getCategories(): Promise<FullCategory[]> {
   try {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     const cats = await prisma.category.findMany({
       include: {
         products: true,
