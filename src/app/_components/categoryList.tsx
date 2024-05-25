@@ -1,13 +1,9 @@
-// "use client";
 import { CategoryTile } from "./index";
 import { FullCategory } from "../_types";
 import { getCategories } from "../_utils/serverutils";
-type CategoryListProps = {
-  categories?: FullCategory[];
-};
+import { Key } from "react";
 
-export default async function CategoryList(props: CategoryListProps) {
-  // const { categories } = props;
+export default async function CategoryList() {
   const categories = await getCategories();
 
   return (
@@ -15,7 +11,7 @@ export default async function CategoryList(props: CategoryListProps) {
       className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 text-xl gap-6 grid-auto-rows mt-4`}
     >
       {categories
-        .sort((a: any, b: any) => {
+        .sort((a: FullCategory, b: FullCategory) => {
           const nameA = a.name.toUpperCase();
           const nameB = b.name.toUpperCase();
           if (nameA < nameB) {
@@ -26,7 +22,7 @@ export default async function CategoryList(props: CategoryListProps) {
           }
           return 0;
         })
-        .map((category: any, idx: any) => (
+        .map((category: FullCategory, idx: Key) => (
           <CategoryTile key={idx} category={category} />
         ))}
     </div>

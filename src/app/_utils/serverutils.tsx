@@ -1,7 +1,12 @@
 "use server";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 import prisma from "../../../lib/prisma";
-import { SafeUser, CleanWishlist, CleanWishlistItem } from "../_types";
+import {
+  SafeUser,
+  CleanWishlist,
+  CleanWishlistItem,
+  FullCategory,
+} from "../_types";
 import { Prisma } from "@prisma/client";
 
 export async function getProductById(prodId: string) {
@@ -36,7 +41,7 @@ export async function getCategoryProducts(id: string) {
   return JSON.parse(JSON.stringify(catProds));
 }
 
-export async function getCategories() {
+export async function getCategories(): Promise<FullCategory[]> {
   try {
     await new Promise((resolve) => setTimeout(resolve, 2000));
     const cats = await prisma.category.findMany({
