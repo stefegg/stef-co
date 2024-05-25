@@ -9,9 +9,6 @@ import {
 } from "@prisma/client";
 import { SetStateAction } from "react";
 
-export type FullProduct = Product &
-  Partial<Prisma.ProductGetPayload<{ include: { category: true } }>>;
-
 export type FetchedProduct = {
   id: string;
   name: string;
@@ -21,6 +18,20 @@ export type FetchedProduct = {
   description: string;
   stock: number;
   imageUrl: string;
+  categoryId: string;
+};
+
+export type FetchedCategoryProduct = {
+  id: string;
+  name: string;
+  price: number;
+  currency: string;
+  specs: string[];
+  description: string;
+  stock: number;
+  imageUrl: string;
+  categoryId: string;
+  category: Category;
 };
 
 export type FullCategory = Category &
