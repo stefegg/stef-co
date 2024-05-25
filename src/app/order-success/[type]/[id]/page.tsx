@@ -31,9 +31,9 @@ export default async function Page({
       <div className="w-full flex flex-col items-center pt-8 pb-8">
         <ListHeader title={"Thank you for your order!"} />
       </div>
-      <Suspense fallback={<LoadingSpinner />}>
-        <OrderSummary order={order} type={type} />
-      </Suspense>
+      {/* <Suspense fallback={<LoadingSpinner />}> */}
+      <OrderSummary order={order} type={type} />
+      {/* </Suspense> */}
     </PageWrapper>
   );
 }

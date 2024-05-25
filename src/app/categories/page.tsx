@@ -4,12 +4,9 @@ import {
   ListHeader,
   LoadingSpinner,
 } from "../_components";
-import { getCategories } from "../_utils/serverutils";
 import { Suspense } from "react";
 
 export default async function Categories() {
-  const categories = await getCategories();
-
   return (
     <PageWrapper>
       <div className={`flex flex-col`}>
@@ -17,7 +14,7 @@ export default async function Categories() {
           <ListHeader title={"Shop by Category"} />
         </div>
         <Suspense fallback={<LoadingSpinner />}>
-          <CategoryList categories={categories} />
+          <CategoryList />
         </Suspense>
       </div>
     </PageWrapper>

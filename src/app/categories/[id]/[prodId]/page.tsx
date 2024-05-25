@@ -7,9 +7,9 @@ export default async function Page({ params }: { params: { prodId: string } }) {
   const product = await getProductById(prodId);
   return (
     <PageWrapper>
-      <Suspense fallback={<LoadingSpinner />}>
-        <ProductDisplay product={product} />
-      </Suspense>
+      {/* <Suspense fallback={<LoadingSpinner />}> */}
+      <ProductDisplay product={product} />
+      {/* </Suspense> */}
     </PageWrapper>
   );
 }

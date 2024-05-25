@@ -21,15 +21,15 @@ export default function CheckoutDetails(props: CheckoutDetailsProps) {
 
   return (
     <div
-      className={`w-1/3 bg-${appTheme}-bodyBg h-full flex flex-col rounded-lg shadow-[0px_0px_5px_5px_rgba(0,0,0,0.5)]`}
+      className={`w-full md:w-1/3 bg-${appTheme}-bodyBg h-full flex flex-col rounded-lg shadow-[0px_0px_5px_5px_rgba(0,0,0,0.5)]`}
     >
       <div
-        className={`flex border-b-2 border-${appTheme}-text rounded-t-lg h-16 items-center text-4xl bg-${appTheme}-containerBg ${lobsterFont.className} pl-6 py-4 `}
+        className={`flex border-b-2 border-${appTheme}-text rounded-t-lg h-16 items-center justify-center text-4xl bg-${appTheme}-containerBg ${lobsterFont.className}  py-4 `}
       >
         Your Order
       </div>
       <div className="h-2/3">
-        <div className={`pl-6 pt-2 text-lg h-10 flex items-center`}>
+        <div className={`justify-center pt-2 text-lg h-10 flex items-center`}>
           {`Order Details (${cartQuantity} item${cartQuantity > 1 ? "s" : ""})`}
         </div>
         <div className="flex flex-col overflow-y-auto min-h-72 pt-2 pb-4 gap-2">
@@ -69,7 +69,7 @@ export default function CheckoutDetails(props: CheckoutDetailsProps) {
           </div>
         </div>
         <div
-          className={`${lobsterFont.className} text-2xl pl-6  w-full flex flex-row justify-between pr-4`}
+          className={`${lobsterFont.className} text-xl md:text-2xl pl-6  w-full flex flex-row justify-between pr-4`}
         >
           <div>Order Total:</div>
           <div>

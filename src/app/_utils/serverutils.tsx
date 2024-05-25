@@ -1,10 +1,17 @@
 "use server";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 import prisma from "../../../lib/prisma";
-import { SafeUser, CleanWishlist, CleanWishlistItem } from "../_types";
+import {
+  SafeUser,
+  CleanWishlist,
+  CleanWishlistItem,
+  FullCategory,
+  FetchedProduct,
+  FetchedCategoryProduct,
+} from "../_types";
 import { Prisma } from "@prisma/client";
 
-export async function getProductById(prodId: string) {
+export async function getProductById(prodId: string): Promise<FetchedProduct> {
   const prods = await prisma.product.findUniqueOrThrow({
     where: {
       id: prodId,
@@ -24,62 +31,84 @@ export async function getProductById(prodId: string) {
   return JSON.parse(JSON.stringify(prods));
 }
 
-export async function getCategoryProducts(id: string) {
-  const catProds = await prisma.product.findMany({
-    where: {
-      categoryId: id,
-    },
-    include: {
-      category: true,
-    },
-  });
-  return JSON.parse(JSON.stringify(catProds));
+export async function getCategoryProducts(
+  id: string
+): Promise<FetchedCategoryProduct[]> {
+  try {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const catProds = await prisma.product.findMany({
+      where: {
+        categoryId: id,
+      },
+      include: {
+        category: true,
+      },
+    });
+    return JSON.parse(JSON.stringify(catProds));
+  } catch (error) {
+    throw new Error("failed to fetch category products");
+  }
 }
 
-export async function getCategories() {
-  const cats = await prisma.category.findMany({
-    include: {
-      products: true,
-    },
-  });
-  return JSON.parse(JSON.stringify(cats));
+export async function getCategories(): Promise<FullCategory[]> {
+  try {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const cats = await prisma.category.findMany({
+      include: {
+        products: true,
+      },
+    });
+    return JSON.parse(JSON.stringify(cats));
+  } catch (error) {
+    throw new Error("failed to fetch categories");
+  }
 }
 
-export async function getProducts() {
-  const prods = await prisma.product.findMany({
-    select: {
-      id: true,
-      name: true,
-      price: true,
-      currency: true,
-      specs: true,
-      description: true,
-      stock: true,
-      imageUrl: true,
-      categoryId: true,
-    },
-  });
-  return JSON.parse(JSON.stringify(prods));
+export async function getProducts(): Promise<FetchedProduct[]> {
+  try {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const prods = await prisma.product.findMany({
+      select: {
+        id: true,
+        name: true,
+        price: true,
+        currency: true,
+        specs: true,
+        description: true,
+        stock: true,
+        imageUrl: true,
+        categoryId: true,
+      },
+    });
+    return JSON.parse(JSON.stringify(prods));
+  } catch (error) {
+    throw new Error("failed to fetch products");
+  }
 }
 
-export async function getFeaturedProducts() {
-  const prods = await prisma.product.findMany({
-    where: {
-      featured: true,
-    },
-    select: {
-      id: true,
-      name: true,
-      price: true,
-      currency: true,
-      specs: true,
-      description: true,
-      stock: true,
-      imageUrl: true,
-      categoryId: true,
-    },
-  });
-  return JSON.parse(JSON.stringify(prods));
+export async function getFeaturedProducts(): Promise<FetchedProduct[]> {
+  try {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const prods = await prisma.product.findMany({
+      where: {
+        featured: true,
+      },
+      select: {
+        id: true,
+        name: true,
+        price: true,
+        currency: true,
+        specs: true,
+        description: true,
+        stock: true,
+        imageUrl: true,
+        categoryId: true,
+      },
+    });
+    return JSON.parse(JSON.stringify(prods));
+  } catch (error) {
+    throw new Error("failed to fetch fetured products");
+  }
 }
 
 export async function registerUser(email: string, password: string) {
