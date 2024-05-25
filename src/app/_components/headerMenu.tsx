@@ -21,8 +21,8 @@ export default function HeaderMenu(props: HeaderMenuProps) {
     signOut({ redirect: false });
     setWishlist([]);
     setUser(null);
-    router.push("/");
     router.refresh();
+    router.push("/");
   };
 
   return (

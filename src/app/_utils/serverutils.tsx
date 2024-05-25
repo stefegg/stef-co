@@ -37,12 +37,17 @@ export async function getCategoryProducts(id: string) {
 }
 
 export async function getCategories() {
-  const cats = await prisma.category.findMany({
-    include: {
-      products: true,
-    },
-  });
-  return JSON.parse(JSON.stringify(cats));
+  try {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const cats = await prisma.category.findMany({
+      include: {
+        products: true,
+      },
+    });
+    return JSON.parse(JSON.stringify(cats));
+  } catch (error) {
+    throw new Error("failed to fetch categories");
+  }
 }
 
 export async function getProducts() {
