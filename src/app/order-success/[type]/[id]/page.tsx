@@ -1,12 +1,5 @@
 import { getOrderById, getGuestOrderById } from "@/app/_utils/serverutils";
-import {
-  PageWrapper,
-  ListHeader,
-  Logo,
-  LoadingSpinner,
-  OrderSummary,
-} from "@/app/_components";
-import { Suspense } from "react";
+import { PageWrapper, ListHeader, Logo, OrderSummary } from "@/app/_components";
 
 export default async function Page({
   params,
@@ -31,9 +24,7 @@ export default async function Page({
       <div className="w-full flex flex-col items-center pt-8 pb-8">
         <ListHeader title={"Thank you for your order!"} />
       </div>
-      {/* <Suspense fallback={<LoadingSpinner />}> */}
-      <OrderSummary order={order} type={type} />
-      {/* </Suspense> */}
+      <OrderSummary order={order} />
     </PageWrapper>
   );
 }

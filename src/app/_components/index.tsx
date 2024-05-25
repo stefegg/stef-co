@@ -30,6 +30,7 @@ import OrderList from "./orderList";
 import OrderListItem from "./orderListItem";
 import Carousel from "./carousel";
 import MobileMenu from "./mobileMenu";
+import ProductDisplayWrapper from "./productDisplayWrapper";
 
 export {
   CategoryList,
@@ -64,4 +65,5 @@ export {
   OrderListItem,
   Carousel,
   MobileMenu,
+  ProductDisplayWrapper,
 };

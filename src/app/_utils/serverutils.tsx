@@ -8,34 +8,39 @@ import {
   FullCategory,
   FetchedProduct,
   FetchedCategoryProduct,
+  CleanOrder,
+  CleanGuestOrder,
 } from "../_types";
 import { Prisma } from "@prisma/client";
 
 export async function getProductById(prodId: string): Promise<FetchedProduct> {
-  const prods = await prisma.product.findUniqueOrThrow({
-    where: {
-      id: prodId,
-    },
-    select: {
-      id: true,
-      name: true,
-      price: true,
-      currency: true,
-      specs: true,
-      description: true,
-      stock: true,
-      imageUrl: true,
-      categoryId: true,
-    },
-  });
-  return JSON.parse(JSON.stringify(prods));
+  try {
+    const prods = await prisma.product.findUniqueOrThrow({
+      where: {
+        id: prodId,
+      },
+      select: {
+        id: true,
+        name: true,
+        price: true,
+        currency: true,
+        specs: true,
+        description: true,
+        stock: true,
+        imageUrl: true,
+        categoryId: true,
+      },
+    });
+    return JSON.parse(JSON.stringify(prods));
+  } catch (error) {
+    throw new Error("failed to fetch product");
+  }
 }
 
 export async function getCategoryProducts(
   id: string
 ): Promise<FetchedCategoryProduct[]> {
   try {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
     const catProds = await prisma.product.findMany({
       where: {
         categoryId: id,
@@ -52,7 +57,6 @@ export async function getCategoryProducts(
 
 export async function getCategories(): Promise<FullCategory[]> {
   try {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
     const cats = await prisma.category.findMany({
       include: {
         products: true,
@@ -66,7 +70,6 @@ export async function getCategories(): Promise<FullCategory[]> {
 
 export async function getProducts(): Promise<FetchedProduct[]> {
   try {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
     const prods = await prisma.product.findMany({
       select: {
         id: true,
@@ -88,7 +91,6 @@ export async function getProducts(): Promise<FetchedProduct[]> {
 
 export async function getFeaturedProducts(): Promise<FetchedProduct[]> {
   try {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
     const prods = await prisma.product.findMany({
       where: {
         featured: true,
@@ -319,70 +321,84 @@ export async function createGuestOrder(
   }
 }
 
-export async function getOrderById(orderId: string) {
-  const orders = await prisma.order.findUnique({
-    where: {
-      id: orderId,
-    },
-    include: {
-      orderAddress: true,
-      orderItems: {
-        select: {
-          name: true,
-          price: true,
-          quantity: true,
-          currency: true,
-          imageUrl: true,
+export async function getOrderById(orderId: string): Promise<CleanOrder> {
+  try {
+    const orders = await prisma.order.findUnique({
+      where: {
+        id: orderId,
+      },
+      include: {
+        orderAddress: true,
+        orderItems: {
+          select: {
+            name: true,
+            price: true,
+            quantity: true,
+            currency: true,
+            imageUrl: true,
+          },
+        },
+        user: {
+          select: {
+            email: true,
+          },
         },
       },
-      user: {
-        select: {
-          email: true,
-        },
-      },
-    },
-  });
-  return JSON.parse(JSON.stringify(orders));
+    });
+    return JSON.parse(JSON.stringify(orders));
+  } catch (error) {
+    throw new Error("failed to fetch order");
+  }
 }
 
-export async function getGuestOrderById(orderId: string) {
-  const resp = await prisma.guestOrder.findUnique({
-    where: {
-      id: orderId,
-    },
-    include: {
-      orderAddress: true,
-      orderItems: {
-        select: {
-          name: true,
-          price: true,
-          quantity: true,
-          currency: true,
-          imageUrl: true,
+export async function getGuestOrderById(
+  orderId: string
+): Promise<CleanGuestOrder> {
+  try {
+    const resp = await prisma.guestOrder.findUnique({
+      where: {
+        id: orderId,
+      },
+      include: {
+        orderAddress: true,
+        orderItems: {
+          select: {
+            name: true,
+            price: true,
+            quantity: true,
+            currency: true,
+            imageUrl: true,
+          },
         },
       },
-    },
-  });
-  return JSON.parse(JSON.stringify(resp));
+    });
+    return JSON.parse(JSON.stringify(resp));
+  } catch (error) {
+    throw new Error("failed ot fetch order");
+  }
 }
 
-export async function getOrdersByUserId(userId: string) {
-  const userOrders = await prisma.order.findMany({
-    where: {
-      userId: userId,
-    },
-    orderBy: { createdAt: "desc" },
-    include: {
-      orderItems: {
-        select: {
-          name: true,
-          price: true,
-          quantity: true,
-          currency: true,
-          imageUrl: true,
+export async function getOrdersByUserId(userId: string): Promise<CleanOrder[]> {
+  try {
+    const userOrders = await prisma.order.findMany({
+      where: {
+        userId: userId,
+      },
+      orderBy: { createdAt: "desc" },
+      include: {
+        orderItems: {
+          select: {
+            name: true,
+            price: true,
+            quantity: true,
+            currency: true,
+            imageUrl: true,
+          },
         },
       },
-    },
-  });
-  return JSON.parse(JSON.stringify(userOrders));
+    });
+    return JSON.parse(JSON.stringify(userOrders));
+  } catch (error) {
+    throw new Error("failed to get orders");
+  }
 }

@@ -23,7 +23,7 @@ type ProductDisplayProps = {
 
 export default function ProductDisplay(props: ProductDisplayProps) {
   const { product } = props;
-  const { id, name, price, description, specs, imageUrl, currency } = product;
+  const { name, price, description, specs, imageUrl, currency } = product;
   const { appTheme } = useContext(ThemeContext);
   const { user } = useContext(UserContext);
   const {
@@ -37,7 +37,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
   const { setOpacity, setType, setOperation } = useContext(BannerContext);
 
   return (
-    <div className={`gap-2 flex flex-col lg:pl-16`}>
+    <>
       <div className={`flex lg:flex-row flex-col lg:gap-36 gap-2 mb-4 pt-4`}>
         <div
           className={`lg:w-1/3 h-2/3 border-2 border-${appTheme}-border rounded-lg ml-2 `}
@@ -121,6 +121,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
           />
         </div>
       </div>
-    </div>
+      <div className={`gap-2 flex flex-col lg:pl-16`}></div>
+    </>
   );
 }
