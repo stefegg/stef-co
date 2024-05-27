@@ -87,7 +87,7 @@ export default function AboutPage() {
             </div>
             <div className="flex flex-col ">
               <div className={`text-${appTheme}-secondary`}>
-                Looksee Property Solutionss
+                Looksee Property Solutions
               </div>
               <a
                 href={`https://www.looksee.co.za`}
@@ -107,6 +107,26 @@ export default function AboutPage() {
               like power generators and water tanks are sold. I used
               React/Typescript, Styled-Components and Redux/Recoil when building
               out my features.
+            </div>
+            <div className="flex flex-col ">
+              <div className={`text-${appTheme}-secondary`}>
+                Personal Pokedex
+              </div>
+              <a
+                href={`https://stefegg.github.io/pokedex/`}
+                className={`text-${appTheme}-link`}
+              >
+                View Project
+              </a>
+            </div>
+            <div>
+              This is a very old project, probably one of the first I ever made.
+              But it is where I learned to integrate with APIs, something that
+              is still important to this day. Learning to deal with data, filter
+              through it to get what I needed and display it on a page is a
+              lesson I will never forget. And it still looks good! Even if it is
+              just basic HTML/CSS, I am proud of it and how far I have come
+              since I made it.
             </div>
           </div>
         </div>
