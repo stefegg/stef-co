@@ -10,7 +10,7 @@ export default function AboutPage() {
   return (
     <PageWrapper>
       <div className="p-8">
-        <div className={`p-6  flex flex-col sm:flex-row gap-6`}>
+        <div className={`p-6 flex flex-col sm:flex-row gap-6`}>
           <Image
             src={self}
             alt="self"
@@ -52,6 +52,61 @@ export default function AboutPage() {
               >
                 stephenegbert@gmail.com
               </a>
+            </div>
+          </div>
+        </div>
+        <div className={`pl-6 `}>
+          <div
+            className={`p-2 text-xl border border-${appTheme}-text border-b-0`}
+          >
+            Projects of Note:
+          </div>
+          <div
+            className={`p-2 grid grid-cols-2 border border-${appTheme}-text text-lg gap-4`}
+          >
+            <div className="flex flex-col ">
+              <div className={`text-${appTheme}-secondary`}>Stripe Hotel</div>
+              <a
+                href={`https://github.com/stefegg/stripe-hotel`}
+                className={`text-${appTheme}-link`}
+              >
+                View Github Repo
+              </a>
+            </div>
+            <div>
+              A single page react app I developed a couple of years ago. I used
+              React and a basic Node / Express backend. Frontend libraries used
+              were styled-components, yup, formik and recoil. It also features
+              integration with Stripe for payment processing, which was a pretty
+              fun and easy process to figure out. Recoil is basically the same
+              idea as React context - it is used to share state across a
+              project. This was a big state management experiment, most of what
+              happens in this project takes place in two files, and what you see
+              is determined by whether or not you have something in your
+              shopping cart.
+            </div>
+            <div className="flex flex-col ">
+              <div className={`text-${appTheme}-secondary`}>
+                Looksee Property Solutionss
+              </div>
+              <a
+                href={`https://www.looksee.co.za`}
+                className={`text-${appTheme}-link`}
+              >
+                View Project
+              </a>
+            </div>
+            <div>
+              A project developed with my former team at Jigsaw XYZ Inc. We
+              built this over a few months for our client Standard Bank, South
+              Africa. The client base was experiencing daily power and water
+              outages as part of load shedding efforts. This platform would
+              inform them of when these were gonig to take place, and assist
+              them in dealing with these issues. My contribution was to craft
+              much of the UI still visible on the marketplace - where things
+              like power generators and water tanks are sold. I used
+              React/Typescript, Styled-Components and Redux/Recoil when building
+              out my features.
             </div>
           </div>
         </div>
