@@ -11,6 +11,8 @@ import {
 import { ptSansFont } from "./fonts";
 import { getServerSession } from "next-auth";
 import { findUser, getWishlist } from "./_utils/serverutils";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Stef Co.",
