@@ -46,6 +46,8 @@ export default async function Layout({
                 </div>
                 <div className="w-[100%] sm:w-[87%] h-full max-h-screen overflow-y-auto overflow-x-hidden">
                   {children}
+                  <Analytics />
+                  <SpeedInsights />
                 </div>
               </body>
             </html>
