@@ -2,7 +2,7 @@ import { AddCartProps, ToggleWishProps, WishlistTextProps } from "../_types";
 import { updateWishlist } from "./serverutils";
 
 export const logoTextGen = (appTheme: string, size: string) => {
-  const large = "text-7xl";
+  const large = "text-6xl";
   const small = "text-4xl pt-1";
   if (appTheme === "classic" && size === "large") {
     return `font-outline-2 text-${appTheme}-border bg-${appTheme}-bodyBg ${large}`;
@@ -25,7 +25,7 @@ export const logoTextGen = (appTheme: string, size: string) => {
 };
 
 export const logoLineGen = (appTheme: string, size: string) => {
-  const large = "h-[24px] w-full mt-3 border-2";
+  const large = "h-[16px] w-3/4 mt-3 border-2";
   const small = "h-[6px] w-full mt-1 border";
   if (appTheme === "classic" && size === "large") {
     return `bg-${appTheme}-border border-${appTheme}-text ${large}`;

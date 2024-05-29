@@ -159,3 +159,19 @@ export type CleanOrderItem = {
   currency: string;
   imageUrl: string;
 };
+
+export type HotelCart = {
+  price: number;
+  numNights: number;
+  image: string;
+  title: string;
+  startDate: string;
+  endDate: string;
+};
+
+export type HotelStayLength = {
+  startDate: string;
+  endDate: string;
+  numDays: Number;
+  numNights: number;
+};

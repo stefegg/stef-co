@@ -9,7 +9,7 @@ export default async function Home() {
       <PageWrapper>
         <div className="flex flex-col w-full justify-center">
           <div className="w-full flex flex-col items-center pr-10">
-            <div className="w-1/4 mb-8">
+            <div className="w-1/4 mt-4 mb-4">
               <Logo size="large" />
             </div>
             <ListHeader title="Featured Products" />
