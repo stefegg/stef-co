@@ -14,7 +14,7 @@ import {
   RoomAmount,
   UtilIcon,
 } from "./styles";
-import cartPng from "../../_assets/cart_png.png";
+import cartPng from "@/public/cart_png.png";
 import { useContext } from "react";
 import Button from "../Button";
 import { HotelContext } from "@/app/_providers";

@@ -2,12 +2,12 @@ import React from "react";
 import { Wrapper } from "./styles";
 
 type HotelButtonProps = {
-  width: string;
+  width?: string;
   height?: string;
   onClick: () => void;
   text: string;
-  backgroundColor: string;
-  textColor: string;
+  backgroundColor?: string;
+  textColor?: string;
   border?: string;
   borderRadius?: string;
   disabled?: boolean;
