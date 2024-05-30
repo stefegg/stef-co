@@ -35,7 +35,7 @@ export default function ReactCarousel(props: CarouselProps) {
       responsive={responsive}
       swipeable
       autoPlay
-      autoPlaySpeed={1500}
+      autoPlaySpeed={1750}
       infinite
     >
       {products.map((prod, index) => {

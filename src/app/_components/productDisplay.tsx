@@ -35,19 +35,35 @@ export default function ProductDisplay(props: ProductDisplayProps) {
     setCartQuantity,
   } = useContext(CartContext);
   const { setOpacity, setType, setOperation } = useContext(BannerContext);
-
+  const getBorderColor = () => {
+    if (appTheme === "classic") {
+      return "white";
+    }
+    if (appTheme === "light") {
+      return "#005faf";
+    }
+    if (appTheme === "dark") {
+      return "#03DAc6";
+    }
+  };
   return (
     <>
       <div className={`flex lg:flex-row flex-col lg:gap-36 gap-2 mb-4 pt-4`}>
         <div
-          className={`lg:w-1/3 h-2/3 border-2 border-${appTheme}-border rounded-lg ml-2 `}
+          className={`lg:w-1/3 min-h-2/3 border-${appTheme}-border rounded-lg ml-2 overflow-hidden bg-${appTheme}-containerBg `}
         >
           <Image
             src={imageUrl}
             alt="imageUrl"
             width={0}
             height={0}
-            style={{ width: "100%", height: "100%", borderRadius: "8px" }}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "contain",
+              borderRadius: "8px",
+              border: `2px solid ${getBorderColor()}`,
+            }}
           />
         </div>
         <div className={`lg:w-1/2 h-auto sm:gap-6 gap-2 flex flex-col`}>
