@@ -7,8 +7,8 @@ import { HotelCart, HotelStayLength } from "../_types";
 interface HotelContextType {
   cart: HotelCart | null;
   setCart: Dispatch<SetStateAction<HotelCart | null>>;
-  showSiteModal: boolean;
-  setShowSiteModal: Dispatch<SetStateAction<boolean>>;
+  showSiteModal: string | null;
+  setShowSiteModal: Dispatch<SetStateAction<string | null>>;
   showCart: boolean;
   setShowCart: Dispatch<SetStateAction<boolean>>;
   showCheckout: boolean;
@@ -22,7 +22,7 @@ export const HotelContext = createContext<HotelContextType>({
   setCart: () => null,
   showCart: false,
   setShowCart: () => null,
-  showSiteModal: false,
+  showSiteModal: null,
   setShowSiteModal: () => null,
   showCheckout: false,
   setShowCheckout: () => null,
@@ -37,7 +37,7 @@ interface Props {
 export const HotelProvider: React.FC<Props> = ({ children }) => {
   const [cart, setCart] = useState<HotelCart | null>(null);
   const [showCart, setShowCart] = useState<boolean>(false);
-  const [showSiteModal, setShowSiteModal] = useState<boolean>(false);
+  const [showSiteModal, setShowSiteModal] = useState<string | null>(null);
   const [showCheckout, setShowCheckout] = useState<boolean>(false);
   const [stayLength, setStayLength] = useState<HotelStayLength>({
     startDate: "",

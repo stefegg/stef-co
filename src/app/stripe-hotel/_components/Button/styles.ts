@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-type HotelButtonProps = {
-  width: string;
+type HotelButtonStyleProps = {
+  width?: string;
   height?: string;
-  backgroundColor: string;
-  textColor: string;
+  backgroundColor?: string;
+  textColor?: string;
   border?: string;
   borderRadius?: string;
   disabled?: boolean;
@@ -12,7 +12,7 @@ type HotelButtonProps = {
   padding?: string;
 };
 
-export const Wrapper = styled.button<HotelButtonProps>`
+export const Wrapper = styled.button<HotelButtonStyleProps>`
   width: ${({ width }) => (width ? width : "120px")};
   height: ${({ height }) => (height ? height : "40px")};
   color: ${({ textColor }) => (textColor ? textColor : "#fff")};
