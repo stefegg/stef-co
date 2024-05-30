@@ -8,7 +8,7 @@ export default async function CategoryList() {
 
   return (
     <div
-      className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 text-xl gap-6 grid-auto-rows mt-4`}
+      className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 text-xl gap-8 grid-auto-rows mt-4`}
     >
       {categories
         .sort((a: FullCategory, b: FullCategory) => {
