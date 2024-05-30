@@ -62,8 +62,8 @@ export default function Header() {
   return (
     <div className="flex flex-col relative">
       <span
-        className={`h-16 flex items-center px-4 border-b-2 z-10 fixed w-[100%] sm:w-[87%]
-    bg-${appTheme}-containerBg border-${appTheme}-border text-${appTheme}-text gap-6 sm:gap-10 
+        className={`h-16 flex items-center px-4 z-10 fixed w-[100%] sm:w-[87%]
+    bg-${appTheme}-containerBg text-${appTheme}-text gap-6 sm:gap-10 
     `}
       >
         <div

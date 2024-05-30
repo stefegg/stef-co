@@ -14,13 +14,15 @@ export default function CategoryTile(props: CategoryTileProps) {
   const { appTheme } = useContext(ThemeContext);
   return (
     <div
-      className={`bg-${appTheme}-containerBg text-${appTheme}-text border-${appTheme}-border border-2 cursor-pointer  rounded-lg p-4 h-96 gap-2`}
+      className={`bg-${appTheme}-containerBg text-${appTheme}-text border-${appTheme}-border border-2 cursor-pointer rounded-lg p-4 h-64 gap-2`}
     >
       <Link
         className="h-full w-full flex flex-col items-center gap-2"
         href={`/categories/${id}`}
       >
-        <div className={`bg-${appTheme}-text h-3/4 w-3/4 rounded-lg mb-2`}>
+        <div
+          className={`bg-${appTheme}-text w-1/2 h-3/5 sm:w-3/5 rounded-lg mb-2`}
+        >
           <Image
             src={imageUrl}
             alt="imageUrl"
