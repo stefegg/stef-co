@@ -27,7 +27,4 @@
   .font-outline-6 {
     -webkit-text-stroke: 1px #878787;
   }
-  .react-multiple-carousel__arrow::before {
-    color: red !important;
-  }
 }
