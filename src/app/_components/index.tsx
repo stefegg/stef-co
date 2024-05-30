@@ -31,7 +31,7 @@ import OrderListItem from "./orderListItem";
 import Carousel from "./carousel";
 import MobileMenu from "./mobileMenu";
 import ProductDisplayWrapper from "./productDisplayWrapper";
-
+import ReactCarousel from "./reactCarousel";
 export {
   CategoryList,
   CategoryTile,
@@ -66,4 +66,5 @@ export {
   Carousel,
   MobileMenu,
   ProductDisplayWrapper,
+  ReactCarousel,
 };
