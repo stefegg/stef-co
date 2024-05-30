@@ -32,6 +32,8 @@ import Carousel from "./carousel";
 import MobileMenu from "./mobileMenu";
 import ProductDisplayWrapper from "./productDisplayWrapper";
 import ReactCarousel from "./reactCarousel";
+import ScBarChart from "./barChart";
+
 export {
   CategoryList,
   CategoryTile,
@@ -67,4 +69,5 @@ export {
   MobileMenu,
   ProductDisplayWrapper,
   ReactCarousel,
+  ScBarChart,
 };

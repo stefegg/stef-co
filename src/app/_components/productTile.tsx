@@ -49,9 +49,20 @@ export default function ProductTile(props: ProductTileProps) {
     setCartQuantity,
   } = useContext(CartContext);
   const { setOpacity, setType, setOperation } = useContext(BannerContext);
+  const getBorderColor = () => {
+    if (appTheme === "classic") {
+      return "white";
+    }
+    if (appTheme === "light") {
+      return "#005faf";
+    }
+    if (appTheme === "dark") {
+      return "#03DAc6";
+    }
+  };
   return (
     <div
-      className={`bg-${appTheme}-containerBg text-${appTheme}-text border-${appTheme}-border border-2 rounded-lg p-4 h-96 cursor-pointer`}
+      className={`bg-${appTheme}-containerBg text-${appTheme}-text rounded-lg p-4 h-96 cursor-pointer`}
     >
       <Link
         href={
@@ -59,7 +70,9 @@ export default function ProductTile(props: ProductTileProps) {
         }
         className={`flex flex-col items-center h-72 w-full`}
       >
-        <div className={`bg-${appTheme}-text h-3/4 w-3/4 rounded-lg mt-2`}>
+        <div
+          className={`bg-${appTheme}-containerBg h-3/4 w-3/4 rounded-lg mt-2  border-${appTheme}-border rounded-lg overflow-hidden`}
+        >
           <Image
             src={imageUrl}
             alt="image"
@@ -67,7 +80,13 @@ export default function ProductTile(props: ProductTileProps) {
             height={0}
             quality={100}
             unoptimized
-            style={{ height: "100%", width: "100%" }}
+            style={{
+              height: "100%",
+              width: "100%",
+              objectFit: "contain",
+              borderRadius: "8px",
+              border: `2px solid ${getBorderColor()}`,
+            }}
           />
         </div>
         <div className="flex flex-row gap-2 items-center mt-4">
