@@ -30,7 +30,7 @@ export default function SiteModal() {
   return (
     showModal && (
       <div
-        className={`absolute w-[87%] mt-16 h-[calc(100vh-4rem)] bg-${appTheme}-containerBg/50 top-0 flex items-center justify-center`}
+        className={`absolute w-[87%] mt-16 h-[calc(100vh-4rem)] bg-${appTheme}-containerBg/50 top-0 flex items-center justify-center overflow-hidden`}
         onClick={() => setShowModal(false)}
       >
         <div>{getModal()}</div>
