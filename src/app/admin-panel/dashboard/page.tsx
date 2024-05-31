@@ -1,5 +1,9 @@
-import { SalesDashboard } from "@/app/_components";
+import { SalesDashboard, PageWrapper } from "@/app/_components";
 
 export default function Page() {
-  return <SalesDashboard />;
+  return (
+    <PageWrapper>
+      <SalesDashboard />
+    </PageWrapper>
+  );
 }

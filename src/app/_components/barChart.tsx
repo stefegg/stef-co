@@ -118,11 +118,6 @@ export default function ScBarChart() {
           axisLine={{ stroke: getSecondaryFill() }}
         />
         <YAxis yAxisId="left" orientation="left" stroke={getSecondaryFill()} />
-        {/* <YAxis
-          yAxisId="right"
-          orientation="right"
-          stroke={getSecondaryFill()}
-        /> */}
         <Tooltip cursor={{ fill: "#363636" }} content={<CustomToolTip />} />
         <Legend />
         <Bar yAxisId="left" dataKey="2023" fill={getPrimaryFill()} />
