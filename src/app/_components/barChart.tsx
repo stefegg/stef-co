@@ -2,65 +2,107 @@
 import {
   BarChart,
   Bar,
-  Cell,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   Legend,
   ResponsiveContainer,
+  TooltipProps,
 } from "recharts";
+import { ThemeContext } from "../_providers";
+import { useContext } from "react";
+import {
+  ValueType,
+  NameType,
+} from "recharts/types/component/DefaultTooltipContent";
 
 export default function ScBarChart() {
+  const { appTheme } = useContext(ThemeContext);
   const data = [
     {
-      name: "Page A",
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
+      name: "Jan",
+      2023: 4000,
+      2024: 4600,
     },
     {
-      name: "Page B",
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
+      name: "Feb",
+      2023: 3000,
+      2024: 3298,
     },
     {
-      name: "Page C",
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
+      name: "Mar",
+      2023: 2000,
+      2024: 9800,
     },
     {
-      name: "Page D",
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
+      name: "Apr",
+      2023: 2780,
+      2024: 3908,
     },
     {
-      name: "Page E",
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: "Page F",
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: "Page G",
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
+      name: "May",
+      2023: 1890,
+      2024: 4800,
     },
   ];
+
+  const getPrimaryFill = () => {
+    switch (appTheme) {
+      case "classic":
+        return "#5fafd7";
+      case "dark":
+        return "#BB86FC";
+      case "light":
+        return "#005faf";
+    }
+  };
+  const getSecondaryFill = () => {
+    switch (appTheme) {
+      case "classic":
+        return "#03c51d";
+      case "dark":
+        return "#03DAc6";
+      case "light":
+        return "#363636";
+    }
+  };
+
+  const getTickFill = () => {
+    switch (appTheme) {
+      case "classic":
+        return "#ffdd00";
+      case "dark":
+        return "#BB86FC";
+      case "light":
+        return "#005faf";
+    }
+  };
+
+  const CustomToolTip = ({
+    active,
+    payload,
+    label,
+  }: TooltipProps<ValueType, NameType>) => {
+    if (active && payload && payload.length) {
+      return (
+        <div
+          className={`bg-${appTheme}-bodyBg w-24 rounded-md flex flex-col items-center p-2`}
+        >
+          <div>{label}</div>
+          <div className={`flex flex-row text-${appTheme}-link`}>
+            {payload[0].name}: {payload[0].value}
+          </div>
+          <div className={`flex flex-row text-${appTheme}-secondary`}>
+            {payload[1].name}: {payload[1].value}
+          </div>
+        </div>
+      );
+    }
+  };
+
   return (
     <ResponsiveContainer width="100%" height="100%">
       <BarChart
-        width={500}
-        height={300}
         data={data}
         margin={{
           top: 20,
@@ -69,14 +111,17 @@ export default function ScBarChart() {
           bottom: 5,
         }}
       >
-        {/* <CartesianGrid strokeDasharray="3 3" /> */}
-        <XAxis dataKey="name" />
-        <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
-        <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
-        <Tooltip />
+        <XAxis
+          dataKey="name"
+          tick={{ fill: getTickFill() }}
+          tickLine={{ stroke: getTickFill() }}
+          axisLine={{ stroke: getSecondaryFill() }}
+        />
+        <YAxis yAxisId="left" orientation="left" stroke={getSecondaryFill()} />
+        <Tooltip cursor={{ fill: "#363636" }} content={<CustomToolTip />} />
         <Legend />
-        <Bar yAxisId="left" dataKey="pv" fill="#8884d8" />
-        <Bar yAxisId="right" dataKey="uv" fill="#82ca9d" />
+        <Bar yAxisId="left" dataKey="2023" fill={getPrimaryFill()} />
+        <Bar yAxisId="left" dataKey="2024" fill={getSecondaryFill()} />
       </BarChart>
     </ResponsiveContainer>
   );

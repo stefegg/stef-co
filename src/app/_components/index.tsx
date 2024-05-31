@@ -35,6 +35,10 @@ import ReactCarousel from "./reactCarousel";
 import ScBarChart from "./barChart";
 import SiteModal from "./siteModal";
 import ThemeMenu from "./themeMenu";
+import ScRadarChart from "./radarChart";
+import ScPieChart from "./pieChart";
+import GaugeChart from "./gaugeChart";
+import SalesDashboard from "./salesDashboard";
 
 export {
   CategoryList,
@@ -74,4 +78,8 @@ export {
   ScBarChart,
   SiteModal,
   ThemeMenu,
+  ScRadarChart,
+  ScPieChart,
+  GaugeChart,
+  SalesDashboard,
 };
