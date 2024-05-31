@@ -38,6 +38,7 @@ import ThemeMenu from "./themeMenu";
 import ScRadarChart from "./radarChart";
 import ScPieChart from "./pieChart";
 import GaugeChart from "./gaugeChart";
+import SalesDashboard from "./salesDashboard";
 
 export {
   CategoryList,
@@ -80,4 +81,5 @@ export {
   ScRadarChart,
   ScPieChart,
   GaugeChart,
+  SalesDashboard,
 };
