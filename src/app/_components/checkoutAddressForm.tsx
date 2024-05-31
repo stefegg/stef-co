@@ -80,7 +80,6 @@ export default function CheckoutAddressForm(props: CheckoutAddressProps) {
               },
             }))}
             error={formik.touched.addressState && formik.errors.addressState}
-            stateSelect
             value={shipState}
           />
           <Input
@@ -102,7 +101,6 @@ export default function CheckoutAddressForm(props: CheckoutAddressProps) {
               },
             }))}
             error={formik.touched.shipMethod && formik.errors.shipMethod}
-            stateSelect
             value={shipMethod}
           />
           {!user && (

@@ -6,11 +6,11 @@ import { Dispatch, SetStateAction } from "react";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-type HeaderMenuProps = {
+type AccountMenuProps = {
   setShowDrop: Dispatch<SetStateAction<boolean>>;
 };
 
-export default function HeaderMenu(props: HeaderMenuProps) {
+export default function AccountMenu(props: AccountMenuProps) {
   const { setShowDrop } = props;
   const { appTheme } = useContext(ThemeContext);
   const { setWishlist } = useContext(CartContext);

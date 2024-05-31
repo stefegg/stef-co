@@ -1,7 +1,7 @@
 import CategoryList from "./categoryList";
 import CategoryTile from "./categoryTile";
 import Header from "./header";
-import HeaderMenu from "./headerMenu";
+import AccountMenu from "./accountMenu";
 import ListHeader from "./listHeader";
 import Logo from "./logo";
 import ProductDisplay from "./productDisplay";
@@ -34,12 +34,13 @@ import ProductDisplayWrapper from "./productDisplayWrapper";
 import ReactCarousel from "./reactCarousel";
 import ScBarChart from "./barChart";
 import SiteModal from "./siteModal";
+import ThemeMenu from "./themeMenu";
 
 export {
   CategoryList,
   CategoryTile,
   Header,
-  HeaderMenu,
+  AccountMenu,
   ListHeader,
   Logo,
   ProductDisplay,
@@ -72,4 +73,5 @@ export {
   ReactCarousel,
   ScBarChart,
   SiteModal,
+  ThemeMenu,
 };
