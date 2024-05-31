@@ -49,17 +49,7 @@ export default function ProductTile(props: ProductTileProps) {
     setCartQuantity,
   } = useContext(CartContext);
   const { setOpacity, setType, setOperation } = useContext(BannerContext);
-  const getBorderColor = () => {
-    if (appTheme === "classic") {
-      return "white";
-    }
-    if (appTheme === "light") {
-      return "#005faf";
-    }
-    if (appTheme === "dark") {
-      return "#03DAc6";
-    }
-  };
+
   return (
     <div
       className={`bg-${appTheme}-containerBg text-${appTheme}-text rounded-lg p-4 h-96 cursor-pointer`}
@@ -71,7 +61,7 @@ export default function ProductTile(props: ProductTileProps) {
         className={`flex flex-col items-center h-72 w-full`}
       >
         <div
-          className={`bg-${appTheme}-containerBg h-3/4 w-3/4 rounded-lg mt-2  border-${appTheme}-border rounded-lg overflow-hidden`}
+          className={`bg-${appTheme}-photoMatte h-3/4 w-3/4 rounded-lg mt-2  border-${appTheme}-border rounded-lg overflow-hidden`}
         >
           <Image
             src={imageUrl}
@@ -85,7 +75,6 @@ export default function ProductTile(props: ProductTileProps) {
               width: "100%",
               objectFit: "contain",
               borderRadius: "8px",
-              border: `2px solid ${getBorderColor()}`,
             }}
           />
         </div>

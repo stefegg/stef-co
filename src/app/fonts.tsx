@@ -1,6 +1,6 @@
 import { Lobster } from "next/font/google";
 import { Inter } from "next/font/google";
-import { PT_Sans } from "next/font/google";
+import { Roboto_Condensed } from "next/font/google";
 
 export const interFont = Inter({ subsets: ["latin"] });
 
@@ -11,9 +11,9 @@ export const lobsterFont = Lobster({
   display: "swap",
 });
 
-export const ptSansFont = PT_Sans({
-  weight: ["400", "700"],
-  style: ["normal"],
+export const robotoFont = Roboto_Condensed({
+  weight: ["400"],
+  style: ["italic", "normal"],
   subsets: ["latin"],
   display: "swap",
 });

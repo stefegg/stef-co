@@ -33,6 +33,7 @@ import MobileMenu from "./mobileMenu";
 import ProductDisplayWrapper from "./productDisplayWrapper";
 import ReactCarousel from "./reactCarousel";
 import ScBarChart from "./barChart";
+import SiteModal from "./siteModal";
 
 export {
   CategoryList,
@@ -70,4 +71,5 @@ export {
   ProductDisplayWrapper,
   ReactCarousel,
   ScBarChart,
+  SiteModal,
 };
