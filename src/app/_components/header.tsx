@@ -3,12 +3,12 @@ import React from "react";
 import { CartContext, ThemeContext, UserContext } from "../_providers/index";
 import { useContext, useState } from "react";
 import {
-  HeaderMenu,
-  Dropdown,
+  AccountMenu,
   IndicatorBanner,
   IndicatorCircle,
   Cart,
   MobileMenu,
+  ThemeMenu,
 } from ".";
 import Image from "next/image";
 import { getFilter } from "../_utils";
@@ -18,13 +18,15 @@ import wishList from "../../../public/icons/wishlist.svg";
 import orderTruck from "../../../public/icons/truck.svg";
 import bars from "../../../public/icons/bars.svg";
 import barsDown from "../../../public/icons/barsdown.svg";
+import themeIcon from "../../../public/icons/theme.svg";
 import { useRouter, usePathname } from "next/navigation";
 
 export default function Header() {
-  const { appTheme, setAppTheme } = useContext(ThemeContext);
+  const { appTheme } = useContext(ThemeContext);
   const { user } = useContext(UserContext);
   const { cart, wishlist, showCart, setShowCart } = useContext(CartContext);
-  const [showDrop, setShowDrop] = useState(false);
+  const [showAccount, setShowAccount] = useState(false);
+  const [showTheme, setShowTheme] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const router = useRouter();
   const pathName = usePathname();
@@ -32,21 +34,6 @@ export default function Header() {
   const iconStyle = {
     filter: getFilter(appTheme),
   };
-
-  const themeOptions = [
-    {
-      title: "Classic",
-      setter: () => setAppTheme("classic"),
-    },
-    {
-      title: "Light",
-      setter: () => setAppTheme("light"),
-    },
-    {
-      title: "Dark",
-      setter: () => setAppTheme("dark"),
-    },
-  ];
 
   const toggleCart = () => {
     if (pathName !== "/checkout") {
@@ -78,8 +65,24 @@ export default function Header() {
             style={iconStyle}
           />
         </div>
-        <div className="ml-auto">
-          <Dropdown title={"Site Theme"} options={themeOptions} />
+        <div
+          className="cursor-pointer ml-auto"
+          onClick={() => setShowTheme(!showTheme)}
+        >
+          <Image
+            src={themeIcon}
+            height={24}
+            width={24}
+            alt="Account Icon"
+            style={iconStyle}
+          />
+        </div>
+        <div
+          className={`fixed top-14 right-32 sm:right-64  ${
+            showTheme ? "flex" : "hidden"
+          }`}
+        >
+          <ThemeMenu setShowDrop={setShowTheme} />
         </div>
         <div
           className="cursor-pointer relative"
@@ -124,8 +127,10 @@ export default function Header() {
             </div>
           )}
         </div>
-
-        <div className="cursor-pointer" onClick={() => setShowDrop(!showDrop)}>
+        <div
+          className="cursor-pointer"
+          onClick={() => setShowAccount(!showAccount)}
+        >
           <Image
             src={accountIcon}
             height={24}
@@ -135,9 +140,9 @@ export default function Header() {
           />
         </div>
         <div
-          className={`fixed top-14 right-4  ${showDrop ? "flex" : "hidden"}`}
+          className={`fixed top-14 right-4  ${showAccount ? "flex" : "hidden"}`}
         >
-          <HeaderMenu setShowDrop={setShowDrop} />
+          <AccountMenu setShowDrop={setShowAccount} />
         </div>
         <Cart />
       </span>
