@@ -3,15 +3,11 @@ import {
   ScRadarChart,
   ScPieChart,
   PageWrapper,
-  GaugeChart,
 } from "@/app/_components";
 
 export default function Page() {
   return (
     <PageWrapper>
-      {/* <div className="h-96 w-full rounded-full">
-        <ScRadarChart />
-      </div> */}
       <div className="flex-row flex w-full h-128 gap-2 rounded-lg overflow-hidden">
         <div className="flex flex-col w-1/4 gap-2">
           <div className="h-12 bg-white">Header</div>
