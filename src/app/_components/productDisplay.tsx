@@ -12,6 +12,7 @@ import {
   CartContext,
   BannerContext,
   UserContext,
+  ModalContext,
 } from "../_providers/index";
 import { Button } from ".";
 import Image from "next/image";
@@ -25,6 +26,8 @@ export default function ProductDisplay(props: ProductDisplayProps) {
   const { product } = props;
   const { name, price, description, specs, imageUrl, currency } = product;
   const { appTheme } = useContext(ThemeContext);
+  const { setShowModal, setModalType, setModalContent } =
+    useContext(ModalContext);
   const { user } = useContext(UserContext);
   const {
     cart,
@@ -46,11 +49,17 @@ export default function ProductDisplay(props: ProductDisplayProps) {
       return "#03DAc6";
     }
   };
+  const clickImage = () => {
+    setModalType("image");
+    setModalContent(imageUrl);
+    setShowModal(true);
+  };
   return (
     <>
       <div className={`flex lg:flex-row flex-col lg:gap-36 gap-2 mb-4 pt-4`}>
         <div
-          className={`lg:w-1/3 min-h-2/3 border-${appTheme}-border rounded-lg ml-2 overflow-hidden bg-${appTheme}-containerBg `}
+          className={`lg:w-1/3 min-h-2/3 border-${appTheme}-border rounded-lg ml-2 overflow-hidden bg-${appTheme}-photoMatte cursor-pointer`}
+          onClick={() => clickImage()}
         >
           <Image
             src={imageUrl}

@@ -17,6 +17,7 @@ const config: Config = {
           secondary: "#5fafd7",
           error: "#B00020",
           link: "#5fafd7",
+          photoMatte: "#363636",
         },
         dark: {
           border: "#3700b3",
@@ -27,6 +28,7 @@ const config: Config = {
           secondary: "#03DAc6",
           error: "#cf6679",
           link: "#0070E0",
+          photoMatte: "#363636",
         },
         classic: {
           border: "#cd0909",
@@ -37,6 +39,7 @@ const config: Config = {
           secondary: "#03c51d",
           error: "#cd0909",
           link: "#5fafd7",
+          photoMatte: "#363636",
         },
       },
       keyframes: {
@@ -54,17 +57,17 @@ const config: Config = {
   safelist: [
     {
       pattern:
-        /(bg|text|border)-light-(border|text|containerBg|bodyBg|containerHover|error|link|secondary)/,
+        /(bg|text|border)-light-(border|text|containerBg|bodyBg|containerHover|error|link|secondary|photoMatte)/,
       variants: ["before", "hover", "focus"],
     },
     {
       pattern:
-        /(bg|text|border)-classic-(border|text|containerBg|bodyBg|containerHover|error|link|secondary)/,
+        /(bg|text|border)-classic-(border|text|containerBg|bodyBg|containerHover|error|link|secondary|photoMatte)/,
       variants: ["before", "hover", "focus"],
     },
     {
       pattern:
-        /(bg|text|border)-dark-(border|text|containerBg|bodyBg|containerHover|error|link|secondary)/,
+        /(bg|text|border)-dark-(border|text|containerBg|bodyBg|containerHover|error|link|secondary|photoMatte)/,
       variants: ["before", "hover", "focus"],
     },
   ],
