@@ -66,6 +66,30 @@ export const getFilter = (appTheme: string) => {
   }
 };
 
+export const calendarFilter = (appTheme: string) => {
+  if (appTheme === "dark") {
+    return "invert(65%) sepia(68%) saturate(2323%) hue-rotate(127deg) brightness(100%) contrast(98%)";
+  }
+  if (appTheme === "light") {
+    return "invert(16%) sepia(98%) saturate(2729%) hue-rotate(195deg) brightness(103%) contrast(100%)";
+  }
+  if (appTheme === "classic") {
+    return "invert(45%) sepia(100%) saturate(842%) hue-rotate(88deg) brightness(98%) contrast(101%)";
+  }
+};
+
+export const arrowFilter = (appTheme: string) => {
+  if (appTheme === "dark") {
+    return "invert(68%) sepia(55%) saturate(3631%) hue-rotate(218deg) brightness(98%) contrast(101%)";
+  }
+  if (appTheme === "light") {
+    return "invert(45%) sepia(100%) saturate(842%) hue-rotate(88deg) brightness(98%) contrast(101%)";
+  }
+  if (appTheme === "classic") {
+    return "invert(86%) sepia(12%) saturate(3864%) hue-rotate(357deg) brightness(104%) contrast(105%)";
+  }
+};
+
 export const addToCart = (props: AddCartProps) => {
   const {
     setOpacity,

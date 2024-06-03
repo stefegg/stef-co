@@ -53,7 +53,7 @@ export default function ScBarChart() {
       case "dark":
         return "#BB86FC";
       case "light":
-        return "#005faf";
+        return "#878787";
     }
   };
   const getSecondaryFill = () => {
@@ -63,7 +63,7 @@ export default function ScBarChart() {
       case "dark":
         return "#03DAc6";
       case "light":
-        return "#363636";
+        return "#005faf";
     }
   };
 
