@@ -1,11 +1,37 @@
 "use client";
-import { useContext } from "react";
-import { ThemeContext, ModalContext } from "../_providers";
+import { useContext, useEffect } from "react";
+import {
+  ThemeContext,
+  ModalContext,
+  UserContext,
+  CartContext,
+} from "../_providers";
 import Image from "next/image";
-export default function SiteModal() {
+import { Session } from "next-auth";
+import { CleanWishlist, SafeUser } from "../_types";
+
+type SiteModalProps = {
+  session: {
+    session: Session;
+    user: SafeUser;
+    cleanWishlist: CleanWishlist | null;
+  } | null;
+};
+
+export default function SiteModal(props: SiteModalProps) {
+  const { session } = props;
   const { appTheme } = useContext(ThemeContext);
+  const { user, setUser } = useContext(UserContext);
+  const { setWishlist } = useContext(CartContext);
   const { showModal, setShowModal, modalType, modalContent } =
     useContext(ModalContext);
+
+  useEffect(() => {
+    if (session && session !== null) {
+      setUser(session.user);
+      setWishlist(session?.cleanWishlist?.wishlistItems || []);
+    }
+  }, [session]);
 
   const getModal = () => {
     switch (modalType) {

@@ -3,7 +3,7 @@ import { updateWishlist } from "./serverutils";
 
 export const logoTextGen = (appTheme: string, size: string) => {
   const large = "text-6xl";
-  const small = "text-4xl pt-1";
+  const small = "text-4xl";
   if (appTheme === "classic" && size === "large") {
     return `font-outline-2 text-${appTheme}-border bg-${appTheme}-bodyBg ${large}`;
   }

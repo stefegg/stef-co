@@ -10,6 +10,7 @@ import {
   MobileMenu,
   ThemeMenu,
   Sidebar,
+  SidebarCap,
 } from ".";
 import Image from "next/image";
 import { getFilter } from "../_utils";
@@ -18,7 +19,6 @@ import cartIcon from "../../../public/icons/cart_png.png";
 import wishList from "../../../public/icons/wishlist.svg";
 import orderTruck from "../../../public/icons/truck.svg";
 import bars from "../../../public/icons/bars.svg";
-import barsDown from "../../../public/icons/barsdown.svg";
 import themeIcon from "../../../public/icons/theme.svg";
 import { useRouter, usePathname } from "next/navigation";
 
@@ -58,7 +58,7 @@ export default function Header() {
           onClick={() => showMobMenu()}
         >
           <Image
-            src={showSidebar ? barsDown : bars}
+            src={bars}
             height={24}
             width={24}
             alt="my orders Icon"
@@ -70,12 +70,15 @@ export default function Header() {
           onClick={() => setShowSidebar(!showSidebar)}
         >
           <Image
-            src={showMobileMenu ? barsDown : bars}
+            src={bars}
             height={24}
             width={24}
             alt="my orders Icon"
             style={iconStyle}
           />
+        </div>
+        <div className="hidden sm:flex relative right-6">
+          <SidebarCap />
         </div>
         <div
           className="cursor-pointer ml-auto"

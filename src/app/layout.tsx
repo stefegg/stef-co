@@ -44,7 +44,7 @@ export default async function Layout({
                 <body className={`${robotoFont.className} flex flex-row`}>
                   <div className="w-[100%] h-full max-h-screen overflow-y-auto overflow-x-hidden">
                     {children}
-                    <SiteModal />
+                    <SiteModal session={session} />
                     <Analytics />
                     <SpeedInsights />
                   </div>

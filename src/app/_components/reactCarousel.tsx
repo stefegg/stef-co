@@ -14,11 +14,11 @@ export default function ReactCarousel(props: CarouselProps) {
       items: 5,
     },
     desktop: {
-      breakpoint: { max: 3000, min: 1500 },
+      breakpoint: { max: 3000, min: 1200 },
       items: 4,
     },
     smdesktop: {
-      breakpoint: { max: 1500, min: 1024 },
+      breakpoint: { max: 1200, min: 1024 },
       items: 3,
     },
     tablet: {
