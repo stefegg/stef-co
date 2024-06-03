@@ -9,6 +9,7 @@ import {
   Cart,
   MobileMenu,
   ThemeMenu,
+  Sidebar,
 } from ".";
 import Image from "next/image";
 import { getFilter } from "../_utils";
@@ -22,7 +23,7 @@ import themeIcon from "../../../public/icons/theme.svg";
 import { useRouter, usePathname } from "next/navigation";
 
 export default function Header() {
-  const { appTheme } = useContext(ThemeContext);
+  const { appTheme, showSidebar, setShowSidebar } = useContext(ThemeContext);
   const { user } = useContext(UserContext);
   const { cart, wishlist, showCart, setShowCart } = useContext(CartContext);
   const [showAccount, setShowAccount] = useState(false);
@@ -49,13 +50,24 @@ export default function Header() {
   return (
     <div className="flex flex-col relative">
       <span
-        className={`h-16 flex items-center px-4 z-10 fixed w-[100%] sm:w-[87%]
-    bg-${appTheme}-containerBg text-${appTheme}-text gap-6 sm:gap-10 
+        className={`h-16 flex items-center px-4 z-10 fixed w-[100%] bg-${appTheme}-containerBg text-${appTheme}-text gap-6 sm:gap-10 
     `}
       >
         <div
           className={`sm:hidden cursor-pointer relative hover:bg-${appTheme}-bodyBg rounded-full p-2`}
           onClick={() => showMobMenu()}
+        >
+          <Image
+            src={showSidebar ? barsDown : bars}
+            height={24}
+            width={24}
+            alt="my orders Icon"
+            style={iconStyle}
+          />
+        </div>
+        <div
+          className={`hidden sm:flex cursor-pointer relative hover:bg-${appTheme}-bodyBg rounded-full p-2`}
+          onClick={() => setShowSidebar(!showSidebar)}
         >
           <Image
             src={showMobileMenu ? barsDown : bars}
@@ -145,6 +157,7 @@ export default function Header() {
           <AccountMenu setShowDrop={setShowAccount} />
         </div>
         <Cart />
+        <Sidebar />
       </span>
       <IndicatorBanner />
       {showMobileMenu && <MobileMenu />}

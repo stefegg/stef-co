@@ -42,11 +42,7 @@ export default async function Layout({
             <CartProvider>
               <html lang="en">
                 <body className={`${robotoFont.className} flex flex-row`}>
-                  <div className="hidden w-[13%] h-screen sm:flex flex-col">
-                    <SidebarCap session={session} />
-                    <Sidebar />
-                  </div>
-                  <div className="w-[100%] sm:w-[87%] h-full max-h-screen overflow-y-auto overflow-x-hidden">
+                  <div className="w-[100%] h-full max-h-screen overflow-y-auto overflow-x-hidden">
                     {children}
                     <SiteModal />
                     <Analytics />

@@ -1,15 +1,19 @@
 "use client";
 import React from "react";
 import { createContext, useState } from "react";
-
+import { Dispatch, SetStateAction } from "react";
 interface ThemeContextType {
   appTheme: string;
   setAppTheme: (appTheme: string) => void;
+  showSidebar: boolean;
+  setShowSidebar: Dispatch<SetStateAction<boolean>>;
 }
 
 export const ThemeContext = createContext<ThemeContextType>({
   appTheme: "classic",
   setAppTheme: () => null,
+  showSidebar: false,
+  setShowSidebar: () => null,
 });
 
 interface Props {
@@ -18,9 +22,12 @@ interface Props {
 
 export const ThemeProvider: React.FC<Props> = ({ children }) => {
   const [appTheme, setAppTheme] = useState("classic");
+  const [showSidebar, setShowSidebar] = useState(false);
   const value = {
     appTheme,
     setAppTheme,
+    showSidebar,
+    setShowSidebar,
   };
   return (
     <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
