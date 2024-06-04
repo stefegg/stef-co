@@ -39,6 +39,7 @@ import ScRadarChart from "./radarChart";
 import ScPieChart from "./pieChart";
 import GaugeChart from "./gaugeChart";
 import SalesDashboard from "./salesDashboard";
+import LandingModal from "./landingModal";
 
 export {
   CategoryList,
@@ -82,4 +83,5 @@ export {
   ScPieChart,
   GaugeChart,
   SalesDashboard,
+  LandingModal,
 };

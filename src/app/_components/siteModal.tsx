@@ -9,7 +9,7 @@ import {
 import Image from "next/image";
 import { Session } from "next-auth";
 import { CleanWishlist, SafeUser } from "../_types";
-
+import { LandingModal } from "./index";
 type SiteModalProps = {
   session: {
     session: Session;
@@ -31,6 +31,7 @@ export default function SiteModal(props: SiteModalProps) {
       setUser(session.user);
       setWishlist(session?.cleanWishlist?.wishlistItems || []);
     }
+    console.log(session, "-----session");
   }, [session]);
 
   const getModal = () => {
@@ -43,23 +44,27 @@ export default function SiteModal(props: SiteModalProps) {
             width={0}
             height={0}
             style={{
-              width: "100%",
-              height: "100%",
+              width: "75%",
+              height: "75%",
               objectFit: "contain",
               borderRadius: "8px",
               opacity: "100%",
             }}
           />
         );
+      case "landing":
+        return <LandingModal />;
     }
   };
   return (
     showModal && (
       <div
-        className={`absolute w-[87%] mt-16 h-[calc(100vh-4rem)] bg-${appTheme}-containerBg/50 top-0 flex items-center justify-center overflow-hidden`}
+        className={`absolute w-full h-full bg-${appTheme}-containerBg/50 top-0  overflow-hidden cursor-pointer`}
         onClick={() => setShowModal(false)}
       >
-        <div>{getModal()}</div>
+        <div className="flex items-center justify-center h-full">
+          {getModal()}
+        </div>
       </div>
     )
   );
