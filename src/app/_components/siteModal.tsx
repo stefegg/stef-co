@@ -31,7 +31,6 @@ export default function SiteModal(props: SiteModalProps) {
       setUser(session.user);
       setWishlist(session?.cleanWishlist?.wishlistItems || []);
     }
-    console.log(session, "-----session");
   }, [session]);
 
   const getModal = () => {

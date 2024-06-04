@@ -1,11 +1,12 @@
 "use client";
 import { ScBarChart, ScRadarChart, ScPieChart } from "@/app/_components";
 import { useContext } from "react";
-import { ThemeContext } from "../_providers";
+import { ThemeContext } from "../../_providers";
 import arrowUp from "../../../public/icons/arrowUp.svg";
 import Image from "next/image";
-import { calendarFilter, arrowFilter } from "../_utils";
+import { calendarFilter, arrowFilter } from "../../_utils";
 import calendar from "../../../public/icons/calendar.svg";
+import YearSales from "./yearSales";
 
 export default function SalesDashboard() {
   const { appTheme } = useContext(ThemeContext);
@@ -46,46 +47,22 @@ export default function SalesDashboard() {
         <div
           className={`h-56 bg-${appTheme}-containerBg p-2 flex overflow-auto gap-2 items-start`}
         >
-          <div
-            className={`text-${appTheme}-secondary min-h-full text-sm sm:text-xl border-4 rounded-lg border-${appTheme}-secondary px-2 flex flex-col w-1/3 justify-evenly`}
-          >
-            2024 YTD Net Sales:
-            <div className="flex flex-row">
-              <div className="flex flex-col">
-                <div className="text-3xl md:text-5xl xl:text-7xl">$15</div>
-                <div className="text-base md:text-md xl:text-4xl">million</div>
-              </div>
-            </div>
-            <div className="text-sm xl:text-lg flex flex-row gap">
-              <div>25% YoY Growth</div>
-              <Image
-                src={arrowUp}
-                alt="arrow"
-                height={20}
-                width={20}
-                style={iconStyle}
-              />
-            </div>
-          </div>
-          <div
-            className={`text-${appTheme}-text h-full text-sm sm:text-xl border-4 rounded-lg border-${appTheme}-text px-2 flex flex-col w-1/3 justify-evenly`}
-          >
-            2023 YTD Net Sales:
-            <div className=" flex flex-col">
-              <div className="text-3xl md:text-5xl xl:text-7xl">$12</div>
-              <div className="text-base md:text-md xl:text-4xl">million</div>
-            </div>
-            <div className="text-sm xl:text-lg flex flex-row gap-2">
-              <div>23 million FY total</div>
-              <Image
-                src={calendar}
-                alt="calendar"
-                height={40}
-                width={20}
-                style={iconCStyle}
-              />
-            </div>
-          </div>
+          <YearSales
+            year="2024"
+            icon={arrowUp}
+            iconStyle={iconStyle}
+            growth="25% YoY Growth"
+            color="secondary"
+            dollarAmount={{ currency: "$", number: "15", amount: "million" }}
+          />
+          <YearSales
+            year="2023"
+            icon={calendar}
+            iconStyle={iconCStyle}
+            growth="23 million FY total"
+            color="text"
+            dollarAmount={{ currency: "$", number: "12", amount: "million" }}
+          />
           <div
             className={`text-${appTheme}-link h-full text-base sm:text-xl border-4 rounded-lg border-${appTheme}-link py-2 flex flex-col w-1/3 justify-evenly`}
           >
