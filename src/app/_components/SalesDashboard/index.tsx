@@ -2,10 +2,9 @@
 import { ScBarChart, ScRadarChart, ScPieChart } from "@/app/_components";
 import { useContext } from "react";
 import { ThemeContext } from "../../_providers";
-import arrowUp from "../../../public/icons/arrowUp.svg";
-import Image from "next/image";
+import arrowUp from "../../../../public/icons/arrowUp.svg";
 import { calendarFilter, arrowFilter } from "../../_utils";
-import calendar from "../../../public/icons/calendar.svg";
+import calendar from "../../../../public/icons/calendar.svg";
 import YearSales from "./yearSales";
 
 export default function SalesDashboard() {
@@ -18,6 +17,14 @@ export default function SalesDashboard() {
   const iconStyle = {
     filter: arrowFilter(appTheme),
   };
+
+  const monthlyData = [
+    "Jan: 4.6k Orders $2.5 mil",
+    "Feb: 3.3k Orders $2.5 mil",
+    "Mar: 9.8k Orders $2.5 mil",
+    "Apr: 4600 Orders $2.5 mil",
+    "May: 4600 Orders $2.5 mil",
+  ];
 
   return (
     <div
@@ -70,21 +77,16 @@ export default function SalesDashboard() {
             <div
               className={`border-t-2 border-${appTheme}-link overflow-auto gap-2`}
             >
-              <div className="text-sm xl:text-base pt-2 flex justify-center">
-                Jan: 4.6k Orders $2.5 mil
-              </div>
-              <div className="text-sm xl:text-base pt-2 flex justify-center">
-                Feb: 3.3k Orders $2.5 mil
-              </div>
-              <div className="text-sm xl:text-base pt-2 flex justify-center">
-                Mar: 9.8k Orders $2.5 mil
-              </div>
-              <div className="text-sm xl:text-base pt-2 flex justify-center">
-                Apr: 4600 Orders $2.5 mil
-              </div>
-              <div className="text-sm xl:text-base pt-2 flex justify-center">
-                May: 4600 Orders $2.5 mil
-              </div>
+              {monthlyData.map((month, idx) => {
+                return (
+                  <div
+                    key={idx}
+                    className="text-sm xl:text-base pt-2 flex justify-center"
+                  >
+                    {month}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
