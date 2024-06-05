@@ -25,7 +25,7 @@ export const logoTextGen = (appTheme: string, size: string) => {
 };
 
 export const logoLineGen = (appTheme: string, size: string) => {
-  const large = "h-[16px] w-3/4 mt-3 border-2";
+  const large = "h-[16px] w-full mt-3 border-2";
   const small = "h-[6px] w-full mt-1 border";
   if (appTheme === "classic" && size === "large") {
     return `bg-${appTheme}-border border-${appTheme}-text ${large}`;
