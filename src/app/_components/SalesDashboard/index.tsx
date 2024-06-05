@@ -28,18 +28,25 @@ export default function SalesDashboard() {
 
   return (
     <div
-      className={`lg:flex-row flex flex-col w-full  gap-2 rounded-lg overflow-hidden `}
+      className={`lg:flex-row flex flex-col w-full  gap-2 rounded-lg overflow-hidden h-[calc(100vh-8rem)] overflow-y-auto`}
     >
-      <div className="flex flex-col lg:w-1/4 w-full gap-2">
+      <div className="flex flex-col lg:w-1/4 w-full gap-2 h-full">
         <div
           className={`h-12 bg-${appTheme}-containerBg text-${appTheme}-secondary pl-4 items-center flex text-xl`}
         >
           Sales
         </div>
-        <div className={`h-56 bg-${appTheme}-containerBg pl-4 pt-2`}>
-          Category sales data
+        <div
+          className={`h-56 lg:h-1/2 bg-${appTheme}-containerBg px-4 py-2 gap-2 flex flex-col`}
+        >
+          <div className={`h-1/2 border-2 border-${appTheme}-secondary`}>
+            Sales per cateogry
+          </div>
+          <div className={`h-1/2 border-2 border-${appTheme}-text`}>
+            Top performing items
+          </div>
         </div>
-        <div className={`h-64 bg-${appTheme}-containerBg`}>
+        <div className={`h-64 lg:h-1/2 bg-${appTheme}-containerBg`}>
           <ScPieChart />
         </div>
       </div>
@@ -52,7 +59,7 @@ export default function SalesDashboard() {
         </div>
 
         <div
-          className={`h-56 bg-${appTheme}-containerBg p-2 flex overflow-auto gap-2 items-start`}
+          className={`h-56 lg:h-1/2 bg-${appTheme}-containerBg p-2 flex overflow-auto gap-2 items-start`}
         >
           <YearSales
             year="2024"
@@ -71,17 +78,19 @@ export default function SalesDashboard() {
             dollarAmount={{ currency: "$", number: "12", amount: "million" }}
           />
           <div
-            className={`text-${appTheme}-link h-full text-base sm:text-xl border-4 rounded-lg border-${appTheme}-link py-2 flex flex-col w-1/3 justify-evenly`}
+            className={`text-${appTheme}-link h-full text-base sm:text-xl border-4 rounded-lg border-${appTheme}-link py-2 flex flex-col w-1/3 `}
           >
-            <div className="p-2 pt-0 text-sm lg:text-md">Orders Per Month:</div>
             <div
-              className={`border-t-2 border-${appTheme}-link overflow-auto gap-2`}
+              className={`p-2 pt-0 text-base lg:text-xl max-h-12 border-b-2 border-${appTheme}-link flex items-center`}
             >
+              Orders Per Month:
+            </div>
+            <div className={` overflow-auto gap-2`}>
               {monthlyData.map((month, idx) => {
                 return (
                   <div
                     key={idx}
-                    className="text-sm xl:text-base pt-2 flex justify-center"
+                    className="text-base xl:text-md pt-2 flex justify-center"
                   >
                     {month}
                   </div>
@@ -90,7 +99,7 @@ export default function SalesDashboard() {
             </div>
           </div>
         </div>
-        <div className={`h-64 bg-${appTheme}-containerBg`}>
+        <div className={`h-64 lg:h-1/2 bg-${appTheme}-containerBg`}>
           <ScBarChart />
         </div>
       </div>
@@ -101,10 +110,10 @@ export default function SalesDashboard() {
           Markets
         </div>
 
-        <div className={`h-56 bg-${appTheme}-containerBg`}>
+        <div className={`h-56 lg:h-1/2 bg-${appTheme}-containerBg`}>
           <ScRadarChart />
         </div>
-        <div className={`h-64 bg-${appTheme}-containerBg pl-4 pt-2`}>
+        <div className={`h-64 lg:h-1/2 bg-${appTheme}-containerBg pl-4 pt-2`}>
           Sales per market
         </div>
       </div>

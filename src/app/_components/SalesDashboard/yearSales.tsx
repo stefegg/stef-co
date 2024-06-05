@@ -29,11 +29,11 @@ export default function YearSales(props: YearSalesProps) {
       {year} YTD Net Sales:
       <div className="flex flex-row">
         <div className="flex flex-col">
-          <div className="text-3xl md:text-5xl xl:text-7xl">
+          <div className="text-3xl md:text-6xl xl:text-7xl">
             {currency}
             {number}
           </div>
-          <div className="text-base md:text-md xl:text-4xl">{amount}</div>
+          <div className="text-base md:text-xl xl:text-4xl">{amount}</div>
         </div>
       </div>
       <div className="text-sm xl:text-lg flex flex-row gap">
