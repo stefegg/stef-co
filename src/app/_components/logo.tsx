@@ -12,13 +12,19 @@ type LogoProps = {
 export default function Logo(props: LogoProps) {
   const { appTheme } = useContext(ThemeContext);
   const { size } = props;
+
+  const getText = () => {
+    if (size === "small") {
+      return "StefCo";
+    } else return "Stef Egbert";
+  };
   return (
     <div
       className={`${logoTextGen(appTheme, size)} flex flex-col items-center ${
         lobsterFont.className
       }`}
     >
-      StefCo
+      {getText()}
       <div
         className={`${logoLineGen(
           appTheme,

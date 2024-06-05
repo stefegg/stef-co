@@ -52,7 +52,7 @@ export default function ProductTile(props: ProductTileProps) {
 
   return (
     <div
-      className={`bg-${appTheme}-containerBg text-${appTheme}-text rounded-lg p-4 h-96 cursor-pointer`}
+      className={`bg-${appTheme}-containerBg text-${appTheme}-text rounded-lg p-4 h-96 cursor-pointer bg-opacity-80 hover:bg-opacity-100`}
     >
       <Link
         href={
