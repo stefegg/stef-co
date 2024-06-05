@@ -12,7 +12,7 @@ export default function SidebarCap() {
   return (
     <Link href="/">
       <div
-        className={`min-h-16 max-h-16 flex flex-col items-center justify-center text-${appTheme}-text bg-${appTheme}-containerBg border-${appTheme}-border ${lobsterFont.className} w-full`}
+        className={`min-h-16 max-h-16 flex flex-col items-center justify-center text-${appTheme}-text  ${lobsterFont.className} w-full `}
       >
         <Logo size={"small"} />
       </div>

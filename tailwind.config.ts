@@ -18,6 +18,9 @@ const config: Config = {
           error: "#B00020",
           link: "#5fafd7",
           photoMatte: "#363636",
+          sunPrimary: "#ffff70",
+          sunSecondary: "#ffee50",
+          sunTertiary: "#ffdd40",
         },
         dark: {
           border: "#3700b3",
@@ -29,6 +32,9 @@ const config: Config = {
           error: "#cf6679",
           link: "#0070E0",
           photoMatte: "#363636",
+          sunPrimary: "#23d1f6",
+          sunSecondary: "#009fd7",
+          sunTertiary: "#0564b8",
         },
         classic: {
           border: "#cd0909",
@@ -40,9 +46,28 @@ const config: Config = {
           error: "#cd0909",
           link: "#5fafd7",
           photoMatte: "#363636",
+          sunPrimary: "#FDB813",
+          sunSecondary: "#ff8100",
+          sunTertiary: "#ff4d00",
         },
       },
       keyframes: {
+        appear: {
+          "0%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
+          },
+        },
+        rise: {
+          "0%": {
+            height: "0rem",
+          },
+          "100%": {
+            height: "8rem",
+          },
+        },
         "spin-slow": {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
@@ -57,17 +82,17 @@ const config: Config = {
   safelist: [
     {
       pattern:
-        /(bg|text|border)-light-(border|text|containerBg|bodyBg|containerHover|error|link|secondary|photoMatte)/,
+        /(bg|text|border|border-b)-light-(border|text|containerBg|bodyBg|containerHover|error|link|secondary|photoMatte|sunPrimary|sunSecondary|sunTertiary)/,
       variants: ["before", "hover", "focus"],
     },
     {
       pattern:
-        /(bg|text|border)-classic-(border|text|containerBg|bodyBg|containerHover|error|link|secondary|photoMatte)/,
+        /(bg|text|border|border-b)-classic-(border|text|containerBg|bodyBg|containerHover|error|link|secondary|photoMatte|sunPrimary|sunSecondary|sunTertiary)/,
       variants: ["before", "hover", "focus"],
     },
     {
       pattern:
-        /(bg|text|border)-dark-(border|text|containerBg|bodyBg|containerHover|error|link|secondary|photoMatte)/,
+        /(bg|text|border|border-b)-dark-(border|text|containerBg|bodyBg|containerHover|error|link|secondary|photoMatte|sunPrimary|sunSecondary|sunTertiary)/,
       variants: ["before", "hover", "focus"],
     },
   ],

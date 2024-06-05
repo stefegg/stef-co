@@ -20,12 +20,12 @@ export const logoTextGen = (appTheme: string, size: string) => {
     return `font-outline-3 text-black bg-${appTheme}-bodyBg ${large}`;
   }
   if (appTheme === "dark" && size === "small") {
-    return `font-outline-4 text-${appTheme}-secondary bg-${appTheme}-containerBg ${small}`;
+    return `font-outline-4 text-${appTheme}-secondary ${small}`;
   }
 };
 
 export const logoLineGen = (appTheme: string, size: string) => {
-  const large = "h-[16px] w-3/4 mt-3 border-2";
+  const large = "h-[16px] w-full mt-3 border-2";
   const small = "h-[6px] w-full mt-1 border";
   if (appTheme === "classic" && size === "large") {
     return `bg-${appTheme}-border border-${appTheme}-text ${large}`;

@@ -12,6 +12,10 @@
   z-index: 1 !important;
 }
 
+.react-multiple-carousel__arrow--right {
+  z-index: 1 !important;
+}
+
 @layer base {
   .font-outline-1 {
     -webkit-text-stroke: 1px #cd0909;
