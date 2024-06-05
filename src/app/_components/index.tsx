@@ -38,7 +38,7 @@ import ThemeMenu from "./themeMenu";
 import ScRadarChart from "./radarChart";
 import ScPieChart from "./pieChart";
 import GaugeChart from "./gaugeChart";
-import SalesDashboard from "./salesDashboard";
+import SalesDashboard from "./SalesDashboard";
 import LandingModal from "./landingModal";
 import Sun from "./sun";
 
