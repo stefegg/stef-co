@@ -41,8 +41,8 @@ export default async function Layout({
           <ThemeProvider>
             <CartProvider>
               <html lang="en">
-                <body className={`${robotoFont.className} flex flex-row`}>
-                  <div className="w-[100%] h-full max-h-screen overflow-y-auto overflow-x-hidden">
+                <body className={`${robotoFont.className} flex flex-row `}>
+                  <div className="w-[100%] h-full max-h-screen ">
                     {children}
                     <SiteModal session={session} />
                     <Analytics />

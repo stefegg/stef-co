@@ -1,6 +1,11 @@
 "use client";
 import React from "react";
-import { CartContext, ThemeContext, UserContext } from "../_providers/index";
+import {
+  CartContext,
+  ThemeContext,
+  UserContext,
+  ModalContext,
+} from "../_providers/index";
 import { useContext, useState } from "react";
 import {
   AccountMenu,
@@ -24,6 +29,7 @@ import { useRouter, usePathname } from "next/navigation";
 
 export default function Header() {
   const { appTheme, showSidebar, setShowSidebar } = useContext(ThemeContext);
+  const { setShowModal } = useContext(ModalContext);
   const { user } = useContext(UserContext);
   const { cart, wishlist, showCart, setShowCart } = useContext(CartContext);
   const [showAccount, setShowAccount] = useState(false);
@@ -48,9 +54,9 @@ export default function Header() {
   };
 
   return (
-    <div className="flex flex-col relative">
+    <div className="flex flex-col relative" onClick={() => setShowModal(false)}>
       <span
-        className={`h-16 flex items-center px-4 z-10 fixed w-[100%] bg-${appTheme}-containerBg text-${appTheme}-text gap-6 sm:gap-10 
+        className={`h-16 flex items-center px-4 z-10 fixed w-[100%] bg-${appTheme}-containerBg text-${appTheme}-text gap-6 sm:gap-10 bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-80
     `}
       >
         <div

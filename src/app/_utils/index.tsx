@@ -20,7 +20,7 @@ export const logoTextGen = (appTheme: string, size: string) => {
     return `font-outline-3 text-black bg-${appTheme}-bodyBg ${large}`;
   }
   if (appTheme === "dark" && size === "small") {
-    return `font-outline-4 text-${appTheme}-secondary bg-${appTheme}-containerBg ${small}`;
+    return `font-outline-4 text-${appTheme}-secondary ${small}`;
   }
 };
 
