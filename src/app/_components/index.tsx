@@ -1,46 +1,45 @@
-import CategoryList from "./categoryList";
-import CategoryTile from "./categoryTile";
-import Header from "./header";
-import AccountMenu from "./accountMenu";
-import ListHeader from "./listHeader";
-import Logo from "./logo";
-import ProductDisplay from "./productDisplay";
-import ProductContainer from "./productContainer";
-import ProductTile from "./productTile";
-import SearchBar from "./searchBar";
-import Sidebar from "./sideBar";
+import CategoryList from "./CategoryList";
+import CategoryTile from "./CategoryTile";
+import Header from "./Header";
+import AccountMenu from "./AccountMenu";
+import ListHeader from "./ListHeader";
+import Logo from "./Logo";
+import ProductDisplay from "./ProductDisplay";
+import ProductContainer from "./ProductContainer";
+import ProductTile from "./ProductTile";
+import SearchBar from "./Searchbar";
+import Sidebar from "./Sidebar";
 import SidebarCap from "./sidebarCap";
-import ToggleSwitch from "./toggleSwitch";
-import ProductGrid from "./productGrid";
-import ProductList from "./productList";
-import ProductListItem from "./productListItem";
-import Dropdown from "./dropDown";
-import Button from "./button";
-import IndicatorBanner from "./indicatorBanner";
-import IndicatorCircle from "./indicatorCircle";
-import PageWrapper from "./pageWrapper";
-import LoadingSpinner from "./loadingSpinner";
-import Cart from "./cart";
-import CheckoutDisplay from "./checkoutDisplay";
-import Input from "./input";
-import CheckoutDetails from "./checkoutDetails";
-import CheckoutAddressForm from "./checkoutAddressForm";
-import OrderSummary from "./orderSummary";
-import OrderList from "./orderList";
-import OrderListItem from "./orderListItem";
-import Carousel from "./carousel";
-import MobileMenu from "./mobileMenu";
-import ProductDisplayWrapper from "./productDisplayWrapper";
-import ReactCarousel from "./reactCarousel";
-import ScBarChart from "./barChart";
-import SiteModal from "./siteModal";
-import ThemeMenu from "./themeMenu";
-import ScRadarChart from "./radarChart";
-import ScPieChart from "./pieChart";
-import GaugeChart from "./gaugeChart";
+import ToggleSwitch from "./ToggleSwitch";
+import ProductGrid from "./ProductGrid";
+import ProductList from "./ProductList";
+import ProductListItem from "./ProductListItem";
+import Dropdown from "./DropDown";
+import Button from "./Button";
+import IndicatorBanner from "./IndicatorBanner";
+import IndicatorCircle from "./IndicatorCircle";
+import PageWrapper from "./PageWrapper";
+import LoadingSpinner from "./LoadingSpinner";
+import Cart from "./Cart";
+import CheckoutDisplay from "./CheckoutDisplay";
+import Input from "./Input";
+import CheckoutDetails from "./CheckoutDetails";
+import CheckoutAddressForm from "./CheckoutAddressForm";
+import OrderSummary from "./OrderSummary";
+import OrderList from "./OrderList";
+import OrderListItem from "./OrderListItem";
+import Carousel from "./Carousel";
+import MobileMenu from "./MobileMenu";
+import ProductDisplayWrapper from "./ProductDisplay/productDisplayWrapper";
+import ReactCarousel from "./ReactCarousel";
+import ScBarChart from "./BarChart";
+import SiteModal from "./SiteModal";
+import ThemeMenu from "./ThemeMenu";
+import ScRadarChart from "./RadarChart";
+import ScPieChart from "./PieChart";
 import SalesDashboard from "./SalesDashboard";
 import LandingModal from "./landingModal";
-import Sun from "./sun";
+import Sun from "./Sun";
 
 export {
   CategoryList,
@@ -82,7 +81,6 @@ export {
   ThemeMenu,
   ScRadarChart,
   ScPieChart,
-  GaugeChart,
   SalesDashboard,
   LandingModal,
   Sun,

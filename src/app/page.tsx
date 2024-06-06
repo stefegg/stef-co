@@ -5,9 +5,9 @@ export default function Home() {
   return (
     <main className={`flex flex-col w-full items-center`}>
       <PageWrapper>
-        <div className="w-full flex flex-col items-center mb-6 gap-4 relative">
-          <div className="mt-4 mb-4 ">
-            <Logo size="large" />
+        <div className="w-full flex flex-col items-center gap-4 h-[calc(100vh-7rem)] border-b-2 border-red-500 overflow-y-auto">
+          <div className="my-4">
+            <Logo size="large" text="Stef Egbert" />
           </div>
           <div className={"animate-[appear_4000ms] text-6xl "}>
             S O F T W A R E
@@ -21,7 +21,7 @@ export default function Home() {
             some of the items in the sidebar / header. You do not need to
             register an account to place an order, but you are welcome to do so.
           </div>
-          <Sun />
+          {/* <Sun /> */}
         </div>
       </PageWrapper>
     </main>

@@ -18,7 +18,7 @@ export default async function Page({
     <PageWrapper>
       <div className="w-full flex flex-row justify-center">
         <div className=" w-1/4">
-          <Logo size="large" />
+          <Logo size="large" text="StefCo" />
         </div>
       </div>
       <div className="w-full flex flex-col items-center pt-8 pb-8">
