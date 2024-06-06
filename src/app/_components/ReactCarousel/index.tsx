@@ -14,6 +14,7 @@ import {
   storybook,
   typescript,
   nodeJs,
+  jest,
 } from "../../../../public/icons";
 
 export default function ReactCarousel() {
@@ -28,6 +29,7 @@ export default function ReactCarousel() {
     { title: "MongoDb", src: mongodb },
     { title: "PostgreSQL", src: postgresql },
     { title: "Docker", src: docker },
+    { title: "Jest", src: jest },
     { title: "Storybook", src: storybook },
     { title: "Git", src: git },
   ];
