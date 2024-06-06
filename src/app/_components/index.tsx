@@ -40,6 +40,7 @@ import ScPieChart from "./PieChart";
 import SalesDashboard from "./SalesDashboard";
 import LandingModal from "./landingModal";
 import Sun from "./Sun";
+import TechBadge from "./TechBadge";
 
 export {
   CategoryList,
@@ -84,4 +85,5 @@ export {
   SalesDashboard,
   LandingModal,
   Sun,
+  TechBadge,
 };

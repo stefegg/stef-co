@@ -10,7 +10,7 @@ interface ThemeContextType {
 }
 
 export const ThemeContext = createContext<ThemeContextType>({
-  appTheme: "classic",
+  appTheme: "dark",
   setAppTheme: () => null,
   showSidebar: false,
   setShowSidebar: () => null,
@@ -21,7 +21,7 @@ interface Props {
 }
 
 export const ThemeProvider: React.FC<Props> = ({ children }) => {
-  const [appTheme, setAppTheme] = useState("classic");
+  const [appTheme, setAppTheme] = useState("dark");
   const [showSidebar, setShowSidebar] = useState(false);
   const value = {
     appTheme,

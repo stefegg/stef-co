@@ -22,6 +22,7 @@ import trash from "./trash.svg";
 import truck from "./truck.svg";
 import typescript from "./typescript-icon.svg";
 import wishlistIcon from "./wishlist.svg";
+import nodeJs from "./nodejs-icon.svg";
 
 export {
   account,
@@ -48,4 +49,5 @@ export {
   truck,
   typescript,
   wishlistIcon,
+  nodeJs,
 };

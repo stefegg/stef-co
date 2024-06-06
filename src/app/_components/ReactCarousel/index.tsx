@@ -1,13 +1,36 @@
 "use client";
 import Carousel from "react-multi-carousel";
-import { FetchedProduct } from "../../_types";
-import ProductTile from "../ProductTile";
-type CarouselProps = {
-  products: FetchedProduct[];
-};
+import TechBadge from "../TechBadge";
+import {
+  docker,
+  git,
+  javascript,
+  mongodb,
+  nextjs,
+  postgresql,
+  react,
+  redux,
+  sass,
+  storybook,
+  typescript,
+  nodeJs,
+} from "../../../../public/icons";
 
-export default function ReactCarousel(props: CarouselProps) {
-  const { products } = props;
+export default function ReactCarousel() {
+  const badges = [
+    { title: "React", src: react },
+    { title: "Javascript", src: javascript },
+    { title: "Typescript", src: typescript },
+    { title: "Next.Js", src: nextjs },
+    { title: "Redux", src: redux },
+    { title: "Sass", src: sass },
+    { title: "Node.js", src: nodeJs },
+    { title: "MongoDb", src: mongodb },
+    { title: "PostgreSQL", src: postgresql },
+    { title: "Docker", src: docker },
+    { title: "Storybook", src: storybook },
+    { title: "Git", src: git },
+  ];
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -35,13 +58,13 @@ export default function ReactCarousel(props: CarouselProps) {
       responsive={responsive}
       swipeable
       autoPlay
-      autoPlaySpeed={1750}
+      autoPlaySpeed={2000}
       infinite
     >
-      {products.map((prod, index) => {
+      {badges.map((b, index) => {
         return (
-          <div key={index} className="max-w-96 px-2">
-            <ProductTile key={index} product={prod} />
+          <div key={index} className="max-w-1/3 h-full px-2">
+            <TechBadge key={index} title={b.title} src={b.src} />
           </div>
         );
       })}
