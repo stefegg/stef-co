@@ -54,12 +54,25 @@ export default function IntroTitle() {
         return sunHorizonClassic;
     }
   };
+
+  const getTextShadow = () => {
+    switch (appTheme) {
+      case "dark":
+        return "#3700b3";
+      case "light":
+        return "#005faf";
+      case "classic":
+        return "#FDB813";
+    }
+  };
   return (
     <section
       className={`w-full h-screen overflow-y-auto bg-${appTheme}-bodyBg text-${appTheme}-text flex flex-col justify-center items-center `}
       style={{
         backgroundImage: `url(${getSun().src})`,
-        backgroundSize: "cover",
+        backgroundSize: "70%",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
         height: "100vh",
       }}
     >
@@ -72,6 +85,9 @@ export default function IntroTitle() {
             "opacity-0 text-5xl md:text-7xl lg:text-9xl font-light first-section-animation"
           }
           ref={firstSection}
+          style={{
+            textShadow: `2px 2px 0px ${getTextShadow()}, 5px 4px 0px rgba(0,0,0,0.15)`,
+          }}
         >
           S O F T W A R E
         </span>
@@ -80,6 +96,9 @@ export default function IntroTitle() {
             "opacity-0 text-5xl md:text-7xl lg:text-9xl font-light second-section-animation"
           }
           ref={secondSection}
+          style={{
+            textShadow: `2px 2px 0px ${getTextShadow()}, 5px 4px 0px rgba(0,0,0,0.15)`,
+          }}
         >
           E N G I N E E R
         </span>
