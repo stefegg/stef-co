@@ -23,6 +23,7 @@ import truck from "./truck.svg";
 import typescript from "./typescript-icon.svg";
 import wishlistIcon from "./wishlist.svg";
 import nodeJs from "./nodejs-icon.svg";
+import jest from "./jest.svg";
 
 export {
   account,
@@ -50,4 +51,5 @@ export {
   typescript,
   wishlistIcon,
   nodeJs,
+  jest,
 };
