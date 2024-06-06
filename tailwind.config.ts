@@ -52,22 +52,6 @@ const config: Config = {
         },
       },
       keyframes: {
-        appear: {
-          "0%": {
-            opacity: "0",
-          },
-          "100%": {
-            opacity: "1",
-          },
-        },
-        rise: {
-          "0%": {
-            height: "0rem",
-          },
-          "100%": {
-            height: "8rem",
-          },
-        },
         "spin-slow": {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },

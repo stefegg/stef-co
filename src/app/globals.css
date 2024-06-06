@@ -16,6 +16,16 @@
   z-index: 1 !important;
 }
 
+.first-section-animation {
+  transition: all;
+  transform: translateX(10vw) rotateX(90deg);
+}
+
+.second-section-animation {
+  transition: all;
+  transform: translateX(-10vw) rotateX(-90deg);
+}
+
 @layer base {
   .font-outline-1 {
     -webkit-text-stroke: 1px #cd0909;

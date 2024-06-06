@@ -15,6 +15,11 @@ import {
   typescript,
   nodeJs,
   jest,
+  html5,
+  css3,
+  materialUi,
+  bootstrap,
+  daisyUi,
 } from "../../../../public/icons";
 
 export default function ReactCarousel() {
@@ -24,13 +29,19 @@ export default function ReactCarousel() {
     { title: "Typescript", src: typescript },
     { title: "Next.Js", src: nextjs },
     { title: "Redux", src: redux },
+    { title: "React Native", src: react },
     { title: "Sass", src: sass },
+    { title: "HTML", src: html5 },
+    { title: "CSS", src: css3 },
     { title: "Node.js", src: nodeJs },
     { title: "MongoDb", src: mongodb },
     { title: "PostgreSQL", src: postgresql },
     { title: "Docker", src: docker },
     { title: "Jest", src: jest },
     { title: "Storybook", src: storybook },
+    { title: "Material UI", src: materialUi },
+    { title: "Bootstrap", src: bootstrap },
+    { title: "daisy UI", src: daisyUi },
     { title: "Git", src: git },
   ];
   const responsive = {

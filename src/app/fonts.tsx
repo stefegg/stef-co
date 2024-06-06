@@ -12,7 +12,7 @@ export const lobsterFont = Lobster({
 });
 
 export const robotoFont = Roboto_Condensed({
-  weight: ["400"],
+  weight: ["100", "200", "300", "400", "500"],
   style: ["italic", "normal"],
   subsets: ["latin"],
   display: "swap",

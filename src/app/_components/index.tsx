@@ -9,7 +9,7 @@ import ProductContainer from "./ProductContainer";
 import ProductTile from "./ProductTile";
 import SearchBar from "./Searchbar";
 import Sidebar from "./Sidebar";
-import SidebarCap from "./sidebarCap";
+import HeaderLogo from "./HeaderLogo/HeaderLogo";
 import ToggleSwitch from "./ToggleSwitch";
 import ProductGrid from "./ProductGrid";
 import ProductList from "./ProductList";
@@ -41,6 +41,7 @@ import SalesDashboard from "./SalesDashboard";
 import LandingModal from "./landingModal";
 import Sun from "./Sun";
 import TechBadge from "./TechBadge";
+import IntroTitle from "./IntroTitle";
 
 export {
   CategoryList,
@@ -54,7 +55,7 @@ export {
   ProductTile,
   SearchBar,
   Sidebar,
-  SidebarCap,
+  HeaderLogo,
   ToggleSwitch,
   ProductGrid,
   ProductList,
@@ -86,4 +87,5 @@ export {
   LandingModal,
   Sun,
   TechBadge,
+  IntroTitle,
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
-import { Sidebar, SidebarCap, SiteModal } from "./_components";
+import { SiteModal } from "./_components";
 import {
   ThemeProvider,
   CartProvider,
