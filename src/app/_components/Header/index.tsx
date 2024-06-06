@@ -15,7 +15,7 @@ import {
   MobileMenu,
   ThemeMenu,
   Sidebar,
-  SidebarCap,
+  HeaderLogo,
 } from "..";
 import Image from "next/image";
 import { getFilter } from "../../_utils";
@@ -86,7 +86,7 @@ export default function Header() {
           />
         </div>
         <div className="hidden sm:flex relative right-6">
-          <SidebarCap />
+          <HeaderLogo />
         </div>
         <div
           className="cursor-pointer ml-auto"

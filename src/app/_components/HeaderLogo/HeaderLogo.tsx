@@ -2,11 +2,11 @@
 import React from "react";
 import { useContext } from "react";
 import Link from "next/link";
-import { lobsterFont } from "../fonts";
-import { Logo } from "./index";
-import { ThemeContext } from "../_providers/index";
+import { lobsterFont } from "../../fonts";
+import { Logo } from "../index";
+import { ThemeContext } from "../../_providers/index";
 
-export default function SidebarCap() {
+export default function HeaderLogo() {
   const { appTheme } = useContext(ThemeContext);
 
   return (
