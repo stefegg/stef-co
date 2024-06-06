@@ -2,9 +2,8 @@
 import { ScBarChart, ScRadarChart, ScPieChart } from "@/app/_components";
 import { useContext } from "react";
 import { ThemeContext } from "../../_providers";
-import arrowUp from "../../../../public/icons/arrowUp.svg";
+import { arrowUp, calendar } from "../../../../public/icons";
 import { calendarFilter, arrowFilter } from "../../_utils";
-import calendar from "../../../../public/icons/calendar.svg";
 import YearSales from "./yearSales";
 
 export default function SalesDashboard() {

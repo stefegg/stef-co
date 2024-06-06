@@ -61,7 +61,7 @@ export default function RegisterForm() {
       onSubmit={formik.handleSubmit}
     >
       <div className=" w-1/4">
-        <Logo size="large" />
+        <Logo size="large" text="StefCo" />
       </div>
       <Input
         name="email"
