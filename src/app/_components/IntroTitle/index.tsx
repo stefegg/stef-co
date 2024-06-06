@@ -3,11 +3,17 @@ import { Logo } from "../index";
 import { ThemeContext } from "../../_providers";
 import { useContext, useRef, useEffect } from "react";
 import { animate, inView, stagger } from "motion";
+import {
+  sunHorizonDark,
+  sunHorizonLight,
+  sunHorizonClassic,
+} from "../../../../public/icons";
 
 export default function IntroTitle() {
   const { appTheme } = useContext(ThemeContext);
   const firstSection = useRef<HTMLSpanElement>(null);
   const secondSection = useRef<HTMLSpanElement>(null);
+
   useEffect(() => {
     if (!firstSection.current || !secondSection.current) return;
     inView(firstSection.current, () => {
@@ -37,9 +43,25 @@ export default function IntroTitle() {
       );
     });
   }, []);
+
+  const getSun = () => {
+    switch (appTheme) {
+      case "dark":
+        return sunHorizonDark;
+      case "light":
+        return sunHorizonLight;
+      case "classic":
+        return sunHorizonClassic;
+    }
+  };
   return (
     <section
-      className={`w-full gap-4 h-screen overflow-y-auto bg-${appTheme}-bodyBg text-${appTheme}-text flex flex-col justify-center items-center`}
+      className={`w-full h-screen overflow-y-auto bg-${appTheme}-bodyBg text-${appTheme}-text flex flex-col justify-center items-center `}
+      style={{
+        backgroundImage: `url(${getSun().src})`,
+        backgroundSize: "cover",
+        height: "100vh",
+      }}
     >
       <span className="gap-10 flex items-center flex-col">
         <div className="w-1/2">

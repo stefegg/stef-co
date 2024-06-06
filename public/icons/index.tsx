@@ -29,6 +29,9 @@ import bootstrap from "./bootstrap.svg";
 import materialUi from "./material-ui.svg";
 import css3 from "./css-3.svg";
 import html5 from "./html-5.svg";
+import sunHorizonDark from "./sun-horizon-dark.svg";
+import sunHorizonLight from "./sun-horizon-light.svg";
+import sunHorizonClassic from "./sun-horizon-classic.svg";
 
 export {
   account,
@@ -62,4 +65,7 @@ export {
   css3,
   html5,
   materialUi,
+  sunHorizonDark,
+  sunHorizonLight,
+  sunHorizonClassic,
 };

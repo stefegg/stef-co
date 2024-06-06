@@ -5,19 +5,19 @@ export const logoTextGen = (appTheme: string, size: string) => {
   const large = "text-7xl";
   const small = "text-4xl";
   if (appTheme === "classic" && size === "large") {
-    return `font-outline-2 text-${appTheme}-border bg-${appTheme}-bodyBg ${large}`;
+    return `font-outline-2 text-${appTheme}-border ${large}`;
   }
   if (appTheme === "classic" && size === "small") {
     return `font-outline-1 text-${appTheme}-text ${small}`;
   }
   if (appTheme === "light" && size === "large") {
-    return `font-outline-5 text-${appTheme}-border bg-${appTheme}-bodyBg ${large}`;
+    return `font-outline-5 text-${appTheme}-border  ${large}`;
   }
   if (appTheme === "light" && size === "small") {
     return `font-outline-6 text-${appTheme}-text ${small}`;
   }
   if (appTheme === "dark" && size === "large") {
-    return `font-outline-3 text-black bg-${appTheme}-bodyBg ${large}`;
+    return `font-outline-3 text-black  ${large}`;
   }
   if (appTheme === "dark" && size === "small") {
     return `font-outline-4 text-${appTheme}-secondary ${small}`;
