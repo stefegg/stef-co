@@ -43,6 +43,7 @@ import Sun from "./Sun";
 import TechBadge from "./TechBadge";
 import IntroTitle from "./IntroTitle";
 import IntroSecond from "./IntroSecond";
+import IntroThird from "./IntroThird";
 
 export {
   CategoryList,
@@ -90,4 +91,5 @@ export {
   TechBadge,
   IntroTitle,
   IntroSecond,
+  IntroThird,
 };
