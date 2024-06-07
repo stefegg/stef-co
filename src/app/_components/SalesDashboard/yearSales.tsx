@@ -24,7 +24,7 @@ export default function YearSales(props: YearSalesProps) {
   const { currency, number, amount } = dollarAmount;
   return (
     <div
-      className={`text-${appTheme}-${color} min-h-full text-sm sm:text-xl border-4 rounded-lg border-${appTheme}-${color} px-2 flex flex-col w-1/3 justify-evenly`}
+      className={`text-${appTheme}-${color} min-h-full text-sm sm:text-xl border-4 rounded-lg border-${appTheme}-${color} px-2 flex flex-col w-1/3 justify-evenly font-light`}
     >
       {year} YTD Net Sales:
       <div className="flex flex-row">
@@ -36,7 +36,7 @@ export default function YearSales(props: YearSalesProps) {
           <div className="text-base md:text-xl xl:text-4xl">{amount}</div>
         </div>
       </div>
-      <div className="text-sm xl:text-lg flex flex-row gap">
+      <div className="text-sm xl:text-lg flex flex-row gap font-light">
         <div>{growth}</div>
         <Image
           src={icon}

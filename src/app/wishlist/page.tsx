@@ -39,7 +39,9 @@ export default function Wishlist({
           ))}
         </div>
       ) : (
-        <div className="text-xl mt-8 ml-2">Your wishlist is empty</div>
+        <div className="text-xl mt-8 ml-2 font-light">
+          Your wishlist is empty
+        </div>
       )}
     </PageWrapper>
   );

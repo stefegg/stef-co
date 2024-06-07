@@ -81,8 +81,8 @@ export default function ProductDisplay(props: ProductDisplayProps) {
           >
             {name}
           </div>
-          <div>{description}</div>
-          <div>
+          <div className="font-light text-lg">{description}</div>
+          <div className="font-light">
             Specs:
             <div className="w-full grid grid-cols-2 gap-2 pt-2 pl-4 overflow-auto">
               {specs.map((spec, idx) => (
@@ -102,7 +102,9 @@ export default function ProductDisplay(props: ProductDisplayProps) {
         <div className={`hidden lg:block w-1/3 ml-2 text-${appTheme}-bodyBg`}>
           pics
         </div>
-        <div className={`lg:w-1/2 w-full lg:gap-16 gap-4 flex flex-row`}>
+        <div
+          className={`lg:w-1/2 w-full lg:gap-16 gap-4 flex flex-row font-light`}
+        >
           <Button
             onClick={() =>
               toggleWishlist({

@@ -27,7 +27,7 @@ export default function IntroSecond() {
           transform: "none",
         },
         {
-          duration: 3,
+          duration: 2,
           delay: stagger(0.2),
         }
       );
@@ -41,7 +41,7 @@ export default function IntroSecond() {
           transform: "none",
         },
         {
-          duration: 3,
+          duration: 2,
           delay: stagger(0.2),
         }
       );
@@ -55,7 +55,7 @@ export default function IntroSecond() {
           transform: "none",
         },
         {
-          duration: 3,
+          duration: 2,
           delay: stagger(0.2),
         }
       );
@@ -69,7 +69,7 @@ export default function IntroSecond() {
           transform: "none",
         },
         {
-          duration: 3,
+          duration: 2,
           delay: stagger(0.2),
         }
       );

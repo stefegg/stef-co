@@ -14,7 +14,7 @@ export default function CategoryTile(props: CategoryTileProps) {
   const { appTheme } = useContext(ThemeContext);
   return (
     <div
-      className={`bg-${appTheme}-containerBg text-${appTheme}-text border-${appTheme}-border border-2 cursor-pointer rounded-lg p-4 h-64 gap-2 bg-opacity-80 hover:bg-opacity-100`}
+      className={`bg-${appTheme}-containerBg text-${appTheme}-text border-${appTheme}-border border-2 cursor-pointer rounded-lg p-4 h-64 gap-2 bg-opacity-80 hover:bg-opacity-100 font-light`}
     >
       <Link
         className="h-full w-full flex flex-col items-center gap-2"
