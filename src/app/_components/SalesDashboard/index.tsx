@@ -80,7 +80,7 @@ export default function SalesDashboard() {
             className={`text-${appTheme}-link h-full text-base sm:text-xl border-4 rounded-lg border-${appTheme}-link py-2 flex flex-col w-1/3 `}
           >
             <div
-              className={`p-2 pt-0 text-base lg:text-xl max-h-12 border-b-2 border-${appTheme}-link flex items-center`}
+              className={`p-2 pt-0 text-base lg:text-xl max-h-12 border-b-2 border-${appTheme}-link flex items-center font-light`}
             >
               Orders Per Month:
             </div>
@@ -89,7 +89,7 @@ export default function SalesDashboard() {
                 return (
                   <div
                     key={idx}
-                    className="text-base xl:text-md pt-2 flex justify-center"
+                    className="text-base xl:text-md pt-2 flex justify-center font-light"
                   >
                     {month}
                   </div>

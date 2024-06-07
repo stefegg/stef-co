@@ -33,20 +33,20 @@ export default function ScPieChart() {
           "#5fafd7",
           "#005faf",
           "#03DAc6",
-          "#03c51d",
-          "#ffdd00",
-          "#FF8042",
-          "#cd0909",
+          "#009fd7",
+          "#23d1f6",
+          "#1ef596",
+          "#0564b8",
         ];
       case "light":
         return [
-          "#878787",
           "#BB86FC",
-          "#0070E0",
+          "#456af1",
           "#5fafd7",
+          "#0070E0",
+          "#009fd7",
           "#03c51d",
-          "#cf6679",
-          "#cd0909",
+          "#005faf",
         ];
       case "dark":
         return [
@@ -60,13 +60,13 @@ export default function ScPieChart() {
         ];
       default:
         return [
+          "#BB86FC",
+          "#456af1",
+          "#0070E0",
           "#5fafd7",
-          "#005faf",
           "#03DAc6",
-          "#03c51d",
-          "#ffdd00",
-          "#FF8042",
-          "#cf6679",
+          "#1ef596",
+          "#A5f5fb",
         ];
     }
   };

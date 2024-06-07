@@ -52,7 +52,7 @@ export default function ProductTile(props: ProductTileProps) {
 
   return (
     <div
-      className={`bg-${appTheme}-containerBg text-${appTheme}-text rounded-lg p-4 h-96 cursor-pointer bg-opacity-80 hover:bg-opacity-100`}
+      className={`bg-${appTheme}-containerBg text-${appTheme}-text rounded-lg p-4 h-96 cursor-pointer bg-opacity-80 hover:bg-opacity-100 font-light`}
     >
       <Link
         href={
@@ -80,7 +80,7 @@ export default function ProductTile(props: ProductTileProps) {
         </div>
         <div className="flex flex-row gap-2 items-center mt-4">
           <div className="text-lg">{name}</div>
-          <div className="text-base">
+          <div className="text-lg font-normal italic">
             {currencyGen(currency)}
             {price}
           </div>
