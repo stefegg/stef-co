@@ -80,7 +80,7 @@ export default function ReactCarousel() {
     >
       {badges.map((b, index) => {
         return (
-          <div key={index} className="max-w-1/3 h-full px-2">
+          <div key={index} className="max-w-1/3 h-full px-2 font-thin">
             <TechBadge key={index} title={b.title} src={b.src} />
           </div>
         );
