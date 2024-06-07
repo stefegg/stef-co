@@ -20,6 +20,8 @@ import {
   materialUi,
   bootstrap,
   daisyUi,
+  prismaIcon,
+  graphQL,
 } from "../../../../public/icons";
 
 export default function ReactCarousel() {
@@ -36,6 +38,8 @@ export default function ReactCarousel() {
     { title: "Node.js", src: nodeJs },
     { title: "MongoDb", src: mongodb },
     { title: "PostgreSQL", src: postgresql },
+    { title: "GraphQL", src: graphQL },
+    { title: "Prisma ORM", src: prismaIcon },
     { title: "Docker", src: docker },
     { title: "Jest", src: jest },
     { title: "Storybook", src: storybook },

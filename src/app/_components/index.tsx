@@ -42,6 +42,7 @@ import LandingModal from "./landingModal";
 import Sun from "./Sun";
 import TechBadge from "./TechBadge";
 import IntroTitle from "./IntroTitle";
+import IntroSecond from "./IntroSecond";
 
 export {
   CategoryList,
@@ -88,4 +89,5 @@ export {
   Sun,
   TechBadge,
   IntroTitle,
+  IntroSecond,
 };

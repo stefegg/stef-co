@@ -32,6 +32,8 @@ import html5 from "./html-5.svg";
 import sunHorizonDark from "./sun-horizon-dark.svg";
 import sunHorizonLight from "./sun-horizon-light.svg";
 import sunHorizonClassic from "./sun-horizon-classic.svg";
+import graphQL from "./graphql.svg";
+import prismaIcon from "./prisma.svg";
 
 export {
   account,
@@ -68,4 +70,6 @@ export {
   sunHorizonDark,
   sunHorizonLight,
   sunHorizonClassic,
+  graphQL,
+  prismaIcon,
 };

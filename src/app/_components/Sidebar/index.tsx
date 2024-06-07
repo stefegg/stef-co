@@ -17,7 +17,7 @@ export default function Sidebar() {
       className={`${
         robotoFont.className
       } hidden sm:flex flex-col gap-6 pt-10 items-center
-      bg-${appTheme}-containerBg text-${appTheme}-text px-4 text-xs xl:text-xl lg:text-lg md:text-base sm:text-xs absolute h-[calc(100vh-4rem)] top-16 -left-1/4 w-1/4 transition duration-500 ${getTranslate()} z-[10001] bg-opacity-80 hover:bg-opacity-100`}
+      bg-${appTheme}-containerBg text-${appTheme}-text px-4 text-xs xl:text-xl lg:text-lg md:text-base sm:text-xs absolute h-[calc(100vh-4rem)] top-16 -left-1/4 w-1/4 transition duration-500 ${getTranslate()} z-[10001] bg-opacity-80 hover:bg-opacity-100 font-light`}
     >
       <Link
         href="/categories"
