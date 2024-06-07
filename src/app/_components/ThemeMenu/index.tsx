@@ -16,7 +16,7 @@ export default function ThemeMenu(props: ThemeMenuProps) {
 
   return (
     <div
-      className={`flex flex-col w-32 border-2 rounded-md text-${appTheme}-text border-${appTheme}-border bg-${appTheme}-bodyBg`}
+      className={`flex flex-col w-32 border-2 rounded-md text-${appTheme}-text border-${appTheme}-border bg-${appTheme}-bodyBg font-light`}
       onMouseLeave={() => setShowDrop(false)}
     >
       <div

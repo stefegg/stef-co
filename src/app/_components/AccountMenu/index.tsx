@@ -27,7 +27,7 @@ export default function AccountMenu(props: AccountMenuProps) {
 
   return (
     <div
-      className={`flex flex-row  w-[225px] border-2 rounded-md text-${appTheme}-text border-${appTheme}-border bg-${appTheme}-bodyBg`}
+      className={`flex flex-row  w-[225px] border-2 rounded-md text-${appTheme}-text border-${appTheme}-border bg-${appTheme}-bodyBg font-light`}
       onMouseLeave={() => setShowDrop(false)}
     >
       {user ? (
