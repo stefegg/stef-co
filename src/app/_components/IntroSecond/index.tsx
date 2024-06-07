@@ -27,8 +27,8 @@ export default function IntroSecond() {
           transform: "none",
         },
         {
-          duration: 2,
-          delay: stagger(0.1),
+          duration: 3,
+          delay: stagger(0.2),
         }
       );
     });
@@ -41,8 +41,8 @@ export default function IntroSecond() {
           transform: "none",
         },
         {
-          duration: 2,
-          delay: stagger(0.1),
+          duration: 3,
+          delay: stagger(0.2),
         }
       );
     });
@@ -55,8 +55,8 @@ export default function IntroSecond() {
           transform: "none",
         },
         {
-          duration: 2,
-          delay: stagger(0.1),
+          duration: 3,
+          delay: stagger(0.2),
         }
       );
     });
@@ -69,8 +69,8 @@ export default function IntroSecond() {
           transform: "none",
         },
         {
-          duration: 2,
-          delay: stagger(0.1),
+          duration: 3,
+          delay: stagger(0.2),
         }
       );
     });
