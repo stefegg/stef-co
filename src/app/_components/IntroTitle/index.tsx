@@ -29,7 +29,7 @@ export default function IntroTitle() {
         }
       );
     });
-    inView(firstSection.current, () => {
+    inView(secondSection.current, () => {
       animate(
         ".second-section-animation",
         {
