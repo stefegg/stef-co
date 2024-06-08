@@ -1,5 +1,5 @@
 "use client";
-import ReactCarousel from "../ReactCarousel";
+import TechCarousel from "../TechCarousel";
 import { useContext, useRef, useEffect } from "react";
 import { ThemeContext } from "../../_providers";
 import { animate, inView, stagger } from "motion";
@@ -79,7 +79,7 @@ export default function IntroSecond() {
     <section
       className={`w-full flex flex-col items-center gap-4 min-h-screen overflow-y-auto pt-16 bg-${appTheme}-bodyBg text-${appTheme}-text pb-4`}
     >
-      <span className="h-1/2 px-10 md:px-40 w-full text-2xl mb-4 mt-10 font-extralight gap-4 flex flex-col">
+      <span className="h-1/2 px-10 lg:px-40 w-full text-lg sm:text-xl md:text-2xl mb-4 mt-10 font-extralight gap-4 flex flex-col">
         <div className="oveflow-hidden inline-block leading-[4vw]">
           <div
             ref={firstDiv}
@@ -116,7 +116,7 @@ export default function IntroSecond() {
         </div>
       </span>
       <div className="h-1/2 w-full px-10">
-        <ReactCarousel />
+        <TechCarousel />
       </div>
     </section>
   );

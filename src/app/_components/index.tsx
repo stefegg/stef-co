@@ -31,7 +31,7 @@ import OrderListItem from "./OrderListItem";
 import Carousel from "./Carousel";
 import MobileMenu from "./MobileMenu";
 import ProductDisplayWrapper from "./ProductDisplay/productDisplayWrapper";
-import ReactCarousel from "./ReactCarousel";
+import TechCarousel from "./TechCarousel";
 import ScBarChart from "./BarChart";
 import SiteModal from "./SiteModal";
 import ThemeMenu from "./ThemeMenu";
@@ -44,6 +44,7 @@ import TechBadge from "./TechBadge";
 import IntroTitle from "./IntroTitle";
 import IntroSecond from "./IntroSecond";
 import IntroThird from "./IntroThird";
+import IntroFourth from "./IntroFourth";
 
 export {
   CategoryList,
@@ -79,7 +80,7 @@ export {
   Carousel,
   MobileMenu,
   ProductDisplayWrapper,
-  ReactCarousel,
+  TechCarousel,
   ScBarChart,
   SiteModal,
   ThemeMenu,
@@ -92,4 +93,5 @@ export {
   IntroTitle,
   IntroSecond,
   IntroThird,
+  IntroFourth,
 };

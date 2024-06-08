@@ -3,6 +3,7 @@ import {
   IntroTitle,
   IntroSecond,
   IntroThird,
+  IntroFourth,
 } from "./_components/index";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
         <IntroTitle />
         <IntroSecond />
         <IntroThird />
+        <IntroFourth />
       </div>
     </>
   );

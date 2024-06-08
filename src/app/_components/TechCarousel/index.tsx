@@ -24,7 +24,7 @@ import {
   graphQL,
 } from "../../../../public/icons";
 
-export default function ReactCarousel() {
+export default function TechCarousel() {
   const badges = [
     { title: "React", src: react },
     { title: "Javascript", src: javascript },
