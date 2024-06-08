@@ -2,7 +2,13 @@
 import { ThemeContext } from "../../_providers";
 import { useContext } from "react";
 import Image from "next/image";
-import { TechBadgeProps } from "@/app/_types";
+
+type TechBadgeProps = {
+  src: string;
+  title: string;
+  textSize: string;
+  bgColor: string;
+};
 
 export default function TechBadge(props: TechBadgeProps) {
   const { appTheme } = useContext(ThemeContext);

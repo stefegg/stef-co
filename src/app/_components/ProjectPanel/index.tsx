@@ -1,12 +1,12 @@
 import { ThemeContext } from "../../_providers";
-import { useEffect, useRef, useContext } from "react";
-import { TechBadgeProps } from "@/app/_types";
+import { useContext } from "react";
 import { TechBadge } from "../index";
+import { projectsData } from "@/app/_utils/constants";
 
 type ProjectPanelProps = {
   title: string;
   link: string;
-  badgeData: TechBadgeProps[];
+  badgeData: [{ src: string; title: string }];
 };
 
 const ProjectPanel = (props: ProjectPanelProps) => {
@@ -36,8 +36,8 @@ const ProjectPanel = (props: ProjectPanelProps) => {
               <TechBadge
                 title={data.title}
                 src={data.src}
-                textSize={data.textSize}
-                bgColor={data.bgColor}
+                textSize={"xl"}
+                bgColor={"bodyBg"}
               />
             </div>
           );

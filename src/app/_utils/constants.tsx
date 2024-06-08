@@ -1,3 +1,5 @@
+import { ProjectsData } from "../_types";
+
 export const stateAbbrev = [
   "AL",
   "AK",
@@ -53,3 +55,21 @@ export const stateAbbrev = [
 ];
 
 export const shipMethods = ["Ground - 9.99", "Air - 12.99", "Space - 19.99"];
+
+export const projectsData: ProjectsData[] = [
+  {
+    title: "",
+    link: "",
+    badgeData: [{ src: "", title: "" }],
+  },
+  {
+    title: "",
+    link: "",
+    badgeData: [{ src: "", title: "" }],
+  },
+  {
+    title: "",
+    link: "",
+    badgeData: [{ src: "", title: "" }],
+  },
+];
