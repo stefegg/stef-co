@@ -18,9 +18,13 @@ const ProjectPanel = (props: ProjectPanelProps) => {
       className={`border-2 border-${appTheme}-border h-full rounded-lg flex flex-col`}
     >
       <div
-        className={`h-24 bg-${appTheme}-containerBg rounded-t-md text-${appTheme}-secondary flex items-center justify-center text-[4vw]`}
+        className={`h-24 bg-${appTheme}-containerBg rounded-t-md text-${appTheme}-secondary flex flex-row items-center justify-center py-4 gap-8`}
       >
-        {title}
+        <div className={`text-5xl`}>{title}</div>
+        <div className={`w-4 h-4 bg-${appTheme}-text rounded-full `} />
+        <div className={`text-${appTheme}-link flex h-full items-end py-2`}>
+          {link}
+        </div>
       </div>
       <div className={`bg-${appTheme}-bodyBg grow`}>body</div>
       <div
