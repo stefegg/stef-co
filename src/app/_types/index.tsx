@@ -160,6 +160,13 @@ export type CleanOrderItem = {
   imageUrl: string;
 };
 
+export type TechBadgeProps = {
+  src: string;
+  title: string;
+  textSize: string;
+  bgColor: string;
+};
+
 export type HotelCart = {
   price: number;
   numNights: number;

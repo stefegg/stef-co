@@ -81,7 +81,13 @@ export default function TechCarousel() {
       {badges.map((b, index) => {
         return (
           <div key={index} className="max-w-1/3 h-full px-2 font-thin">
-            <TechBadge key={index} title={b.title} src={b.src} />
+            <TechBadge
+              key={index}
+              title={b.title}
+              src={b.src}
+              textSize="4xl"
+              bgColor="containerBg"
+            />
           </div>
         );
       })}

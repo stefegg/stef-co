@@ -43,7 +43,7 @@ const IntroThird = () => {
   return (
     <section
       ref={projectContainerRef}
-      className={`h-screen overflow-hidden flex items-center justify-center bg-${appTheme}-bodyBg text-${appTheme}-secondary`}
+      className={`h-[50vh] overflow-hidden flex items-center justify-center bg-${appTheme}-bodyBg text-${appTheme}-secondary`}
     >
       <span
         ref={projectRef}

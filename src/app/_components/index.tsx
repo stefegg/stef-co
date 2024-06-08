@@ -45,6 +45,7 @@ import IntroTitle from "./IntroTitle";
 import IntroSecond from "./IntroSecond";
 import IntroThird from "./IntroThird";
 import IntroFourth from "./IntroFourth";
+import ProjectPanel from "./ProjectPanel";
 
 export {
   CategoryList,
@@ -94,4 +95,5 @@ export {
   IntroSecond,
   IntroThird,
   IntroFourth,
+  ProjectPanel,
 };
