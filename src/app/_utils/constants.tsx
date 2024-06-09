@@ -58,17 +58,17 @@ export const shipMethods = ["Ground - 9.99", "Air - 12.99", "Space - 19.99"];
 
 export const projectsData: ProjectsData[] = [
   {
-    title: "",
+    title: "StefCo.",
     link: "",
     badgeData: [{ src: "", title: "" }],
   },
   {
-    title: "",
+    title: "Stripe Hotel",
     link: "",
     badgeData: [{ src: "", title: "" }],
   },
   {
-    title: "",
+    title: "LookSee",
     link: "",
     badgeData: [{ src: "", title: "" }],
   },
