@@ -19,9 +19,11 @@ const IntroFourth = () => {
       <Carousel responsive={responsive} infinite>
         {projectsData.map((proj, idx) => {
           return (
-            <div className="h-screen pt-28 px-12 pb-12">
+            <div
+              className="h-screen pt-28 px-12 pb-12"
+              key={`${proj.title}-${idx}`}
+            >
               <ProjectPanel
-                key={idx}
                 title={proj.title}
                 link={proj.link}
                 badgeData={proj.badgeData}
