@@ -77,9 +77,9 @@ export default function IntroSecond() {
   });
   return (
     <section
-      className={`w-full flex flex-col items-center gap-4 min-h-screen overflow-y-auto pt-16 bg-${appTheme}-bodyBg text-${appTheme}-text pb-4`}
+      className={`w-full flex flex-col items-center gap-4 h-screen pt-16 bg-${appTheme}-bodyBg text-${appTheme}-text pb-4 overflow-hidden`}
     >
-      <span className="h-1/2 px-10 lg:px-40 w-full text-lg sm:text-xl md:text-2xl mb-4 mt-10 font-extralight gap-4 flex flex-col">
+      <div className="h-1/2 px-10 lg:px-40 w-full text-lg sm:text-xl md:text-2xl mb-4 mt-10 font-extralight gap-4 flex flex-col">
         <div className="oveflow-hidden inline-block leading-[4vw]">
           <div
             ref={firstDiv}
@@ -114,7 +114,7 @@ export default function IntroSecond() {
             Some of my tech stack is shown in the carousel below.
           </div>
         </div>
-      </span>
+      </div>
       <div className="grow w-full px-10">
         <TechCarousel />
       </div>

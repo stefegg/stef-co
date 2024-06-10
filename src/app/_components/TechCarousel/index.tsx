@@ -61,13 +61,9 @@ export default function TechCarousel() {
     { title: "Git", src: git },
   ];
   const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-    },
     desktop: {
-      breakpoint: { max: 3000, min: 1200 },
-      items: 4,
+      breakpoint: { max: 4000, min: 1200 },
+      items: 5,
     },
     smdesktop: {
       breakpoint: { max: 1200, min: 464 },
@@ -88,12 +84,12 @@ export default function TechCarousel() {
     >
       {badges.map((b, index) => {
         return (
-          <div key={index} className="max-w-1/3 h-full px-2 font-thin">
+          <div key={index} className="max-w-1/3 h-full px-2 font-thin flex">
             <TechBadge
               key={index}
               title={b.title}
               src={b.src}
-              textSize="4xl"
+              textSize="2xl"
               bgColor="containerBg"
             />
           </div>
