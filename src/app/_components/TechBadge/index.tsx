@@ -23,11 +23,11 @@ export default function TechBadge(props: TechBadgeProps) {
         alt="tech"
         src={src}
         style={{
-          width: "75%",
-          height: "50%",
+          width: "25%",
+          height: "25%",
         }}
       />
-      <div className={`text-${textSize} text-${appTheme}-text font-light`}>
+      <div className={`text-${textSize} text-${appTheme}-text font-extralight`}>
         {title}
       </div>
     </div>

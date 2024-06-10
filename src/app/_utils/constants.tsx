@@ -156,8 +156,10 @@ export const projectsData: ProjectsData[] = [
     title: "Persephone",
     linkTitle: "Github Repo",
     link: "https://github.com/stefegg/persephone",
-    bodyOne: "",
-    bodyTwo: "",
+    bodyOne:
+      "Persephone was an app I built with a team of 3 others at NYCDA.  It was my first time leading a team of developers, as I was elected the leader shortly after our team was put together by our instructor.  The goal was to develop an application that could warn people about the dangers of climate change, and give them information on what to do in case of a natural disaster. The aim was to help people - something that is still part of my mission to this day. ",
+    bodyTwo:
+      "Development for the most part went well, I was able to give my team members tasks, having learned their strengths over the preceding months we had spent in a classroom together.  But there was one member of my team who was always slacking off in class, never turned in working projects, and seemed to treat the whole thing as a joke.  Motivating him to be a productive member of the team was going to be very hard.  He failed to compelete any coding task I gave him, but I'd seen him be interested in web scraping in the past, so I finally asked him just to gather information about disasters.  He refused to complete even that task, so I had to take my other two team members aside and say okay, we're moving forward without the other person. It's going to be more work, but I know you two care a lot about this project and succeeded in this class, are you okay to take on some extra work to get this done as three?  They both lit up immediately, they were glad to do the extra work to succeed, and happy to be free of the expectation that the other team member would contribute anything at all. In the end I felt it was one of the best projects in the entire class, and it taught me a lot about leadership and building a team.",
     badgeData: [
       { src: javascript, title: "Javascript" },
       { src: rubyIcon, title: "Ruby" },
