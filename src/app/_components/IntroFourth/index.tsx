@@ -2,7 +2,6 @@
 import { ThemeContext } from "../../_providers";
 import { useContext } from "react";
 import { ProjectPanel } from "../index";
-import { javascript } from "../../../../public/icons";
 import { projectsData } from "@/app/_utils/constants";
 import Carousel from "react-multi-carousel";
 
@@ -26,6 +25,7 @@ const IntroFourth = () => {
               <ProjectPanel
                 title={proj.title}
                 link={proj.link}
+                linkTitle={proj.linkTitle}
                 badgeData={proj.badgeData}
               />
             </div>

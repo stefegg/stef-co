@@ -15,7 +15,7 @@ export default function TechBadge(props: TechBadgeProps) {
   const { src, title, textSize, bgColor } = props;
   return (
     <div
-      className={`bg-${appTheme}-${bgColor} h-full flex flex-col items-center justify-evenly rounded-lg`}
+      className={`bg-${appTheme}-${bgColor} h-full flex flex-col items-center justify-evenly rounded-lg w-full`}
     >
       <Image
         height={0}

@@ -163,12 +163,13 @@ export type CleanOrderItem = {
 export type ProjectsData = {
   title: string;
   link: string;
-  badgeData: [
-    {
-      src: string;
-      title: string;
-    }
-  ];
+  linkTitle: string;
+  badgeData: BadgeData[];
+};
+
+export type BadgeData = {
+  src: string;
+  title: string;
 };
 
 export type HotelCart = {
