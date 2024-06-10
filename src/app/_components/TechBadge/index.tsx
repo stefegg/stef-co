@@ -6,14 +6,16 @@ import Image from "next/image";
 type TechBadgeProps = {
   src: string;
   title: string;
+  textSize: string;
+  bgColor: string;
 };
 
 export default function TechBadge(props: TechBadgeProps) {
   const { appTheme } = useContext(ThemeContext);
-  const { src, title } = props;
+  const { src, title, textSize, bgColor } = props;
   return (
     <div
-      className={`bg-${appTheme}-containerBg h-full flex flex-col items-center justify-evenly rounded-lg`}
+      className={`bg-${appTheme}-${bgColor} h-full flex flex-col items-center justify-evenly rounded-lg w-full`}
     >
       <Image
         height={0}
@@ -25,7 +27,9 @@ export default function TechBadge(props: TechBadgeProps) {
           height: "50%",
         }}
       />
-      <div className="text-4xl">{title}</div>
+      <div className={`text-${textSize} text-${appTheme}-text font-light`}>
+        {title}
+      </div>
     </div>
   );
 }

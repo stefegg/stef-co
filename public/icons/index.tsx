@@ -34,6 +34,11 @@ import sunHorizonLight from "./sun-horizon-light.svg";
 import sunHorizonClassic from "./sun-horizon-classic.svg";
 import graphQL from "./graphql.svg";
 import prismaIcon from "./prisma.svg";
+import recoilIcon from "./recoil-icon.svg";
+import vercelIcon from "./vercel-icon.svg";
+import styledIcon from "./styled-c-icon.png";
+import rubyIcon from "./ruby.svg";
+import railsIcon from "./rails.svg";
 
 export {
   account,
@@ -72,4 +77,9 @@ export {
   sunHorizonClassic,
   graphQL,
   prismaIcon,
+  recoilIcon,
+  vercelIcon,
+  styledIcon,
+  rubyIcon,
+  railsIcon,
 };

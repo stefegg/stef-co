@@ -1,3 +1,25 @@
+import { ProjectsData } from "../_types";
+import {
+  javascript,
+  nextjs,
+  postgresql,
+  react,
+  sass,
+  storybook,
+  typescript,
+  nodeJs,
+  jest,
+  html5,
+  css3,
+  prismaIcon,
+  recoilIcon,
+  tailwind,
+  vercelIcon,
+  styledIcon,
+  rubyIcon,
+  railsIcon,
+} from "../../../public/icons";
+
 export const stateAbbrev = [
   "AL",
   "AK",
@@ -53,3 +75,99 @@ export const stateAbbrev = [
 ];
 
 export const shipMethods = ["Ground - 9.99", "Air - 12.99", "Space - 19.99"];
+
+export const projectsData: ProjectsData[] = [
+  {
+    title: "StefCo.",
+    linkTitle: "Live Project",
+    link: "www.stef-co.com",
+    badgeData: [
+      { src: react, title: "React" },
+      { src: typescript, title: "Typescript" },
+      { src: tailwind, title: "Tailwind" },
+      { src: postgresql, title: "PostgresQL" },
+      { src: prismaIcon, title: "Prisma" },
+      { src: nextjs, title: "Next.js" },
+      { src: vercelIcon, title: "Vercel" },
+    ],
+  },
+  {
+    title: "Bluebeam Cloud",
+    linkTitle: "Live Project",
+    link: "https://app.bluebeam.com/",
+    badgeData: [
+      { src: react, title: "React" },
+      { src: typescript, title: "Typescript" },
+      { src: tailwind, title: "Tailwind" },
+      { src: sass, title: "Sass" },
+      { src: jest, title: "Jest" },
+      { src: storybook, title: "Storybook" },
+    ],
+  },
+  {
+    title: "LookSee",
+    linkTitle: "Live Project",
+    link: "https://www.looksee.co.za/",
+    badgeData: [
+      { src: react, title: "React" },
+      { src: typescript, title: "Typescript" },
+      { src: styledIcon, title: "Styled Components" },
+      { src: storybook, title: "Storybook" },
+    ],
+  },
+
+  {
+    title: "Stripe Hotel",
+    linkTitle: "Github Repo",
+    link: "https://github.com/stefegg/stripe-hotel",
+    badgeData: [
+      { src: react, title: "React" },
+      { src: recoilIcon, title: "Recoil" },
+      { src: nodeJs, title: "Node.js" },
+      { src: storybook, title: "Storybook" },
+    ],
+  },
+  {
+    title: "VFZ",
+    linkTitle: "Github Repo",
+    link: "https://github.com/stefegg/vfz",
+    badgeData: [
+      { src: javascript, title: "Javascript" },
+      { src: html5, title: "HTML" },
+    ],
+  },
+  {
+    title: "Persephone",
+    linkTitle: "Github Repo",
+    link: "https://github.com/stefegg/persephone",
+    badgeData: [
+      { src: javascript, title: "Javascript" },
+      { src: rubyIcon, title: "Ruby" },
+      { src: railsIcon, title: "Rails" },
+      { src: html5, title: "HTML" },
+      { src: css3, title: "CSS" },
+    ],
+  },
+  {
+    title: "Postboy Driving",
+    linkTitle: "Github Repo",
+    link: "https://github.com/stefegg/postboy-driving-school",
+    badgeData: [
+      { src: javascript, title: "Javascript" },
+      { src: rubyIcon, title: "Ruby" },
+      { src: railsIcon, title: "Rails" },
+      { src: html5, title: "HTML" },
+      { src: css3, title: "CSS" },
+    ],
+  },
+  {
+    title: "Personal Pokedex",
+    linkTitle: "Live Project",
+    link: "https://stefegg.github.io/pokedex/    ",
+    badgeData: [
+      { src: javascript, title: "Javascript" },
+      { src: html5, title: "HTML" },
+      { src: css3, title: "CSS" },
+    ],
+  },
+];

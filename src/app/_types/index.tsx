@@ -160,6 +160,18 @@ export type CleanOrderItem = {
   imageUrl: string;
 };
 
+export type ProjectsData = {
+  title: string;
+  link: string;
+  linkTitle: string;
+  badgeData: BadgeData[];
+};
+
+export type BadgeData = {
+  src: string;
+  title: string;
+};
+
 export type HotelCart = {
   price: number;
   numNights: number;
