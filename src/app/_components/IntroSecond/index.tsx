@@ -115,7 +115,7 @@ export default function IntroSecond() {
           </div>
         </div>
       </span>
-      <div className="h-1/2 w-full px-10">
+      <div className="grow w-full px-10">
         <TechCarousel />
       </div>
     </section>

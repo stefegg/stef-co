@@ -164,6 +164,8 @@ export type ProjectsData = {
   title: string;
   link: string;
   linkTitle: string;
+  bodyOne: string;
+  bodyTwo: string;
   badgeData: BadgeData[];
 };
 

@@ -19,13 +19,15 @@ const IntroFourth = () => {
         {projectsData.map((proj, idx) => {
           return (
             <div
-              className="h-screen pt-28 px-12 pb-12"
+              className="h-screen pt-28 px-4 sm:px-12 pb-12"
               key={`${proj.title}-${idx}`}
             >
               <ProjectPanel
                 title={proj.title}
                 link={proj.link}
                 linkTitle={proj.linkTitle}
+                bodyOne={proj.bodyOne}
+                bodyTwo={proj.bodyTwo}
                 badgeData={proj.badgeData}
               />
             </div>
