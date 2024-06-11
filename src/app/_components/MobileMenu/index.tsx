@@ -21,10 +21,10 @@ export default function MobileMenu() {
         Products
       </Link>
       <Link
-        href="/about"
+        href="/admin-panel"
         className={`w-full border-2 border-${appTheme}-border rounded-lg h-16 flex items-center justify-center bg-${appTheme}-containerBg hover:bg-${appTheme}-bodyBg text-xl`}
       >
-        About
+        Admin
       </Link>
     </div>
   );

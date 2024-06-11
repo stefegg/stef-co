@@ -57,13 +57,6 @@ export default function Sidebar() {
       >
         Admin
       </Link>
-      <Link
-        href="/about"
-        className={`min-w-full flex justify-center hover:bg-${appTheme}-bodyBg rounded-md p-2 `}
-        onClick={() => setShowSidebar(false)}
-      >
-        About
-      </Link>
     </div>
   );
 }

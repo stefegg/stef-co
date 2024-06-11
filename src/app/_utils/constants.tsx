@@ -132,8 +132,10 @@ export const projectsData: ProjectsData[] = [
     title: "Stripe Hotel",
     linkTitle: "Github Repo",
     link: "https://github.com/stefegg/stripe-hotel",
-    bodyOne: "",
-    bodyTwo: "",
+    bodyOne:
+      "Stripe Hotel is a personal project that I used to show off my skills to get a new job after leaving Jigsaw XYZ Inc.  I wanted to take all of the lessons I'd learned at Jigsaw, over many projects, and bring them together in one project.  The goal was to keep everything on one page, and simply show different UI based on state.",
+    bodyTwo:
+      "I would have needed to bring in proper routing and branch out if I'd taken the project any further.  But I was happy to acheive what I did in such a short amount of time.  I also got to flex my muscles as a designer, as this was one of the first projects since bootcamp that I designed entirely myself.  I also challenged myself to integrate with Stripe for this project, which was much less of a challenge than I thought it would be.  This project was originally deployed on Heroku, but is not deployed today.  At some point, I plan to rebuild a working version of it within StefCo.",
     badgeData: [
       { src: react, title: "React" },
       { src: recoilIcon, title: "Recoil" },
@@ -145,8 +147,10 @@ export const projectsData: ProjectsData[] = [
     title: "VFZ",
     linkTitle: "Github Repo",
     link: "https://github.com/stefegg/vfz",
-    bodyOne: "",
-    bodyTwo: "",
+    bodyOne:
+      'VFZ or "Vengeance for Zul\'jin" was my final passion project while in bootcamp.  It is a sidescroller ala Mario Brothers built entirely in Javascript, but takes place in the Warcraft universe - one of my favorite game franchises since I was a young boy.',
+    bodyTwo:
+      "This project was a lot of fun, I got it done following a tutorial on youtube that I branched off of several times.  I really enjoyed designing levels, sprites, and changing the physics of the classic game.  I got to set traps for players, and enjoyed watching them hit walls and figure out how to get around them when I shared the game with my fellow students during our graduation showcase.  I also learned a lot, bootcamp had opened my eyes to Javascript, but I learned a lot about ES6 changes using features like arrow functions and Promises for the first time while developing this project.",
     badgeData: [
       { src: javascript, title: "Javascript" },
       { src: html5, title: "HTML" },
@@ -172,8 +176,10 @@ export const projectsData: ProjectsData[] = [
     title: "Postboy Driving",
     linkTitle: "Github Repo",
     link: "https://github.com/stefegg/postboy-driving-school",
-    bodyOne: "",
-    bodyTwo: "",
+    bodyOne:
+      "Postboy Driving School was one of the many ruby on rails projects that I built while in bootcamp at NYCDA.  The driving school and theme were inspired by the greatest filler episode of Dragon Ball Z ever, where Goku and Piccolo learn how to drive.  I really got to flex my muscles as a designer on this project, as I felt I really understood Ruby and Rails very well, and challenged myself to build the best looking project I'd built yet.",
+    bodyTwo:
+      "This was one of the projects that really helped me find my voice as a frontend developer, and helped me find my passioon for front end development and making UIs that really look incredible.",
     badgeData: [
       { src: javascript, title: "Javascript" },
       { src: rubyIcon, title: "Ruby" },
@@ -186,8 +192,10 @@ export const projectsData: ProjectsData[] = [
     title: "Personal Pokedex",
     linkTitle: "Live Project",
     link: "https://stefegg.github.io/pokedex/",
-    bodyOne: "",
-    bodyTwo: "",
+    bodyOne:
+      "My personal pokedex was one of the firssst major projects that I developed while in bootcamp.  It involved integrating with an API for the first time, looping through an API response with hundreds of pokemon, and trimming it down to a team of 6.  I remember how difficult these concepts were to understand at first, and how great it felt once they finally clicked.  To this day I really enjoy consuming data from APIs on a frontend, and feel like a project only truly comes to life once that connection is made.",
+    bodyTwo:
+      "While it's very basic, I'm still very proud of this project.  I think it still looks great, and am still happy with many of the design decisions I made.  For example - the border around the individual pokemon display is not a border, but just a larger container div.  The animations are also still smooth, and I think fit the personalities of the individual pokemon very well.",
     badgeData: [
       { src: javascript, title: "Javascript" },
       { src: html5, title: "HTML" },
