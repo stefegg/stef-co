@@ -172,9 +172,9 @@ export default function Header() {
         </div>
         <Cart />
         <Sidebar toggleRef={sideBarToggleRef} />
+        {showMobileMenu && <MobileMenu />}
       </span>
       <IndicatorBanner />
-      {showMobileMenu && <MobileMenu />}
     </div>
   );
 }
