@@ -16,13 +16,13 @@ export default function MobileMenu() {
       </Link>
       <Link
         href="/products"
-        className={` border-2 border-${appTheme}-border rounded-lg h-16 flex items-center justify-center bg-${appTheme}-containerBg hover:bg-${appTheme}-bodyBg text-xl text-${appTheme}-text`}
+        className={`border-2 border-${appTheme}-border rounded-lg h-16 flex items-center justify-center bg-${appTheme}-containerBg hover:bg-${appTheme}-bodyBg text-xl text-${appTheme}-text`}
       >
         Products
       </Link>
       <Link
         href="/admin-panel"
-        className={` border-2 border-${appTheme}-border rounded-lg h-16 flex items-center justify-center bg-${appTheme}-containerBg hover:bg-${appTheme}-bodyBg text-xl text-${appTheme}-text`}
+        className={`border-2 border-${appTheme}-border rounded-lg h-16 flex items-center justify-center bg-${appTheme}-containerBg hover:bg-${appTheme}-bodyBg text-xl text-${appTheme}-text`}
       >
         Admin
       </Link>
