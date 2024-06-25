@@ -53,7 +53,7 @@ export default function IntroSecond() {
     >
       <div className="h-1/2 px-10 lg:px-40 w-full text-lg sm:text-xl md:text-2xl mb-4 mt-10 font-extralight gap-4 flex flex-col">
         <RisingText
-          text="Hello! Welcome to StefCo. I am Stef, a Software Engineer based in
+          text="Hello! Welcome to StefCo. My name is Stef, a Software Engineer based in
             New Jersey."
         />
         <RisingText

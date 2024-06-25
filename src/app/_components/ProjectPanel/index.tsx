@@ -123,13 +123,13 @@ const ProjectPanel = (props: ProjectPanelProps) => {
         ref={bodyContainerRef}
       >
         <div
-          className={`opacity-0 translate-y-10 overflow-y-auto`}
+          className={`opacity-0 translate-y-10 overflow-y-auto text-xs md:text-sm lg:text-base xl:text-lg`}
           ref={bodyOneRef}
         >
           {(bodyOne && bodyOne) || null}
         </div>
         <div
-          className={`opacity-0 translate-y-10 overflow-y-auto`}
+          className={`opacity-0 translate-y-10 overflow-y-auto text-xs md:text-sm lg:text-base xl:text-lg`}
           ref={bodyTwoRef}
         >
           {(bodyTwo && bodyTwo) || null}

@@ -60,7 +60,7 @@ export default function Header() {
   return (
     <div className="flex flex-col relative" onClick={() => setShowModal(false)}>
       <span
-        className={`h-16 flex items-center px-4 z-10 fixed w-[100%] bg-${appTheme}-containerBg text-${appTheme}-text gap-6 sm:gap-10 bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-80
+        className={`h-16 flex items-center px-4 z-10 fixed w-[100%] bg-${appTheme}-containerBg text-${appTheme}-text gap-6 sm:gap-10 bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-20
     `}
       >
         <div
