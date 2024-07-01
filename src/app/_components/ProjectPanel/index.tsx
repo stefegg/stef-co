@@ -141,11 +141,8 @@ const ProjectPanel = (props: ProjectPanelProps) => {
       >
         {badgeData.map((data, idx) => {
           return (
-            <>
-              <div
-                key={idx}
-                className="h-full w-[12vw] px-4 items-center justify-center hidden md:flex overflow-hidden"
-              >
+            <div key={`${data.title}-${idx}}`}>
+              <div className="h-full w-[12vw] px-4 items-center justify-center hidden md:flex overflow-hidden">
                 <TechBadge
                   title={data.title}
                   src={data.src}
@@ -158,7 +155,7 @@ const ProjectPanel = (props: ProjectPanelProps) => {
               >
                 {data.title}
               </div>
-            </>
+            </div>
           );
         })}
       </div>

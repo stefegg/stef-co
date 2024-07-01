@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { ThemeContext, CartContext, UserContext } from "../../_providers/index";
 import { useContext } from "react";
 import { Dispatch, SetStateAction } from "react";
@@ -16,7 +16,18 @@ export default function AccountMenu(props: AccountMenuProps) {
   const { setWishlist } = useContext(CartContext);
   const { user, setUser } = useContext(UserContext);
   const router = useRouter();
-
+  const accountMenuRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    document.addEventListener("mousedown", closeMenu);
+    return () => {
+      document.removeEventListener("mousedown", closeMenu);
+    };
+  });
+  const closeMenu = (e: any) => {
+    if (accountMenuRef.current && !accountMenuRef.current.contains(e.target)) {
+      setShowDrop(false);
+    }
+  };
   const logOutClick = () => {
     signOut({ redirect: false });
     setWishlist([]);
@@ -28,7 +39,7 @@ export default function AccountMenu(props: AccountMenuProps) {
   return (
     <div
       className={`flex flex-row  w-[225px] border-2 rounded-md text-${appTheme}-text border-${appTheme}-border bg-${appTheme}-bodyBg font-light`}
-      onMouseLeave={() => setShowDrop(false)}
+      ref={accountMenuRef}
     >
       {user ? (
         <div
