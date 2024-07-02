@@ -40,5 +40,8 @@ export const productSchema = Yup.object().shape({
   stock: Yup.number().min(1, "Required").required("Required"),
   imageUrl: Yup.string().required("Required"),
   categoryId: Yup.number().min(1, "Required").required("Required"),
-  specs: Yup.array().of(Yup.string()).min(1, "Required").required("Required"),
+  specs: Yup.array()
+    .of(Yup.string().min(1).required("Required"))
+    .min(1, "Required")
+    .required("Required"),
 });

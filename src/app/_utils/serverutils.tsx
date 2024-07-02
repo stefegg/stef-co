@@ -109,13 +109,14 @@ export async function createProduct(
         stock,
         imageUrl,
         categoryId,
+        active: true,
       },
     });
     const createdProduct = await prisma.product.findUnique({
       where: { name: name },
     });
     if (createdProduct) {
-      return createdProduct.name;
+      return createdProduct.id;
     } else return "Error";
   } catch (e) {
     throw e;
