@@ -4,7 +4,7 @@ import { ChangeEvent } from "react";
 
 type InputProps = {
   label?: string;
-  error?: string | false;
+  error?: string | false | string[];
   width: string;
   placeholder?: string;
   onChange: (e: string | ChangeEvent<any>) => void;
