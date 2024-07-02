@@ -5,12 +5,10 @@ import { useFormik } from "formik";
 import { getCategories } from "@/app/_utils/serverutils";
 
 export default function CreateProductPage() {
-  // const categories = await getCategories();
   useEffect(() => {
     const productCategories = async () => {
       let categories = await getCategories();
       const res = categories.map((x) => x.id).sort();
-      console.log(res, "------r");
     };
     productCategories();
   }, []);
@@ -31,7 +29,6 @@ export default function CreateProductPage() {
     // validateOnBlur: true,
   });
 
-  // console.log(categories, "------cat");
   return (
     <PageWrapper>
       <ListHeader title="Create New Product" />
