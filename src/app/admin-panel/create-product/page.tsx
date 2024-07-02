@@ -36,22 +36,51 @@ export default function CreateProductPage() {
     <PageWrapper>
       <ListHeader title="Create New Product" />
       <form onSubmit={formik.handleSubmit}>
-        <span>
-          <Input
-            width="1/2"
-            label="Product Name"
-            onChange={formik.handleChange("name")}
-            onBlur={formik.handleChange("name")}
-            value={formik.values.name}
-          />
-          <Input
-            width="1/2"
-            label="Product Price"
-            onChange={formik.handleChange("price")}
-            onBlur={formik.handleChange("price")}
-            value={formik.values.price}
-            type="number"
-          />
+        <span className="flex flex-col gap-2 w-full justify-start py-4">
+          <div className="flex flex-row gap-10">
+            <Input
+              width="1/4"
+              label="Product Name"
+              onChange={formik.handleChange("name")}
+              onBlur={formik.handleChange("name")}
+              value={formik.values.name}
+            />
+            <Input
+              width="1/12"
+              label="Product Price"
+              onChange={formik.handleChange("price")}
+              onBlur={formik.handleChange("price")}
+              value={formik.values.price}
+              type="number"
+            />
+          </div>
+          <div className="flex flex-row gap-10">
+            <Input
+              width="1/4"
+              label="Product Image Url"
+              onChange={formik.handleChange("imageUrl")}
+              onBlur={formik.handleChange("imageUrl")}
+              value={formik.values.imageUrl}
+            />
+            <Input
+              width="1/12"
+              label="# In Stock"
+              onChange={formik.handleChange("stock")}
+              onBlur={formik.handleChange("stock")}
+              value={formik.values.stock}
+              type="number"
+            />
+          </div>
+          <div className="w-1/3 flex flex-col gap-2">
+            <div>Product Description</div>
+            <textarea
+              onChange={formik.handleChange("description")}
+              onBlur={formik.handleBlur("description")}
+              value={formik.values.description}
+              rows={4}
+              cols={68}
+            />
+          </div>
         </span>
       </form>
     </PageWrapper>
