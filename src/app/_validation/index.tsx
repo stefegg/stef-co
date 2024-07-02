@@ -32,3 +32,12 @@ export const searchSchema = Yup.object().shape({
     .min(36, "Invalid Order Number")
     .max(36, "Invalid Order Number"),
 });
+
+export const productSchema = Yup.object().shape({
+  name: Yup.string().required("Required"),
+  price: Yup.number().required("Required"),
+  description: Yup.string().required("Required"),
+  stock: Yup.number().required("Required"),
+  imageUrl: Yup.string().required("Required"),
+  categoryId: Yup.number().required("Required"),
+});

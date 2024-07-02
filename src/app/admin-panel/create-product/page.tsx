@@ -1,8 +1,10 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { PageWrapper, Input, Dropdown, ListHeader } from "@/app/_components";
 import { useFormik } from "formik";
 import { getCategories } from "@/app/_utils/serverutils";
+import { productSchema } from "@/app/_validation";
+import { ThemeContext } from "@/app/_providers";
 
 export default function CreateProductPage() {
   useEffect(() => {
@@ -12,21 +14,25 @@ export default function CreateProductPage() {
     };
     productCategories();
   }, []);
+
+  const { appTheme } = useContext(ThemeContext);
+
   const formik = useFormik({
     initialValues: {
       name: "",
-      price: "",
+      price: 0,
       specs: "",
       description: "",
       stock: 0,
       imageUrl: "",
-      categoryId: "",
+      categoryId: 0,
     },
     onSubmit: () => {
       console.log("submit--------");
     },
-    // validateOnChange: true,
-    // validateOnBlur: true,
+    validateOnChange: true,
+    validateOnBlur: true,
+    validationSchema: productSchema,
   });
 
   return (
@@ -41,6 +47,7 @@ export default function CreateProductPage() {
               onChange={formik.handleChange("name")}
               onBlur={formik.handleChange("name")}
               value={formik.values.name}
+              error={formik.touched.name && formik.errors.name}
             />
             <Input
               width="1/12"
@@ -49,6 +56,7 @@ export default function CreateProductPage() {
               onBlur={formik.handleChange("price")}
               value={formik.values.price}
               type="number"
+              error={formik.touched.price && formik.errors.price}
             />
           </div>
           <div className="flex flex-row gap-10">
@@ -58,6 +66,7 @@ export default function CreateProductPage() {
               onChange={formik.handleChange("imageUrl")}
               onBlur={formik.handleChange("imageUrl")}
               value={formik.values.imageUrl}
+              error={formik.touched.imageUrl && formik.errors.imageUrl}
             />
             <Input
               width="1/12"
@@ -66,11 +75,15 @@ export default function CreateProductPage() {
               onBlur={formik.handleChange("stock")}
               value={formik.values.stock}
               type="number"
+              error={formik.touched.stock && formik.errors.stock}
             />
           </div>
           <div className="w-1/3 flex flex-col gap-2">
             <div>Product Description</div>
             <textarea
+              className={`rounded-sm outline-0 border-2 border-${appTheme}-${
+                formik.errors.description ? `error` : `text`
+              } focus:border-${appTheme}-secondary text-black`}
               onChange={formik.handleChange("description")}
               onBlur={formik.handleBlur("description")}
               value={formik.values.description}
