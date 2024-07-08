@@ -40,6 +40,9 @@ import styledIcon from "./styled-c-icon.png";
 import rubyIcon from "./ruby.svg";
 import railsIcon from "./rails.svg";
 import expoIcon from "./expo-icon.svg";
+import githubIcon from "./github-icon.svg";
+import gmailIcon from "./google-gmail.svg";
+import linkedInIcon from "./linkedin-icon.svg";
 
 export {
   account,
@@ -84,4 +87,7 @@ export {
   rubyIcon,
   railsIcon,
   expoIcon,
+  githubIcon,
+  gmailIcon,
+  linkedInIcon,
 };

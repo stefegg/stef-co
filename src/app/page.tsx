@@ -5,6 +5,7 @@ import {
   IntroSecond,
   IntroThird,
   IntroFourth,
+  IntroFifth,
 } from "./_components/index";
 import { ThemeContext } from "./_providers";
 import { useContext } from "react";
@@ -19,6 +20,7 @@ export default function Home() {
         <IntroSecond />
         <IntroThird />
         <IntroFourth />
+        <IntroFifth />
       </div>
     </>
   );
