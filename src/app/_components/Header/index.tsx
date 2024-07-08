@@ -6,7 +6,7 @@ import {
   UserContext,
   ModalContext,
 } from "../../_providers/index";
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import {
   AccountMenu,
   IndicatorBanner,
@@ -37,6 +37,8 @@ export default function Header() {
   const [showAccount, setShowAccount] = useState(false);
   const [showTheme, setShowTheme] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const sideBarToggleRef = useRef<HTMLDivElement>(null);
+
   const router = useRouter();
   const pathName = usePathname();
 
@@ -76,6 +78,7 @@ export default function Header() {
         <div
           className={`hidden sm:flex cursor-pointer relative hover:bg-${appTheme}-bodyBg rounded-full p-2`}
           onClick={() => setShowSidebar(!showSidebar)}
+          ref={sideBarToggleRef}
         >
           <Image
             src={bars}
@@ -168,7 +171,7 @@ export default function Header() {
           <AccountMenu setShowDrop={setShowAccount} />
         </div>
         <Cart />
-        <Sidebar />
+        <Sidebar toggleRef={sideBarToggleRef} />
       </span>
       <IndicatorBanner />
       {showMobileMenu && <MobileMenu />}

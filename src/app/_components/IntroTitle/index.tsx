@@ -67,7 +67,7 @@ export default function IntroTitle() {
   };
   return (
     <section
-      className={`w-full h-screen overflow-y-auto bg-${appTheme}-bodyBg text-${appTheme}-text flex flex-col justify-center items-center `}
+      className={`w-full h-screen overflow-y-auto bg-${appTheme}-bodyBg text-${appTheme}-text flex flex-col justify-center items-center mt-16 pb-16`}
       style={{
         backgroundImage: `url(${getSun().src})`,
         backgroundSize: "70%",
