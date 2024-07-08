@@ -38,13 +38,13 @@ import ThemeMenu from "./ThemeMenu";
 import ScRadarChart from "./RadarChart";
 import ScPieChart from "./PieChart";
 import SalesDashboard from "./SalesDashboard";
-import LandingModal from "./landingModal";
 import Sun from "./Sun";
 import TechBadge from "./TechBadge";
 import IntroTitle from "./IntroTitle";
 import IntroSecond from "./IntroSecond";
 import IntroThird from "./IntroThird";
 import IntroFourth from "./IntroFourth";
+import IntroFifth from "./IntroFifth";
 import ProjectPanel from "./ProjectPanel";
 
 export {
@@ -88,7 +88,6 @@ export {
   ScRadarChart,
   ScPieChart,
   SalesDashboard,
-  LandingModal,
   Sun,
   TechBadge,
   IntroTitle,
@@ -96,4 +95,5 @@ export {
   IntroThird,
   IntroFourth,
   ProjectPanel,
+  IntroFifth,
 };
