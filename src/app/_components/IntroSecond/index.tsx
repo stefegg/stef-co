@@ -57,11 +57,11 @@ export default function IntroSecond() {
             New Jersey."
         />
         <RisingText
-          text="I believe in building software that helps real people in their
+          text="I'm on a mission to build software that helps real people in their
             everyday lives."
         />
-        <RisingText text="I excel in fast paced delivery driven collaborative environments." />
-        <RisingText text="Some of my tech stack is shown in the carousel below." />
+        <RisingText text="I excel in fast paced delivery driven collaborative environments. " />
+        <RisingText text="An adventurer at heart, I love coding, learning and trying new things. Some of my tech stack is shown in the carousel below." />
       </div>
       <div className="grow w-full px-10">
         <TechCarousel />

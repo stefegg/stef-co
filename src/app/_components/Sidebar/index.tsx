@@ -1,12 +1,17 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, RefObject } from "react";
 import { ThemeContext } from "../../_providers/index";
 import { useContext } from "react";
 import Link from "next/link";
 import { robotoFont } from "../../fonts";
 
-export default function Sidebar() {
+type SidebarProps = {
+  toggleRef: RefObject<HTMLDivElement>;
+};
+
+export default function Sidebar(props: SidebarProps) {
   const { appTheme, showSidebar, setShowSidebar } = useContext(ThemeContext);
+  const { toggleRef } = props;
   const sideBarRef = useRef<HTMLDivElement>(null);
   const getTranslate = () => {
     if (showSidebar === true) {
@@ -23,7 +28,9 @@ export default function Sidebar() {
     if (
       showSidebar &&
       sideBarRef.current &&
-      !sideBarRef.current.contains(e.target)
+      !sideBarRef.current.contains(e.target) &&
+      toggleRef.current &&
+      !toggleRef.current.contains(e.target)
     ) {
       setShowSidebar(false);
     }
