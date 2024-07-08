@@ -174,7 +174,7 @@ export const projectsData: ProjectsData[] = [
     bodyOne:
       "I built this WeatherApp over a weekend, with the goal being to refresh my familiarty with React Native.  I've always found React Native to be far more approachable than even regular React, but hadn't used it directly in some time.  This WeatherApp shows the current weather based on your location, the upcoming forecast for the next 5 days, and some information about the city that you are located in.",
     bodyTwo:
-      "I built this project using create-expo-app, and got to play with more recent expo router changes which I had heard of but not directly used.  The navigation is file structure based, which is very similar to how Next.js routing works.  It's very similar to React Navigation, so it wasn't entirely new to me, but it was still good to work directly with something new.",
+      "I built this project using create-expo-app, and got to play with more recent expo router changes which I had heard of but not directly used.  The navigation is file structure based, which is very similar to how Next.js routing works.  It's very similar to React Navigation, so it wasn't entirely new to me, but it was still good to work directly with something new.  The weather information comes directly from the OpenWeather API at openweather.org.",
     badgeData: [
       { src: react, title: "React Native" },
       { src: expoIcon, title: "Expo" },
