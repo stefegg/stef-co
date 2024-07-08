@@ -9,7 +9,6 @@ import {
 import Image from "next/image";
 import { Session } from "next-auth";
 import { CleanWishlist, SafeUser } from "../../_types";
-import { LandingModal } from "../index";
 type SiteModalProps = {
   session: {
     session: Session;
@@ -51,8 +50,6 @@ export default function SiteModal(props: SiteModalProps) {
             }}
           />
         );
-      case "landing":
-        return <LandingModal />;
     }
   };
   return (
