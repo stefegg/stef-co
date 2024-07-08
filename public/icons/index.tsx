@@ -39,6 +39,7 @@ import vercelIcon from "./vercel-icon.svg";
 import styledIcon from "./styled-c-icon.png";
 import rubyIcon from "./ruby.svg";
 import railsIcon from "./rails.svg";
+import expoIcon from "./expo-icon.svg";
 
 export {
   account,
@@ -82,4 +83,5 @@ export {
   styledIcon,
   rubyIcon,
   railsIcon,
+  expoIcon,
 };

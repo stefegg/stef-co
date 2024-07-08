@@ -18,6 +18,15 @@ import {
   styledIcon,
   rubyIcon,
   railsIcon,
+  expoIcon,
+  redux,
+  mongodb,
+  graphQL,
+  docker,
+  materialUi,
+  bootstrap,
+  daisyUi,
+  git,
 } from "../../../public/icons";
 
 export const stateAbbrev = [
@@ -76,13 +85,44 @@ export const stateAbbrev = [
 
 export const shipMethods = ["Ground - 9.99", "Air - 12.99", "Space - 19.99"];
 
+export const badges = [
+  { title: "React", src: react },
+  { title: "Javascript", src: javascript },
+  { title: "Typescript", src: typescript },
+  { title: "Next.Js", src: nextjs },
+  { title: "Redux", src: redux },
+  { title: "React Native", src: react },
+  { title: "Expo", src: expoIcon },
+  { title: "Tailwind CSS", src: tailwind },
+  { title: "Sass", src: sass },
+  { title: "Styled Components", src: styledIcon },
+  { title: "HTML", src: html5 },
+  { title: "CSS", src: css3 },
+  { title: "Node.js", src: nodeJs },
+  { title: "MongoDb", src: mongodb },
+  { title: "PostgreSQL", src: postgresql },
+  { title: "GraphQL", src: graphQL },
+  { title: "Prisma ORM", src: prismaIcon },
+  { title: "Vercel", src: vercelIcon },
+  { title: "Docker", src: docker },
+  { title: "Jest", src: jest },
+  { title: "Ruby", src: rubyIcon },
+  { title: "Rails", src: railsIcon },
+  { title: "Recoil", src: recoilIcon },
+  { title: "Storybook", src: storybook },
+  { title: "Material UI", src: materialUi },
+  { title: "Bootstrap", src: bootstrap },
+  { title: "daisy UI", src: daisyUi },
+  { title: "Git", src: git },
+];
+
 export const projectsData: ProjectsData[] = [
   {
     title: "StefCo.",
     linkTitle: "Live Project",
     link: "www.stef-co.com",
     bodyOne:
-      "StefCo. is not just the landing page you're looking at now. I started this procjet as a full stack faux e commerce site.  Shortly after leaving my last job, I wanted to get back to coding again, and StefCo. is how I started.  The plan was to build a fullstack application with some tech that I felt potential employers would love to see.  As you can see from the stack below - I have used Next.js Tailwind and Typescript on the frontend, and a PostgresQL database on the back end, which I connect to using Prisma ORM.  It's all hosted on Vercel, which I have found to be very robust and easy to understand for deployment and analytics.",
+      "StefCo. is not just the landing page you're looking at now. I started this procjet as a full stack faux e commerce site.  Shortly after leaving my last job, I wanted to get back to coding again, and StefCo. is how I started.  The plan was to build a fullstack application with some tech that I felt potential employers would love to see.  As you can see from the stack below - I have used Next.js Tailwind and Typescript on the frontend, and a PostgresQL database on the back end, which I connect to using Prisma ORM.  It's all hosted on Vercel, which I have found to be an excellent platform for deployment and analytics.",
     bodyTwo:
       "StefCo. has been a job to work on, from designing the UI to putting together the relational database.  I've enjoyed pathing out which features I'm going to be working on next myself.  It's been challenging as a piece of solo work at time, but has taught me a lot.  To visit the store itself, get started by opening the sidebar using the hamburger in the top left hand corner.  You can place an order whether or not you're a registered user, obviously this is all just for fun and nothing on here is actually for sale.  The products and categories were inspired by things that either I or my puppy Hopper enjoys.  There's still a lot to be done, and I have many features planned for the future.  Right now I'm working on building out admin tools - a sales dashboard, and the ability to add / update products.",
     badgeData: [
@@ -127,7 +167,33 @@ export const projectsData: ProjectsData[] = [
       { src: storybook, title: "Storybook" },
     ],
   },
-
+  {
+    title: "WeatherApp",
+    linkTitle: "Github Repo",
+    link: "https://github.com/stefegg/weatherapp",
+    bodyOne:
+      "I built this WeatherApp over a weekend, with the goal being to refresh my familiarty with React Native.  I've always found React Native to be far more approachable than even regular React, but hadn't used it directly in some time.  This WeatherApp shows the current weather based on your location, the upcoming forecast for the next 5 days, and some information about the city that you are located in.",
+    bodyTwo:
+      "I built this project using create-expo-app, and got to play with more recent expo router changes which I had heard of but not directly used.  The navigation is file structure based, which is very similar to how Next.js routing works.  It's very similar to React Navigation, so it wasn't entirely new to me, but it was still good to work directly with something new.",
+    badgeData: [
+      { src: react, title: "React Native" },
+      { src: expoIcon, title: "Expo" },
+    ],
+  },
+  {
+    title: "Learnwell Video Suite",
+    linkTitle: "Github Repo",
+    link: "https://github.com/stefegg/learnwell-vids",
+    bodyOne:
+      "Learnwell Video Suite is a project that allows users to view and upload educational videos to a faux video platform.  I used bright colors and lots of animations to get people excited about learning on the landing page.  I focused on subjects that I know people love to learn about - space, dinosaurs, and ancient history.",
+    bodyTwo:
+      "This was a fun weekend project, I used iframes for the video player, something I'd used on past projects but hadn't built with in a while.  There is also the ability for users to add comments to videos, which update in realtime.  Unfortunately, I was connecting to a third party API to save videos and comments, and this API no longer functions.",
+    badgeData: [
+      { src: react, title: "React" },
+      { src: typescript, title: "Typescript" },
+      { src: tailwind, title: "Tailwind" },
+    ],
+  },
   {
     title: "Stripe Hotel",
     linkTitle: "Github Repo",
@@ -163,7 +229,7 @@ export const projectsData: ProjectsData[] = [
     bodyOne:
       "Persephone was an app I built with a team of 3 others at NYCDA.  It was my first time leading a team of developers, as I was elected the leader shortly after our team was put together by our instructor.  The goal was to develop an application that could warn people about the dangers of climate change, and give them information on what to do in case of a natural disaster. The aim was to help people - something that is still part of my mission to this day. ",
     bodyTwo:
-      "Development for the most part went well, I was able to give my team members tasks, having learned their strengths over the preceding months we had spent in a classroom together.  But there was one member of my team who was always slacking off in class, never turned in working projects, and seemed to treat the whole thing as a joke.  Motivating him to be a productive member of the team was going to be very hard.  He failed to compelete any coding task I gave him, but I'd seen him be interested in web scraping in the past, so I finally asked him just to gather information about disasters.  He refused to complete even that task, so I had to take my other two team members aside and say okay, we're moving forward without the other person. It's going to be more work, but I know you two care a lot about this project and succeeded in this class, are you okay to take on some extra work to get this done as three?  They both lit up immediately, they were glad to do the extra work to succeed, and happy to be free of the expectation that the other team member would contribute anything at all. In the end I felt it was one of the best projects in the entire class, and it taught me a lot about leadership and building a team.",
+      "Development for the most part went well, I was able to give my team members tasks, having learned their strengths over the preceding months we had spent in a classroom together.  But there was one member of my team who was always slacking off in class, never turned in working projects, and seemed to treat the whole thing as a joke.  Motivating him to be a productive member of the team was a challenge.  He failed to compelete any coding task I asked of him, and I eventually asked him to just gather information about disasters.  He refused to complete that task, I took the other two team members aside and said, we're moving forward without #4. It's going to be more work, but I know you two care a lot about this project and this class, are you okay to take on some extra work to get this done as three?  They both lit up immediately, being glad to do the extra work to succeed, and happy to be free of the other team member. In the end it was one of the best projects in the class, and it taught me a lot about leadership and building a team.",
     badgeData: [
       { src: javascript, title: "Javascript" },
       { src: rubyIcon, title: "Ruby" },
