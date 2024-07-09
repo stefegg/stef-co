@@ -15,10 +15,12 @@ export default function EditPanel(props: EditPanelProps) {
 
   return (
     <div
-      className={`flex flex-row cursor-pointer border border-${appTheme}-text rounded-md p-4`}
+      className={`flex flex-col items-center cursor-pointer border border-${appTheme}-text rounded-md p-4`}
       onClick={() => router.push(`/admin-panel/edit-product/${product.id}`)}
     >
-      {product.name}
+      <div className="italic text-lg">{product.name}</div>
+      <div className="font-light">In stock: {product.stock}</div>
+      <div className="font-light">Price: {product.price}</div>
     </div>
   );
 }
