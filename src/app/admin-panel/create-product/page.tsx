@@ -90,14 +90,6 @@ export default function CreateProductPage() {
         displayCat={displayCat}
         dropdownOptions={dropdownOptions ? dropdownOptions : undefined}
       />
-      <div className="w-full flex justify-center">
-        <Button
-          onClick={formik.handleSubmit}
-          buttonText="Submit"
-          styleType="primary"
-          size="med"
-        />
-      </div>
     </PageWrapper>
   );
 }

@@ -1,4 +1,3 @@
-import { getProductById } from "@/app/_utils/serverutils";
 import {
   ProductDisplayWrapper,
   LoadingSpinner,
