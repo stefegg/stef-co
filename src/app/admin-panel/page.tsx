@@ -23,6 +23,12 @@ export default function AdminPanel() {
         >
           Create New Product
         </Link>
+        <Link
+          href="/admin-panel/edit-product"
+          className={`min-w-full flex justify-center hover:bg-${appTheme}-containerBg rounded-md p-2 `}
+        >
+          Edit Product
+        </Link>
       </div>
     </PageWrapper>
   );
