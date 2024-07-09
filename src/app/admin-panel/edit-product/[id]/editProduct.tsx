@@ -1,8 +1,12 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { FetchedProduct, FullCategory, DropdownOptions } from "@/app/_types";
 import { useFormik } from "formik";
 import { ProductForm } from "@/app/_components";
+import { updateProduct } from "@/app/_utils/serverutils";
+import { productSchema } from "@/app/_validation";
+import { useRouter } from "next/navigation";
+import { BannerContext } from "@/app/_providers";
 
 type EditProductProps = {
   product: FetchedProduct;
@@ -15,6 +19,8 @@ export default function EditProduct(props: EditProductProps) {
     null | DropdownOptions[]
   >(null);
   const [displayCat, setDisplayCat] = useState("");
+  const { setOpacity, setOperation } = useContext(BannerContext);
+  const router = useRouter();
 
   useEffect(() => {
     const productCategories = async () => {
@@ -36,6 +42,31 @@ export default function EditProduct(props: EditProductProps) {
     productCategories();
   }, []);
 
+  const submitEdit = async () => {
+    const res = await updateProduct({
+      id: product.id,
+      name: formik.values.name,
+      price: formik.values.price,
+      specs: formik.values.specs,
+      description: formik.values.description,
+      stock: formik.values.stock,
+      imageUrl: formik.values.imageUrl,
+      categoryId: formik.values.categoryId,
+      currency: product.currency,
+    });
+    if (res) {
+      router.push(`/admin-panel/edit-product`);
+      router.refresh();
+      setTimeout(() => {
+        setOperation(`Updated ${res}`);
+        setOpacity("100");
+      }, 500);
+      setTimeout(() => {
+        setOpacity("0");
+      }, 2000);
+    }
+  };
+
   const formik = useFormik({
     initialValues: {
       name: product.name,
@@ -46,7 +77,12 @@ export default function EditProduct(props: EditProductProps) {
       imageUrl: product.imageUrl,
       categoryId: product.categoryId,
     },
-    onSubmit: () => console.log("submit"),
+    onSubmit: () => {
+      submitEdit();
+    },
+    validateOnChange: true,
+    validateOnBlur: true,
+    validationSchema: productSchema,
   });
   return (
     <>

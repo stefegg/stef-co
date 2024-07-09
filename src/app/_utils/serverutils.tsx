@@ -97,7 +97,7 @@ export async function createProduct(
   stock: number,
   imageUrl: string,
   categoryId: string
-) {
+): Promise<string> {
   try {
     await prisma.product.create({
       data: {
@@ -119,6 +119,25 @@ export async function createProduct(
       return createdProduct.id;
     } else return "Error";
   } catch (e) {
+    throw e;
+  }
+}
+
+export async function updateProduct(product: FetchedProduct): Promise<string> {
+  try {
+    const updatedProduct = await prisma.product.update({
+      where: {
+        id: product.id,
+      },
+      data: product,
+    });
+    if (updatedProduct) {
+      return updatedProduct.name;
+    } else return "Error";
+  } catch (e) {
+    if (e instanceof PrismaClientKnownRequestError) {
+      return e.code;
+    }
     throw e;
   }
 }
