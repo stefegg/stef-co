@@ -43,6 +43,9 @@ import expoIcon from "./expo-icon.svg";
 import githubIcon from "./github-icon.svg";
 import gmailIcon from "./google-gmail.svg";
 import linkedInIcon from "./linkedin-icon.svg";
+import editProduct from "./editProduct.svg";
+import newProduct from "./newProduct.svg";
+import dashboard from "./dashboard.svg";
 
 export {
   account,
@@ -90,4 +93,7 @@ export {
   githubIcon,
   gmailIcon,
   linkedInIcon,
+  editProduct,
+  newProduct,
+  dashboard,
 };
