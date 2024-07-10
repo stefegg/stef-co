@@ -31,7 +31,9 @@ export default function AdminPanel() {
             height={100}
             alt="dash"
           />
-          <div className="font-lights text-sm lg:text-xl">{text}</div>
+          <div className="font-lights text-xs sm:text-sm lg:text-xl">
+            {text}
+          </div>
         </div>
       </Link>
     );
@@ -39,7 +41,7 @@ export default function AdminPanel() {
 
   return (
     <PageWrapper>
-      <div className="grid grid-cols-3 py-4 w-full">
+      <div className="grid sm:grid-cols-3 py-4 w-full">
         <PanelTile link={"dashboard"} text={"Dashboard"} icon={dashboard} />
         <PanelTile
           link={"create-product"}
