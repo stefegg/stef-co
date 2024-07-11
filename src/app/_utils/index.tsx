@@ -107,7 +107,6 @@ export const addToCart = (props: AddCartProps) => {
     setType,
   } = props;
   setOpacity("0");
-  console.log(prodQuantity, "----prod quant");
   if (cart.length > 0) {
     const findItem = cart.find((c) => c.prodId === id);
     if (findItem !== undefined) {
@@ -139,7 +138,6 @@ export const addToCart = (props: AddCartProps) => {
         imageUrl: prodImageUrl,
       },
     ]);
-    console.log(cartQuantity, prodQuantity);
     setCartQuantity(cartQuantity + prodQuantity);
   }
   setOperation("Added to ");
