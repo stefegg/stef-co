@@ -121,6 +121,7 @@ export default function ProductTile(props: ProductTileProps) {
               prodPrice: price,
               prodCurrency: currency,
               prodImageUrl: imageUrl,
+              prodQuantity: 1,
               setCartQuantity,
               cartQuantity,
               setOperation,
