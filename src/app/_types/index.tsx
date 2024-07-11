@@ -71,6 +71,7 @@ export type AddCartProps = {
   prodPrice: number;
   prodCurrency: string;
   prodImageUrl: string;
+  prodQuantity: number;
   setCartQuantity: (value: SetStateAction<number>) => void;
   cartQuantity: number;
   setOperation: (value: SetStateAction<string>) => void;

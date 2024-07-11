@@ -100,6 +100,7 @@ export const addToCart = (props: AddCartProps) => {
     prodPrice,
     prodCurrency,
     prodImageUrl,
+    prodQuantity,
     setCartQuantity,
     cartQuantity,
     setOperation,
@@ -116,26 +117,26 @@ export const addToCart = (props: AddCartProps) => {
         {
           prodId: id,
           name: prodName,
-          price: prodPrice,
+          price: prodPrice * prodQuantity,
           currency: prodCurrency,
-          quantity: 1,
+          quantity: prodQuantity,
           imageUrl: prodImageUrl,
         },
       ]);
     }
-    setCartQuantity(cartQuantity + 1);
+    setCartQuantity(cartQuantity + prodQuantity);
   } else {
     setCart([
       {
         prodId: id,
         name: prodName,
-        price: prodPrice,
+        price: prodPrice * prodQuantity,
         currency: prodCurrency,
-        quantity: 1,
+        quantity: prodQuantity,
         imageUrl: prodImageUrl,
       },
     ]);
-    setCartQuantity(cartQuantity + 1);
+    setCartQuantity(cartQuantity + prodQuantity);
   }
   setOperation("Added to ");
   setOpacity("100");
