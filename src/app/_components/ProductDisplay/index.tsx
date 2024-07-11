@@ -6,7 +6,7 @@ import {
   toggleWishlist,
   getWishlistText,
 } from "../../_utils";
-import { useContext } from "react";
+import { useContext, useState, ChangeEvent } from "react";
 import {
   ThemeContext,
   CartContext,
@@ -14,7 +14,7 @@ import {
   UserContext,
   ModalContext,
 } from "../../_providers/index";
-import { Button } from "..";
+import { Button, Input } from "..";
 import Image from "next/image";
 import { lobsterFont } from "../../fonts";
 
@@ -23,6 +23,7 @@ type ProductDisplayProps = {
 };
 
 export default function ProductDisplay(props: ProductDisplayProps) {
+  const [prodQuant, setprodQuant] = useState("1");
   const { product } = props;
   const { name, price, description, specs, imageUrl, currency } = product;
   const { appTheme } = useContext(ThemeContext);
@@ -91,10 +92,24 @@ export default function ProductDisplay(props: ProductDisplayProps) {
             </div>
           </div>
           <div
-            className={`${lobsterFont.className} flex flex-col w-full items-end text-5xl pr-12`}
+            className={`${lobsterFont.className} flex flex-row justify-between w-full items-center text-5xl px-12`}
           >
-            {currencyGen(currency)}
-            {price.toString()}
+            <div className="flex flex-row text-2xl items-end gap-2">
+              <div>Quantity:</div>
+              <input
+                className={`text-black w-1/4 rounded pl-2 border-2 border-${appTheme}-text`}
+                value={prodQuant}
+                onChange={(e: any) => {
+                  setprodQuant(e.target.value);
+                }}
+                type="number"
+              />
+            </div>
+
+            <div>
+              {currencyGen(currency)}
+              {price.toString()}
+            </div>
           </div>
         </div>
       </div>
@@ -136,6 +151,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
                 prodCurrency: product.currency,
                 prodPrice: product.price,
                 prodImageUrl: product.imageUrl ? product.imageUrl : "",
+                prodQuantity: parseInt(prodQuant),
                 setCartQuantity,
                 cartQuantity,
                 setOperation,
