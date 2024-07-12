@@ -68,7 +68,7 @@ export default function Cart() {
 
   return (
     <div
-      className={`flex flex-col text-${appTheme}-text bg-${appTheme}-containerBg border-${appTheme}-text absolute justify-between sm:border-l sm:border-t h-[calc(100vh-4rem)] xl:w-1/4 lg:w-1/3 sm:w-1/2 w-full top-16 right-0 ${getTranslate()} transition duration-500 p-4 px-8 sm:px-4 overflow-y-auto z-30 bg-opacity-80 hover:bg-opacity-100`}
+      className={`flex flex-col text-${appTheme}-text bg-${appTheme}-containerBg border-${appTheme}-text absolute justify-between sm:border-l sm:border-t h-[calc(100vh-4rem)] xl:w-1/4 lg:w-1/3 sm:w-1/2 w-full top-16 right-0 ${getTranslate()} transition duration-500 p-4 px-8 sm:px-4 overflow-y-auto z-30 bg-opacity-90 hover:bg-opacity-100`}
       ref={cartRef}
     >
       <div
@@ -83,9 +83,9 @@ export default function Cart() {
               key={idx}
               className={`flex flex-col w-full gap-2 pl-2 bg-${appTheme}-bodyBg rounded-lg py-2`}
             >
-              <div className="text-base md:text-xl lg:text-2xl xl:text-3xl flex flex-row justify-between w-full ">
-                <div className={lobsterFont.className}>{cartItem.name}</div>
-                <div className="text-sm lg:text-lg grid grid-cols-2 gap-2 mr-2">
+              <div className="text-base md:text-xl font-light lg:text-2xl xl:text-3xl flex flex-row justify-between w-full ">
+                <div>{cartItem.name}</div>
+                <div className="text-sm lg:text-lg grid grid-cols-2 gap-2">
                   <div>
                     <div className="flex justify-end">x{cartItem.quantity}</div>
                     <div className="ml-auto ">
@@ -118,9 +118,9 @@ export default function Cart() {
       {cart.length > 0 && (
         <div className="flex flex-col max-w-full ml-1 h-40 py-4 ">
           <div
-            className={`text-base md:text-2xl lg:text-3xl ${lobsterFont.className} flex flex-row justify-between pr-4 pl-1 `}
+            className={`text-base md:text-2xl lg:text-3xl font-thin flex flex-row justify-between pr-4 pl-1 `}
           >
-            <div>Subtotal</div>
+            <div className="italic">Subtotal</div>
             <div>
               {cart.length > 0 ? currencyGen(cart[0].currency) : null}
               {getSubtotal()}

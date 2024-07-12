@@ -92,9 +92,9 @@ export default function ProductDisplay(props: ProductDisplayProps) {
             </div>
           </div>
           <div
-            className={`${lobsterFont.className} flex flex-row justify-between w-full items-center text-5xl px-12`}
+            className={` flex flex-row justify-between w-full items-center text-5xl px-12 font-thin`}
           >
-            <div className="flex flex-row text-2xl items-end gap-2">
+            <div className="flex flex-row text-2xl items-end gap-2 ">
               <div>Quantity:</div>
               <input
                 className={`text-black w-1/4 rounded pl-2 border-2 border-${appTheme}-text`}
@@ -106,7 +106,7 @@ export default function ProductDisplay(props: ProductDisplayProps) {
               />
             </div>
 
-            <div>
+            <div className="italic">
               {currencyGen(currency)}
               {price.toString()}
             </div>
