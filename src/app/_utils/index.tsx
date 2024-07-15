@@ -1,4 +1,9 @@
-import { AddCartProps, ToggleWishProps, WishlistTextProps } from "../_types";
+import {
+  AddCartProps,
+  ToggleWishProps,
+  WishlistTextProps,
+  UpdateCartQuantPros,
+} from "../_types";
 import { updateWishlist } from "./serverutils";
 
 export const logoTextGen = (appTheme: string, size: string) => {
@@ -146,6 +151,16 @@ export const addToCart = (props: AddCartProps) => {
   setTimeout(() => {
     setOpacity("0");
   }, 1000);
+};
+
+export const updateCartQuant = (props: UpdateCartQuantPros) => {
+  const { cart, id, setCartQuantity, cartQuantity, newQuantity } = props;
+  cart.map((c) => {
+    if (c.prodId === id) {
+      c.quantity = newQuantity;
+      setCartQuantity(cartQuantity - c.quantity + newQuantity);
+    }
+  });
 };
 
 export const toggleWishlist = (props: ToggleWishProps) => {

@@ -78,6 +78,14 @@ export type AddCartProps = {
   setType: (value: SetStateAction<string>) => void;
 };
 
+export type UpdateCartQuantPros = {
+  cart: CartItem[];
+  id: string;
+  setCartQuantity: (value: SetStateAction<number>) => void;
+  cartQuantity: number;
+  newQuantity: number;
+};
+
 export type ToggleWishProps = {
   setOpacity: (value: SetStateAction<string>) => void;
   id: string;
