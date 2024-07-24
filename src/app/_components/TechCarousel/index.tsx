@@ -19,13 +19,7 @@ export default function TechCarousel() {
     },
   };
   return (
-    <Carousel
-      responsive={responsive}
-      swipeable
-      autoPlay
-      autoPlaySpeed={2000}
-      infinite
-    >
+    <Carousel responsive={responsive} swipeable infinite>
       {badges.map((b, index) => {
         return (
           <div key={index} className="max-w-1/3 h-full px-2 font-thin flex">
