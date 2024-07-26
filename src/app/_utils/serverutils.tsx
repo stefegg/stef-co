@@ -89,6 +89,39 @@ export async function getProducts(): Promise<FetchedProduct[]> {
   }
 }
 
+export async function createProduct(
+  name: string,
+  price: number,
+  specs: string[],
+  description: string,
+  stock: number,
+  imageUrl: string,
+  categoryId: string
+) {
+  try {
+    await prisma.product.create({
+      data: {
+        name,
+        price,
+        currency: "USD",
+        specs,
+        description,
+        stock,
+        imageUrl,
+        categoryId,
+      },
+    });
+    const createdProduct = await prisma.product.findUnique({
+      where: { name: name },
+    });
+    if (createdProduct) {
+      return createdProduct.name;
+    } else return "Error";
+  } catch (e) {
+    throw e;
+  }
+}
+
 export async function getFeaturedProducts(): Promise<FetchedProduct[]> {
   try {
     const prods = await prisma.product.findMany({
