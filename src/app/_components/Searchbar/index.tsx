@@ -36,7 +36,7 @@ export default function SearchBar(props: { placeholder: string }) {
       <Image
         src={magnifyingGlass}
         alt="Magnifying Glass"
-        className="sticky right-20 peer-focus:invert-[27%] peer-focus:sepia-[70%] saturate-[298%] hue-rotate-[177deg] brightness-[99%] contrast-[92%]"
+        className="sticky right-14 sm:right-20 peer-focus:invert-[27%] peer-focus:sepia-[70%] saturate-[298%] hue-rotate-[177deg] brightness-[99%] contrast-[92%]"
       />
     </div>
   );
