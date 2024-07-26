@@ -14,7 +14,7 @@ import { getServerSession } from "next-auth";
 import { findUser, getWishlist } from "./_utils/serverutils";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-
+import { Header } from "./_components";
 export const metadata: Metadata = {
   title: "Stef Co.",
   description: "Created by Stef",
@@ -43,6 +43,7 @@ export default async function Layout({
               <html lang="en">
                 <body className={`${robotoFont.className} flex flex-row `}>
                   <div className="w-[100%] h-full max-h-screen ">
+                    <Header />
                     {children}
                     <SiteModal session={session} />
                     <Analytics />
