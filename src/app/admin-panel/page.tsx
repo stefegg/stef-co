@@ -17,6 +17,12 @@ export default function AdminPanel() {
         >
           Dashboard
         </Link>
+        <Link
+          href="/admin-panel/create-product"
+          className={`min-w-full flex justify-center hover:bg-${appTheme}-containerBg rounded-md p-2 `}
+        >
+          Create New Product
+        </Link>
       </div>
     </PageWrapper>
   );

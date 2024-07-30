@@ -9,7 +9,7 @@ type InputProps = {
   placeholder?: string;
   onChange: (e: string | ChangeEvent<any>) => void;
   onBlur?: (e: any) => void;
-  value: string;
+  value: string | number;
   type?: string;
   name?: string;
 };
