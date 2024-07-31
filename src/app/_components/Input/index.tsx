@@ -4,7 +4,7 @@ import { ChangeEvent } from "react";
 
 type InputProps = {
   label?: string;
-  error?: string | false;
+  error?: string | false | string[];
   width: string;
   placeholder?: string;
   onChange: (e: string | ChangeEvent<any>) => void;
@@ -30,7 +30,7 @@ export default function Input(props: InputProps) {
   return (
     <div className={`flex flex-col w-${width} rounded-sm`}>
       <span className="text-base mb-1">{label && label}</span>
-      <div className={`rounded w-full}`}>
+      <div className={`rounded w-full`}>
         <input
           name={name}
           value={value}
