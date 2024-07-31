@@ -189,3 +189,8 @@ export type HotelStayLength = {
   numDays: Number;
   numNights: number;
 };
+
+export type DropdownOptions = {
+  title: string;
+  setter: () => void;
+};
