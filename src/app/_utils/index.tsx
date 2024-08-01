@@ -100,6 +100,7 @@ export const addToCart = (props: AddCartProps) => {
     prodPrice,
     prodCurrency,
     prodImageUrl,
+    prodQuantity,
     setCartQuantity,
     cartQuantity,
     setOperation,
@@ -109,33 +110,35 @@ export const addToCart = (props: AddCartProps) => {
   if (cart.length > 0) {
     const findItem = cart.find((c) => c.prodId === id);
     if (findItem !== undefined) {
-      cart.map((c) => (c.prodId === id ? (c.quantity = c.quantity + 1) : null));
+      cart.map((c) =>
+        c.prodId === id ? (c.quantity = c.quantity + prodQuantity) : null
+      );
     } else {
       setCart([
         ...cart,
         {
           prodId: id,
           name: prodName,
-          price: prodPrice,
+          price: prodPrice * prodQuantity,
           currency: prodCurrency,
-          quantity: 1,
+          quantity: prodQuantity,
           imageUrl: prodImageUrl,
         },
       ]);
     }
-    setCartQuantity(cartQuantity + 1);
+    setCartQuantity(cartQuantity + prodQuantity);
   } else {
     setCart([
       {
         prodId: id,
         name: prodName,
-        price: prodPrice,
+        price: prodPrice * prodQuantity,
         currency: prodCurrency,
-        quantity: 1,
+        quantity: prodQuantity,
         imageUrl: prodImageUrl,
       },
     ]);
-    setCartQuantity(cartQuantity + 1);
+    setCartQuantity(cartQuantity + prodQuantity);
   }
   setOperation("Added to ");
   setOpacity("100");

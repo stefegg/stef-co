@@ -89,6 +89,7 @@ export default function ProductListItem(props: ProductListProps) {
                     prodCurrency: product.currency,
                     prodPrice: product.price,
                     prodImageUrl: product.imageUrl,
+                    prodQuantity: 1,
                     setCartQuantity,
                     cartQuantity,
                     setOperation,

@@ -34,6 +34,7 @@ export default function Input(props: InputProps) {
         <input
           name={name}
           value={value}
+          min={1}
           onChange={onChange}
           onBlur={onBlur}
           className={`outline-0 border-2 border-${appTheme}-${
