@@ -1,6 +1,5 @@
 import {
   Prisma,
-  Product,
   Category,
   CustomerAddress,
   Wishlist,
@@ -172,22 +171,6 @@ export type ProjectsData = {
 export type BadgeData = {
   src: string;
   title: string;
-};
-
-export type HotelCart = {
-  price: number;
-  numNights: number;
-  image: string;
-  title: string;
-  startDate: string;
-  endDate: string;
-};
-
-export type HotelStayLength = {
-  startDate: string;
-  endDate: string;
-  numDays: Number;
-  numNights: number;
 };
 
 export type DropdownOptions = {
