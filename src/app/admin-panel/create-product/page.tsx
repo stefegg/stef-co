@@ -1,11 +1,6 @@
 "use client";
 import React, { useEffect, useContext, useState } from "react";
-import {
-  PageWrapper,
-  ListHeader,
-  Button,
-  ProductForm,
-} from "@/app/_components";
+import { PageWrapper, ListHeader, ProductForm } from "@/app/_components";
 import { useFormik } from "formik";
 import { getCategories } from "@/app/_utils/serverutils";
 import { productSchema } from "@/app/_validation";
@@ -90,14 +85,6 @@ export default function CreateProductPage() {
         displayCat={displayCat}
         dropdownOptions={dropdownOptions ? dropdownOptions : undefined}
       />
-      <div className="w-full flex justify-center">
-        <Button
-          onClick={formik.handleSubmit}
-          buttonText="Submit"
-          styleType="primary"
-          size="med"
-        />
-      </div>
     </PageWrapper>
   );
 }
