@@ -18,7 +18,10 @@ export default function ProductForm(props: ProductFormProps) {
 
   return (
     <>
-      <form onSubmit={formik.handleSubmit} className="grid grid-cols-2 w-full">
+      <form
+        onSubmit={formik.handleSubmit}
+        className="sm:grid sm:grid-cols-2 w-full"
+      >
         <span className="flex flex-col gap-2 w-full items-center py-4">
           <Input
             width="3/4"
