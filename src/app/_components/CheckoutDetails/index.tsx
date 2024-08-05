@@ -45,7 +45,7 @@ export default function CheckoutDetails(props: CheckoutDetailsProps) {
         </div>
       </div>
       <div
-        className={`flex flex-col h-72 py-4 border-t-2 border-${appTheme}-text bg-${appTheme}-containerBg w-full gap-2 rounded-b-lg justify-center`}
+        className={`flex flex-col h-72 py-4 border-t-2 border-${appTheme}-text bg-${appTheme}-containerBg w-full gap-2 rounded-b-lg justify-center font-light`}
       >
         <div className="flex flex-row pl-6 text-lg justify-between pr-4">
           <div>Subtotal:</div>
@@ -69,7 +69,7 @@ export default function CheckoutDetails(props: CheckoutDetailsProps) {
           </div>
         </div>
         <div
-          className={`${lobsterFont.className} text-xl md:text-2xl pl-6  w-full flex flex-row justify-between pr-4`}
+          className={`italic text-xl md:text-2xl pl-6  w-full flex flex-row justify-between pr-4`}
         >
           <div>Order Total:</div>
           <div>

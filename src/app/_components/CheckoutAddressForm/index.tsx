@@ -24,7 +24,7 @@ export default function CheckoutAddressForm(props: CheckoutAddressProps) {
 
   return (
     <form onSubmit={formik.handleSubmit}>
-      <div className="flex flex-col gap-2 items-center py-6">
+      <div className="flex flex-col gap-2 items-center py-6 font-light">
         <span className="flex flex-row w-5/6 gap-10 px-2">
           <Input
             width="1/2"
