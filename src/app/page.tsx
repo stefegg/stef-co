@@ -14,7 +14,6 @@ export default function Home() {
   const { appTheme } = useContext(ThemeContext);
   return (
     <>
-      <Header />
       <div className={`h-full overflow-y-auto bg-${appTheme}-bodyBg`}>
         <IntroTitle />
         <IntroSecond />
