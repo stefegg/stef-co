@@ -1,47 +1,24 @@
-export const logoTextGen = (appTheme: string, size: string) => {
+export const logoTextGen = (size: string) => {
   const large = "text-7xl";
   const small = "text-4xl";
-  if (appTheme === "classic" && size === "large") {
-    return `font-outline-2 text-${appTheme}-border ${large}`;
+
+  if (size === "large") {
+    return `font-outline-3 text-black ${large}`;
   }
-  if (appTheme === "classic" && size === "small") {
-    return `font-outline-1 text-${appTheme}-text ${small}`;
-  }
-  if (appTheme === "light" && size === "large") {
-    return `font-outline-5 text-${appTheme}-border  ${large}`;
-  }
-  if (appTheme === "light" && size === "small") {
-    return `font-outline-6 text-${appTheme}-text ${small}`;
-  }
-  if (appTheme === "dark" && size === "large") {
-    return `font-outline-3 text-black  ${large}`;
-  }
-  if (appTheme === "dark" && size === "small") {
-    return `font-outline-4 text-${appTheme}-secondary ${small}`;
+  if (size === "small") {
+    return `font-outline-4 text-[#03DAc6] ${small}`;
   }
 };
 
-export const logoLineGen = (appTheme: string, size: string) => {
+export const logoLineGen = (size: string) => {
   const large = "h-[16px] w-full mt-3 border-2";
   const small = "h-[6px] w-full mt-1 border";
-  if (appTheme === "classic" && size === "large") {
-    return `bg-${appTheme}-border border-${appTheme}-text ${large}`;
-  }
-  if (appTheme === "classic" && size === "small") {
-    return `bg-${appTheme}-text border-${appTheme}-border ${small}`;
-  }
-  if (appTheme === "light" && size === "large") {
-    return `bg-${appTheme}-border border-${appTheme}-text ${large}`;
-  }
-  if (appTheme === "light" && size === "small") {
-    return `bg-${appTheme}-text border-${appTheme}-border ${small}`;
-  }
 
-  if (appTheme === "dark" && size === "large") {
-    return `bg-black border-${appTheme}-border ${large}`;
+  if (size === "large") {
+    return `bg-black border-[#3700b3] ${large}`;
   }
-  if (appTheme === "dark" && size === "small") {
-    return `bg-${appTheme}-secondary border-${appTheme}-text ${small}`;
+  if (size === "small") {
+    return `bg-[#03DAc6] border-psy ${small}`;
   }
 };
 
