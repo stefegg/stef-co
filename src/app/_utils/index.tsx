@@ -1,11 +1,3 @@
-import {
-  AddCartProps,
-  ToggleWishProps,
-  WishlistTextProps,
-  UpdateCartQuantPros,
-} from "../_types";
-import { updateWishlist } from "./serverutils";
-
 export const logoTextGen = (appTheme: string, size: string) => {
   const large = "text-7xl";
   const small = "text-4xl";
@@ -53,12 +45,6 @@ export const logoLineGen = (appTheme: string, size: string) => {
   }
 };
 
-export const currencyGen = (currency: string) => {
-  if (currency === "USD") {
-    return "$";
-  } else return "R";
-};
-
 export const getFilter = (appTheme: string) => {
   if (appTheme === "light") {
     return "invert(16%) sepia(98%) saturate(2729%) hue-rotate(195deg) brightness(103%) contrast(100%)";
@@ -93,120 +79,4 @@ export const arrowFilter = (appTheme: string) => {
   if (appTheme === "classic") {
     return "invert(86%) sepia(12%) saturate(3864%) hue-rotate(357deg) brightness(104%) contrast(105%)";
   }
-};
-
-export const addToCart = (props: AddCartProps) => {
-  const {
-    setOpacity,
-    cart,
-    setCart,
-    id,
-    prodName,
-    prodPrice,
-    prodCurrency,
-    prodImageUrl,
-    prodQuantity,
-    setCartQuantity,
-    cartQuantity,
-    setOperation,
-    setType,
-  } = props;
-  setOpacity("0");
-  if (cart.length > 0) {
-    const findItem = cart.find((c) => c.prodId === id);
-    if (findItem !== undefined) {
-      cart.map((c) =>
-        c.prodId === id ? (c.quantity = c.quantity + prodQuantity) : null
-      );
-    } else {
-      setCart([
-        ...cart,
-        {
-          prodId: id,
-          name: prodName,
-          price: prodPrice * prodQuantity,
-          currency: prodCurrency,
-          quantity: prodQuantity,
-          imageUrl: prodImageUrl,
-        },
-      ]);
-    }
-    setCartQuantity(cartQuantity + prodQuantity);
-  } else {
-    setCart([
-      {
-        prodId: id,
-        name: prodName,
-        price: prodPrice * prodQuantity,
-        currency: prodCurrency,
-        quantity: prodQuantity,
-        imageUrl: prodImageUrl,
-      },
-    ]);
-    setCartQuantity(cartQuantity + prodQuantity);
-  }
-  setOperation("Added to ");
-  setOpacity("100");
-  setType("Cart");
-  setTimeout(() => {
-    setOpacity("0");
-  }, 1000);
-};
-
-export const updateCartQuant = (props: UpdateCartQuantPros) => {
-  const { cart, id, setCartQuantity, cartQuantity, newQuantity } = props;
-  cart.map((c) => {
-    if (c.prodId === id) {
-      c.quantity = newQuantity;
-      setCartQuantity(cartQuantity - c.quantity + newQuantity);
-    }
-  });
-};
-
-export const toggleWishlist = (props: ToggleWishProps) => {
-  const {
-    setOpacity,
-    wishlist,
-    id,
-    prodName,
-    prodPrice,
-    prodCurrency,
-    prodImageUrl,
-    setOperation,
-    setType,
-    setWishlist,
-    user,
-  } = props;
-  setOpacity("0");
-  const wishlistValues = wishlist.map((e) => e.prodId);
-  const prodAsWishItem = {
-    prodId: id,
-    name: prodName,
-    price: prodPrice,
-    imageUrl: prodImageUrl,
-    currency: prodCurrency,
-  };
-  if (wishlistValues.includes(id)) {
-    const newWishlist = wishlist.filter((e) => e.prodId !== id);
-    setWishlist(newWishlist);
-    user !== null && updateWishlist(prodAsWishItem, user.id, "remove");
-    setOperation("Removed from ");
-  } else {
-    setWishlist([...wishlist, prodAsWishItem]);
-    user !== null && updateWishlist(prodAsWishItem, user.id, "add");
-    setOperation("Added to ");
-  }
-  setOpacity("100");
-  setType("Wishlist");
-  setTimeout(() => {
-    setOpacity("0");
-  }, 1000);
-};
-
-export const getWishlistText = (props: WishlistTextProps) => {
-  const { wishlist, id } = props;
-  const wishlistValues = wishlist.map((e) => e.prodId);
-  if (wishlistValues.includes(id)) {
-    return "Remove from Wishlist";
-  } else return "Add to Wishlist";
 };
