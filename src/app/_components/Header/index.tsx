@@ -7,14 +7,15 @@ const Header = () => {
   return (
     <div className="flex flex-col relative text-lg">
       <span
-        className={`flex items-center p-6 fixed w-[100%] bg-zinc-900  justify-between border-b
-    `}
+        className={`flex items-center p-6 fixed w-[100%] bg-zinc-900 justify-between border-b border-primary text-link`}
       >
         <div
-          className={`pb-2 ${activeLink === "home" ? `border-b` : `mb-[1px]`}`}
+          className={`pb-2 ${
+            activeLink === "home" ? `border-b border-secondary` : `mb-[1px]`
+          }`}
         >
           <Link
-            className="flex items-center mx-4 text-white hover:text-primary"
+            className="flex items-center mx-4 hover:text-primary"
             href="/"
             onClick={() => {
               setActiveLink("home");
@@ -39,10 +40,12 @@ const Header = () => {
           </Link>
         </div>
         <div
-          className={`pb-2 ${activeLink === "about" ? `border-b` : `mb-[1px]`}`}
+          className={`pb-2 ${
+            activeLink === "about" ? `border-b border-secondary` : `mb-[1px]`
+          }`}
         >
           <Link
-            className="flex items-center mx-4 text-white hover:text-primary"
+            className="flex items-center mx-4 hover:text-primary"
             href="/about"
             onClick={() => {
               setActiveLink("about");
@@ -68,11 +71,13 @@ const Header = () => {
         </div>
         <div
           className={`pb-2 ${
-            activeLink === "experience" ? `border-b` : `mb-[1px]`
+            activeLink === "experience"
+              ? `border-b border-secondary`
+              : `mb-[1px]`
           }`}
         >
           <Link
-            className="flex items-center mx-4 text-white hover:text-primary"
+            className="flex items-center mx-4 hover:text-primary"
             href="/experience"
             onClick={() => {
               setActiveLink("experience");
@@ -98,11 +103,11 @@ const Header = () => {
         </div>
         <div
           className={`pb-2 ${
-            activeLink === "projects" ? `border-b` : `mb-[1px]`
+            activeLink === "projects" ? `border-b border-secondary` : `mb-[1px]`
           }`}
         >
           <Link
-            className="flex items-center mx-4 text-white hover:text-primary"
+            className="flex items-center mx-4 hover:text-primary"
             href="/projects"
             onClick={() => {
               setActiveLink("projects");
@@ -127,11 +132,11 @@ const Header = () => {
         </div>
         <div
           className={`pb-2 ${
-            activeLink === "contact" ? `border-b` : `mb-[1px]`
+            activeLink === "contact" ? `border-b border-secondary` : `mb-[1px]`
           }`}
         >
           <Link
-            className="flex items-center mx-4 text-white hover:text-primary"
+            className="flex items-center mx-4 hover:text-primary"
             href="/contact"
             onClick={() => {
               setActiveLink("contact");

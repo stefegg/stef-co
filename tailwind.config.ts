@@ -11,6 +11,8 @@ const config: Config = {
         primary: "#BB86FC",
         darkPrimary: "#3700b3",
         secondary: "#03DAc6",
+        link: "#23d1f6",
+        tertiary: "#0564b8",
         dark: {
           border: "#3700b3",
           text: "#BB86FC",
