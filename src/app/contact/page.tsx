@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import { linkedInIcon, gmailIcon, githubIcon } from "../../../public/icons";
 import ContactItem from "../_components/ContactItem";
 import Link from "next/link";

@@ -4,7 +4,7 @@ import "./globals.css";
 import { robotoFont } from "./fonts";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Header } from "./_components";
+import Header from "./_components/Header";
 export const metadata: Metadata = {
   title: "Stef Co.",
   description: "Created by Stef",

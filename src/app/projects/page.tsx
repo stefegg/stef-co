@@ -1,10 +1,11 @@
 "use client";
 import ProjectPane from "../_components/ProjectPane";
+import PageWrapper from "../_components/PageWrapper";
 import { projects } from "../_utils/constants";
 
 const Projects = () => {
   return (
-    <div className="px-4 md:px-16 pt-4">
+    <PageWrapper>
       <div className="md:mt-10">
         {projects.map((project, idx) => (
           <div key={`${idx}-${project.title}`}>
@@ -13,7 +14,7 @@ const Projects = () => {
           </div>
         ))}
       </div>
-    </div>
+    </PageWrapper>
   );
 };
 
