@@ -18,9 +18,9 @@ export default async function Layout({
   return (
     <html lang="en">
       <body className={`${robotoFont.className} `}>
-        <div className="w-[100%] h-full max-h-screen flex">
+        <div className="w-[100%] h-full max-h-screen flex bg-zinc-900">
           <Header />
-          <div className="h-screen pt-20">{children}</div>
+          <div className="h-screen pt-20 ">{children}</div>
           <Analytics />
           <SpeedInsights />
         </div>

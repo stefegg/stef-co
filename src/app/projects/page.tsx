@@ -1,7 +1,7 @@
 "use client";
 
-const Home = () => {
+const Projects = () => {
   return <div className="">hi</div>;
 };
 
-export default Home;
+export default Projects;
