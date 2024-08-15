@@ -1,9 +1,14 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
-  const [activeLink, setActiveLink] = useState("home");
+  const pathName = usePathname();
+  const [activeLink, setActiveLink] = useState(pathName.toString());
+  useEffect(() => {
+    setActiveLink(pathName.toString());
+  }, [pathName]);
   return (
     <div className="flex flex-col relative text-lg">
       <span
@@ -11,16 +16,10 @@ const Header = () => {
       >
         <div
           className={`pb-2 ${
-            activeLink === "home" ? `border-b border-secondary` : `mb-[1px]`
+            activeLink === "/" ? `border-b border-secondary` : `mb-[1px]`
           }`}
         >
-          <Link
-            className="flex items-center mx-4 hover:text-primary"
-            href="/"
-            onClick={() => {
-              setActiveLink("home");
-            }}
-          >
+          <Link className="flex items-center mx-4 hover:text-primary" href="/">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -41,15 +40,12 @@ const Header = () => {
         </div>
         <div
           className={`pb-2 ${
-            activeLink === "about" ? `border-b border-secondary` : `mb-[1px]`
+            activeLink === "/about" ? `border-b border-secondary` : `mb-[1px]`
           }`}
         >
           <Link
             className="flex items-center mx-4 hover:text-primary"
             href="/about"
-            onClick={() => {
-              setActiveLink("about");
-            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +67,7 @@ const Header = () => {
         </div>
         <div
           className={`pb-2 ${
-            activeLink === "experience"
+            activeLink === "/experience"
               ? `border-b border-secondary`
               : `mb-[1px]`
           }`}
@@ -79,9 +75,6 @@ const Header = () => {
           <Link
             className="flex items-center mx-4 hover:text-primary"
             href="/experience"
-            onClick={() => {
-              setActiveLink("experience");
-            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -103,21 +96,20 @@ const Header = () => {
         </div>
         <div
           className={`pb-2 ${
-            activeLink === "projects" ? `border-b border-secondary` : `mb-[1px]`
+            activeLink === "/projects"
+              ? `border-b border-secondary`
+              : `mb-[1px]`
           }`}
         >
           <Link
             className="flex items-center mx-4 hover:text-primary"
             href="/projects"
-            onClick={() => {
-              setActiveLink("projects");
-            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               className="mx-2 w-5 h-5"
             >
@@ -132,21 +124,18 @@ const Header = () => {
         </div>
         <div
           className={`pb-2 ${
-            activeLink === "contact" ? `border-b border-secondary` : `mb-[1px]`
+            activeLink === "/contact" ? `border-b border-secondary` : `mb-[1px]`
           }`}
         >
           <Link
             className="flex items-center mx-4 hover:text-primary"
             href="/contact"
-            onClick={() => {
-              setActiveLink("contact");
-            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               className="mx-2 w-5 h-5"
             >
