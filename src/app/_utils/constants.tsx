@@ -1,3 +1,36 @@
+export const experiences = [
+  {
+    title: "Software Engineer 2",
+    dates: "Dec 2021 - Feb 2024",
+    company: "Bluebeam Inc.",
+    location: "Remote",
+    duties: [
+      "Led front end development for one of Bluebeam’s Cloud Initiative agile teams, setting development direction and goals, while building reusable JavaScript components from Figma prototype designs using React/Typescript, Tailwind CSS, Redux, Flexbox and Grid",
+      "Worked collaboratively with other frontend and backend teams to integrate UI features and components with their work to help drive subscription rates.",
+      "Led efforts to refactor and optimize existing UI elements, driven by customer feedback and usage metrics while maintaining in house design standards and styles.",
+      "Built layouts and reusable components using Typescript, React, Next.js, Flexbox, Grid, CSS with accessibility, user interactions and frontend best practices in mind.",
+      "Provided mentorship and close guidance to interns, fostering their growth and development as JavaScript, HTML and CSS developers.",
+      "Deployed code to testing and production environments using CI/CD pipelines and AWS CloudWatch tools.",
+    ],
+  },
+  {
+    title: "Software Engineer",
+    dates: "Oct 2018 - Oct 2021",
+    company: "Jigsaw XYZ, Inc.",
+    location: "New York, NY",
+    duties: [
+      "Part of an agile team that used React/Typescript and Node to develop and launch the LookSee property solutions app for Standard Bank South Africa at https://www.looksee.co.za/. worked closely with the client to achieve success.",
+      "Worked on several fast-paced proof of concept projects helping win contracts for financial and banking clients including NCR, Motive Partners, and Standard Bank.",
+      "Converted designs from Figma / Sketch into fully functional UI using Flexbox, Grid, React, React Native, Redux, Typescript, JavaScript HTML and CSS",
+      "Learned React fundamentals and best practices such as context, prop usage, state management, and reusable component design.",
+      "Used Git repositories and NPM to both install and host libraries.",
+      "Honed a deep understanding of frontend UI best practices including layouts, smooth user interactions, and accessibility.",
+      "Containerized projects using Docker and deployed / monitored apps with Azure.",
+      "Helped design, implement, and retrieve data for UIs from backend RESTful APIs.",
+    ],
+  },
+];
+
 // export const projectsData: ProjectsData[] = [
 //   {
 //     title: "StefCo.",
