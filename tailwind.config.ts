@@ -8,21 +8,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        psy: "#BB86FC",
-        light: {
-          border: "#878787",
-          text: "#005faf",
-          containerBg: "#d0d0d0",
-          bodyBg: "#E5E5E5",
-          containerHover: "#E5E5E5",
-          secondary: "#5fafd7",
-          error: "#B00020",
-          link: "#5fafd7",
-          photoMatte: "#363636",
-          sunPrimary: "#ffff70",
-          sunSecondary: "#ffee50",
-          sunTertiary: "#ffdd40",
-        },
+        primary: "#BB86FC",
+        darkPrimary: "#3700b3",
+        secondary: "#03DAc6",
         dark: {
           border: "#3700b3",
           text: "#BB86FC",
@@ -37,20 +25,6 @@ const config: Config = {
           sunSecondary: "#009fd7",
           sunTertiary: "#0564b8",
         },
-        classic: {
-          border: "#cd0909",
-          text: "#ffdd00",
-          bodyBg: "#3f5577",
-          containerHover: "#33435B",
-          containerBg: "#1F2E47",
-          secondary: "#03c51d",
-          error: "#cd0909",
-          link: "#5fafd7",
-          photoMatte: "#363636",
-          sunPrimary: "#FDB813",
-          sunSecondary: "#ff8100",
-          sunTertiary: "#ff4d00",
-        },
       },
       keyframes: {
         "spin-slow": {
@@ -64,22 +38,6 @@ const config: Config = {
     },
   },
   plugins: [],
-  safelist: [
-    {
-      pattern:
-        /(bg|text|border|border-b)-light-(border|text|containerBg|bodyBg|containerHover|error|link|secondary|photoMatte|sunPrimary|sunSecondary|sunTertiary)/,
-      variants: ["before", "hover", "focus"],
-    },
-    {
-      pattern:
-        /(bg|text|border|border-b)-classic-(border|text|containerBg|bodyBg|containerHover|error|link|secondary|photoMatte|sunPrimary|sunSecondary|sunTertiary)/,
-      variants: ["before", "hover", "focus"],
-    },
-    {
-      pattern:
-        /(bg|text|border|border-b)-dark-(border|text|containerBg|bodyBg|containerHover|error|link|secondary|photoMatte|sunPrimary|sunSecondary|sunTertiary)/,
-      variants: ["before", "hover", "focus"],
-    },
-  ],
+  safelist: [],
 };
 export default config;

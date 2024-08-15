@@ -1,6 +1,6 @@
 "use client";
 import { Logo } from "./_components";
-import { useContext, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { animate, inView, stagger } from "motion";
 
 const Home = () => {
@@ -39,7 +39,7 @@ const Home = () => {
 
   return (
     <section
-      className={`h-full overflow-y-auto  text-psy flex flex-col items-center justify-center`}
+      className={`h-full overflow-y-auto text-primary flex flex-col items-center justify-center`}
     >
       <span className="gap-10 flex items-center flex-col">
         <div className="w-full lg:w-1/2 ">
@@ -47,7 +47,7 @@ const Home = () => {
         </div>
         <span
           className={
-            "opacity-0 text-5xl sm:text-7xl lg:text-9xl font-light first-section-animation"
+            "opacity-0 text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-light first-section-animation"
           }
           ref={firstSection}
           style={{
@@ -58,7 +58,7 @@ const Home = () => {
         </span>
         <span
           className={
-            "opacity-0 text-5xl sm:text-7xl lg:text-9xl font-light second-section-animation"
+            "opacity-0 text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-light second-section-animation"
           }
           ref={secondSection}
           style={{

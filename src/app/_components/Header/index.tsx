@@ -14,7 +14,7 @@ const Header = () => {
           className={`pb-2 ${activeLink === "home" ? `border-b` : `mb-[1px]`}`}
         >
           <Link
-            className="flex items-center mx-4 text-white hover:text-psy"
+            className="flex items-center mx-4 text-white hover:text-primary"
             href="/"
             onClick={() => {
               setActiveLink("home");
@@ -42,7 +42,7 @@ const Header = () => {
           className={`pb-2 ${activeLink === "about" ? `border-b` : `mb-[1px]`}`}
         >
           <Link
-            className="flex items-center mx-4 text-white hover:text-psy"
+            className="flex items-center mx-4 text-white hover:text-primary"
             href="/about"
             onClick={() => {
               setActiveLink("about");
@@ -72,7 +72,7 @@ const Header = () => {
           }`}
         >
           <Link
-            className="flex items-center mx-4 text-white hover:text-psy"
+            className="flex items-center mx-4 text-white hover:text-primary"
             href="/experience"
             onClick={() => {
               setActiveLink("experience");
@@ -102,7 +102,7 @@ const Header = () => {
           }`}
         >
           <Link
-            className="flex items-center mx-4 text-white hover:text-psy"
+            className="flex items-center mx-4 text-white hover:text-primary"
             href="/projects"
             onClick={() => {
               setActiveLink("projects");
@@ -131,7 +131,7 @@ const Header = () => {
           }`}
         >
           <Link
-            className="flex items-center mx-4 text-white hover:text-psy"
+            className="flex items-center mx-4 text-white hover:text-primary"
             href="/contact"
             onClick={() => {
               setActiveLink("contact");
