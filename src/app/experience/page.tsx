@@ -6,12 +6,14 @@ import PageWrapper from "../_components/PageWrapper";
 const Experience = () => {
   return (
     <PageWrapper>
-      {experiences.map((exp, idx) => (
-        <div key={`${idx}-${exp.title}`}>
-          <ExperiencePane experience={exp} />
-          <div className="mt-10" />
-        </div>
-      ))}
+      <div className="md:mt-10">
+        {experiences.map((exp, idx) => (
+          <div key={`${idx}-${exp.title}`}>
+            <ExperiencePane experience={exp} />
+            <div className="mt-10" />
+          </div>
+        ))}
+      </div>
     </PageWrapper>
   );
 };
