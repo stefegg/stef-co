@@ -10,7 +10,7 @@ const Header = () => {
     setActiveLink(pathName.toString());
   }, [pathName]);
   return (
-    <div className="flex flex-col relative text-lg">
+    <div className="flex flex-col relative">
       <span
         className={`flex items-center p-6 fixed w-[100%] bg-zinc-900 justify-between border-b border-primary text-link`}
       >

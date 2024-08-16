@@ -22,7 +22,7 @@ const ProjectPane = (props: ProjectPaneProps) => {
     return "Live Link";
   };
   return (
-    <div className="grid grid-cols-6 p-4 rounded-lg border text-lg font-light">
+    <div className="grid grid-cols-6 p-4 rounded-lg border font-light">
       <div className="col-span-6 px-4 mr-4 border-b md:col-span-2 md:border-b-0 md:border-r min-w-fit text-primary">
         {title}
       </div>

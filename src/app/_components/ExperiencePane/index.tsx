@@ -13,7 +13,7 @@ const ExperiencePane = (props: ExperiencePaneProps) => {
     experience: { title, dates, company, location, duties },
   } = props;
   return (
-    <div className="border rounded-lg grid grid-cols-6 p-4 text-lg font-light">
+    <div className="border rounded-lg grid grid-cols-6 p-4 font-light">
       <div className="col-span-6 md:col-span-2 pr-4 pb-4 mr-4 border-b md:border-r md:border-b-0 flex flex-col text-link">
         <div className="text-primary">{title}</div>
         <div>{dates}</div>
