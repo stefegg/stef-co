@@ -20,11 +20,12 @@ const AboutPane = () => {
             with a predominatly Javascript based stack. My specialties include
             React, React Native, Typescript and Next.js and GraphQL. I am fluent
             in many types of CSS, including Sass, Tailwind CSS and Emotion /
-            Styled-Comoponents. I am always eager to learn new front end tech,
-            and as a result have proficiency in Vue and Angular as well. I truly
-            enjoy building quick, responsive UI with smooth thoughtful
-            interactions that keep users engaged and meets their needs and
-            expectations.
+            Styled-Comoponents. I enjoy functional programming and am very
+            fluent in more modern ES6 syntax and features. I am always eager to
+            learn new front end tech, and as a result have proficiency in Vue
+            and Angular as well. I truly enjoy building quick, responsive UI
+            with smooth thoughtful interactions that keep users engaged and
+            meets their needs and expectations.
             <br />
             <br />I started my career as a Software Engineer about 6 years ago,
             being unsatisfied after working in the Real Estate industry after
