@@ -1,19 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "react-multi-carousel/lib/styles.css";
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-}
-
-.react-multiple-carousel__arrow--left {
-  z-index: 1 !important;
-}
-
-.react-multiple-carousel__arrow--right {
-  z-index: 1 !important;
 }
 
 .first-section-animation {
