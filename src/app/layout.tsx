@@ -7,7 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "./_components/Header";
 export const metadata: Metadata = {
   title: "Stef Co.",
-  description: "Created by Stef",
+  description: "Stephen Stef Egbert Software Engineer Portfolio Page",
 };
 
 export default async function Layout({

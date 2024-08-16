@@ -29,6 +29,17 @@ export const experiences = [
       "Helped design, implement, and retrieve data for UIs from backend RESTful APIs.",
     ],
   },
+  {
+    title: "Property Manager",
+    dates: "Oct 2011 - February 2018",
+    company: "Goldin Management",
+    location: "Brooklyn, NY",
+    duties: [
+      "Prior to becoming a software engineer, I worked as a real estate property and construction project manager in Brooklyn for many years.",
+      "During this time I honed my skills in leadership, communication, budgeting, and time management.",
+      "This was a diverse role where no two days were similar, it involved wearing many hats and being extremely flexible.",
+    ],
+  },
 ];
 
 export const projects = [
