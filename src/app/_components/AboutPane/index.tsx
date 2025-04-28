@@ -15,7 +15,7 @@ const AboutPane = () => {
       <div className="col-span-5 text-white md:col-span-4 md:px-10">
         <div className="mt-4 text-secondary">
           <p>
-            Software engineer located in New Jersey with 5+ years of experience
+            Software engineer located in New Jersey with 6+ years of experience
             building data driven user interfaces. I am a self taught programmer
             with a predominatly Javascript based stack. My specialties include
             React, React Native, Typescript and Next.js and GraphQL. I am fluent
@@ -27,7 +27,7 @@ const AboutPane = () => {
             with smooth thoughtful interactions that keep users engaged and
             meets their needs and expectations.
             <br />
-            <br />I started my career as a Software Engineer about 6 years ago,
+            <br />I started my career as a Software Engineer about 7 years ago,
             being unsatisfied after working in the Real Estate industry after
             many years. I had coded for fun since the late 90s, getting started
             with HTML and inline CSS fansites for television shows, and writing
