@@ -1,5 +1,19 @@
 export const experiences = [
   {
+    title: "Full Stack Developer",
+    dates: "Sept 2024 - Present",
+    company: "Greystar",
+    location: "Remote",
+    duties: [
+      "Develop and maintain the business’s enterprise level application using React, Next.js, Typescript, Redux, Prisma ORM, Tailwind, Daisy UI, Docker and Rest APIs to provide exceptional user experiences.",
+      "Collaborate with product managers and designers to translate designs into user interfaces.",
+      "Write clean, efficient, and well-tested code, using Jest to adhere to best practices.",
+      "Optimize application performance and user experience based on tight feedback loops.",
+      "Manage integration of frontend and backend codebases, deploy through CI/CD pipelines on Azure.",
+      "Contributor to all phases of the software lifecycle, from design to deployment on an agile team."
+    ],
+  },
+  {
     title: "Software Engineer 2",
     dates: "Dec 2021 - Feb 2024",
     company: "Bluebeam Inc.",
