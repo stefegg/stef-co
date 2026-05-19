@@ -1,7 +1,19 @@
 export const experiences = [
+    {
+    title: "Senior Frontend Engineer",
+    dates: "Sept 2025 - May 2026",
+    company: "Palla Financial",
+    location: "Remote",
+    duties: [
+      "Led the modernization of a self-service application from a server-driven, route-based architecture to a client-side state machine architecture using XState v5, React, TypeScript, and Next.js (App Router), implementing localStorage hydration/persistence, typed storage utilities, and a hook-based auth protector pattern",
+      "Designed a comprehensive testing strategy for a React/XState/Storybook codebase, establishing tiered coverage: Jest unit tests for utilities and components, graph-based and unit tests for state machines, and visual regression testing via Storybook",
+      "Maintained and improved internal React/TypeScript component library, ensuring build configuration alignment, and consistent compatibility projects with different dependency versions",
+      "Conducted code reviews emphasizing architectural consistency and clean separation of concerns, ensuring changes were properly scoped and documented across PRs",
+    ],
+  },
   {
     title: "Full Stack Developer",
-    dates: "Sept 2024 - Present",
+    dates: "Sept 2024 - July 2025",
     company: "Greystar",
     location: "Remote",
     duties: [
@@ -10,7 +22,7 @@ export const experiences = [
       "Write clean, efficient, and well-tested code, using Jest to adhere to best practices.",
       "Optimize application performance and user experience based on tight feedback loops.",
       "Manage integration of frontend and backend codebases, deploy through CI/CD pipelines on Azure.",
-      "Contributor to all phases of the software lifecycle, from design to deployment on an agile team."
+      "Contributor to all phases of the software lifecycle, from design to deployment on an agile team.",
     ],
   },
   {
@@ -56,7 +68,34 @@ export const experiences = [
   },
 ];
 
+
 export const projects = [
+      {
+    title: "MODEL VS. CONTROLLER 2: NEW AGE OF ZEROES AND ONES",
+    link: "https://mvc2.vercel.app/",
+    description:
+      "A battle simulator that I built under an 8 hour time limit as part of a hackathon.  A very over the top, very fun project that challenged me to focus on certain areas of the task which I valued over others.  I chose very specific areas to give extra care and attention to, relied on my own internal component library, and used AI to generate fighter images in order to build the most visually stunning and thematically appropriate project I could imagine.  My project was extremely popular compared to the other entrants, and I won the challenge.",
+    techStack: [
+      "React",
+      "Typescript",
+      "Tailwind CSS",
+      "Next.js",
+      "Vercel",
+    ],
+  },
+    {
+    title: "Realms Spend Demo",
+    link: "https://realms-spend-demo.vercel.app/",
+    description:
+      "A spend management web app for a texas based real estate startup with invoice matching, reporting, and client management views, built as a demo showcasing a B2B spend/finance product UI.",
+    techStack: [
+      "React",
+      "Typescript",
+      "Tailwind CSS",
+      "Next.js",
+      "Vercel",
+    ],
+  },
   {
     title: "StefCo. Store",
     link: "https://github.com/stefegg/stef-co-store",
