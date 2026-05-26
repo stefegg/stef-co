@@ -96,6 +96,13 @@ export const projects = [
       "Vercel",
     ],
   },
+    {
+    title: "Learnwell Video Suite",
+    link: "https://www.loom.com/share/13d5481b64044b3a921f47951faff919",
+    description:
+      "Learnwell Video Suite is a project that allows users to view and upload educational videos to a faux video platform.  I used bright colors and lots of animations to get people excited about learning on the landing page.  I focused on subjects that I know people love to learn about - space, dinosaurs, and ancient history. This was a fun weekend project, I used iframes for the video player, something I'd used on past projects but hadn't built with in a while.  There is also the ability for users to add comments to videos, which update in realtime.  Unfortunately, I was connecting to a third party API to save videos and comments, and this API no longer functions.",
+    techStack: ["React", "Typescript", "Tailwind CSS"],
+  },
   {
     title: "StefCo. Store",
     link: "https://github.com/stefegg/stef-co-store",
@@ -148,13 +155,7 @@ export const projects = [
       "Calendar App was an app with a simple idea - build a calendar that shows the holidays for different countries.  I added some fun twists, like making sure to show the last couple days of the previous month, and the first few days of the next month.  It was one of those things that I was sure I could do, but had never really sat down and tried.  So I did some research, and spent the weekend putting it together for fun.  All in all I enjoyed the challenge of this project, and have ideas about making it into a larger appointment scheduling app one day.",
     techStack: ["React", "Styled-Components", "Typescript"],
   },
-  {
-    title: "Learnwell Video Suite",
-    link: "https://github.com/stefegg/learnwell-vids",
-    description:
-      "Learnwell Video Suite is a project that allows users to view and upload educational videos to a faux video platform.  I used bright colors and lots of animations to get people excited about learning on the landing page.  I focused on subjects that I know people love to learn about - space, dinosaurs, and ancient history. This was a fun weekend project, I used iframes for the video player, something I'd used on past projects but hadn't built with in a while.  There is also the ability for users to add comments to videos, which update in realtime.  Unfortunately, I was connecting to a third party API to save videos and comments, and this API no longer functions.",
-    techStack: ["React", "Typescript", "Tailwind CSS"],
-  },
+
   {
     title: "Stripe Hotel",
     link: "https://github.com/stefegg/stripe-hotel",
