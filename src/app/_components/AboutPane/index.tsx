@@ -15,36 +15,19 @@ const AboutPane = () => {
       <div className="col-span-5 text-white md:col-span-4 md:px-10">
         <div className="mt-4 text-secondary">
           <p>
-            Software engineer located in New Jersey with 7+ years of experience
-            building data driven user interfaces. I am a self taught programmer
-            with a predominatly Javascript based stack. My specialties include
-            React, React Native, Typescript and Next.js and GraphQL. I am fluent
-            in many types of CSS, including Sass, Tailwind CSS and Emotion /
-            Styled-Comoponents. I enjoy functional programming and am very
-            fluent in more modern ES6 syntax and features. I am always eager to
-            learn new front end tech, and as a result have proficiency in Vue
-            and Angular as well. I truly enjoy building quick, responsive UI
-            with smooth thoughtful interactions that keep users engaged and
-            meets their needs and expectations.
-            <br />
-            <br />I started my career as a Software Engineer about 8 years ago,
-            being unsatisfied after working in the Real Estate industry after
-            many years. I had coded for fun since the late 90s, getting started
-            with HTML and inline CSS fansites for television shows, and writing
-            logic for Starcraft custom campaign maps. I have strong leadership
-            and communicaton skills, and enjoy mentoring and helping other
-            developers whenever I can. I am a big, positive personality on any
-            team that I am a part of, and love working with others to accomplish
-            our goals.
-            <br />
-            <br />
-            Beyond my work as a frontend developer, I also have full stack
-            experience. I have used Node.js, Express, PostgreSQL and MongoDB on
-            both a personal and professional level. I am very skilled at
-            building data models, connecting front ends back end data sources,
-            as well as helping to design and build APIs. I am familiar with
-            using Docker for containerization, and using deployment environments
-            like Azure, AWS, and Vercel.
+            I&apos;ve been building things on the internet since before most people had the internet.
+            <br/>
+            In the late 90s that meant HTML fan sites for TV shows I was obsessed with, and custom logic for Starcraft campaign maps. Nobody told me that was programming. I just wanted to make something that worked exactly the way I imagined it.
+            <br/>
+            That&apos;s still what gets me out of bed.
+            <br/>
+            I&apos;m a Senior Frontend Engineer with 7+ years of professional experience and an honest obsession with two things: complex UIs that actually work, and state systems that don&apos;t fall apart when you push on them. I&apos;ve spent a significant part of my career on two connected problems: building state systems that are predictable, testable, and maintainable using XState, Redux, and React Context, and architecting component libraries that other engineers can build on top of with confidence. I love that work. Not because it&apos;s impressive, but because getting it right is genuinely hard and genuinely satisfying.
+            <br/>
+            On the UI side I care deeply about the details: performance, accessibility, the pixel-perfect implementation that respects both the design and the person using it. I&apos;m the kind of engineer who notices when something is slightly off and can&apos;t leave it alone.
+            <br/>
+            I became a professional engineer in 2018 after spending my earlier career in real estate, but I was always the tech person at every job, maintaining websites and servers since 2008. The career change wasn&apos;t really a change so much as finally making official what I&apos;d been doing anyway.
+            <br/>
+            I care about the people side of this too. I&apos;ve mentored engineers who went on to ship real features and build real careers, and that means as much to me as any technical problem I&apos;ve solved.
           </p>
         </div>
       </div>

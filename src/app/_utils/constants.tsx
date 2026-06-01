@@ -5,10 +5,10 @@ export const experiences = [
     company: "Palla Financial",
     location: "Remote",
     duties: [
-      "Led the modernization of a self-service application from a server-driven, route-based architecture to a client-side state machine architecture using XState v5, React, TypeScript, and Next.js (App Router), implementing localStorage hydration/persistence, typed storage utilities, and a hook-based auth protector pattern",
-      "Designed a comprehensive testing strategy for a React/XState/Storybook codebase, establishing tiered coverage: Jest unit tests for utilities and components, graph-based and unit tests for state machines, and visual regression testing via Storybook",
-      "Maintained and improved internal React/TypeScript component library, ensuring build configuration alignment, and consistent compatibility projects with different dependency versions",
-      "Conducted code reviews emphasizing architectural consistency and clean separation of concerns, ensuring changes were properly scoped and documented across PRs",
+      "Architected the migration of a multi-currency peer to peer transfer hub from server driven, route based rendering to a client side state machine model using XState, React, TypeScript, and Next.js (App Router).  Owning system level decisions and architecture around state ownership, cross session persistence and auth protection including typed localStorage utilities, hydration patterns and hook based route protection",
+      "Contributed to an internal React/TypeScript component library built around a layered feature view architecture, where stateless UI components composed with XState machines and custom hooks into self contained, portable feature views consumed across multiple applications ",
+      "Designed a tiered testing strategy for a React/XState/Storybook codebase; Jest unit tests for utilities and pure components, graph based behavioral tests for state machines, visual regression testing via Storybook, and Playwright E2E tests validating feature view components within their consuming applications",
+      "Enforced architectural consistency across the codebase through code reviews, ensuring changes respected the feature view boundary, were properly scoped, and aligned with hook and machine patterns",
     ],
   },
   {
@@ -17,12 +17,32 @@ export const experiences = [
     company: "Greystar",
     location: "Remote",
     duties: [
-      "Develop and maintain the business’s enterprise level application using React, Next.js, Typescript, Redux, Prisma ORM, Tailwind, Daisy UI, Docker and Rest APIs to provide exceptional user experiences.",
-      "Collaborate with product managers and designers to translate designs into user interfaces.",
-      "Write clean, efficient, and well-tested code, using Jest to adhere to best practices.",
-      "Optimize application performance and user experience based on tight feedback loops.",
-      "Manage integration of frontend and backend codebases, deploy through CI/CD pipelines on Azure.",
-      "Contributor to all phases of the software lifecycle, from design to deployment on an agile team.",
+      "Diagnosed and resolved a critical over-fetching bottleneck by collaborating with a backend engineer to redesign API endpoints around view-specific data shapes, serving lightweight records on list views and full attribute payloads on detail views, reducing average page load time from 5-10 minutes to under 3 seconds.",
+      "Led modernization of a property management application using React, TypeScript, TailwindCSS, and Redux, implementing server-side rendering and dynamic code-splitting with Next.js to accelerate Time-to-Interactive across a mobile-first interface",
+      "Developed WCAG AA-compliant React/TypeScript components that standardized accessible UI patterns across the application, increasing front-end reuse and reducing new feature implementation time",
+      "Automated CI/CD pipelines in Azure DevOps, halving release lead time and increasing deployment frequency, while expanding Jest and Playwright test coverage to reduce production defects",
+    ],
+  },
+    {
+    title: "Freelance Frontend Engineer",
+    dates: "July - August 2025",
+    company: "Contract",
+    location: "Remote",
+    duties: [
+      "Designed and developed a POC invoice deduplication platform for a real estate management client, building the UI independently from concept to prototype to surface potential duplicate property invoices and queue them for human review",
+      "Delivered the complete frontend in 6 weeks using React, TypeScript, Tailwind CSS, Next.js, and Vercel with no design handoff, owning both visual design and implementation end to end"
+    ],
+  },
+      {
+    title: "Founding Engineer",
+    dates: "Apr 2024 - Apr 2025 (full time through Sep 2024)",
+    company: "VARIANT",
+    location: "Redbank, NJ / Remote",
+    duties: [
+      "Built the frontend MVP for an AI-powered narrative editing platform enabling writers to work across multiple levels of story granularity, from world building down to individual characters, with the UI architected to support real-time AI driven consistency validation",
+      "Architected and documented a mobile first React/TypeScript component library using shadcn and Tailwind CSS, built to present story data coherently across radically different editorial zoom levels within a single unified interface",
+      "Established SDLC guidelines and code review standards as a founding engineer, enabling consistent delivery of production ready code across a small, fast moving team",
+      "Integrated AI-assisted development tooling throughout the build cycle using Claude and Cursor to accelerate prototyping and iterate rapidly on a complex, multi-layer editorial interface"
     ],
   },
   {
@@ -31,12 +51,10 @@ export const experiences = [
     company: "Bluebeam Inc.",
     location: "Remote",
     duties: [
-      "Led front end development for one of Bluebeam’s Cloud Initiative agile teams, setting development direction and goals, while building reusable JavaScript components from Figma prototype designs using React/Typescript, Tailwind CSS, Redux, Flexbox and Grid",
-      "Worked collaboratively with other frontend and backend teams to integrate UI features and components with their work to help drive subscription rates.",
-      "Led efforts to refactor and optimize existing UI elements, driven by customer feedback and usage metrics while maintaining in house design standards and styles.",
-      "Built layouts and reusable components using Typescript, React, Next.js, Flexbox, Grid, CSS with accessibility, user interactions and frontend best practices in mind.",
-      "Provided mentorship and close guidance to interns, fostering their growth and development as JavaScript, HTML and CSS developers.",
-      "Deployed code to testing and production environments using CI/CD pipelines and AWS CloudWatch tools.",
+      "Led front end development of core cloud service features including a project analytics dashboard and project selection tooling using React, TypeScript, Tailwind CSS, and Next.js with a mobile-first approach, improving trial to paid conversion through targeted UX improvements",
+      "Built and scaled a reusable React/TypeScript component library adopted across multiple internal teams, accelerating feature delivery and reducing development cycle time across the organization",
+      "Refactored legacy React modules to modern ES6 standards driven by direct customer feedback and usage metrics, reducing CSS payload and improving Lighthouse performance scores across core application surfaces",
+      "Mentored and coached interns in React/TypeScript front end development and best practices, two of whom delivered key product features and transitioned to full time engineering roles"
     ],
   },
   {
@@ -45,14 +63,10 @@ export const experiences = [
     company: "Jigsaw XYZ, Inc.",
     location: "New York, NY",
     duties: [
-      "Part of an agile team that used React/Typescript and Node to develop and launch the LookSee property solutions app for Standard Bank South Africa at https://www.looksee.co.za/. worked closely with the client to achieve success.",
-      "Worked on several fast-paced proof of concept projects helping win contracts for financial and banking clients including NCR, Motive Partners, and Standard Bank.",
-      "Converted designs from Figma / Sketch into fully functional UI using Flexbox, Grid, React, React Native, Redux, Typescript, JavaScript HTML and CSS",
-      "Learned React fundamentals and best practices such as context, prop usage, state management, and reusable component design.",
-      "Used Git repositories and NPM to both install and host libraries.",
-      "Honed a deep understanding of frontend UI best practices including layouts, smooth user interactions, and accessibility.",
-      "Containerized projects using Docker and deployed / monitored apps with Azure.",
-      "Helped design, implement, and retrieve data for UIs from backend RESTful APIs.",
+      "Engineered the LookSee SaaS platform using React and TypeScript, supporting 100k+ monthly active users at 99.9% uptime and optimizing performance for enterprise clients",
+      "Converted Figma prototypes into responsive React and React Native applications and micro frontends, consistently delivering POCs on tight deadlines to meet client business goals",
+      "Collaborated on React/TypeScript/Node.js POCs for clients including NCR and Motive Partners, contributing to several new contract wins through rapid prototyping and stakeholder demos",
+      "Published and maintained NPM packages for shared React/TypeScript UI components and utility functions, reducing new project bootstrap time across the team"
     ],
   },
   {
@@ -61,9 +75,10 @@ export const experiences = [
     company: "Goldin Management",
     location: "Brooklyn, NY",
     duties: [
-      "Prior to becoming a software engineer, I worked as a real estate property and construction project manager in Brooklyn for many years.",
-      "During this time I honed my skills in leadership, communication, budgeting, and time management.",
-      "This was a diverse role where no two days were similar, it involved wearing many hats and being extremely flexible.",
+      "The go to technical resource at every organization I was a part of since 2008, maintaining websites, email campaigns, and managing servers, before formalizing that foundation through a software engineering bootcamp in 2018 and transitioning fully into engineering",
+      "Managed ~15-unit portfolio of residential buildings in the NYC area, overseeing day to day operations, maintenance, and large scale renovation projects",
+      "Maintained board level stakeholder relationships across multiple condo and coop properties, preparing and presenting budgets and aligning diverse owner priorities to keep buildings running smoothly",
+      "Coordinated cross functional teams of vendors, contractors, and building staff across all properties, managing competing priorities, timelines, and personalities to deliver on maintenance and improvement projects"
     ],
   },
 ];
@@ -74,7 +89,7 @@ export const projects = [
     title: "MODEL VS. CONTROLLER 2: NEW AGE OF ZEROES AND ONES",
     link: "https://mvc2.vercel.app/",
     description:
-      "A battle simulator that I built under an 8 hour time limit as part of a hackathon.  A very over the top, very fun project that challenged me to focus on certain areas of the task which I valued over others.  I chose very specific areas to give extra care and attention to, relied on my own internal component library, and used AI to generate fighter images in order to build the most visually stunning and thematically appropriate project I could imagine.  My project was extremely popular compared to the other entrants, and I won the challenge.",
+      "Won a hackathon challenge with this battle simulator, built entirely within an 8-hour time limit. Made deliberate decisions under pressure to prioritize visual design and thematic cohesion, using AI-generated fighter imagery to deliver a polished, on-theme product in a fraction of normal development time.",
     techStack: [
       "React",
       "Typescript",
@@ -87,7 +102,7 @@ export const projects = [
     title: "Realms Spend Demo",
     link: "https://realms-spend-demo.vercel.app/",
     description:
-      "A spend management web app for a texas based real estate startup with invoice matching, reporting, and client management views, built as a demo showcasing a B2B spend/finance product UI.",
+      "A B2B invoice deduplication platform built for a real estate management client, designed and developed end to end with no design handoff. Built to surface potential duplicate property invoices and queue them for human review. The UI was designed entirely from scratch, owning both the visual design and frontend implementation.",
     techStack: [
       "React",
       "Typescript",
@@ -100,14 +115,14 @@ export const projects = [
     title: "Learnwell Video Suite",
     link: "https://www.loom.com/share/13d5481b64044b3a921f47951faff919",
     description:
-      "Learnwell Video Suite is a project that allows users to view and upload educational videos to a faux video platform.  I used bright colors and lots of animations to get people excited about learning on the landing page.  I focused on subjects that I know people love to learn about - space, dinosaurs, and ancient history. This was a fun weekend project, I used iframes for the video player, something I'd used on past projects but hadn't built with in a while.  There is also the ability for users to add comments to videos, which update in realtime.  Unfortunately, I was connecting to a third party API to save videos and comments, and this API no longer functions.",
+      "A fully self-designed educational video platform featuring vibrant animations and real-time video comments. The color scheme was pulled directly from a potential client's brand identity, designing the entire UI around their existing visual language. Showcased via a fully voiced video walkthrough.",
     techStack: ["React", "Typescript", "Tailwind CSS"],
   },
   {
     title: "StefCo. Store",
     link: "https://github.com/stefegg/stef-co-store",
     description:
-      "This project was my first major effort after leaving Bluebeam Inc.  This is a full stack ecommerce site, using Next.js, Tailwind and Typescript on the frontend, and a PostgreSQL database and Prisma ORM on the backend.  I designed it based on my years of experience, building all aspects of the app myself.  I really enjoyed mapping out the relational database, and building features like the wishlist was especially fun and challenging.  It's a generally different experience if a user is logged in or out, with many things working differently.  I've leared a lot while making this project, and still go back to polish and add new features from time to time.",
+    "A full stack ecommerce site built as a personal project, featuring a Next.js frontend and PostgreSQL backend. Includes wishlist functionality and differentiated experiences for authenticated and unauthenticated visitors.",
     techStack: [
       "React",
       "Typescript",
@@ -122,7 +137,7 @@ export const projects = [
     title: "Bluebeam Cloud",
     link: "https://app.bluebeam.com",
     description:
-      "I spent the builk of my time at Bluebeam Inc. working on Bluebeam Cloud.  I successfully led development of the Punch 2.0 feature, a reimagining of the original Punch page which added many features that customers had been hungry for for many years.  This was first experience with leading frontend development, and I had to manage a lot more than just my own code.  I was involved in sprint planning, expecation management, and communicating across discipline to manage expectations and help build the best feature possible.  This work also involved getting feedback directly from customers on many occasions. My success with this feature lead to many of the reusable components I built being used across Bluebeam Cloud, I was very happy to help drive success not just on my team, but across the company.  My work helped build customer confidence and drive subscription numbers at a crucial point in Bluebeam Cloud's growth and development.",
+    "Led the Punch 2.0 feature redesign at Bluebeam Inc., coordinating across disciplines and integrating direct customer feedback into the final product. Reusable components built for this project were adopted across many internal teams.",
     techStack: [
       "React",
       "Typescript",
@@ -142,25 +157,10 @@ export const projects = [
     techStack: ["React", "Typescript", "Styled-Components", "Storybook"],
   },
   {
-    title: "WeatherApp",
-    link: "https://github.com/stefegg/weatherapp",
-    description:
-      "I built this WeatherApp over a weekend, with the goal being to refresh my familiarty with React Native.  I've always found React Native to be far more approachable than even regular React, but hadn't used it directly in some time.  This WeatherApp shows the current weather based on your location, the upcoming forecast for the next 5 days, and some information about the city that you are located in.  I built this project using create-expo-app, and got to play with more recent expo router changes which I had heard of but not directly used.  The navigation is file structure based, which is very similar to how Next.js routing works.",
-    techStack: ["React Native", "Expo", "CSS"],
-  },
-  {
-    title: "Calendar App",
-    link: "https://github.com/stefegg/calendar-app",
-    description:
-      "Calendar App was an app with a simple idea - build a calendar that shows the holidays for different countries.  I added some fun twists, like making sure to show the last couple days of the previous month, and the first few days of the next month.  It was one of those things that I was sure I could do, but had never really sat down and tried.  So I did some research, and spent the weekend putting it together for fun.  All in all I enjoyed the challenge of this project, and have ideas about making it into a larger appointment scheduling app one day.",
-    techStack: ["React", "Styled-Components", "Typescript"],
-  },
-
-  {
     title: "Stripe Hotel",
     link: "https://github.com/stefegg/stripe-hotel",
     description:
-      "Stripe Hotel is a personal project that I used to show off my skills to get a new job after leaving Jigsaw XYZ Inc.  I wanted to take all of the lessons I'd learned at Jigsaw, over many projects, and bring them together in one project.  The goal was to keep everything on one page, and simply show different UI based on state.  I would have needed to bring in proper routing and branch out if I'd taken the project any further.  But I was happy to acheive what I did in such a short amount of time.  I also got to flex my muscles as a designer, as this was one of the first projects since bootcamp that I designed entirely myself.  I also challenged myself to integrate with Stripe for this project, which was much less of a challenge than I thought it would be.  This project was originally deployed on Heroku, but is not deployed today.",
+    "A single-page hotel booking application integrating Stripe payments, entirely self-designed and self-built. A showcase of clean UI design and full frontend implementation from concept to deployment.",
     techStack: [
       "React",
       "Recoil",
@@ -173,29 +173,7 @@ export const projects = [
   {
     title: "VFZ",
     link: "https://github.com/stefegg/vfz",
-    description: `VFZ or "Vengeance for Zul\'jin" was my final passion project while in bootcamp.  It is a sidescroller ala Mario Brothers built entirely in Javascript, but takes place in the Warcraft universe - one of my favorite game franchises since I was a young boy. This project was a ton of fun, I got it done following a tutorial on youtube that I branched off of several times.  I really enjoyed designing levels, sprites, and changing the physics of the classic game.  I got to set traps for players, and enjoyed watching them hit walls and figure out how to get around them when I shared the game with my fellow students during our graduation showcase.  I also learned a lot, bootcamp had opened my eyes to Javascript, but I learned a lot about ES6 changes using features like arrow functions and Promises for the first time while developing this project.`,
+    description: "A sidescroller built entirely in JavaScript, set in the Warcraft universe. Features custom level design, sprite modifications, and hand-tuned physics. A passion project that shows where it all started.",
     techStack: ["Javascript", "HTML"],
-  },
-  {
-    title: "Persephone",
-    link: "https://github.com/stefegg/persephone",
-    description:
-      "Persephone was an app I built with a team of 3 others at NYCDA.  It was my first time leading a team of developers, as I was elected the leader shortly after our team was put together by our instructor.  The goal was to develop an application that could warn people about the dangers of climate change, and give them information on what to do in case of a natural disaster. The aim was to help people - something that still drives me to this day. ",
-    techStack: ["Javascript", "Ruby", "Rails", "HTML", "CSS"],
-  },
-  {
-    title: "Postboy Driving",
-    link: "https://github.com/stefegg/postboy-driving-school",
-    description:
-      "Postboy Driving School was one of the many ruby on rails projects that I built while in bootcamp at NYCDA.  The driving school and theme were inspired by the greatest filler episode of Dragon Ball Z ever, where Goku and Piccolo learn how to drive.  I really got to flex my muscles as a designer on this project, as I felt I really understood Ruby and Rails very well, and challenged myself to build the best looking project I'd built yet. This was one of the projects that really helped me find my voice as a frontend developer, and helped me find my passion for front end development and making spectacular UIs.",
-
-    techStack: ["Javascript", "Ruby", "Rails", "HTML", "CSS"],
-  },
-  {
-    title: "Personal Pokedex",
-    link: "https://stefegg.github.io/pokedex/",
-    description:
-      "My personal pokedex was one of the firssst major projects that I developed while in bootcamp.  It involved integrating with an API for the first time, looping through an API response with hundreds of pokemon, and trimming it down to a team of 6.  I remember how difficult these concepts were to understand at first, and how great it felt once they finally clicked.  To this day I really enjoy consuming data from APIs on a frontend, and feel like a project only truly comes to life once that connection is made.  While it's very basic, I'm still very proud of this project.  I think it still looks great, and am still happy with many of the design decisions I made.  For example - the border around the individual pokemon display is not a border, but just a larger container div.  The animations are also still smooth, and I think fit the personalities of the individual pokemon very well.",
-    techStack: ["Javascript", "HTML", "CSS"],
   },
 ];
