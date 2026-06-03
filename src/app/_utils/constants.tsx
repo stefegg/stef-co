@@ -85,7 +85,7 @@ export const experiences = [
 
 
 export const projects = [
-      {
+  {
     title: "MODEL VS. CONTROLLER 2: NEW AGE OF ZEROES AND ONES",
     link: "https://mvc2.vercel.app/",
     description:
@@ -98,7 +98,7 @@ export const projects = [
       "Vercel",
     ],
   },
-    {
+  {
     title: "Realms Spend Demo",
     link: "https://realms-spend-demo.vercel.app/",
     description:
@@ -111,7 +111,7 @@ export const projects = [
       "Vercel",
     ],
   },
-    {
+  {
     title: "Learnwell Video Suite",
     link: "https://www.loom.com/share/13d5481b64044b3a921f47951faff919",
     description:
