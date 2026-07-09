@@ -20,7 +20,7 @@ const Home = () => {
         {
           duration: 3,
           delay: stagger(0.1),
-        }
+        },
       );
     });
     inView(secondSection.current, () => {
@@ -33,7 +33,7 @@ const Home = () => {
         {
           duration: 3,
           delay: stagger(0.1),
-        }
+        },
       );
     });
   }, []);

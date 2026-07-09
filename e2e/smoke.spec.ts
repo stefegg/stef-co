@@ -12,7 +12,9 @@ test.describe("route smoke", () => {
   for (const { path, anchor } of routes) {
     test(`${path} renders`, async ({ page }) => {
       await page.goto(path);
-      await expect(page.getByText(anchor, { exact: false }).first()).toBeVisible();
+      await expect(
+        page.getByText(anchor, { exact: false }).first(),
+      ).toBeVisible();
     });
   }
 });

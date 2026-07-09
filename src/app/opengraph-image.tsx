@@ -7,11 +7,11 @@ export const contentType = "image/png";
 async function loadGoogleFont(font: string, weight: number, text: string) {
   const family = font.replace(/ /g, "+");
   const url = `https://fonts.googleapis.com/css2?family=${family}:wght@${weight}&text=${encodeURIComponent(
-    text
+    text,
   )}`;
   const css = await (await fetch(url)).text();
   const resource = css.match(
-    /src: url\((.+?)\) format\('(?:opentype|truetype)'\)/
+    /src: url\((.+?)\) format\('(?:opentype|truetype)'\)/,
   );
   if (resource?.[1]) {
     const response = await fetch(resource[1]);
@@ -32,43 +32,41 @@ export default async function Image() {
   ]);
 
   return new ImageResponse(
-    (
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 28,
+        backgroundColor: "#18181b",
+      }}
+    >
       <div
         style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 28,
-          backgroundColor: "#18181b",
+          fontFamily: "Lobster",
+          fontSize: 140,
+          lineHeight: 1,
+          color: "#BB86FC",
         }}
       >
-        <div
-          style={{
-            fontFamily: "Lobster",
-            fontSize: 140,
-            lineHeight: 1,
-            color: "#BB86FC",
-          }}
-        >
-          {name}
-        </div>
-        <div
-          style={{
-            fontFamily: "Roboto Condensed",
-            fontWeight: 300,
-            fontSize: 60,
-            color: "#BB86FC",
-            letterSpacing: "0.18em",
-            textShadow: "3px 3px 0px #23d1f6",
-          }}
-        >
-          {title}
-        </div>
+        {name}
       </div>
-    ),
+      <div
+        style={{
+          fontFamily: "Roboto Condensed",
+          fontWeight: 300,
+          fontSize: 60,
+          color: "#BB86FC",
+          letterSpacing: "0.18em",
+          textShadow: "3px 3px 0px #23d1f6",
+        }}
+      >
+        {title}
+      </div>
+    </div>,
     {
       ...size,
       fonts: [
@@ -80,6 +78,6 @@ export default async function Image() {
           weight: 300,
         },
       ],
-    }
+    },
   );
 }

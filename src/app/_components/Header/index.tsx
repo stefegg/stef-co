@@ -15,7 +15,11 @@ const Header = () => {
             activeLink === "/" ? `border-b border-secondary` : `mb-px`
           }`}
         >
-          <Link className="flex items-center mx-4 hover:text-primary" href="/" aria-label="Home">
+          <Link
+            className="flex items-center mx-4 hover:text-primary"
+            href="/"
+            aria-label="Home"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -64,9 +68,7 @@ const Header = () => {
         </div>
         <div
           className={`pb-2 ${
-            activeLink === "/experience"
-              ? `border-b border-secondary`
-              : `mb-px`
+            activeLink === "/experience" ? `border-b border-secondary` : `mb-px`
           }`}
         >
           <Link
@@ -94,9 +96,7 @@ const Header = () => {
         </div>
         <div
           className={`pb-2 ${
-            activeLink === "/projects"
-              ? `border-b border-secondary`
-              : `mb-px`
+            activeLink === "/projects" ? `border-b border-secondary` : `mb-px`
           }`}
         >
           <Link

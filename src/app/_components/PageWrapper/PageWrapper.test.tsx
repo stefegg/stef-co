@@ -6,7 +6,7 @@ describe("PageWrapper", () => {
     render(
       <PageWrapper>
         <p>wrapped content</p>
-      </PageWrapper>
+      </PageWrapper>,
     );
     expect(screen.getByText("wrapped content")).toBeInTheDocument();
   });

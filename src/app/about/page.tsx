@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import AboutPane from "../_components/AboutPane";
+import SkillPane from "../_components/SkillPane";
+import ProfileCard from "../_components/ProfileCard";
 import PageWrapper from "../_components/PageWrapper";
 
 export const metadata: Metadata = {
@@ -11,7 +13,11 @@ export const metadata: Metadata = {
 const About = () => {
   return (
     <PageWrapper>
-      <AboutPane />
+      <div className="grid grid-cols-5 md:mt-10">
+        <ProfileCard />
+        <AboutPane />
+        <SkillPane />
+      </div>
     </PageWrapper>
   );
 };
