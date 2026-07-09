@@ -17,6 +17,5 @@ const config: Config = {
     },
   },
   plugins: [],
-  safelist: [],
 };
 export default config;

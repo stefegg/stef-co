@@ -4,9 +4,6 @@ export const alt = "Stephen Egbert — Senior Software Engineer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-// Satori (used by ImageResponse) needs raw TTF/OTF data, which next/font's
-// woff2 output can't provide, so load the fonts from Google, subsetted to the
-// exact glyphs we render.
 async function loadGoogleFont(font: string, weight: number, text: string) {
   const family = font.replace(/ /g, "+");
   const url = `https://fonts.googleapis.com/css2?family=${family}:wght@${weight}&text=${encodeURIComponent(

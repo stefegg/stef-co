@@ -2,7 +2,6 @@ import type { Config } from "jest";
 import nextJest from "next/jest.js";
 
 const createJestConfig = nextJest({
-  // Path to the Next.js app to load next.config and .env files in the test environment
   dir: "./",
 });
 

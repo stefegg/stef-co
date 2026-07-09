@@ -34,7 +34,7 @@ const AboutPane = () => {
                 {group.items.map((item, idx) => (
                   <li
                     key={`${item}-${idx}`}
-                    className="[&:not(:last-child)]:after:content-['·'] [&:not(:last-child)]:after:mx-2"
+                    className="not-last:after:content-['·'] not-last:after:mx-2"
                   >
                     {item}
                   </li>

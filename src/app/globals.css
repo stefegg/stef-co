@@ -1,20 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@config '../../tailwind.config.ts';
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .first-section-animation {
+    transition: all;
+    transform: translateX(10vw) rotateX(90deg);
   }
-}
 
-.first-section-animation {
-  transition: all;
-  transform: translateX(10vw) rotateX(90deg);
-}
-
-.second-section-animation {
-  transition: all;
-  transform: translateX(-10vw) rotateX(-90deg);
+  .second-section-animation {
+    transition: all;
+    transform: translateX(-10vw) rotateX(-90deg);
+  }
 }
 
 @layer base {

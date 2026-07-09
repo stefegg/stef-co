@@ -8,11 +8,11 @@ const Header = () => {
   return (
     <div className="flex flex-col relative">
       <span
-        className={`flex items-center p-6 fixed w-[100%] bg-zinc-900 justify-between border-b border-primary text-link`}
+        className={`flex items-center p-6 fixed w-full bg-zinc-900 justify-between border-b border-primary text-link`}
       >
         <div
           className={`pb-2 ${
-            activeLink === "/" ? `border-b border-secondary` : `mb-[1px]`
+            activeLink === "/" ? `border-b border-secondary` : `mb-px`
           }`}
         >
           <Link className="flex items-center mx-4 hover:text-primary" href="/" aria-label="Home">
@@ -36,7 +36,7 @@ const Header = () => {
         </div>
         <div
           className={`pb-2 ${
-            activeLink === "/about" ? `border-b border-secondary` : `mb-[1px]`
+            activeLink === "/about" ? `border-b border-secondary` : `mb-px`
           }`}
         >
           <Link
@@ -66,7 +66,7 @@ const Header = () => {
           className={`pb-2 ${
             activeLink === "/experience"
               ? `border-b border-secondary`
-              : `mb-[1px]`
+              : `mb-px`
           }`}
         >
           <Link
@@ -96,7 +96,7 @@ const Header = () => {
           className={`pb-2 ${
             activeLink === "/projects"
               ? `border-b border-secondary`
-              : `mb-[1px]`
+              : `mb-px`
           }`}
         >
           <Link
@@ -123,7 +123,7 @@ const Header = () => {
         </div>
         <div
           className={`pb-2 ${
-            activeLink === "/contact" ? `border-b border-secondary` : `mb-[1px]`
+            activeLink === "/contact" ? `border-b border-secondary` : `mb-px`
           }`}
         >
           <Link
