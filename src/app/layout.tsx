@@ -40,7 +40,7 @@ export default async function Layout({
       <body className={`${robotoFont.className} `}>
         <div className="w-full h-full max-h-screen flex bg-zinc-900 text-lg font-light">
           <Header />
-          <div className="h-screen overflow-auto w-full pt-20 pb-16">
+          <div className="h-screen overflow-auto w-full pt-20 pb-16 scroll-pt-20">
             {children}
           </div>
           <Analytics />
