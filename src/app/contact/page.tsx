@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import { linkedInIcon, gmailIcon, githubIcon } from "../../../public/icons";
 import ContactItem from "../_components/ContactItem";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Get in touch with Stephen Egbert via email, LinkedIn, or GitHub.",
+};
 
 const Contact = () => {
   return (

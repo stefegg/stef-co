@@ -5,19 +5,20 @@ export const experiences = [
     company: "Palla Financial",
     location: "Remote",
     duties: [
-      "Architected the migration of a multi-currency peer to peer transfer hub from server driven, route based rendering to a client side state machine model using XState, React, TypeScript, and Next.js (App Router).  Owning system level decisions and architecture around state ownership, cross session persistence and auth protection including typed localStorage utilities, hydration patterns and hook based route protection",
+      "Engineered the migration of a multi-currency peer to peer transfer hub from server driven, route based rendering to a client side state machine model using XState, React, TypeScript, and Next.js (App Router), and TanStack query for server state management alongside state machines. Owning system level decisions and architecture around state ownership, cross session persistence and auth protection including typed localStorage utilities, hydration patterns and hook based route protection",
+      "Architected and drove development of several key customer facing payment features, including Enhanced Due Diligence to bolster customer KYC, and Cash Deposit to allow for new revenue flows, contributing to design discussions, building out frontend architecture and participating in A/B testing to find the best ways that users interacted with features during existing payment flows",
       "Contributed to an internal React/TypeScript component library built around a layered feature view architecture, where stateless UI components composed with XState machines and custom hooks into self contained, portable feature views consumed across multiple applications ",
       "Designed a tiered testing strategy for a React/XState/Storybook codebase; Jest unit tests for utilities and pure components, graph based behavioral tests for state machines, visual regression testing via Storybook, and Playwright E2E tests validating feature view components within their consuming applications",
       "Enforced architectural consistency across the codebase through code reviews, ensuring changes respected the feature view boundary, were properly scoped, and aligned with hook and machine patterns",
     ],
   },
   {
-    title: "Full Stack Developer",
+    title: "Full Stack Software Engineer",
     dates: "Sept 2024 - July 2025",
-    company: "Greystar",
-    location: "Remote",
+    company: "Greystar Real Estate",
+    location: "Fully Remote",
     duties: [
-      "Diagnosed and resolved a critical over-fetching bottleneck by collaborating with a backend engineer to redesign API endpoints around view-specific data shapes, serving lightweight records on list views and full attribute payloads on detail views, reducing average page load time from 5-10 minutes to under 3 seconds.",
+      "Diagnosed and resolved a critical over-fetching bottleneck by collaborating with a backend engineer to redesign API endpoints around view-specific data shapes, serving lightweight records on list views and full attribute payloads on detail views, using GraphQL with Apollo Client for field-level query control and normalizing caching, reducing average page load time from 5-10 minutes to under 3 seconds.",
       "Led modernization of a property management application using React, TypeScript, TailwindCSS, and Redux, implementing server-side rendering and dynamic code-splitting with Next.js to accelerate Time-to-Interactive across a mobile-first interface",
       "Developed WCAG AA-compliant React/TypeScript components that standardized accessible UI patterns across the application, increasing front-end reuse and reducing new feature implementation time",
       "Automated CI/CD pipelines in Azure DevOps, halving release lead time and increasing deployment frequency, while expanding Jest and Playwright test coverage to reduce production defects",
@@ -34,24 +35,24 @@ export const experiences = [
     ],
   },
       {
-    title: "Founding Engineer",
+    title: "Founding Software Engineer/React Developer",
     dates: "Apr 2024 - Apr 2025 (full time through Sep 2024)",
     company: "VARIANT",
-    location: "Redbank, NJ / Remote",
+    location: "Red Bank, NJ / Remote",
     duties: [
-      "Built the frontend MVP for an AI-powered narrative editing platform enabling writers to work across multiple levels of story granularity, from world building down to individual characters, with the UI architected to support real-time AI driven consistency validation",
+      "Built the frontend MVP for an AI-powered narrative editing platform enabling writers to work across multiple levels of story granularity, from world building down to individual characters, querying structured story content via Sanity's GraphQL API, with the UI architected to support real-time AI driven consistency validation",
       "Architected and documented a mobile first React/TypeScript component library using shadcn and Tailwind CSS, built to present story data coherently across radically different editorial zoom levels within a single unified interface",
       "Established SDLC guidelines and code review standards as a founding engineer, enabling consistent delivery of production ready code across a small, fast moving team",
       "Integrated AI-assisted development tooling throughout the build cycle using Claude and Cursor to accelerate prototyping and iterate rapidly on a complex, multi-layer editorial interface"
     ],
   },
   {
-    title: "Software Engineer 2",
+    title: "Software Engineer II",
     dates: "Dec 2021 - Feb 2024",
     company: "Bluebeam Inc.",
-    location: "Remote",
+    location: "Fully Remote",
     duties: [
-      "Led front end development of core cloud service features including a project analytics dashboard and project selection tooling using React, TypeScript, Tailwind CSS, and Next.js with a mobile-first approach, improving trial to paid conversion through targeted UX improvements",
+      "Led front end development of core cloud service features using React, Typescript, Tailwind CSS and Next.js, including a project analytics dashboard built on GraphQL for structured data queries, and a project selection and table tooling suite using Tanstack Query for client side caching, background refetching and request deduplication, taking a mobile first approach and improving trial to paid conversion through targeted A/B testing and UX improvements",
       "Built and scaled a reusable React/TypeScript component library adopted across multiple internal teams, accelerating feature delivery and reducing development cycle time across the organization",
       "Refactored legacy React modules to modern ES6 standards driven by direct customer feedback and usage metrics, reducing CSS payload and improving Lighthouse performance scores across core application surfaces",
       "Mentored and coached interns in React/TypeScript front end development and best practices, two of whom delivered key product features and transitioned to full time engineering roles"
@@ -63,9 +64,9 @@ export const experiences = [
     company: "Jigsaw XYZ, Inc.",
     location: "New York, NY",
     duties: [
-      "Engineered the LookSee SaaS platform using React and TypeScript, supporting 100k+ monthly active users at 99.9% uptime and optimizing performance for enterprise clients",
+      "Engineered the LookSee SaaS platform using React and TypeScript, with Sanity powering structured content management, supporting 100k+ monthly active users at 99.9% uptime and optimizing performance for enterprise clients",
+      "Collaborated on React/TypeScript/Node.js POCs for clients including NCR and Motive Partners, contributing to several fintech contract wins through rapid prototyping of payment and order processing and management systems",
       "Converted Figma prototypes into responsive React and React Native applications and micro frontends, consistently delivering POCs on tight deadlines to meet client business goals",
-      "Collaborated on React/TypeScript/Node.js POCs for clients including NCR and Motive Partners, contributing to several new contract wins through rapid prototyping and stakeholder demos",
       "Published and maintained NPM packages for shared React/TypeScript UI components and utility functions, reducing new project bootstrap time across the team"
     ],
   },
@@ -142,11 +143,14 @@ export const projects = [
       "React",
       "Typescript",
       "Tailwind CSS",
+      "Next.js",
       "Styled-Components",
       "Sass",
       "Jest",
       "Storybook",
       "AG Grid",
+      "GraphQL",
+      "Tanstack Query",
     ],
   },
   {
@@ -154,7 +158,7 @@ export const projects = [
     link: "https://www.looksee.co.za",
     description:
       "Looksee was a project that my team built toward the end of my time at Jigsaw XYZ, Inc.  It is a property solutions app for South Africans who face regular power and water outages as part of load shedding efforts in the places that they live.  The goal was to help communicate information about upcoming outagess, and also offer solutions through a marketplace to help these folks deal with this every day problem.  I found this project to be really inspiring, and it helped shape my mission as a Software Engineer - to help people with real everyday problems.  I worked predominantly on the marketplace.  As it was a small team, I owned many of the pieces of features I built myself.  I really honed my skill for componentization and reusability, deadlines were often tight and the project was very fast moving, so being able to reuse code and share it with teammates was important.  I really grew as a developer on this project, as it was the first project where I took ownership of so many large parts of the code base.  As my coding skill grew, so did my confidence, and I was glad whenever a teammate would pick up a component I'd built and reuse it for something they were working on.  Some of the original vision for Looksee has changed since we launched it, but I'm proud that much of my code for the marketplace is still being used to this day.",
-    techStack: ["React", "Typescript", "Styled-Components", "Storybook"],
+    techStack: ["React", "Typescript", "Sanity", "Node.js", "Styled-Components", "Storybook"],
   },
   {
     title: "Stripe Hotel",
@@ -175,5 +179,58 @@ export const projects = [
     link: "https://github.com/stefegg/vfz",
     description: "A sidescroller built entirely in JavaScript, set in the Warcraft universe. Features custom level design, sprite modifications, and hand-tuned physics. A passion project that shows where it all started.",
     techStack: ["Javascript", "HTML"],
+  },
+];
+
+export const skills = [
+  {
+    category: "Core Frontend",
+    items: [
+      "React",
+      "Next.js (App Router, SSR/SSG)",
+      "React Native",
+      "TypeScript",
+      "JavaScript (ES6+)",
+      "React Router",
+      "Vite",
+      "HTML",
+    ],
+  },
+  {
+    category: "State Management",
+    items: ["XState", "Redux", "Redux Sagas", "React Context", "React/TanStack Query"],
+  },
+  {
+    category: "Styling & UI",
+    items: [
+      "Tailwind CSS",
+      "SCSS",
+      "CSS",
+      "Grid",
+      "Flexbox",
+      "Storybook",
+      "AG-Grid",
+      "Mobile First Development",
+    ],
+  },
+  {
+    category: "Backend & API Integration",
+    items: ["GraphQL", "Prisma ORM", "PostgreSQL", "Node.js", "Sanity"],
+  },
+  {
+    category: "Quality & Testing",
+    items: ["Jest", "Vitest", "RTL", "Playwright", "Lighthouse audits", "WCAG AA accessibility compliance"],
+  },
+  {
+    category: "Tooling & Deployment",
+    items: ["Vercel", "GitHub Actions", "Azure DevOps Pipelines", "Docker"],
+  },
+  {
+    category: "AI-Assisted Development",
+    items: ["Claude Code", "GitHub Copilot", "Cursor"],
+  },
+  {
+    category: "Collaboration & Workflow",
+    items: ["Agile/Scrum", "Jira", "Figma handoff", "Git"],
   },
 ];

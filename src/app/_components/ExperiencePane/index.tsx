@@ -20,11 +20,11 @@ const ExperiencePane = (props: ExperiencePaneProps) => {
         <div>{company}</div>
         <div>{location}</div>
       </div>
-      <div className="col-span-6 md:col-span-4 px-4 mt-4 md:mt-0 flex flex-col text-secondary">
+      <ul className="col-span-6 md:col-span-4 px-4 mt-4 md:mt-0 list-disc list-inside space-y-2 text-secondary">
         {duties.map((duty, idx) => (
           <li key={idx}>{duty}</li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };

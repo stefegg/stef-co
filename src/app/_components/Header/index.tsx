@@ -19,7 +19,7 @@ const Header = () => {
             activeLink === "/" ? `border-b border-secondary` : `mb-[1px]`
           }`}
         >
-          <Link className="flex items-center mx-4 hover:text-primary" href="/">
+          <Link className="flex items-center mx-4 hover:text-primary" href="/" aria-label="Home">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -46,6 +46,7 @@ const Header = () => {
           <Link
             className="flex items-center mx-4 hover:text-primary"
             href="/about"
+            aria-label="About"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -75,6 +76,7 @@ const Header = () => {
           <Link
             className="flex items-center mx-4 hover:text-primary"
             href="/experience"
+            aria-label="Experience"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -104,6 +106,7 @@ const Header = () => {
           <Link
             className="flex items-center mx-4 hover:text-primary"
             href="/projects"
+            aria-label="Projects"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -130,6 +133,7 @@ const Header = () => {
           <Link
             className="flex items-center mx-4 hover:text-primary"
             href="/contact"
+            aria-label="Contact"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

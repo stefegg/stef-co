@@ -1,7 +1,13 @@
-"use client";
+import type { Metadata } from "next";
 import ExperiencePane from "../_components/ExperiencePane";
 import { experiences } from "../_utils/constants";
 import PageWrapper from "../_components/PageWrapper";
+
+export const metadata: Metadata = {
+  title: "Experience",
+  description:
+    "Stephen Egbert's professional experience building production React, TypeScript, and Next.js applications across fintech, real estate, and startups.",
+};
 
 const Experience = () => {
   return (

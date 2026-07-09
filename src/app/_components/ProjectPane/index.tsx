@@ -32,11 +32,11 @@ const ProjectPane = (props: ProjectPaneProps) => {
       <div className="col-span-6 px-4 pt-4 mt-4 border-t text-link">
         <Link href={link}>{getLinkText(link)}</Link>
       </div>
-      <div className="col-span-6 px-4 pt-4 mt-4 border-t text-tertiary">
+      <ul className="col-span-6 px-4 pt-4 mt-4 border-t list-disc list-inside text-tertiary">
         {techStack.map((tech, idx) => (
           <li key={`${tech}-${idx}`}>{tech}</li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };

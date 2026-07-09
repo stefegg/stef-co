@@ -1,7 +1,13 @@
-"use client";
+import type { Metadata } from "next";
 import ProjectPane from "../_components/ProjectPane";
 import PageWrapper from "../_components/PageWrapper";
 import { projects } from "../_utils/constants";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "A selection of projects built by Stephen Egbert using React, TypeScript, Next.js, and more.",
+};
 
 const Projects = () => {
   return (
