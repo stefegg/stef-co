@@ -12,7 +12,7 @@ const config: Config = {
         darkPrimary: "#3700b3",
         secondary: "#03DAc6",
         link: "#23d1f6",
-        tertiary: "#0564b8",
+        tertiary: "#0681ee",
       },
     },
   },
