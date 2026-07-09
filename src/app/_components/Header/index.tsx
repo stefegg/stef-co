@@ -91,7 +91,7 @@ const Header = () => {
               />
             </svg>
 
-            <p className="hidden md:block">Experience</p>
+            <p className="hidden md:block">Experience + Skills</p>
           </Link>
         </div>
         <div
@@ -121,6 +121,50 @@ const Header = () => {
             <p className="hidden md:block">Projects</p>
           </Link>
         </div>
+        {/* <div
+          className={`pb-2 ${
+            activeLink === "/state-lab" ? `border-b border-secondary` : `mb-px`
+          }`}
+        >
+          <Link
+            className="flex items-center mx-4 hover:text-primary"
+            href="/state-lab"
+            aria-label="State Lab"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="mx-2 w-5 h-5"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="1.75"
+                fill="currentColor"
+                stroke="none"
+              />
+              <ellipse cx="12" cy="12" rx="10" ry="3.8" />
+              <ellipse
+                cx="12"
+                cy="12"
+                rx="10"
+                ry="3.8"
+                transform="rotate(60 12 12)"
+              />
+              <ellipse
+                cx="12"
+                cy="12"
+                rx="10"
+                ry="3.8"
+                transform="rotate(120 12 12)"
+              />
+            </svg>
+            <p className="hidden md:block">State Lab</p>
+          </Link>
+        </div> */}
         <div
           className={`pb-2 ${
             activeLink === "/contact" ? `border-b border-secondary` : `mb-px`
