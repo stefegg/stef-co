@@ -1,7 +1,8 @@
 "use client";
 import Logo from "./_components/Logo";
 import { useRef, useEffect } from "react";
-import { animate, inView, stagger } from "motion";
+import { animate } from "motion/mini";
+import { inView, stagger } from "motion";
 
 const Home = () => {
   const firstSection = useRef<HTMLSpanElement>(null);
@@ -17,7 +18,7 @@ const Home = () => {
           transform: "none",
         },
         {
-          duration: 4,
+          duration: 3,
           delay: stagger(0.1),
         }
       );
@@ -30,7 +31,7 @@ const Home = () => {
           transform: "none",
         },
         {
-          duration: 4,
+          duration: 3,
           delay: stagger(0.1),
         }
       );

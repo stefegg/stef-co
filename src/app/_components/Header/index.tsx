@@ -1,14 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const Header = () => {
   const pathName = usePathname();
-  const [activeLink, setActiveLink] = useState(pathName.toString());
-  useEffect(() => {
-    setActiveLink(pathName.toString());
-  }, [pathName]);
+  const activeLink = pathName.toString();
   return (
     <div className="flex flex-col relative">
       <span
