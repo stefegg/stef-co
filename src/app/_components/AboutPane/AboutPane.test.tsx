@@ -10,8 +10,8 @@ jest.mock("next/image", () => ({
   },
 }));
 
-import AboutPane from "@/app/_components/AboutPane";
-import { skills } from "@/app/_utils/constants";
+import AboutPane from "./index";
+import { skills } from "../../_utils/constants";
 
 describe("AboutPane", () => {
   it("renders the name and profile image", () => {

@@ -1,4 +1,4 @@
-import { experiences, projects, skills } from "@/app/_utils/constants";
+import { experiences, projects, skills } from "./constants";
 
 describe("experiences data", () => {
   it("is a non-empty array of well-formed entries", () => {

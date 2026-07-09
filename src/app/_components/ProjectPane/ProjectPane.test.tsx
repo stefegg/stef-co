@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import ProjectPane from "@/app/_components/ProjectPane";
+import ProjectPane from "./index";
 
 const base = {
   title: "StefCo. Store",

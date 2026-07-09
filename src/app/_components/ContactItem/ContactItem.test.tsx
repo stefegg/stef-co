@@ -9,7 +9,7 @@ jest.mock("next/image", () => ({
   },
 }));
 
-import ContactItem from "@/app/_components/ContactItem";
+import ContactItem from "./index";
 
 describe("ContactItem", () => {
   it("renders the inner text and the icon image", () => {

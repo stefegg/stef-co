@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import ExperiencePane from "@/app/_components/ExperiencePane";
+import ExperiencePane from "./index";
 
 const experience = {
   title: "Senior Frontend Engineer",
