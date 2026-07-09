@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# stef-co
 
-## Getting Started
+Personal portfolio site for Stephen Egbert — Senior Frontend Engineer. Live at **[www.stef-co.com](https://www.stef-co.com)**.
 
-First, run the development server:
+Built as a modern Next.js App Router application with a component-driven architecture, a full testing pyramid, and Storybook-documented components.
+
+## Tech stack
+
+- **Framework:** [Next.js 16](https://nextjs.org/) (App Router, React Server Components) + [React 19](https://react.dev/)
+- **Language:** TypeScript
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animation:** [Motion](https://motion.dev/)
+- **Unit / component tests:** [Jest](https://jestjs.io/) + [React Testing Library](https://testing-library.com/)
+- **E2E tests:** [Playwright](https://playwright.dev/)
+- **Component docs:** [Storybook 10](https://storybook.js.org/) (`@storybook/nextjs`, Webpack)
+- **Linting / formatting:** ESLint 9 (flat config) + Prettier
+- **CI:** GitHub Actions (lint → test → build → e2e)
+- **Hosting:** [Vercel](https://vercel.com/) (with Analytics & Speed Insights)
+
+## Getting started
+
+Requires **Node 20.9+**.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+| Script                   | Description                                     |
+| ------------------------ | ----------------------------------------------- |
+| `npm run dev`            | Start the dev server                            |
+| `npm run build`          | Production build                                |
+| `npm start`             | Serve the production build                      |
+| `npm run lint`           | Lint (ESLint + Prettier); add `-- --fix` to fix |
+| `npm test`               | Run Jest unit / component tests                 |
+| `npm run test:watch`     | Jest in watch mode                              |
+| `npm run test:e2e`       | Run Playwright end-to-end tests                 |
+| `npm run storybook`      | Start Storybook                                 |
+| `npm run build-storybook`| Build the static Storybook                      |
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/app/
+├── _components/        # UI components, each co-located with its story + test
+│   └── ProjectPane/
+│       ├── index.tsx
+│       ├── ProjectPane.stories.tsx
+│       └── ProjectPane.test.tsx
+├── _utils/             # Shared data (experiences, projects, skills) + helpers
+├── about/ experience/ projects/ contact/   # Routes
+├── layout.tsx          # Root layout, metadata, fonts
+├── opengraph-image.tsx # Generated social share card
+├── sitemap.ts / robots.ts
+└── page.tsx            # Home
+e2e/                    # Playwright specs
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Each component lives in its own folder with its Storybook story and Jest test alongside it. Page content (work history, projects, skills) is data-driven from `src/app/_utils/constants.tsx`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Testing
 
-## Deploy on Vercel
+- **Jest + RTL** — component rendering and data-shape tests (`*.test.tsx`, co-located).
+- **Playwright** — smoke tests of every route and navigation (`e2e/`).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm test          # unit / component
+npm run test:e2e  # end-to-end
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Deployment
+
+Deployed on Vercel; pushes to `main` are built and released automatically. CI ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) runs lint, unit tests, the production build, and Playwright e2e on every push and pull request.

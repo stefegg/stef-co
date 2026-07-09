@@ -14,7 +14,7 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <div
-        className={`${robotoFont.className} bg-zinc-900 text-lg font-light p-8 min-h-screen w-screen`}
+        className={`${robotoFont.className} bg-zinc-900 text-lg font-light p-8 min-h-screen w-full`}
       >
         <Story />
       </div>

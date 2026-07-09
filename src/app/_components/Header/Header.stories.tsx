@@ -11,6 +11,16 @@ const meta: Meta<typeof Header> = {
       navigation: { pathname: "/" },
     },
   },
+  decorators: [
+    (Story) => (
+      <div
+        className="relative h-40 overflow-hidden"
+        style={{ transform: "translateZ(0)" }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
 };
 export default meta;
 
