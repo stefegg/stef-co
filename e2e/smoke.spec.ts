@@ -2,8 +2,8 @@ import { test, expect } from "@playwright/test";
 
 const routes = [
   { path: "/", anchor: "Stef Egbert" },
-  { path: "/about", anchor: "Technical Skills" },
-  { path: "/experience", anchor: "Palla Financial" },
+  { path: "/about", anchor: "Stephen Egbert" },
+  { path: "/experience", anchor: "Technical Skills" },
   { path: "/projects", anchor: "StefCo. Store" },
   { path: "/contact", anchor: "Get in touch" },
 ];
@@ -25,10 +25,13 @@ test.describe("navigation", () => {
 
     await page.getByRole("link", { name: "About" }).click();
     await expect(page).toHaveURL(/\/about$/);
-    await expect(page.getByText("Technical Skills")).toBeVisible();
+    await expect(
+      page.getByText("Stephen Egbert", { exact: true }),
+    ).toBeVisible();
 
     await page.getByRole("link", { name: "Experience" }).click();
     await expect(page).toHaveURL(/\/experience$/);
+    await expect(page.getByText("Technical Skills")).toBeVisible();
 
     await page.getByRole("link", { name: "Projects" }).click();
     await expect(page).toHaveURL(/\/projects$/);

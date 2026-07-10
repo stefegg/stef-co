@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import AboutPane from "../../_components/AboutPane";
-import SkillPane from "../../_components/SkillPane";
 import ProfileCard from "../../_components/ProfileCard";
 
 export const metadata: Metadata = {

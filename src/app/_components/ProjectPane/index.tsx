@@ -22,17 +22,17 @@ const ProjectPane = (props: ProjectPaneProps) => {
     return "Live Link";
   };
   return (
-    <div className="grid grid-cols-6 p-4 rounded-lg border border-gray-200 font-light">
-      <div className="col-span-6 px-4 mr-4 border-b border-gray-200 md:col-span-2 md:border-b-0 md:border-r min-w-fit text-primary text-xl">
+    <div className="grid grid-cols-6 p-4 rounded-lg border border-divider font-light">
+      <div className="col-span-6 px-4 mr-4 border-b border-divider md:col-span-2 md:border-b-0 md:border-r min-w-fit text-primary text-xl">
         {title}
       </div>
       <div className="col-span-6 md:col-span-4 mt-4 md:mt-0 text-secondary">
         {description}
       </div>
-      <div className="col-span-6 px-4 pt-4 mt-4 border-t border-gray-200 text-link">
+      <div className="col-span-6 px-4 pt-4 mt-4 border-t border-divider text-link">
         <Link href={link}>{getLinkText(link)}</Link>
       </div>
-      <ul className="col-span-6 px-4 pt-4 mt-4 border-t border-gray-200 list-disc list-inside text-tertiary">
+      <ul className="col-span-6 px-4 pt-4 mt-4 border-t border-divider list-disc list-inside text-tertiary">
         {techStack.map((tech, idx) => (
           <li key={`${tech}-${idx}`}>{tech}</li>
         ))}

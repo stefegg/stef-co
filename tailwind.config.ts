@@ -13,6 +13,7 @@ const config: Config = {
         secondary: "#03DAc6",
         link: "#23d1f6",
         tertiary: "#0681ee",
+        divider: "#e5e7eb"
       },
     },
   },
