@@ -24,7 +24,12 @@ const headerItems = [
     ariaLabel: "Projects",
     Icon: ProjectsIcon,
   },
-  { href: "/contact", title: "Contact", ariaLabel: "Contact", Icon: ContactIcon },
+  {
+    href: "/contact",
+    title: "Contact",
+    ariaLabel: "Contact",
+    Icon: ContactIcon,
+  },
 ];
 
 const Header = () => {

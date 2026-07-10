@@ -27,7 +27,7 @@ const HeaderItem = ({
       <Icon />
       <p className="hidden md:block">{title}</p>
     </Link>
-  )
-}
+  );
+};
 
 export default HeaderItem;

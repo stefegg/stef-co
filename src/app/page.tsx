@@ -19,9 +19,7 @@ const Home = () => {
       animate(
         selector,
         { opacity: 1, transform: "none" },
-        prefersReduced
-          ? { duration: 0 }
-          : { duration: 3, delay: stagger(0.1) },
+        prefersReduced ? { duration: 0 } : { duration: 3, delay: stagger(0.1) },
       );
     if (prefersReduced) {
       reveal(".first-section-animation");
