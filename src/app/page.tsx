@@ -52,7 +52,7 @@ const Home = () => {
           }
           ref={firstSection}
           style={{
-            textShadow: `2px 2px 0px #23d1f6, 5px 4px 0px rgba(0,0,0,0.15)`,
+            textShadow: `var(--hero-shadow)`,
           }}
         >
           S O F T W A R E
@@ -63,7 +63,7 @@ const Home = () => {
           }
           ref={secondSection}
           style={{
-            textShadow: `2px 2px 0px #23d1f6, 5px 4px 0px rgba(0,0,0,0.15)`,
+            textShadow: `var(--hero-shadow)`,
           }}
         >
           E N G I N E E R

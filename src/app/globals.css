@@ -2,6 +2,46 @@
 
 @config '../../tailwind.config.ts';
 
+:root {
+  --background: #18181b;
+  --primary: #bb86fc;
+  --secondary: #03dac6;
+  --link: #23d1f6;
+  --tertiary: #0681ee;
+  --divider: #e5e7eb;
+  --hero-shadow: 2px 2px 0 #23d1f6, 5px 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+:root[data-theme='light'] {
+  --background: #fafaf9;
+  --primary: #7c3aed;
+  --secondary: #0f766e;
+  --link: #0369a1;
+  --tertiary: #1d4ed8;
+  --divider: #d4d4d8;
+  --hero-shadow: 3px 3px 0 #0f766e;
+}
+
+:root[data-theme='ember'] {
+  --background: #140d10;
+  --primary: #f72585;
+  --secondary: #ff9e00;
+  --link: #ff5c39;
+  --tertiary: #ffd000;
+  --divider: #4a2f3a;
+  --hero-shadow: 2px 2px 0 #ff5c39, 4px 3px 0 rgba(0, 0, 0, 0.28);
+}
+
+:root[data-theme='aurora'] {
+  --background: #070b1c;
+  --primary: #3ee594;
+  --secondary: #ff5fbd;
+  --link: #b07cff;
+  --tertiary: #5fb0ff;
+  --divider: #223052;
+  --hero-shadow: 2px 2px 0 #b07cff, 4px 3px 0 rgba(0, 0, 0, 0.32);
+}
+
 @utility text-balance {
   text-wrap: balance;
 }
@@ -19,22 +59,10 @@
 }
 
 @layer base {
-  .font-outline-1 {
-    -webkit-text-stroke: 1px #cd0909;
-  }
-  .font-outline-2 {
-    -webkit-text-stroke: 2px #ffdd00;
-  }
   .font-outline-3 {
-    -webkit-text-stroke: 2px #bb86fc;
+    -webkit-text-stroke: 2px var(--primary);
   }
   .font-outline-4 {
-    -webkit-text-stroke: 1px #bb86fc;
-  }
-  .font-outline-5 {
-    -webkit-text-stroke: 2px #005faf;
-  }
-  .font-outline-6 {
-    -webkit-text-stroke: 1px #878787;
+    -webkit-text-stroke: 1px var(--primary);
   }
 }

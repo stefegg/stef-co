@@ -8,12 +8,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#BB86FC",
-        secondary: "#03DAc6",
-        link: "#23d1f6",
-        tertiary: "#0681ee",
-        divider: "#e5e7eb",
-        background: '#18181b',
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        link: "var(--link)",
+        tertiary: "var(--tertiary)",
+        divider: "var(--divider)",
+        background: "var(--background)",
       },
     },
   },
