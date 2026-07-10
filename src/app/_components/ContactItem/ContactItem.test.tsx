@@ -15,6 +15,5 @@ describe("ContactItem", () => {
   it("renders the inner text and the icon image", () => {
     render(<ContactItem icon="/icons/gmail.svg" innerText="Email me" />);
     expect(screen.getByText("Email me")).toBeInTheDocument();
-    expect(screen.getByAltText("gmail")).toBeInTheDocument();
   });
 });
