@@ -5,36 +5,33 @@ import { animate } from "motion/mini";
 import { inView, stagger } from "motion";
 
 const Home = () => {
-  const firstSection = useRef<HTMLSpanElement>(null);
-  const secondSection = useRef<HTMLSpanElement>(null);
+  const firstSection = useRef<HTMLDivElement>(null);
+  const secondSection = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!firstSection.current || !secondSection.current) return;
-    inView(firstSection.current, () => {
+
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    const reveal = (selector: string) =>
       animate(
-        ".first-section-animation",
-        {
-          opacity: 1,
-          transform: "none",
-        },
-        {
-          duration: 3,
-          delay: stagger(0.1),
-        },
+        selector,
+        { opacity: 1, transform: "none" },
+        prefersReduced ? { duration: 0 } : { duration: 3, delay: stagger(0.1) },
       );
+    if (prefersReduced) {
+      reveal(".first-section-animation");
+      reveal(".second-section-animation");
+      return;
+    }
+
+    inView(firstSection.current, () => {
+      reveal(".first-section-animation");
     });
     inView(secondSection.current, () => {
-      animate(
-        ".second-section-animation",
-        {
-          opacity: 1,
-          transform: "none",
-        },
-        {
-          duration: 3,
-          delay: stagger(0.1),
-        },
-      );
+      reveal(".second-section-animation");
     });
   }, []);
 
@@ -42,11 +39,13 @@ const Home = () => {
     <section
       className={`h-full overflow-y-auto text-primary flex flex-col items-center justify-center`}
     >
-      <span className="gap-10 flex items-center flex-col">
+      <h1 className="sr-only">Stef Egbert — Software Engineer</h1>
+      <div className="gap-10 flex items-center flex-col">
         <div className="w-full lg:w-1/2 ">
-          <Logo size="large" text="Stef Egbert" />
+          <Logo text="Stef Egbert" />
         </div>
-        <span
+        <div
+          aria-hidden
           className={
             "opacity-0 text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-light first-section-animation"
           }
@@ -56,8 +55,9 @@ const Home = () => {
           }}
         >
           S O F T W A R E
-        </span>
-        <span
+        </div>
+        <div
+          aria-hidden
           className={
             "opacity-0 text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-light second-section-animation"
           }
@@ -67,8 +67,8 @@ const Home = () => {
           }}
         >
           E N G I N E E R
-        </span>
-      </span>
+        </div>
+      </div>
     </section>
   );
 };

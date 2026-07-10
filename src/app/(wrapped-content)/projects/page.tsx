@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 const Projects = () => {
   return (
     <div className="md:mt-10">
+      <h1 className="sr-only">Projects</h1>
       {projects.map((project, idx) => (
         <div key={`${idx}-${project.title}`}>
           <ProjectPane project={project} />

@@ -8,7 +8,7 @@ test.describe("accessibility (WCAG 2 AA)", () => {
     test(`${path} has no axe violations`, async ({ page }) => {
       await page.goto(path);
       const { violations } = await new AxeBuilder({ page })
-        .exclude(".font-outline-3")
+        .exclude(".logo-outline")
         .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
         .analyze();
 

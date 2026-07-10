@@ -3,10 +3,10 @@ import { Fragment } from "react/jsx-runtime";
 const SkillPane = () => {
   return (
     <div className="flex flex-col border border-divider rounded-lg p-4 font-light">
-      <span className="col-span-2 border-b border-divider text-primary pb-4">
+      <h2 className="col-span-2 border-b border-divider text-primary pb-4">
         Technical Skills
-      </span>
-      <span className="grid grid-cols-6 mt-4">
+      </h2>
+      <div className="grid grid-cols-6 mt-4">
         {skills.map((group) => (
           <Fragment key={group.category}>
             <div className="col-span-6 md:col-span-2 pr-4 pb-4 mr-4 md:border-b border-divider md:border-r md:border-b-0 flex flex-col text-link">
@@ -26,7 +26,7 @@ const SkillPane = () => {
             </div>
           </Fragment>
         ))}
-      </span>
+      </div>
     </div>
   );
 };

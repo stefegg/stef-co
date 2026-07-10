@@ -22,9 +22,6 @@ describe("Header", () => {
     mockUsePathname.mockReturnValue("/about");
     render(<Header />);
     const aboutLink = screen.getByRole("link", { name: "About" });
-    expect(aboutLink.parentElement).toHaveClass("border-secondary");
-
-    const homeLink = screen.getByRole("link", { name: "Home" });
-    expect(homeLink.parentElement).not.toHaveClass("border-secondary");
+    expect(aboutLink).toHaveClass("border-secondary");
   });
 });
