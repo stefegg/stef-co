@@ -1,7 +1,8 @@
 "use client";
 import Logo from "./_components/Logo";
 import { useRef, useEffect } from "react";
-import { animate, inView, stagger } from "motion";
+import { animate } from "motion/mini";
+import { inView, stagger } from "motion";
 
 const Home = () => {
   const firstSection = useRef<HTMLSpanElement>(null);
@@ -17,9 +18,9 @@ const Home = () => {
           transform: "none",
         },
         {
-          duration: 4,
+          duration: 3,
           delay: stagger(0.1),
-        }
+        },
       );
     });
     inView(secondSection.current, () => {
@@ -30,9 +31,9 @@ const Home = () => {
           transform: "none",
         },
         {
-          duration: 4,
+          duration: 3,
           delay: stagger(0.1),
-        }
+        },
       );
     });
   }, []);
@@ -51,7 +52,7 @@ const Home = () => {
           }
           ref={firstSection}
           style={{
-            textShadow: `2px 2px 0px #23d1f6, 5px 4px 0px rgba(0,0,0,0.15)`,
+            textShadow: `var(--hero-shadow)`,
           }}
         >
           S O F T W A R E
@@ -62,7 +63,7 @@ const Home = () => {
           }
           ref={secondSection}
           style={{
-            textShadow: `2px 2px 0px #23d1f6, 5px 4px 0px rgba(0,0,0,0.15)`,
+            textShadow: `var(--hero-shadow)`,
           }}
         >
           E N G I N E E R

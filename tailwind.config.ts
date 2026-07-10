@@ -8,15 +8,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#BB86FC",
-        darkPrimary: "#3700b3",
-        secondary: "#03DAc6",
-        link: "#23d1f6",
-        tertiary: "#0564b8",
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        link: "var(--link)",
+        tertiary: "var(--tertiary)",
+        divider: "var(--divider)",
+        background: "var(--background)",
       },
     },
   },
   plugins: [],
-  safelist: [],
 };
 export default config;
