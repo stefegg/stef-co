@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const Contact = () => {
   return (
     <section className={`pt-24 flex flex-col justify-center px-[25%] gap-6`}>
-      <div className={`text-link text-5xl pb-2`}>Get in touch...</div>
+      <h1 className={`text-link text-5xl pb-2`}>Get in touch...</h1>
       <div className={`flex flex-col gap-12`}>
         <a href="mailto:stephenegbert@gmail.com">
           <ContactItem icon={gmailIcon} innerText="Email me" />

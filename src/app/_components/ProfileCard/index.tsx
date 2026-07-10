@@ -13,7 +13,7 @@ const ProfileCard = () => {
         />
       </div>
       <div className="text-center break-normal mt-2">
-        <p className="text-primary">Stephen Egbert</p>
+        <h1 className="text-primary">Stephen Egbert</h1>
         <p className="text-link">Software Engineer</p>
       </div>
     </div>

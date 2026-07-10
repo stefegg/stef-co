@@ -23,9 +23,9 @@ const ProjectPane = (props: ProjectPaneProps) => {
   };
   return (
     <div className="grid grid-cols-6 p-4 rounded-lg border border-divider font-light">
-      <div className="col-span-6 px-4 mr-4 border-b border-divider md:col-span-2 md:border-b-0 md:border-r min-w-fit text-primary text-xl">
+      <h2 className="col-span-6 px-4 mr-4 border-b border-divider md:col-span-2 md:border-b-0 md:border-r min-w-fit text-primary text-xl">
         {title}
-      </div>
+      </h2>
       <div className="col-span-6 md:col-span-4 mt-4 md:mt-0 text-secondary">
         {description}
       </div>

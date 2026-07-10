@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 const Experience = () => {
   return (
     <div className="md:mt-10 flex flex-col gap-10">
+      <h1 className="sr-only">Experience &amp; Skills</h1>
       <SkillPane />
       {experiences.map((exp, idx) => (
         <div key={`${idx}-${exp.title}`}>

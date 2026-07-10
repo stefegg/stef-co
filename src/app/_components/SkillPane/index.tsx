@@ -3,9 +3,9 @@ import { Fragment } from "react/jsx-runtime";
 const SkillPane = () => {
   return (
     <div className="flex flex-col border border-divider rounded-lg p-4 font-light">
-      <span className="col-span-2 border-b border-divider text-primary pb-4">
+      <h2 className="col-span-2 border-b border-divider text-primary pb-4">
         Technical Skills
-      </span>
+      </h2>
       <span className="grid grid-cols-6 mt-4">
         {skills.map((group) => (
           <Fragment key={group.category}>

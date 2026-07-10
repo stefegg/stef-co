@@ -13,7 +13,7 @@ const ContactItem = (props: ContactItemProps) => {
     >
       <Image
         src={icon}
-        alt="gmail"
+        alt=""
         style={{
           width: "10%",
         }}

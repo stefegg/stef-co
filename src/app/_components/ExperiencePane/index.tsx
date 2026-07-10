@@ -15,7 +15,7 @@ const ExperiencePane = (props: ExperiencePaneProps) => {
   return (
     <div className="border border-divider rounded-lg grid grid-cols-6 p-4 font-light">
       <div className="col-span-6 md:col-span-2 pr-4 pb-4 mr-4 border-b border-divider md:border-r md:border-b-0 flex flex-col text-link">
-        <div className="text-primary">{title}</div>
+        <h2 className="text-primary">{title}</h2>
         <div>{dates}</div>
         <div>{company}</div>
         <div>{location}</div>
