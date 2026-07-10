@@ -15,22 +15,18 @@ const HeaderItem = ({
   Icon: ComponentType;
 }) => {
   return (
-        <div
-          className={`pb-2 ${
-            activeLink === `${href}` ? `border-b border-secondary` : `mb-px`
-          }`}
-        >
-          <Link
-            className={`flex items-center mx-4 hover:text-primary ${
-              activeLink === `${href}` ? "text-primary" : ""
-            }`}
-            href={href}
-            aria-label={ariaLabel}
-          >
-            <Icon />
-            <p className="hidden md:block">{title}</p>
-          </Link>
-        </div>
+    <Link
+      className={`flex items-center gap-2 mx-4 px-2 pb-2 hover:text-primary ${
+        activeLink === `${href}`
+          ? "border-b border-secondary text-primary"
+          : "mb-px"
+      }`}
+      href={href}
+      aria-label={ariaLabel}
+    >
+      <Icon />
+      <p className="hidden md:block">{title}</p>
+    </Link>
   )
 }
 

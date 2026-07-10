@@ -7,7 +7,7 @@ const Icon = ({ children }: { children: ReactNode }) => (
     viewBox="0 0 24 24"
     strokeWidth="1.5"
     stroke="currentColor"
-    className="mx-2 w-5 h-5"
+    className="w-5 h-5"
   >
     {children}
   </svg>

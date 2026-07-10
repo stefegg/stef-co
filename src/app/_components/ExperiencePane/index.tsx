@@ -16,9 +16,9 @@ const ExperiencePane = (props: ExperiencePaneProps) => {
     <div className="border border-divider rounded-lg grid grid-cols-6 p-4 font-light">
       <div className="col-span-6 md:col-span-2 pr-4 pb-4 mr-4 border-b border-divider md:border-r md:border-b-0 flex flex-col text-link">
         <h2 className="text-primary">{title}</h2>
-        <div>{dates}</div>
-        <div>{company}</div>
-        <div>{location}</div>
+        <p>{dates}</p>
+        <p>{company}</p>
+        <p>{location}</p>
       </div>
       <ul className="col-span-6 md:col-span-4 px-4 mt-4 md:mt-0 list-disc list-inside space-y-2 text-secondary">
         {duties.map((duty, idx) => (

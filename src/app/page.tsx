@@ -5,8 +5,8 @@ import { animate } from "motion/mini";
 import { inView, stagger } from "motion";
 
 const Home = () => {
-  const firstSection = useRef<HTMLSpanElement>(null);
-  const secondSection = useRef<HTMLSpanElement>(null);
+  const firstSection = useRef<HTMLDivElement>(null);
+  const secondSection = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!firstSection.current || !secondSection.current) return;
@@ -42,11 +42,11 @@ const Home = () => {
       className={`h-full overflow-y-auto text-primary flex flex-col items-center justify-center`}
     >
       <h1 className="sr-only">Stef Egbert — Software Engineer</h1>
-      <span className="gap-10 flex items-center flex-col">
+      <div className="gap-10 flex items-center flex-col">
         <div className="w-full lg:w-1/2 ">
           <Logo text="Stef Egbert" />
         </div>
-        <span
+        <div
           aria-hidden
           className={
             "opacity-0 text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-light first-section-animation"
@@ -57,8 +57,8 @@ const Home = () => {
           }}
         >
           S O F T W A R E
-        </span>
-        <span
+        </div>
+        <div
           aria-hidden
           className={
             "opacity-0 text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-light second-section-animation"
@@ -69,8 +69,8 @@ const Home = () => {
           }}
         >
           E N G I N E E R
-        </span>
-      </span>
+        </div>
+      </div>
     </section>
   );
 };

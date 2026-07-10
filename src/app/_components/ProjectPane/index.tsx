@@ -26,9 +26,9 @@ const ProjectPane = (props: ProjectPaneProps) => {
       <h2 className="col-span-6 px-4 mr-4 border-b border-divider md:col-span-2 md:border-b-0 md:border-r min-w-fit text-primary text-xl">
         {title}
       </h2>
-      <div className="col-span-6 md:col-span-4 mt-4 md:mt-0 text-secondary">
+      <p className="col-span-6 md:col-span-4 mt-4 md:mt-0 text-secondary">
         {description}
-      </div>
+      </p>
       <div className="col-span-6 px-4 pt-4 mt-4 border-t border-divider text-link">
         <Link href={link}>{getLinkText(link)}</Link>
       </div>

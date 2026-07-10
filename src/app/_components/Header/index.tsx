@@ -32,11 +32,11 @@ const Header = () => {
   const activeLink = pathName.toString();
   return (
     <nav className="flex flex-col relative">
-      <span className="flex items-center p-6 fixed w-full bg-background justify-between border-b border-primary text-link">
+      <div className="flex items-center p-6 fixed w-full bg-background justify-between border-b border-primary text-link">
         {headerItems.map((item) => (
           <HeaderItem key={item.href} activeLink={activeLink} {...item} />
         ))}
-      </span>
+      </div>
     </nav>
   );
 };
