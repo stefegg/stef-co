@@ -9,11 +9,11 @@ const config: Config = {
     extend: {
       colors: {
         primary: "#BB86FC",
-        darkPrimary: "#3700b3",
         secondary: "#03DAc6",
         link: "#23d1f6",
         tertiary: "#0681ee",
         divider: "#e5e7eb",
+        background: '#18181b',
       },
     },
   },

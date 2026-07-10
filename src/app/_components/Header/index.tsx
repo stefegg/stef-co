@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <div className="flex flex-col relative">
       <span
-        className={`flex items-center p-6 fixed w-full bg-zinc-900 justify-between border-b border-primary text-link`}
+        className={`flex items-center p-6 fixed w-full bg-background justify-between border-b border-primary text-link`}
       >
         <div
           className={`pb-2 ${
@@ -16,7 +16,9 @@ const Header = () => {
           }`}
         >
           <Link
-            className="flex items-center mx-4 hover:text-primary"
+            className={`flex items-center mx-4 hover:text-primary ${
+              activeLink === "/" ? "text-primary" : ""
+            }`}
             href="/"
             aria-label="Home"
           >
@@ -44,7 +46,9 @@ const Header = () => {
           }`}
         >
           <Link
-            className="flex items-center mx-4 hover:text-primary"
+            className={`flex items-center mx-4 hover:text-primary ${
+              activeLink === "/about" ? "text-primary" : ""
+            }`}
             href="/about"
             aria-label="About"
           >
@@ -72,7 +76,9 @@ const Header = () => {
           }`}
         >
           <Link
-            className="flex items-center mx-4 hover:text-primary"
+            className={`flex items-center mx-4 hover:text-primary ${
+              activeLink === "/experience" ? "text-primary" : ""
+            }`}
             href="/experience"
             aria-label="Experience"
           >
@@ -100,7 +106,9 @@ const Header = () => {
           }`}
         >
           <Link
-            className="flex items-center mx-4 hover:text-primary"
+            className={`flex items-center mx-4 hover:text-primary ${
+              activeLink === "/projects" ? "text-primary" : ""
+            }`}
             href="/projects"
             aria-label="Projects"
           >
@@ -171,7 +179,9 @@ const Header = () => {
           }`}
         >
           <Link
-            className="flex items-center mx-4 hover:text-primary"
+            className={`flex items-center mx-4 hover:text-primary ${
+              activeLink === "/contact" ? "text-primary" : ""
+            }`}
             href="/contact"
             aria-label="Contact"
           >
