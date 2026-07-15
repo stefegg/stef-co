@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import ExperiencePane from "../../_components/ExperiencePane";
-import { experiences } from "../../_utils/constants";
-import SkillPane from "@/app/_components/SkillPane";
+import ExperiencePane from "@/components/ExperiencePane";
+import { experiences } from "../../../utils/constants";
+import SkillPane from "@/components/SkillPane";
 
 export const metadata: Metadata = {
   title: "Experience",

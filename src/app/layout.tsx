@@ -5,8 +5,8 @@ import { robotoFont } from "./fonts";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { cookies } from "next/headers";
-import Header from "./_components/Header";
-import ThemeSwitcher from "./_components/ThemeSwitcher";
+import Header from "@/components/Header";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 const siteUrl = "https://www.stef-co.com";
 const description =
   "Portfolio of Stephen Egbert, a Senior Frontend Engineer with 7+ years building React, TypeScript, and Next.js applications.";

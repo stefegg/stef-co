@@ -1,5 +1,5 @@
 "use client";
-import Logo from "./_components/Logo";
+import Logo from "@/components/Logo";
 import { useRef, useEffect } from "react";
 import { animate } from "motion/mini";
 import { inView, stagger } from "motion";
