@@ -20,7 +20,10 @@ export const fetchRepos = async (
 ): Promise<Repo[]> => {
   onRequest(`GET ${REPOS_URL}`);
 
-  const [response] = await Promise.all([fetch(REPOS_URL), delay(REQUEST_LATENCY)]);
+  const [response] = await Promise.all([
+    fetch(REPOS_URL),
+    delay(REQUEST_LATENCY),
+  ]);
   if (!response.ok) {
     throw new Error(`GitHub request failed: ${response.status}`);
   }
