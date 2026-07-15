@@ -8,32 +8,37 @@ import ZustandDemo from "@/demos/zustand";
 
 const StateLabTabs = () => {
   return (
-    <Tabs defaultValue="context">
+    <Tabs defaultValue="redux">
       <div className="w-full border-b border-primary">
         <Tabs.List label="State management demos">
-          <Tabs.Tab value="context">React Context</Tabs.Tab>
+          <Tabs.Tab value="redux">Redux</Tabs.Tab>
           <Tabs.Tab value="query">TanStack Query</Tabs.Tab>
           <Tabs.Tab value="machine">XState</Tabs.Tab>
-          <Tabs.Tab value="redux">Redux</Tabs.Tab>
           <Tabs.Tab value="zustand">Zustand</Tabs.Tab>
+          <Tabs.Tab value="context">React Context</Tabs.Tab>
         </Tabs.List>
       </div>
 
-      <Tabs.Panel value="context">
+      <Tabs.Panel value="redux">
         <DemoPanel
-          title="React Context"
-          blurb="Internal coordination inside one component, not global state."
+          title="Redux"
+          blurb="One central store that changes only through recorded events.  Allows different parts of the app to react independently and cleanly to change."
           description={
             <p>
-              The tabs you are clicking are the context demo. Tabs is a compound
-              component: its Context is created inside it, never exported, and
-              exists only to coordinate its own parts. The public API is Tabs,
-              Tabs.List, Tabs.Tab and Tabs.Panel, the Context is an
-              implementation detail. Context is a powerful tool, but used
-              incorrectly it can cause heavy performance issues
+              Pick a color and click a cell to paint it. That one click
+              dispatches an action, and three independent slices react to it:
+              the grid paints, the stats tally, the log records. None of them
+              know about each other. Now click any entry in the log, the app
+              snaps back to that moment by replaying the actions from the
+              beginning, so the grid and the stats rewind together. You can fast
+              forward from here to a later action, or start a new chain of by
+              painting a new cell. Nothing is ever snapshotted, the whole app is
+              rebuilt from the stream of actions.
             </p>
           }
-        />
+        >
+          <ReduxDemo />
+        </DemoPanel>
       </Tabs.Panel>
 
       <Tabs.Panel value="query">
@@ -77,28 +82,6 @@ const StateLabTabs = () => {
         </DemoPanel>
       </Tabs.Panel>
 
-      <Tabs.Panel value="redux">
-        <DemoPanel
-          title="Redux"
-          blurb="One central store that changes only through recorded events.  Allows different parts of the app to react independently and cleanly to change."
-          description={
-            <p>
-              Pick a color and click a cell to paint it. That one click
-              dispatches an action, and three independent slices react to it:
-              the grid paints, the stats tally, the log records. None of them
-              know about each other. Now click any entry in the log, the app
-              snaps back to that moment by replaying the actions from the
-              beginning, so the grid and the stats rewind together. You can fast
-              forward from here to a later action, or start a new chain of by
-              painting a new cell. Nothing is ever snapshotted, the whole app is
-              rebuilt from the stream of actions.
-            </p>
-          }
-        >
-          <ReduxDemo />
-        </DemoPanel>
-      </Tabs.Panel>
-
       <Tabs.Panel value="zustand">
         <DemoPanel
           title="Zustand"
@@ -119,6 +102,22 @@ const StateLabTabs = () => {
         >
           <ZustandDemo />
         </DemoPanel>
+      </Tabs.Panel>
+      <Tabs.Panel value="context">
+        <DemoPanel
+          title="React Context"
+          blurb="Internal coordination inside one component, not global state."
+          description={
+            <p>
+              The tabs you are clicking are the context demo. Tabs is a compound
+              component: its Context is created inside it, never exported, and
+              exists only to coordinate its own parts. The public API is Tabs,
+              Tabs.List, Tabs.Tab and Tabs.Panel, the Context is an
+              implementation detail. Context is a powerful tool, but used
+              incorrectly it can cause heavy performance issues
+            </p>
+          }
+        />
       </Tabs.Panel>
     </Tabs>
   );
