@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { linkedInIcon, gmailIcon, githubIcon } from "../../../public/icons";
-import ContactItem from "../_components/ContactItem";
+import ContactItem from "@/components/ContactItem";
 import Link from "next/link";
 
 export const metadata: Metadata = {

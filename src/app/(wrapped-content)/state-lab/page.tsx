@@ -7,7 +7,12 @@ export const metadata: Metadata = {
 };
 
 const StateLab = () => {
-  return <StateLabTabs />;
+  return (
+    <>
+      <h1 className="sr-only">State Lab</h1>
+      <StateLabTabs />
+    </>
+  );
 };
 
 export default StateLab;

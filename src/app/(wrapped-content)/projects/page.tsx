@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import ProjectPane from "@/app/_components/ProjectPane";
-import { projects } from "@/app/_utils/constants";
+import ProjectPane from "@/components/ProjectPane";
+import { projects } from "@/utils/constants";
 
 export const metadata: Metadata = {
   title: "Projects",

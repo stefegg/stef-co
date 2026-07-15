@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import AboutPane from "../../_components/AboutPane";
-import ProfileCard from "../../_components/ProfileCard";
+import AboutPane from "@/components/AboutPane";
+import ProfileCard from "@/components/ProfileCard";
 
 export const metadata: Metadata = {
   title: "About",
