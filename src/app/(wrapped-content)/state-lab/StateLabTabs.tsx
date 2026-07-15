@@ -9,26 +9,28 @@ import ZustandDemo from "@/demos/zustand";
 const StateLabTabs = () => {
   return (
     <Tabs defaultValue="context">
-      <Tabs.List label="State management demos">
-        <Tabs.Tab value="context">React Context</Tabs.Tab>
-        <Tabs.Tab value="query">TanStack Query</Tabs.Tab>
-        <Tabs.Tab value="machine">XState</Tabs.Tab>
-        <Tabs.Tab value="redux">Redux</Tabs.Tab>
-        <Tabs.Tab value="zustand">Zustand</Tabs.Tab>
-      </Tabs.List>
+      <div className="w-full border-b border-primary">
+        <Tabs.List label="State management demos">
+          <Tabs.Tab value="context">React Context</Tabs.Tab>
+          <Tabs.Tab value="query">TanStack Query</Tabs.Tab>
+          <Tabs.Tab value="machine">XState</Tabs.Tab>
+          <Tabs.Tab value="redux">Redux</Tabs.Tab>
+          <Tabs.Tab value="zustand">Zustand</Tabs.Tab>
+        </Tabs.List>
+      </div>
 
       <Tabs.Panel value="context">
         <DemoPanel
           title="React Context"
-          blurb="Internal coordination inside one component — not global state."
+          blurb="Internal coordination inside one component, not global state."
           description={
             <p>
-              The tabs you are clicking are the demo. Tabs is a compound
+              The tabs you are clicking are the context demo. Tabs is a compound
               component: its Context is created inside it, never exported, and
               exists only to coordinate its own parts. The public API is Tabs,
-              Tabs.List, Tabs.Tab and Tabs.Panel — the Context is an
-              implementation detail. Try the arrow keys, Home and End; the
-              roving focus you feel is coordinated through it.
+              Tabs.List, Tabs.Tab and Tabs.Panel, the Context is an
+              implementation detail. Context is a powerful tool, but used
+              incorrectly it can cause heavy performance issues
             </p>
           }
         />
@@ -37,10 +39,10 @@ const StateLabTabs = () => {
       <Tabs.Panel value="query">
         <DemoPanel
           title="TanStack Query"
-          blurb="Server state. The win is the request that never fires."
+          blurb="Handles data from a server, caching it, tracking when it goes stale, and skipping requests it can already answer."
           description={
             <p>
-              Click Refetch several times as fast as you can — the in-flight
+              Click Refetch several times as fast as you can, the in-flight
               requests collapse into a single line in the log. Untick Panel
               mounted and tick it back on: the repos return instantly and the
               log stays silent, because the cache outlived the unmount. Hit
@@ -58,15 +60,16 @@ const StateLabTabs = () => {
       <Tabs.Panel value="machine">
         <DemoPanel
           title="XState"
-          blurb="Guards make impossible states impossible."
+          blurb="Guards and clean strucutre keep state predictable and explicit."
           description={
             <p>
-              Next is disabled until you pick an option. That is not a bug — it
-              is a guard: the machine refuses the transition, so the button
-              cannot be pressed. Submit is a single event with two guarded
-              targets; the guard reads the answer you gave and routes you to one
-              outcome or the other, which is why the fork is never a surprise.
-              The lit box is the machine&rsquo;s current state.
+              The lit box is the machine&rsquo;s current state. Progress buttons
+              are purposelly disabled until you reach a state, and if necessary
+              pick an option. These are XState guards in action; the machine
+              refuses the transition, so the button cannot be pressed. Submit is
+              a single event with two guarded targets; the guard reads the
+              answer you gave and routes you to one outcome or the other. This
+              means no dead ends and no surprises.
             </p>
           }
         >
@@ -77,16 +80,18 @@ const StateLabTabs = () => {
       <Tabs.Panel value="redux">
         <DemoPanel
           title="Redux"
-          blurb="An action is a fact; every slice replays from the log."
+          blurb="One central store that changes only through recorded events.  Allows different parts of the app to react independently and cleanly to change."
           description={
             <p>
-              Pick a color and paint a cell. That one click dispatches one
-              action, and three independent slices react to it: the grid paints,
-              the stats tally, the log records. None of them know about each
-              other. Now click any entry in the log — the app snaps back to that
-              moment by replaying the actions from the beginning, so the grid
-              and the stats rewind together, in lockstep. Nothing was
-              snapshotted; the whole app is rebuilt from the stream of facts.
+              Pick a color and click a cell to paint it. That one click
+              dispatches an action, and three independent slices react to it:
+              the grid paints, the stats tally, the log records. None of them
+              know about each other. Now click any entry in the log, the app
+              snaps back to that moment by replaying the actions from the
+              beginning, so the grid and the stats rewind together. You can fast
+              forward from here to a later action, or start a new chain of by
+              painting a new cell. Nothing is ever snapshotted, the whole app is
+              rebuilt from the stream of actions.
             </p>
           }
         >
@@ -101,13 +106,13 @@ const StateLabTabs = () => {
           description={
             <p>
               Hit Increment. B re-renders, A never does, and C only while its
-              toggle is on — flip it off and its counter freezes while the value
+              toggle is on flip it off and its counter freezes while the value
               keeps changing. &ldquo;Unsubscribed&rdquo; means the component is
               not selecting the value, so Zustand&rsquo;s equality check bails
               out before re-rendering; no listener is detached. Selector
               granularity is what governs re-renders. Then turn on Run at 60fps:
-              B&rsquo;s render count explodes while the transient card — which
-              subscribes outside React and writes straight to the DOM — stays
+              B&rsquo;s render count explodes while the transient card, which
+              subscribes outside React and writes straight to the DOM, stays
               pinned at 1.
             </p>
           }

@@ -40,11 +40,11 @@ const RepoPanel = ({ onRequest }: RepoPanelProps) => {
       : `fresh · ${secondsLeft}s left`;
 
   return (
-    <div>
+    <div className="flex flex-col gap-3">
       <Chip label={label} variant={variant} />
 
       {isPending ? (
-        <p>Loading…</p>
+        <p className="font-light text-secondary">Loading…</p>
       ) : (
         <DataList
           items={(data ?? []).map((repo) => ({

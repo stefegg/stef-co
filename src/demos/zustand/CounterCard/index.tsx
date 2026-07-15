@@ -22,8 +22,8 @@ const CounterCard = ({
 
   return (
     <Card label={label} active={subscribed}>
-      <p>value: {count ?? "—"}</p>
-      <p>
+      <p className="text-secondary">value: {count ?? "—"}</p>
+      <p className="text-secondary">
         renders: <RenderCount />
       </p>
       {canToggle && (

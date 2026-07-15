@@ -42,7 +42,9 @@ function TabsRoot({
 
   return (
     <TabsContext.Provider value={value}>
-      <div>{children}</div>
+      <div className="flex flex-col border border-primary rounded-lg">
+        {children}
+      </div>
     </TabsContext.Provider>
   );
 }
@@ -88,7 +90,13 @@ function TabList({ children, label }: { children: ReactNode; label: string }) {
   };
 
   return (
-    <div role="tablist" aria-label={label} ref={ref} onKeyDown={onKeyDown}>
+    <div
+      role="tablist"
+      aria-label={label}
+      ref={ref}
+      onKeyDown={onKeyDown}
+      className="flex flex-wrap gap-x-6 gap-y-2 text-link w-full justify-between p-4"
+    >
       {children}
     </div>
   );
@@ -108,6 +116,9 @@ function Tab({ value, children }: { value: string; children: ReactNode }) {
       aria-controls={`${baseId}-panel-${value}`}
       tabIndex={selected ? 0 : -1}
       onClick={() => setActiveTab(value)}
+      className={`-mb-px pb-2 hover:text-primary cursor-pointer ${
+        selected ? "border-b border-secondary text-primary" : ""
+      }`}
     >
       {children}
     </button>
@@ -124,6 +135,7 @@ function TabPanel({ value, children }: { value: string; children: ReactNode }) {
       id={`${baseId}-panel-${value}`}
       aria-labelledby={`${baseId}-tab-${value}`}
       tabIndex={0}
+      className="focus:outline-none p-4"
     >
       {children}
     </div>

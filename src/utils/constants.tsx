@@ -197,6 +197,7 @@ export const skills = [
       "XState",
       "Redux",
       "Redux Sagas",
+      "Zustand",
       "React Context",
       "React/TanStack Query",
     ],

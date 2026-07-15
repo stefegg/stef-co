@@ -16,13 +16,14 @@ const ColorPalette = ({ colors, selected, onSelect }: ColorPaletteProps) => (
     options={colors.map((color) => ({
       value: color,
       label: (
-        <>
+        <span className="flex items-center gap-2">
           <span
             aria-hidden="true"
+            className="inline-block h-4 w-4 rounded-full border border-divider"
             style={{ backgroundColor: toCssColor(color) }}
           />
           {color}
-        </>
+        </span>
       ),
     }))}
   />

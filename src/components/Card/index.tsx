@@ -2,15 +2,20 @@ import type { ReactNode, Ref } from "react";
 
 type CardProps = {
   label: string;
-  /** Lit when true, dimmed when false (XState: current state; Zustand: subscribed). */
   active?: boolean;
   children?: ReactNode;
   ref?: Ref<HTMLDivElement>;
 };
 
 const Card = ({ label, active = false, children, ref }: CardProps) => (
-  <div ref={ref} data-active={active}>
-    <h3>{label}</h3>
+  <div
+    ref={ref}
+    data-active={active}
+    className={`flex flex-col gap-2 rounded-lg border p-4 font-light ${
+      active ? "border-secondary" : "border-divider opacity-50"
+    }`}
+  >
+    <h3 className="text-primary">{label}</h3>
     {children}
   </div>
 );

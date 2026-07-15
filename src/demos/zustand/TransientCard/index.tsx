@@ -21,10 +21,10 @@ const TransientCard = () => {
 
   return (
     <Card label="Transient — subscribed outside React" active>
-      <p>
+      <p className="text-secondary">
         value: <span ref={valueRef} />
       </p>
-      <p>
+      <p className="text-secondary">
         renders: <RenderCount />
       </p>
     </Card>

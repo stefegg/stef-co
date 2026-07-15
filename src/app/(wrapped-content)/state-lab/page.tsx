@@ -8,10 +8,10 @@ export const metadata: Metadata = {
 
 const StateLab = () => {
   return (
-    <>
+    <div className="md:mt-10">
       <h1 className="sr-only">State Lab</h1>
       <StateLabTabs />
-    </>
+    </div>
   );
 };
 

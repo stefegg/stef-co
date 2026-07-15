@@ -25,7 +25,7 @@ const HeaderItem = ({
       aria-label={ariaLabel}
     >
       <Icon />
-      <p className="hidden md:block">{title}</p>
+      <p className="hidden nav:block">{title}</p>
     </Link>
   );
 };
